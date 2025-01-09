@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <meta name="description" content="Aprenda habilidades essenciais e amplie seu alcance digital.">
+    <meta name="keywords" content="presença digital, aprendizado, comunidade, cursos online">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow-y: auto; /* Habilita a rolagem se necessário */
+        }
+    
+        /* Container do formulário */
+        .container {
+            background: linear-gradient(135deg, #3a3a3a, #444, #1f1f1f);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+            margin: 20px;
+            max-height: 80vh; /* Limita a altura máxima do contêiner */
+            overflow-y: auto; /* Permite rolar dentro do contêiner */
+        }
+    
+        h2 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ffcc00;
+            font-size: 2em;
+            word-wrap: break-word;
+            text-align: center;
+            padding: 0 10px;
+            margin-top: 10px; /* Garante que o título não fique colado no topo */
+        }
+    
+        /* Campos de entrada */
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #aaa;
+        }
+    
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            background-color: #444;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s, border 0.3s;
+        }
+    
+        .input-field:focus {
+            background-color: #555;
+            border: 2px solid #ff007f;
+        }
+    
+        .btn {
+            background: linear-gradient(90deg, #28a745, #218838);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            margin-top: 20px;
+            width: 100%;
+        }
+    
+        .btn:hover {
+            background: linear-gradient(90deg, #218838, #28a745);
+            transform: scale(1.05);
+        }
+    
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    
+        .modal-content {
+            background-color: #000;
+            color: #ffcc00;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+        }
+    
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #ff0000;
+        }
+    
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+    
+            h2 {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+    
+            .btn {
+                font-size: 1em;
+                padding: 10px;
+            }
+    
+            /* Ajuste do modal */
+            .modal-content {
+                width: 90%;
+                padding: 15px;
+            }
+    
+            .input-field {
+                font-size: 0.9em;
+            }
+        }
+        
+        /* Ajuste para telas muito pequenas (ex: celular em modo retrato) */
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+    
+            .btn {
+                padding: 10px;
+                font-size: 1em;
+            }
+    
+            h2 {
+                font-size: 1.6em;
+                text-align: center;;
+
+            }
+    
+            .modal-content {
+                width: 90%;
+                padding: 10px;
+            }
+    
+            .input-field {
+                font-size: 0.85em;
+            }
+        }
+
+        /* Indicador de carregamento */
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilos do spinner */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-top: 5px solid #ffcc00; /* Cor do topo */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Animação do spinner */
+}
+
+/* Animação de rotação do spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: #ffcc00;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #fff;
+}
+
+    </style>
+    
+    
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Inscrição para o Mestre das IA Pro V3</h2>
+<!-- Formulário de inscrição -->
+<form id="registrationForm">
+    <label for="nome">Nome Completo:</label>
+    <input type="text" id="nome" class="input-field" required><br><br>
+
+    <label for="sexo">Sexo:</label>
+    <select id="sexo" class="input-field" required>
+        <option value="masculino">Masculino</option>
+        <option value="feminino">Feminino</option>
+    </select><br><br>
+
+    <label for="idade">Idade:</label>
+    <input type="number" id="idade" class="input-field" required><br><br>
+
+    <label for="localizacao">Qual é a sua província?</label>
+<select id="localizacao" class="input-field" required>
+    <option value="maputo">Maputo</option>
+    <option value="nampula">Nampula</option>
+    <option value="sofala">Sofala</option>
+    <option value="niassa">Niassa</option>
+    <option value="tete">Tete</option>
+    <option value="cabo_delgado">Cabo Delgado</option>
+    <option value="zambezia">Zambézia</option>
+    <option value="gaza">Gaza</option>
+    <option value="manica">Manica</option>
+    <option value="inhambane">Inhambane</option>
+    
+</select><br><br>
+
+
+    <label for="telefone">Telefone (WhatsApp):</label>
+    <input type="text" id="telefone" class="input-field" required><br><br>
+
+   <!-- Campo de seleção do curso -->
+<label for="curso">Escolha o curso:</label>
+<select id="curso" class="input-field" onchange="mostrarDetalhes()" required>
+    <option value="">Selecione um curso</option>
+    <option value="importacao_exportacao">Curso de Importação e Exportação</option>
+    <option value="criacao_conteudo">Criação de Conteúdo</option>
+    <option value="facebook_vende">Facebook que Vende</option>
+    <option value="automacao_vendas">Automação de Vendas</option>
+    <option value="mestre_software">Mestre do Software</option>
+    <option value="mestre_trabalhos">Mestre dos Trabalhos Científicos</option>
+    <option value="combo_vip">Combo VIP (Todos os Cursos)</option>
+</select>
+<br><br>
+
+<!-- Detalhes do curso selecionado -->
+<div id="detalhesCurso" style="display: none;">
+    <p id="descricaoCurso"></p>
+    <p id="precoCurso"></p>
+</div>
+
+    <!-- Método de Pagamento -->
+    <label for="metodoPagamento">Escolha o método de pagamento:</label>
+    <select id="metodoPagamento" class="input-field" required>
+        <option value="">Selecione um método</option>
+        <option value="mpesa">M-Pesa (Número: 843343733 - Tilo Machado)</option>
+        <option value="emola">E-Mola (Número: 875343733 - Tilo Machado)</option>
+        <option value="mkesh">M-Kesh (Número: 834555768 - Isénia Andrade)</option>
+        <option value="paypal">Paypal - tilomachado1@gmail</option>
+        <option value="conta_bancaria">Conta Bancária/IZI (BIM - 000100000117916148957 - Tilo Machado)</option>
+    </select><br><br>
+
+    <button type="submit" class="botao-finalizar">Finalizar Inscrição</button>
+</form>
+
+<style>
+    .botao-finalizar {
+        background-color: #28a745; /* Cor verde */
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        border-radius: 5px;
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .botao-finalizar:hover {
+        background-color: #218838; /* Cor verde mais escura */
+    }
+
+    .botao-finalizar:active {
+        transform: scale(0.98); /* Efeito de clique */
+    }
+
+    .botao-finalizar:focus {
+        outline: none;
+    }
+
+    /* Efeito pulsante */
+    .botao-finalizar {
+        animation: pulsar 1.5s infinite;
+    }
+
+    @keyframes pulsar {
+        0% {
+            transform: scale(1);
+            background-color: #28a745;
+        }
+        50% {
+            transform: scale(1.1);
+            background-color: #218838;
+        }
+        100% {
+            transform: scale(1);
+            background-color: #28a745;
+        }
+    }
+</style>
+
+<script>
+    function mostrarDetalhes() {
+        const cursoSelecionado = document.getElementById('curso').value;
+        const descricaoCurso = document.getElementById('descricaoCurso');
+        const precoCurso = document.getElementById('precoCurso');
+        const detalhesCurso = document.getElementById('detalhesCurso');
+
+        if (cursoSelecionado) {
+            detalhesCurso.style.display = 'block';
+
+            switch (cursoSelecionado) {
+                case 'importacao_exportacao':
+    descricaoCurso.textContent = 'Aprenda a importar e exportar produtos de forma lucrativa usando plataformas como AliExpress, Alibaba e Shein. Descubra estratégias para reduzir custos e maximizar seus lucros no mercado internacional.';
+    precoCurso.innerHTML = 'Preço: <span style="color: green;">330 MT / $6.00 USD</span>';
+    break;
+case 'criacao_conteudo':
+    descricaoCurso.textContent = 'Aprenda a criar conteúdo de alta qualidade para blogs, sites e redes sociais. Torne-se um especialista em storytelling, atraia audiência e monetize sua produção.';
+    precoCurso.innerHTML = 'Preço: <span style="color: green;">450 MT / $8.18 USD</span>';
+    break;
+case 'facebook_vende':
+    descricaoCurso.textContent = 'Aprenda a dominar estratégias de vendas no Facebook! Crie anúncios de alta conversão, aumente seu alcance e engajamento, e converta seguidores em clientes reais.';
+    precoCurso.innerHTML = 'Preço: <span style="color: green;">550 MT / $10.00 USD</span>';
+    break;
+case 'automacao_vendas':
+    descricaoCurso.textContent = 'Descubra como automatizar processos de vendas, economize tempo e aumente sua produtividade. Deixe os leads se converterem automaticamente e foque no que realmente importa!';
+    precoCurso.innerHTML = 'Preço: <span style="color: green;">750 MT / $13.64 USD</span>';
+    break;
+case 'mestre_software':
+    descricaoCurso.textContent = 'Aprenda a usar, criar e automatizar ferramentas de software para potencializar seu negócio. Conheça as principais ferramentas e aprenda a customizá-las para suas necessidades.';
+    precoCurso.innerHTML = 'Preço: <span style="color: green;">920 MT / $16.73 USD</span>';
+    break;
+case 'mestre_trabalhos':
+    descricaoCurso.textContent = 'Torne-se um mestre na criação de trabalhos acadêmicos e científicos! Desenvolva habilidades para fazer pesquisas profundas, estruturar artigos e conquistar altas notas.';
+    precoCurso.innerHTML = 'Preço: <span style="color: green;">1200 MT / $21.82 USD</span>';
+    break;
+case 'combo_vip':
+    descricaoCurso.textContent = 'Acesso completo a todos os cursos! Obtenha o melhor de todos os módulos e domine o mercado digital. Inclui Criação de Conteúdo, Facebook que Vende, Automação de Vendas, Mestre do Software e Mestre dos Trabalhos Científicos!';
+    precoCurso.innerHTML = 'Preço: <span style="color: green;">1800 MT / $32.73 USD</span>';
+    break;
+
+                default:
+                    descricaoCurso.textContent = '';
+                    precoCurso.textContent = '';
+                    detalhesCurso.style.display = 'none';
+            }
+        } else {
+            detalhesCurso.style.display = 'none';
+        }
+    }
+</script>
+
+
+
+
+          
+
+        <!-- Indicador de carregamento -->
+<div class="loading" id="loadingIndicator" style="display: none;">
+    <div class="spinner"></div>
+    <p>Criando seu recibo...</p>
+</div>
+
+
+        <!-- Modal de sucesso -->
+<div class="modal" id="successModal" style="display: none;">
+    <div class="modal-content">
+        <h1>🎉 Inscrição Confirmada!</h1>
+        <p>Sua inscrição foi realizada com sucesso!</p>
+        <p><strong>Recibo Número:</strong> <span id="reciboNumber"></span></p>
+        <p>Junte-se ao nosso grupo no WhatsApp de Pré-Inscrição:</p>
+        <a href="https://chat.whatsapp.com/JrWRl6dBPtJ0khShLBqXCW" target="_blank">
+            <button class="btn">Clique aqui para participar</button>
+        </a>
+        <button id="downloadReceipt" class="btn">Baixar Recibo</button>
+        <button class="close-modal" id="closeModal">Fechar</button>
+    </div>
+</div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Referências aos elementos DOM
+        const registrationForm = document.getElementById('registrationForm');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const successModal = document.getElementById('successModal');
+        const downloadReceiptButton = document.getElementById('downloadReceipt');
+    
+        // Evento de envio do formulário
+registrationForm.addEventListener('submit', async (e) => {
+    e.preventDefault(); // Impede o envio do formulário
+    loadingIndicator.style.display = 'flex'; // Exibe indicador de carregamento
+
+    const nome = document.getElementById('nome').value;
+    const sexo = document.getElementById('sexo').value;
+    const idade = document.getElementById('idade').value;
+    const localizacao = document.getElementById('localizacao').value;
+    const telefone = document.getElementById('telefone').value;
+    const curso = document.getElementById('curso').value;
+
+    const receiptNumber = `REC-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+
+    const metodoPagamento = document.getElementById('metodoPagamento').value;
+    let metodoPagamentoDetails = "";
+
+    // Definir os detalhes do pagamento
+    if (metodoPagamento === "mpesa") {
+        metodoPagamentoDetails = "MPesa: 843343733, Nome: Tilo Manuel E. Machado";
+    } else if (metodoPagamento === "emola") {
+        metodoPagamentoDetails = "Emola: 875343733, Nome: Tilo Manuel E. Machado";
+    } else if (metodoPagamento === "mkesh") {
+        metodoPagamentoDetails = "MKesh: 834555768, Nome: Tilo Manuel E. Machado";
+    } else if (metodoPagamento === "paypal") {
+        metodoPagamentoDetails = "PayPal: tilomachado1@gmail.com";
+    } else if (metodoPagamento === "conta_bancaria") {
+        metodoPagamentoDetails = "Conta Bancária BIM NIB: 000100000117916148957";
+    }
+
+    try {
+        // Salvar dados no Firestore
+        await setDoc(doc(db, "mestre das ias", receiptNumber), {
+            nome,
+            sexo,
+            idade,
+            localizacao,
+            telefone,
+            curso,
+            recibo: receiptNumber,
+            metodoPagamento,
+            data_inscricao: new Date().toISOString()
+        });
+
+        loadingIndicator.style.display = 'none'; // Ocultar indicador de carregamento
+
+        // Exibir modal de sucesso
+        document.getElementById('reciboNumber').textContent = receiptNumber;
+        successModal.style.display = 'flex';
+
+        
+
+        // Habilitar o botão de download
+        document.getElementById('downloadReceipt').disabled = false;
+
+        // Agora chamamos a função para gerar o recibo quando o botão de download for clicado
+        document.getElementById('downloadReceipt').addEventListener('click', () => {
+            gerarRecibo(nome, curso, telefone, idade, receiptNumber, metodoPagamentoDetails);
+        });
+    } catch (error) {
+        loadingIndicator.style.display = 'none'; // Ocultar indicador de carregamento
+        alert("Ocorreu um erro ao salvar os dados. Tente novamente.");
+    }
+});
+
+// Função para gerar o recibo
+function gerarRecibo(nome, curso, telefone, idade, receiptNumber, metodoPagamentoDetails) {
+    // Criando o documento PDF com jsPDF
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Definir as margens
+    const margin = 20;
+
+    // Cabeçalho com o texto personalizado em maiúsculas
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.text("CONHECIMENTO É O NOSSO MAIOR INVESTIMENTO", 105, 20, null, null, 'center'); // Centralizando o texto no cabeçalho e em maiúsculas
+
+    // Estilos do documento
+    doc.setFontSize(12);
+    doc.setFont("helvetica", "normal");
+
+    // Preços dos cursos (simulado para exemplo)
+const precoCursos = {
+    'importacao_exportacao': '330 MT / $6.00 USD',
+    'criacao_conteudo': '450 MT / $8.18 USD',
+    'facebook_vende': '550 MT / $10.00 USD',
+    'automacao_vendas': '750 MT / $13.64 USD',
+    'mestre_software': '920 MT / $16.73 USD',
+    'mestre_trabalhos': '1200 MT / $21.82 USD',
+    'combo_vip': '1800 MT / $32.73 USD'
+}
+
+
+
+    // Obtendo o preço do curso selecionado
+    const preco = precoCursos[curso] || 'Preço não definido';  // Obtém o preço com base no curso
+
+    // Formata a data e hora
+    const dataHora = new Date().toLocaleString('pt-PT', {
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        second: '2-digit'
+    });
+
+    // Criar o recibo
+    doc.text(`Nome: ${nome}`, margin, 40);
+    doc.text(`Curso: ${curso}`, margin, 50);
+    doc.text(`Telefone: ${telefone}`, margin, 60);
+    doc.text(`Idade: ${idade}`, margin, 70);
+    doc.text(`Número do Recibo: ${receiptNumber}`, margin, 80);
+    doc.text(`Método de Pagamento: ${metodoPagamentoDetails}`, margin, 90);
+    doc.text(`Preço: ${preco}`, margin, 100);  // Preço do curso
+    doc.text(`Data e Hora: ${dataHora}`, margin, 110);  // Data e Hora
+    
+
+    // Instruções de finalização
+    doc.setFontSize(10);
+    doc.text("A sua inscrição será finalizada a 100% após o envio do valor para o método de pagamento selecionado.", margin, 120);
+    doc.text("Após o pagamento, envie o comprovante para o WhatsApp.", margin, 130);
+    doc.text("WhatsApp: 843343733", margin, 140);
+
+    // Adicionando um link de WhatsApp no recibo
+    const whatsappMessage = "Olá Tilo Machado, aqui está o comprovante da inscrição para a comunidade Mestres da IA Pro V3";
+    const whatsappLink = `https://wa.me/843343733?text=${encodeURIComponent(whatsappMessage)}`;
+
+    // Criando o botão de link para o WhatsApp, cor verde e centralizado
+    const buttonWidth = 180;
+    const buttonHeight = 10;
+    const buttonX = (doc.internal.pageSize.width - buttonWidth) / 2; // Centralizando o botão
+    const buttonY = 150;
+
+    doc.setTextColor(255, 255, 255); // Cor do texto dentro do botão
+    doc.setFillColor(0, 128, 0); // Cor do botão (verde)
+    doc.rect(buttonX, buttonY, buttonWidth, buttonHeight, 'F'); // Criando o fundo verde
+    doc.setTextColor(255, 255, 255); // Cor do texto dentro do botão
+    doc.setFontSize(12);
+    doc.text("Clique aqui para confirmar o pagamento", buttonX + 10, buttonY + 7); // Texto do botão centralizado
+
+    // Adicionando link ao botão
+    doc.textWithLink("Clique aqui para confirmar o pagamento", buttonX + 10, buttonY + 7, { url: whatsappLink });
+
+    // Adicionando a imagem no rodapé
+    const imagePath = 'icone.png'; // Caminho da imagem
+    const imgWidth = 20; // Largura da imagem
+    const imgHeight = 20; // Altura da imagem
+    const imgX = (doc.internal.pageSize.width - imgWidth) / 2; // Centralizando a imagem
+    const imgY = doc.internal.pageSize.height - 30; // Posição no rodapé
+    doc.addImage(imagePath, 'PNG', imgX, imgY, imgWidth, imgHeight);
+
+    // Salvando o PDF
+    doc.save(`Recibo_${receiptNumber}.pdf`);
+}
+
+
+// Evento de fechamento do modal
+document.getElementById('closeModal').addEventListener('click', () => {
+    successModal.style.display = 'none';
+});
+
+// Função para mostrar o indicador de carregamento
+function showLoading() {
+    document.getElementById('loadingIndicator').style.display = 'flex';
+}
+
+// Função para esconder o indicador de carregamento
+function hideLoading() {
+    document.getElementById('loadingIndicator').style.display = 'none';
+}
+
+// Exemplo de uso: 
+// Para mostrar o carregamento
+showLoading();
+
+// Para esconder o carregamento após 3 segundos (simulando processo)
+setTimeout(hideLoading, 3000);
+
+    </script>
+    
+</body>
+</html>
