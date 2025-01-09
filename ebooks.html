@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <title>Ebooks</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #000000, #ff00ff, #00ffff);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 3em;
+            color: #39ff14;
+            text-shadow: 0 0 15px #39ff14, 0 0 25px #00ff00;
+            animation: glow 1.5s ease-in-out infinite alternate;
+            text-align: center; /* Centraliza o texto */
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 15px #39ff14, 0 0 25px #00ff00;
+            }
+            to {
+                text-shadow: 0 0 25px #39ff14, 0 0 35px #00ff00;
+            }
+        }
+
+        .ebook-list {
+            width: 100%;
+            max-width: 800px;
+            margin: 20px 0;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 0, 255, 0.8);
+        }
+
+        .ebook-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #39ff14;
+            border-radius: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            transition: background 0.3s;
+        }
+
+        .ebook-item:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .ebook-title {
+            font-size: 1.5em;
+            color: #e0e0e0;
+            flex-grow: 1; /* Permite que o título ocupe espaço disponível */
+            margin-right: 10px; /* Adiciona espaçamento entre o título e o botão */
+        }
+
+        .download-btn {
+            padding: 8px 16px;
+            background: linear-gradient(45deg, #ff00ff, #00ffff);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            color: #fff;
+            font-size: 1.1em;
+            transition: background 0.3s;
+        }
+
+        .download-btn:hover {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+        }
+
+        /* Estilos para dispositivos móveis */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5em; /* Reduz o tamanho da fonte do título em dispositivos menores */
+            }
+
+            .ebook-title {
+                font-size: 1.2em; /* Reduz o tamanho da fonte do título do ebook */
+            }
+
+            .download-btn {
+                font-size: 1em; /* Reduz o tamanho da fonte do botão de download */
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Ebooks Disponíveis</h1>
+
+    <div class="ebook-list">
+        <div class="ebook-item">
+            <div class="ebook-title">Ebook 1: Introdução ao Desenvolvimento Web</div>
+            <button class="download-btn" onclick="downloadEbook('ebook1.pdf')">Baixar</button>
+        </div>
+        <div class="ebook-item">
+            <div class="ebook-title">Ebook 2: JavaScript para Iniciantes</div>
+            <button class="download-btn" onclick="downloadEbook('ebook2.pdf')">Baixar</button>
+        </div>
+        <div class="ebook-item">
+            <div class="ebook-title">Ebook 3: CSS Avançado</div>
+            <button class="download-btn" onclick="downloadEbook('ebook3.pdf')">Baixar</button>
+        </div>
+        <div class="ebook-item">
+            <div class="ebook-title">Ebook 4: Dominando o HTML5</div>
+            <button class="download-btn" onclick="downloadEbook('ebook4.pdf')">Baixar</button>
+        </div>
+        <!-- Adicione mais ebooks conforme necessário -->
+    </div>
+
+    <script>
+        function downloadEbook(filename) {
+            // Simula o download de um ebook
+            alert('Baixando ' + filename + '...');
+            // Aqui você pode adicionar lógica real de download, se necessário
+        }
+    </script>
+</body>
+</html>
