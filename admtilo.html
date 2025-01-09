@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <title>Painel de Administração</title>
+    <style>
+        /* Estilos Globais */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin: 20px;
+            color: #ffcc00;
+        }
+
+        /* Estilos da Tabela */
+        table {
+            width: 90%;
+            max-width: 1200px;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #444;
+        }
+
+        th {
+            background: linear-gradient(45deg, #ff00cc, #3333ff);
+            color: #fff;
+        }
+
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Estilos do Botão */
+        button {
+            margin: 20px;
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            color: #1f1f1f;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e6b800;
+        }
+
+        /* Estilos do Modal */
+        #loading-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+        }
+
+        .loader {
+            border: 16px solid #f3f3f3; /* Cor do fundo */
+            border-top: 16px solid #ffcc00; /* Cor da barra de progresso */
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Estilos para os Botões "Ver Anexo" */
+        .link-button {
+            background-color: #3333ff;
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .link-button:hover {
+            background-color: #2828d4;
+            transform: scale(1.05);
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 24px;
+            }
+
+            table {
+                width: 100%;
+            }
+
+            button {
+                width: 100%;
+                padding: 15px;
+            }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <h1>Painel de Administração</h1>
+
+    <div id="stats">
+        <h2>Estatísticas</h2>
+        <p id="user-count">Total de Usuários: 0</p>
+        <p id="submission-count">Total de Submissões: 0</p>
+        <p id="video-view-count">Total de Visualizações do Vídeo: 0</p>
+    </div>
+
+    <div id="user-counters">
+        <p id="antigo-count">Antigos: 0</p>
+        <p id="novo-count">Novos: 0</p>
+        <p id="recente-count">Recentes: 0</p>
+    </div>
+
+    <h2>Usuários</h2>
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th>Nome de Usuário</th>
+                <th>E-mail</th>
+                <th>Telefone</th>
+                <th>Data de Criação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados dos usuários serão inseridos aqui -->
+        </tbody>
+    </table>
+
+    <h2>Submissões</h2>
+    <table id="submissions-table">
+        <thead>
+            <tr>
+                <th>Título do Trabalho</th>
+                <th>Conteúdo</th>
+                <th>Data de Entrega</th>
+                <th>Disciplina</th>
+                <th>Data de Submissão</th>
+                <th>Nome do Professor</th>
+                <th>Nome do Estudante</th>
+                <th>Anexo</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Os dados das submissões serão inseridos aqui -->
+        </tbody>
+    </table>
+
+    <canvas id="submissionChart" width="400" height="200"></canvas> <!-- Gráfico para visualização -->
+
+    <!-- Modal de Carregamento -->
+    <div id="loading-modal">
+        <div class="loader" aria-live="polite"></div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs, doc, getDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+        import { getAuth } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:f16056ecbf943802ab2be3"
+        };
+    
+        // Inicializando o Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+    
+        // Referência às coleções
+        const usersRef = collection(db, "usuarios");
+        const submissionsRef = collection(db, "submissoes");
+        const videoViewsRef = doc(db, "videoViews", "statistics"); // Referência ao documento
+    
+        // Função para inicializar contagem de visualizações
+        async function initializeViewCount() {
+            const docSnapshot = await getDoc(videoViewsRef);
+            if (!docSnapshot.exists()) {
+                // Se o documento não existe, cria um com 0 visualizações
+                await setDoc(videoViewsRef, { views: 0 });
+            }
+        }
+    
+        // Função para obter a contagem de visualizações do vídeo
+        async function loadVideoViewCount() {
+            await initializeViewCount(); // Inicializa o documento se necessário
+            const docSnapshot = await getDoc(videoViewsRef);
+            const viewCount = docSnapshot.data().views;
+    
+            // Atualizar contagem de visualizações
+            document.getElementById('video-view-count').innerText = `Total de Visualizações do Vídeo: ${viewCount}`;
+            renderVideoChart(viewCount); // Renderizar gráfico com a contagem
+        }
+    
+        // Função para renderizar o gráfico
+        function renderVideoChart(viewCount) {
+            const ctx = document.getElementById('submissionChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Visualizações'],
+                    datasets: [{
+                        label: 'Total de Visualizações',
+                        data: [viewCount],
+                        backgroundColor: 'rgba(255, 204, 0, 0.6)',
+                        borderColor: 'rgba(255, 204, 0, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Número de Visualizações'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    
+        // Função para carregar usuários e submissões
+        async function loadUsersAndSubmissions() {
+            const [userDocs, submissionDocs] = await Promise.all([
+                getDocs(usersRef),
+                getDocs(submissionsRef)
+            ]);
+    
+            const userCount = userDocs.size; // Contagem de usuários
+            document.getElementById('user-count').innerText = `Total de Usuários: ${userCount}`;
+            let usersHTML = '';
+    
+            userDocs.forEach(doc => {
+                const userData = doc.data();
+                usersHTML += `
+                    <tr>
+                        <td>${userData.nome}</td>
+                        <td>${userData.email}</td>
+                        <td>${userData.telefone}</td>
+                        <td>${userData.dataCriacao.toDate().toLocaleDateString()}</td>
+                    </tr>
+                `;
+            });
+    
+            document.querySelector('#users-table tbody').innerHTML = usersHTML;
+    
+            const submissionCount = submissionDocs.size; // Contagem de submissões
+            document.getElementById('submission-count').innerText = `Total de Submissões: ${submissionCount}`;
+            let submissionsHTML = '';
+    
+            submissionDocs.forEach(doc => {
+                const submissionData = doc.data();
+                submissionsHTML += `
+                    <tr>
+                        <td>${submissionData.titulo}</td>
+                        <td>${submissionData.conteudo}</td>
+                        <td>${submissionData.dataEntrega.toDate().toLocaleDateString()}</td>
+                        <td>${submissionData.disciplina}</td>
+                        <td>${submissionData.dataSubmissao.toDate().toLocaleDateString()}</td>
+                        <td>${submissionData.nomeProfessor}</td>
+                        <td>${submissionData.nomeEstudante}</td>
+                        <td><a class="link-button" href="${submissionData.anexo}" target="_blank">Ver Anexo</a></td>
+                    </tr>
+                `;
+            });
+    
+            document.querySelector('#submissions-table tbody').innerHTML = submissionsHTML;
+        }
+    
+        // Função para carregar todas as informações ao iniciar
+        async function loadAllData() {
+            const loadingModal = document.getElementById('loading-modal');
+            loadingModal.style.display = 'flex'; // Mostrar modal de carregamento
+            try {
+                await Promise.all([loadUsersAndSubmissions(), loadVideoViewCount()]);
+            } catch (error) {
+                console.error("Erro ao carregar os dados: ", error);
+            } finally {
+                loadingModal.style.display = 'none'; // Esconder modal
+            }
+        }
+    
+        // Iniciar carregamento ao abrir a página
+        window.onload = loadAllData;
+    </script>
+    
+
+</body>
+</html>
