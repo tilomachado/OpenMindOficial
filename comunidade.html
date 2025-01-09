@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidade Open Mind</title>
+    <link rel="icon" href="icone.png" type="image/png">
+    <meta name="description" content="Participe da nossa comunidade e amplie seu conhecimento digital.">
+    <meta name="keywords" content="comunidade, negócios, cursos online, Open Mind">
+    <meta name="author" content="Tilo Machado">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+    <style>
+       body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000; /* Fundo preto */
+    color: #fff; /* Letras brancas */
+}
+
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: auto;
+}
+
+h1, h2 {
+    text-align: center;
+    color: #FFD700; /* Títulos amarelos */
+}
+
+.client {
+    background: #ffd9001a;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.1); /* Sombra branca */
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.client:hover {
+    transform: scale(1.02);
+}
+
+.details {
+    display: none;
+}
+
+.btn-container {
+    text-align: center;
+    max-width: 100%; /* Define uma largura máxima para o contêiner */
+    overflow: hidden; /* Oculta qualquer conteúdo que exceda a largura do contêiner */
+    display: flex; /* Usar flexbox para alinhamento */
+    flex-wrap: wrap; /* Permite que os botões se movam para a linha abaixo se não houver espaço suficiente */
+    justify-content: center; /* Centraliza os botões */
+}
+
+.btn-contact, .btn-principal {
+    flex: 1 1 100%; /* Faz com que os botões ocupem a linha inteira em telas menores */
+    max-width: 200px; /* Define uma largura máxima para os botões */
+    box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    margin: 5px;
+    transition: background 0.3s, transform 0.3s;
+}
+
+.btn-contact {
+    background: #007BFF;
+}
+
+.btn-contact:hover {
+    background: #0056b3;
+}
+
+.btn-principal {
+    background: #28a745;
+}
+
+.btn-principal:hover {
+    background: #218838;
+}
+
+/* Ajustes para dispositivos móveis */
+@media (max-width: 768px) {
+    .btn-container {
+        flex-direction: column; /* Alinha os botões em coluna em telas menores */
+    }
+
+    .btn-contact, .btn-principal {
+        width: 100%; /* Faz os botões ocuparem toda a largura do contêiner */
+        max-width: none; /* Remove qualquer largura máxima definida */
+    }
+}
+
+
+footer {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.popup {
+    position: fixed;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #28a745;
+    color: white;
+    font-style: italic; /* Texto em itálico */
+    padding: 10px 20px;
+    border-radius: 5px;
+    z-index: 1000;
+    animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
+@media (max-width: 600px) {
+    .btn-contact, .btn-principal {
+        width: 100%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Comunidade Open Mind</h1>
+        
+    
+       
+            <h2>Sobre a Open Mind</h2>
+            
+            <div class="client" onclick="toggleDetails(this)">
+                <h3>Sobre a SEMIA, Lda</h3>
+                <div class="details">
+                    <p>A SEMIA, Lda é uma empresa dedicada ao desenvolvimento pessoal e profissional, oferecendo cursos de orientação que fornecem as ferramentas necessárias para o autoconhecimento. Nossos programas visam a descoberta e ativação dos dons individuais, identificação de talentos e definição do propósito de vida, capacitando nossos clientes a alcançarem seu pleno potencial.</p>
+                
+                    <h3>Sobre o Diretor: Arcanjo Graciano</h3>
+                    <p>Graduado em Engenharia Mecânica pela Universidade A Politécnica e em Administração Pública pelo ISRI (atual UJC), Arcanjo Graciano possui ampla experiência em mentoria e coaching. Ele participou de seminários e cursos internacionais, incluindo:</p>
+                    <ul>
+                        <li>Seminário sobre Metanóia Empresarial - São Paulo, Brasil</li>
+                        <li>Mentoria em Educação Financeira - Santa Catarina, Brasil</li>
+                        <li>Master Class em Vendas - Arkansas, EUA</li>
+                    </ul>
+                
+                    <p>Desde 2018, Arcanjo atua como Diretor Executivo da SEMIA, onde desempenha um papel fundamental em ajudar empreendedores a transformar suas ideias em negócios viáveis. Suas responsabilidades incluem:</p>
+                    <ul>
+                        <li>Prover cursos de refresco e assessoria em gestão e liderança.</li>
+                        <li>Coordenar programas de desenvolvimento pessoal e financeiro.</li>
+                        <li>Estabelecer parcerias estratégicas e indicadores de desempenho.</li>
+                    </ul>
+                
+                    <p>Com um histórico de projetos de impacto social, como a criação de escolas técnicas e a coordenação de iniciativas de monitoramento de serviços sociais, Arcanjo Graciano é um verdadeiro agente de transformação em sua comunidade.</p>
+                
+                    <div class="btn-container">
+                        <a href="mailto:semiaengenharia@gmail.com" class="btn-contact">
+                            <span class="contact-icon"></span> Entre em contato com a SEMIA
+                        </a>
+                        <a href="https://rebrand.ly/DESCUBRAMAISAQUI" class="btn-contact">
+                            <span class="contact-icon"></span> Inscreva-se no YouTube
+                        </a>
+                    </div>
+                </div>
+                
+            </div>
+    
+            <div class="client" onclick="toggleDetails(this)">
+                <h3>Junte-se à Nossa Comunidade</h3>
+                <div class="details">
+                    <p>A Comunidade Open Mind é o lugar ideal para você que deseja expandir seus conhecimentos e se conectar com profissionais e entusiastas da tecnologia. Aqui, oferecemos um espaço colaborativo onde compartilhamos experiências, dicas e recursos valiosos sobre negócios e inovação digital. Ao se juntar a nós, você terá acesso a:</p>
+                    <ul>
+                        <li><strong>Networking:</strong> Conecte-se com outros membros, troque ideias e faça parcerias.</li>
+                        <li><strong>Conteúdo Exclusivo:</strong> Participe de eventos, webinars e discussões sobre tendências do setor.</li>
+                        <li><strong>Suporte e Mentoria:</strong> Receba orientações de especialistas em tecnologia e negócios.</li>
+                    </ul>
+                    <p>Não perca a oportunidade de fazer parte de uma comunidade vibrante e em constante crescimento. Clique no botão abaixo para se juntar a nós e dar o próximo passo em sua jornada de aprendizado!</p>
+                    <div class="btn-container">
+                        <a href="https://chat.whatsapp.com/BTmrt5IbOhELIdgPSTMKAu" class="btn-principal">Entre no WhatsApp</a>
+                        <a href="https://rebrand.ly/DESCUBRAMAISAQUI" class="btn-principal">Inscreva-se no YouTube</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <section class="cta">
+            <section class="cta">
+                <div class="client" onclick="toggleDetails(this)">
+                    <h3>Sobre o Técnico Programador</h3>
+                    <div class="details">
+                        <p>Olá! Sou Tilo Machado, um técnico de informática sênior, com ampla experiência em desenvolvimento web e tecnologias da informação. Meu objetivo é ajudar você a alcançar seu potencial digital. Estou sempre disponível para tirar suas dúvidas e compartilhar conhecimento sobre as melhores práticas do setor. Sinta-se à vontade para entrar em contato!</p>
+                        <div class="btn-container">
+                            <a href="https://wa.me/843343733?text=Olá%20Tilo!%20Gostaria%20de%20falar%20sobre..." class="btn-contact">
+                                <span class="contact-icon"></span> Fale comigo no WhatsApp
+                            </a>
+                            <a href="mailto:tilomachado1@gmail.com" class="btn-contact">
+                                <span class="contact-icon"></span> Envie um E-mail
+                            </a>
+                            <a href="tel:875343733" class="btn-contact">
+                                <span class="contact-icon"></span> Ligue para mim
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+        </section>
+        <section class="clients-section">
+            <h2>Sobre Os Nossos Feitos</h2>
+            
+            <div class="client" onclick="toggleDetails(this)">
+                <h3>MOZ CHICKENS INVESTMENT, Lda</h3>
+                <div class="details">
+                    <p><strong>Local:</strong> Nampula, Bairro de Mutauanha</p>
+                    <p><strong>Período:</strong> Dezembro de 2022 – Agosto de 2023</p>
+                    <p>Realizamos uma mentoria especializada em criação de modelos de negócios, que resultou em um crescimento sustentável e estratégias de expansão para novos mercados. Essa parceria permitiu à MOZ CHICKENS INVESTMENT, Lda não apenas otimizar suas operações, mas também desenvolver um plano de negócios robusto, que atende às demandas do mercado.</p>
+                </div>
+            </div>
+    
+            <div class="client" onclick="toggleDetails(this)">
+                <h3>SNV - Projeto DEMA-LIBA</h3>
+                <div class="details">
+                    <p><strong>Locais:</strong> Niassa e Cabo Delgado</p>
+                    <p><strong>Período:</strong> Setembro de 2020 – Outubro de 2021</p>
+                    <p>Durante este projeto transformador, capacitamos mais de 1500 agricultores em práticas de negócios e gestão financeira. O impacto desse projeto foi significativo, resultando em aumento da produtividade, melhoria das condições de vida e fortalecimento das comunidades locais.</p>
+                </div>
+            </div>
+    
+            <div class="client" onclick="toggleDetails(this)">
+                <h3>ITTA Internacional</h3>
+                <div class="details">
+                    <p><strong>Locais:</strong> Nampula, Malema e regiões próximas</p>
+                    <p><strong>Período:</strong> 2020</p>
+                    <p>Nossa colaboração com a ITTA Internacional envolveu a formação de 80 jovens em agro-negócios, proporcionando-lhes as habilidades necessárias para se tornarem empreendedores de sucesso. O impacto se traduziu em novos empreendimentos e no fortalecimento da economia regional, promovendo a inovação e o desenvolvimento sustentável.</p>
+                </div>
+                
+            </div>
+            <h2>Conheça Nossos Cursos e Serviços</h2>
+
+            <div class="client" onclick="toggleDetails(this)">
+                <h3>Open Your Mind</h3>
+<div class="details">
+    <p>Na Comunidade Open Mind, oferecemos uma variedade de cursos gratuitos e exclusivos para ajudar você a expandir seus conhecimentos e se conectar com profissionais e entusiastas da tecnologia. Aqui estão algumas das nossas opções:</p>
+    <ul>
+        <li><strong>Cursos Gratuitos:</strong> Explore uma seleção de cursos que podem ser acessados sem custo.</li>
+        <li><strong>Cursos Exclusivos:</strong> Aprofunde seus conhecimentos com cursos premium, disponíveis apenas para membros da comunidade.</li>
+    </ul>
+    <p>Não perca a oportunidade de desenvolver suas habilidades e aprender com especialistas da área. Clique nos botões abaixo para acessar nossos cursos gratuitos e exclusivos!</p>
+    <div class="btn-container">
+        <a href="openyourmind.html" class="btn-principal">Cursos Gratuitos</a>
+        <a href="cursos-pagos.html" class="btn-principal">Cursos Exclusivos</a>
+    </div>
+    
+</div>
+
+
+            </div>
+            <div class="client" onclick="toggleDetails(this)">
+                <h3>Nossos Serviços</h3>
+<div class="details">
+    <p>Na Open Mind, oferecemos uma gama de serviços projetados para atender às necessidades de nossos clientes e ajudá-los a alcançar seus objetivos. Conheça nossas principais ofertas:</p>
+    <ul>
+        <li><strong>Consultoria em Negócios:</strong> Orientação especializada para impulsionar o crescimento e a sustentabilidade do seu negócio.</li>
+        <li><strong>Mentoria e Coaching:</strong> Apoio personalizado para desenvolver habilidades e superar desafios profissionais.</li>
+        <li><strong>Treinamentos e Workshops:</strong> Cursos práticos sobre tecnologia, inovação e desenvolvimento pessoal.</li>
+        <li><strong>Desenvolvimento de Software:</strong> Soluções tecnológicas sob medida para otimizar processos e melhorar a eficiência.</li>
+    </ul>
+    <p>Estamos comprometidos em fornecer serviços de alta qualidade que atendam às suas necessidades específicas. Para saber mais sobre nossos serviços, clique no botão abaixo:</p>
+    <div class="btn-container">
+        <a href="landingOpneMind (1).html" class="btn-principal">Saiba mais sobre nossos Serviços</a>
+    </div>
+</div>
+    
+    </div>
+    
+    
+        <footer>
+            <p>&copy; 2024 Open Mind. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <div class="popup" id="popup" style="display: none;">
+        Nome de inscrição exibido aqui!
+    </div>
+
+    <script>
+        let viewCount = 0;
+        const popup = document.getElementById('popup');
+    
+        // Array de nomes para exibir no popup
+        const nomes = [
+            "Ana Silva", "Bruno Oliveira", "Carlos Mendes", "Daniela Costa", 
+            "Eduardo Pereira", "Fernanda Rocha", "Gabriel Santos", "Helena Martins", 
+            "Igor Almeida", "Juliana Lopes", "Kátia Ribeiro", "Leonardo Teixeira", 
+            "Mariana Torres", "Nuno Carvalho", "Olívia Farias", "Paulo Andrade", 
+            "Quintino Afonso", "Renata Melo", "Sérgio Nunes", "Tatiana Vieira", 
+            "Ulisses Monteiro", "Viviane Souza", "William Moreira", "Xavier Pinto", 
+            "Yasmin Araújo", "Zé Ricardo", "Bianca Rodrigues", "Cecília Gomes", 
+            "Davi Moura", "Elias Silva", "Flávia Cunha", "Guilherme Amaral", 
+            "Isabela Monteiro", "Joaquim Lima", "Lara Fernandes"
+        ];
+    
+        function toggleDetails(client) {
+            const details = client.querySelector('.details');
+            const isVisible = details.style.display === 'block';
+    
+            details.style.display = isVisible ? 'none' : 'block';
+    
+            if (!isVisible) {
+                incrementViewCount();
+            }
+        }
+    
+        function incrementViewCount() {
+            viewCount++;
+            console.log(`Contador de visualizações: ${viewCount}`);
+        }
+    
+        function showPopup() {
+            const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
+            popup.textContent = `${nomeAleatorio} inscreveu-se na Open Mind!`;
+            popup.style.display = 'block';
+    
+            setTimeout(() => popup.style.display = 'none', 3000);
+        }
+    
+        // Mostra o popup automaticamente a cada 15 segundos
+        setInterval(showPopup, 15000);
+    </script>
+    
+    
+    
+</body>
+</html>

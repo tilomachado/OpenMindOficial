@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <title>Criar Nova Senha</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow: hidden;
+            transition: opacity 0.5s ease-in-out;
+            opacity: 1;
+        }
+
+        .reset-container {
+            background-color: #333;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 0, 127, 0.5);
+            max-width: 400px;
+            width: 90%;
+            margin: 50px auto;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .reset-container:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 40px rgba(255, 0, 127, 1), 0 0 60px rgba(255, 0, 127, 0.8);
+        }
+
+        .reset-container h2 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px rgba(255, 204, 0, 0.8);
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #aaa;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s, box-shadow 0.3s;
+        }
+
+        input[type="password"]:focus {
+            background-color: #555;
+            outline: none;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 1);
+        }
+
+        .btn {
+            background: linear-gradient(90deg, #ff007f, #7700ff);
+            color: white;
+            padding: 12px;
+            border-radius: 25px;
+            font-size: 1.1em;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s, transform 0.2s;
+            box-shadow: 0 0 10px rgba(255, 0, 127, 0.7);
+        }
+
+        .btn:hover {
+            background: linear-gradient(90deg, #7700ff, #ff007f);
+            transform: translateY(-2px);
+            box-shadow: 0 0 20px rgba(255, 0, 127, 1);
+        }
+
+        .message {
+            display: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .message.success {
+            background-color: rgba(76, 175, 80, 0.1);
+            border: 1px solid #4CAF50;
+            color: #4CAF50;
+        }
+
+        .message.error {
+            background-color: rgba(255, 77, 77, 0.1);
+            border: 1px solid #ff4d4d;
+            color: #ff4d4d;
+        }
+
+        .loading {
+            display: none;
+            margin: 10px auto;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite, pulse 1s ease-in-out infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); border-top-color: #ff007f; }
+            25% { border-top-color: #00ff7f; }
+            50% { border-top-color: #007fff; }
+            75% { border-top-color: #ff00ff; }
+            100% { transform: rotate(360deg); border-top-color: #ff007f; }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+                box-shadow: 0 0 10px rgba(255, 0, 127, 0.7), 0 0 20px rgba(255, 0, 127, 0.5);
+            }
+            50% {
+                transform: scale(1.1);
+                box-shadow: 0 0 20px rgba(255, 0, 127, 1), 0 0 30px rgba(255, 0, 127, 0.8);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .reset-container {
+                padding: 20px;
+                margin: 20px;
+            }
+
+            .reset-container h2 {
+                font-size: 1.5em;
+            }
+
+            input[type="password"] {
+                font-size: 0.9em;
+            }
+
+            .btn {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="reset-container">
+        <h2>Criar Nova Senha</h2>
+
+        <div class="message success" id="success-message"></div>
+        <div class="message error" id="error-message"></div>
+        <div class="loading" id="loading-spinner"></div>
+
+        <form id="resetForm">
+            <label for="newPassword">Nova Senha:</label>
+            <input type="password" id="newPassword" required placeholder="Digite sua nova senha">
+
+            <label for="confirmPassword">Confirme a Nova Senha:</label>
+            <input type="password" id="confirmPassword" required placeholder="Confirme sua nova senha">
+
+            <button type="submit" class="btn">Criar Nova Senha</button>
+        </form>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getAuth, updatePassword } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+        import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+
+        const resetForm = document.getElementById("resetForm");
+        const successMessage = document.getElementById("success-message");
+        const errorMessage = document.getElementById("error-message");
+        const loadingSpinner = document.getElementById("loading-spinner");
+
+        resetForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const newPassword = document.getElementById("newPassword").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (newPassword !== confirmPassword) {
+                showMessage(errorMessage, "As senhas não coincidem.");
+                return;
+            }
+
+            loadingSpinner.style.display = "block"; // Mostra o spinner
+            try {
+                const user = auth.currentUser; // Pega o usuário atual
+
+                if (user) {
+                    // Atualiza a senha do usuário
+                    await updatePassword(user, newPassword);
+                    
+                    // Atualiza a coleção "usuarios" se necessário
+                    const userRef = doc(db, "usuarios", user.uid); // Usa o UID do usuário atual
+                    await getDoc(userRef); // Se precisar verificar os dados do usuário
+
+                    showMessage(successMessage, "Nova senha criada com sucesso!");
+
+                    // Adiciona a classe de fade ao body
+                    document.body.style.opacity = 0;
+                    setTimeout(() => {
+                        window.location.href = "index.html"; // Redireciona após 2 segundos
+                    }, 2000);
+                } else {
+                    throw new Error("Usuário não autenticado.");
+                }
+            } catch (error) {
+                showMessage(errorMessage, error.message);
+            } finally {
+                loadingSpinner.style.display = "none"; // Esconde o spinner
+            }
+        });
+
+        function showMessage(messageElement, message) {
+            messageElement.style.display = "block";
+            messageElement.textContent = message;
+            successMessage.style.display = messageElement === successMessage ? "block" : "none";
+            errorMessage.style.display = messageElement === errorMessage ? "block" : "none";
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transforme Sua Presença Digital</title>
+    <link rel="icon" href="icone.png" type="image/png">
+    <meta name="description" content="Aprenda habilidades essenciais e amplie seu alcance digital.">
+    <meta name="keywords" content="presença digital, aprendizado, comunidade, cursos online">
+    <meta name="author" content="Tilo Machado">
+
+    <style>
+        /* CSS Global */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 10px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #ffcc00;
+            font-size: 3em;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .course-section {
+            background: rgba(0, 0, 0, 0.85);
+            padding: 25px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border-radius: 15px;
+            width: 90%;
+            margin: 10px 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .course-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .kelcia-img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .course-section h2 {
+            color: #ffcc00;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .course-section p {
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #d3d3d3;
+        }
+
+        .btn-principal {
+            background: linear-gradient(90deg, #00ff00, #32cd32);
+            color: #333;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+            transition: background 0.3s ease, transform 0.2s;
+            margin-top: 10px;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-principal:hover {
+            background: linear-gradient(90deg, #32cd32, #00ff00);
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Spinner CSS */
+        #spinner {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spinner-circle {
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            border-top: 8px solid #fff;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .popup {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            display: none; /* Inicialmente oculto */
+        }
+    </style>
+    
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <!-- Firebase SDK -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+
+        onAuthStateChanged(auth, user => {
+            const adminButton = document.getElementById('adminButton');
+            if (user && user.uid === "Q0Nq7DXCxVak1H19rCmR3YtFqOQ2") {
+                adminButton.style.display = 'flex';
+            } else {
+                adminButton.style.display = 'none';
+            }
+        });
+    </script>
+
+    <script>
+        // Ocultar o spinner quando a página terminar de carregar
+        window.addEventListener('load', () => {
+            const spinner = document.getElementById('spinner');
+            spinner.style.display = 'none';
+        });
+    </script>
+</head>
+<body>
+    <!-- Spinner de carregamento -->
+    <div id="spinner">
+        <div class="spinner-circle"></div>
+    </div>
+
+    <header>
+        <h1>Transforme Sua Presença Digital</h1>
+    </header>
+
+    <main class="container">
+        <section class="course-section">
+            <h2>5 Formas de Criar Negócios Lucrativos</h2>
+            <img src="65f59bef7e3d9_PostdeInstagramminimalistavermelhodepromoodemoto.png" 
+                 alt="Imagem do curso de negócios lucrativos" class="kelcia-img">
+            <p>Aprenda as estratégias mais eficazes para criar e gerenciar negócios lucrativos.</p>
+            <a href="https://pay.hotmart.com/U91756543K" class="btn-principal">Inscreva-se Agora</a>
+        </section>
+
+        <section class="course-section">
+            <h2>7 Passos para a Transformação da Sua Vida</h2>
+            <img src="DALL-E-image2.webp" alt="Imagem do curso de transformação pessoal" class="kelcia-img">
+            <p>Descubra o caminho para transformar sua vida com orientações claras e práticas.</p>
+            <a href="https://pay.hotmart.com/T92035145W" class="btn-principal">Inscreva-se Agora</a>
+        </section>
+    </main>
+
+    <button id="adminButton" class="floating-button" 
+            onclick="window.location.href='admtilo.html'" style="display: none;">⚙️</button>
+
+    <footer>
+        <p>&copy; 2024 - Semia LDA. Todos os direitos reservados.</p>
+    </footer>
+
+    
+
+    
+</body>
+</html>

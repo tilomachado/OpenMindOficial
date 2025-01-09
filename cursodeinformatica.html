@@ -1,0 +1,293 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Metadados Essenciais -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Aprenda desenvolvimento de software com cursos especializados em habilidades práticas e avançadas.">
+<meta name="keywords" content="desenvolvimento de software, cursos de programação, habilidades técnicas, aprendizado online">
+<meta name="author" content="Tilo Machado">
+
+<!-- Ícone do Site -->
+<link rel="icon" href="icone.png" type="image/png">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+  <title>Curso Essencial de Informática</title>
+  <style>
+    /* Estilos baseados no seu CSS */
+    body {
+  background-color: #000; /* Fundo preto */
+  color: #fff; /* Texto branco */
+  font-family: Arial, sans-serif; /* Fonte Arial */
+  margin: 0; /* Remove margens */
+  padding: 0; /* Remove preenchimento */
+}
+.section-image {
+    width: 100%; /* Largura das imagens */
+    max-width: 600px; /* Largura máxima */
+    height: auto; /* Mantém a proporção */
+    margin: 15px 0; /* Margem acima e abaixo das imagens */
+    border-radius: 5px; /* Cantos arredondados */
+    border: 2px solid #FFD700; /* Borda dourada */
+}
+
+.container {
+  max-width: 800px; /* Largura máxima */
+  margin: auto; /* Centraliza horizontalmente */
+  padding: 20px; /* Preenchimento interno */
+}
+
+.title {
+  color: #FFD700; /* Cor dourada */
+  text-align: center; /* Centraliza o texto */
+}
+
+.section {
+  margin-top: 20px; /* Espaçamento acima */
+  padding: 15px; /* Preenchimento interno */
+  border: 1px solid #FFD700; /* Borda dourada */
+  border-radius: 5px; /* Cantos arredondados */
+}
+
+.cta {
+  text-align: center; /* Centraliza o conteúdo */
+  margin: 20px 0; /* Margem acima e abaixo */
+}
+
+.cta button,
+.terms-button,
+.privacy-button {
+  background-color: #FFD700; /* Cor de fundo */
+  color: #000; /* Cor do texto */
+  padding: 10px 20px; /* Preenchimento do botão */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Cantos arredondados */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: background-color 0.3s; /* Transição suave */
+  margin: 5px; /* Margem entre os botões */
+}
+
+.cta button:hover,
+.terms-button:hover,
+.privacy-button:hover {
+  background-color: #FFA500; /* Cor laranja ao passar o mouse */
+}
+
+.form-container {
+  text-align: center; /* Centraliza o conteúdo */
+  margin-top: 20px; /* Margem acima */
+}
+
+.form-container input {
+  padding: 10px; /* Preenchimento interno */
+  width: 80%; /* Largura do campo de entrada */
+  margin: 10px 0; /* Margem acima e abaixo */
+}
+
+.loading {
+  display: none; /* Oculta por padrão */
+  font-size: 18px; /* Tamanho da fonte */
+  color: #FFD700; /* Cor dourada */
+  margin-top: 10px; /* Margem acima */
+}
+
+.terms-label {
+  display: flex; /* Alinha itens em linha */
+  flex-direction: column; /* Alinhamento vertical */
+  align-items: center; /* Centraliza horizontalmente */
+  margin: 10px 0; /* Margem acima e abaixo */
+  font-size: 16px; /* Tamanho da fonte */
+  color: #fff; /* Cor do texto */
+}
+
+.terms-label label {
+  display: flex; /* Flex para alinhar checkbox e texto */
+  align-items: center; /* Centraliza verticalmente */
+}
+
+.terms-label input[type="checkbox"] {
+  margin-right: 10px; /* Espaço entre checkbox e texto */
+}
+
+.button-container {
+  display: flex; /* Flex para alinhar botões */
+  justify-content: space-around; /* Espaço entre os botões */
+  margin: 20px 0; /* Margem acima e abaixo */
+}
+
+.submit-button {
+  background-color: #FFD700; /* Cor de fundo */
+  color: #000; /* Cor do texto */
+  padding: 15px 30px; /* Preenchimento do botão */
+  border: none; /* Sem borda */
+  border-radius: 5px; /* Bordas arredondadas */
+  cursor: pointer; /* Cursor de ponteiro */
+  transition: background-color 0.3s, transform 0.3s; /* Transição suave */
+  font-size: 18px; /* Tamanho da fonte */
+  animation: pulse 1s infinite; /* Animação de pulsar */
+}
+
+/* Efeito de pulsar */
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    background-color: #FFD700; /* Amarelo */
+  }
+  50% {
+    transform: scale(1.05);
+    background-color: #32CD32; /* Verde */
+  }
+  100% {
+    transform: scale(1);
+    background-color: #FFD700; /* Amarelo */
+  }
+}
+.container {
+    text-align: center; /* Centraliza o conteúdo dentro da div */
+}
+
+.submit-button {
+    display: inline-block; /* Faz o link se comportar como um botão */
+    padding: 15px 40px; /* Espaçamento interno, ajustado para dar mais altura */
+    background-color: #28a745; /* Cor de fundo do botão (verde) */
+    color: white; /* Cor do texto */
+    text-decoration: none; /* Remove o sublinhado do link */
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 20px; /* Tamanho da fonte maior */
+    width: 300px; /* Largura fixa do botão */
+    max-width: 100%; /* Para garantir que não ultrapasse a largura da tela */
+    transition: background-color 0.3s; /* Efeito de transição para hover */
+}
+
+.submit-button:hover {
+    background-color: #218838; /* Cor do botão ao passar o mouse */
+}
+
+.fade-in {
+    opacity: 0; /* Começa invisível */
+    transform: translateX(100px); /* Começa deslocado para a direita */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; /* Efeito de transição */
+}
+
+.fade-in.visible {
+    opacity: 1; /* Torna visível */
+    transform: translateX(0); /* Move para a posição original */
+}
+
+
+  </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="title">Curso Essencial de Informática para Iniciantes</h1>
+        <p>Transforme sua vida e abra novas oportunidades! Aprenda do básico ao intermediário de forma prática e rápida. Inscreva-se e comece sua jornada para dominar as noções essenciais de informática!</p>
+        
+        <p><strong>Por que aprender informática?</strong> Em um mundo cada vez mais digital, as habilidades de informática são essenciais para se destacar no mercado de trabalho. Não deixe que a falta de conhecimento tecnológico impeça seu sucesso!</p>
+        
+        <!-- Seção de Dias -->
+        <div class="section">
+            <h2>Introdução à Informática e ao Sistema Operacional</h2>
+            <img src="info3.webp" alt="Introdução à Informática" class="section-image">
+            <p><strong>Objetivos:</strong> Conheça os componentes do computador, explore o sistema operacional e aprenda a organizar arquivos e pastas.</p>
+            <p><strong>Atividades:</strong> Identificar componentes, criar pastas e navegar pelo sistema.</p>
+            <p><strong>Benefício:</strong> Domine as bases e ganhe confiança para enfrentar desafios tecnológicos com facilidade!</p>
+        </div>
+    
+        <div class="section">
+          <h2>Uso Básico do Microsoft Office</h2>
+          <img src="info2.webp" alt="Uso Básico do Microsoft Office" class="section-image">
+          <p><strong>Objetivos:</strong> Aprenda o básico de Word, Excel e PowerPoint para documentos, tabelas e apresentações.</p>
+          <p><strong>Atividades:</strong> Criar um currículo no Word e uma planilha simples no Excel.</p>
+          <p><strong>Benefício:</strong> Aumente sua empregabilidade ao desenvolver habilidades que são muito valorizadas no mercado!</p>
+          <div class="btn-container">
+              <a href="mestredoswaulas1.html" class="btn-pulsante">Ver Aulas</a>
+          </div>
+      </div>
+      
+      <style>
+          .btn-container {
+              text-align: center;
+              margin-top: 20px;
+          }
+          .btn-pulsante {
+              display: inline-block;
+              padding: 10px 20px;
+              font-size: 18px;
+              font-weight: bold;
+              color: #fff;
+              background-color: #007bff;
+              border-radius: 5px;
+              text-decoration: none;
+              animation: pulse 1.5s infinite;
+              transition: background-color 0.3s;
+          }
+          .btn-pulsante:hover {
+              background-color: #0056b3;
+          }
+          @keyframes pulse {
+              0% {
+                  transform: scale(1);
+              }
+              50% {
+                  transform: scale(1.1);
+              }
+              100% {
+                  transform: scale(1);
+              }
+          }
+      </style>
+      
+    
+        <div class="section">
+            <h2>Internet e Navegação Segura</h2>
+            <img src="info1.webp" alt="Internet e Navegação Segura" class="section-image">
+            <p><strong>Objetivos:</strong> Entenda a navegação segura na internet, segurança digital e prática de e-mails.</p>
+            <p><strong>Atividades:</strong> Buscar informações, configurar segurança, e enviar um e-mail de teste.</p>
+            <p><strong>Benefício:</strong> Proteja-se de riscos online e faça uso seguro da tecnologia em sua vida cotidiana!</p>
+        </div>
+    
+        <div class="section">
+            <h2>Edição de Documentos e Compartilhamento</h2>
+            <img src="ae280ede-9bc2-4456-ba93-09f806ef0c3d.webp" alt="Edição de Documentos" class="section-image">
+            <p><strong>Objetivos:</strong> Compartilhe documentos, organize na nuvem e aprenda a imprimir e digitalizar arquivos.</p>
+            <p><strong>Atividades:</strong> Criar documento no Google Docs, salvar no Drive e imprimir.</p>
+            <p><strong>Benefício:</strong> Aprenda a colaborar com outras pessoas de forma eficiente e organizada!</p>
+        </div>
+    
+        <div class="section">
+            <h2>Ferramentas e Aplicativos Essenciais para Produtividade</h2>
+            <img src="info5.webp" alt="Ferramentas e Aplicativos" class="section-image">
+            <p><strong>Objetivos:</strong> Descubra ferramentas como Google Calendar, PDF24, e Trello para organização e produtividade.</p>
+            <p><strong>Atividades:</strong> Criar evento no Google Calendar e explorar uma ferramenta de notas.</p>
+            <p><strong>Benefício:</strong> Melhore sua produtividade e organize sua rotina como nunca antes!</p>
+        </div>
+    </div>
+    
+      
+<!-- Seção de Chamada para Ação -->
+<div class="container">
+    <h1 class="title">Curso Essencial de Informática para Iniciantes</h1>
+    <p>Aprenda do básico ao intermediário de forma prática e rápida. Inscreva-se e comece sua jornada para dominar as noções essenciais de informática!</p>          
+
+    <footer>
+      <p>&copy; 2024 Comunidade Estudantil 4 ALL. Todos os direitos reservados. | <span class="footer-signature" onclick="window.open('https://wa.link/eq5rhp', '_blank')">Desenvolvido por Tilo Machado</span></p>
+  </footer>  
+</div>
+
+</div>
+
+        
+      
+
+ 
+</body>
+
+</html>
