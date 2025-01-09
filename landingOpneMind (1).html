@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transforme Sua Presença Digital</title>
+    <link rel="icon" href="icone.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="Aprenda habilidades essenciais e amplie seu alcance digital.">
+    <meta name="keywords" content="presença digital, aprendizado, comunidade, cursos online">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+    
+    <style>
+        /* Estilo do pop-up */
+        .popup {
+            position: fixed;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #28a745;
+            color: white;
+            font-style: italic;
+            padding: 10px 20px;
+            border-radius: 5px;
+            z-index: 1000;
+            animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
+        }
+    
+        /* Animações do pop-up */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    
+        /* Estilo da imagem centralizada */
+        .image-container {
+            overflow: hidden;
+            width: 100%;
+            box-sizing: border-box;
+            text-align: center;
+        }
+    
+        img.kelcia-img {
+            max-width: 100%;
+            height: auto;
+            display: inline-block;
+            padding: 0;
+            box-sizing: border-box;
+        }
+    
+        /* Estilo da seção de vídeos */
+        .video-vsl {
+            text-align: center;
+        }
+    
+        /* Estilo do contêiner de vídeo */
+        .video-container {
+            width: 100%;
+            max-width: 500px;
+            position: relative;
+            aspect-ratio: 16 / 9; /* Ajuste para a proporção desejada, como 16:9 */
+            overflow: hidden;
+            margin: 0 auto; /* Centraliza o contêiner */
+        }
+    
+        /* Estilo para o vídeo */
+        .square-video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+
+        .video-vsl {
+    text-align: center; /* Centraliza o conteúdo */
+    position: relative; /* Necessário para o posicionamento do vídeo */
+    width: 100%; /* Largura total do contêiner */
+    max-width: 720px; /* Largura máxima do contêiner */
+    margin: 0 auto; /* Centraliza o contêiner na página */
+}
+
+video {
+    width: 100%; /* O vídeo ocupa toda a largura do contêiner */
+    height: auto; /* Mantém a proporção do vídeo */
+    aspect-ratio: 1; /* Força o vídeo a ter uma proporção de 1:1 (quadrado) */
+    object-fit: cover; /* Cobre todo o contêiner mantendo o centro do vídeo */
+    display: none; /* Oculta o vídeo inicialmente */
+}
+
+.play-button {
+    position: absolute; /* Posiciona o botão sobre o vídeo */
+    top: 50%; /* Centraliza verticalmente */
+    left: 50%; /* Centraliza horizontalmente */
+    transform: translate(-50%, -50%); /* Ajusta a posição para o centro exato */
+    font-size: 50px; /* Tamanho do botão */
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    color: white; /* Cor do texto */
+    border: none; /* Remove a borda do botão */
+    border-radius: 50%; /* Botão circular */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+    padding: 15px; /* Espaçamento interno */
+    z-index: 10; /* Mantém o botão acima do vídeo */
+}
+
+.play-button:hover {
+    background: rgba(0, 0, 0, 0.7); /* Escurece o fundo ao passar o mouse */
+}
+
+/* Estilos para a barra de progresso */
+.progress-container {
+    width: 100%; /* Largura total da barra de progresso */
+    background: rgba(0, 0, 0, 0.5); /* Fundo da barra */
+    border-radius: 5px; /* Bordas arredondadas */
+    height: 10px; /* Altura da barra */
+    margin-top: 10px; /* Espaço acima da barra */
+}
+
+.progress-bar {
+    width: 0%; /* Inicia com largura 0% */
+    height: 100%; /* Altura igual à do contêiner */
+    background: #39ff14; /* Cor da barra de progresso */
+    border-radius: 5px; /* Bordas arredondadas */
+}
+
+
+header {
+    text-align: center; /* Centraliza o conteúdo do cabeçalho */
+    margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
+}
+
+h1 {
+    font-size: 36px; /* Tamanho do título */
+    color: #fff; /* Cor do título */
+}
+
+p {
+    color: #fff; /* Cor do texto */
+    text-align: center;       /* Centraliza o texto horizontalmente */
+}
+
+/* Mantenha o estilo da mensagem do botão */
+.button-text {
+    position: relative; /* Ajusta a posição da mensagem */
+    font-size: 24px; /* Tamanho da fonte */
+    color: #fff; /* Cor do texto */
+    background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
+    padding: 10px 20px; /* Espaçamento interno */
+    border-radius: 5px; /* Bordas arredondadas */
+    margin-top: 10px; /* Espaço acima da mensagem */
+}
+.facebook-feedback {
+    text-align: center;       /* Centraliza o texto horizontalmente */
+    font-size: 24px;          /* Tamanho da fonte para destaque */
+    font-weight: bold;        /* Deixa o texto em negrito */
+    color: #333333;           /* Cor do texto */
+    padding: 20px;            /* Espaço ao redor do texto */
+    margin: 20px auto;        /* Centraliza o bloco horizontalmente e cria espaço em cima e embaixo */
+    max-width: 600px;         /* Define uma largura máxima para a seção */
+    background-color: #f9f9f9;/* Cor de fundo suave */
+    border-radius: 10px;      /* Borda arredondada para destaque */
+}
+
+/* Estilo dos títulos */
+h2 {
+        color: #39ff14; /* Verde claro */
+        font-size: 30px;
+        margin: 10px 0;
+        text-align: center;
+    }
+
+    /* Estilo para parágrafos */
+    p {
+        color: #ffffff;
+        font-size: 18px;
+        margin-bottom: 15px;
+        line-height: 1.6;
+    }
+
+
+    .animated-list {
+    width: 100%; /* Mantém a lista ocupando a largura total do contêiner */
+    max-width: 600px; /* Largura máxima da lista */
+    margin: 0 auto; /* Centraliza a lista */
+    padding: 0; /* Remove o padding padrão da lista */
+}
+
+.animated-item {
+    opacity: 0; /* Inicialmente invisível */
+    transform: translateX(-20px); /* Move para a esquerda */
+    animation: fadeInFromLeft 0.8s forwards, pulse 1.5s infinite; /* Animações de aparecer e pulsar */
+    margin: 10px 0; /* Espaçamento entre os itens */
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 20px 25px; /* Diminui o espaçamento interno */
+    color: white; /* Cor do texto */
+    font-weight: bold; /* Texto em negrito */
+    text-align: left; /* Alinha o texto à esquerda */
+}
+
+/* Animação de aparecer da esquerda */
+@keyframes fadeInFromLeft {
+    0% {
+        opacity: 0; /* Inicialmente invisível */
+        transform: translateX(-20px); /* Move para a esquerda */
+    }
+    100% {
+        opacity: 1; /* Torna visível */
+        transform: translateX(0); /* Retorna à posição original */
+    }
+}
+
+/* Animação pulsante */
+@keyframes pulse {
+    0% {
+        transform: scale(1); /* Escala normal */
+    }
+    50% {
+        transform: scale(1.05); /* Aumenta um pouco */
+    }
+    100% {
+        transform: scale(1); /* Retorna ao normal */
+    }
+}
+
+/* Efeito de cor gradiente verde */
+.animated-item:nth-child(odd) {
+    background: linear-gradient(90deg, #162017, #7f012b); /* Gradiente verde claro */
+}
+
+.animated-item:nth-child(even) {
+    background: linear-gradient(90deg, #7f012b, #162017); /* Gradiente verde escuro */
+}
+
+/* Adiciona um atraso à animação para cada item */
+.animated-item:nth-child(1) { animation-delay: 0.1s; }
+.animated-item:nth-child(2) { animation-delay: 0.2s; }
+.animated-item:nth-child(3) { animation-delay: 0.3s; }
+.animated-item:nth-child(4) { animation-delay: 0.4s; }
+.animated-item:nth-child(5) { animation-delay: 0.5s; }
+.animated-item:nth-child(6) { animation-delay: 0.6s; }
+.animated-item:nth-child(7) { animation-delay: 0.7s; }
+.animated-item:nth-child(8) { animation-delay: 0.8s; }
+.animated-item:nth-child(9) { animation-delay: 0.9s; }
+.animated-item:nth-child(10) { animation-delay: 1.0s; }
+.animated-item:nth-child(11) { animation-delay: 1.1s; }
+.animated-item:nth-child(12) { animation-delay: 1.2s; }
+.animated-item:nth-child(13) { animation-delay: 1.3s; }
+
+
+/* Centralizar e estilizar o container do vídeo */
+.video-container {
+    max-width: 600px; /* Largura máxima para o vídeo */
+    margin: 0 auto; /* Centralizar o vídeo */
+    padding: 10px;
+    border: 2px solid #39ff14;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Estilizar o contador de visualizações */
+.view-counter {
+    color: #39ff14;
+    font-size: 1.2em;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+
+/* Estilo geral da seção de vídeo */
+.video-vsl {
+    margin: 20px auto;
+    text-align: center;
+    max-width: 800px; /* Limite de largura da seção */
+}
+
+
+
+
+
+/* Estilo do botão de play */
+.play-button {
+    margin-top: 10px; /* Espaçamento acima do botão */
+    padding: 10px 15px; /* Espaçamento interno do botão */
+    font-size: 16px; /* Tamanho da fonte */
+    background-color: #ff0000; /* Cor de fundo do botão */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Arredondar os cantos do botão */
+    cursor: pointer; /* Mudar o cursor ao passar o mouse */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+/* Efeito hover para o botão de play */
+.play-button:hover {
+    background-color: #eeff00; /* Cor de fundo quando o mouse está sobre o botão */
+}
+
+/* Estilo do contador de visualizações */
+.view-counter {
+    margin-top: 20px; /* Espaçamento acima do contador */
+    font-size: 16px; /* Tamanho da fonte */
+    color: #ff0000; /* Cor do texto */
+}
+
+        
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>OPEN MIND</h1>
+       
+        <p id="buttonText" class="button-text">Aperte no Botão ▶</p>
+    </header>
+
+    <div class="container">
+        <section class="video-vsl">
+          
+            <!-- Vídeo local -->
+            <video id="myVideo" width="100%">
+                
+                <source src="0930.mp4" type="video/mp4">
+                Seu navegador não suporta a reprodução de vídeos.
+            </video>
+    
+            <!-- Botão de play -->
+            <button id="playButton" class="play-button">▶</button>
+
+            <!-- Barra de progresso -->
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+    
+            <!-- Contador de visualizações -->
+            <div class="view-counter" style="color: #39ff14;">
+                <span id="view-count">0</span> pessoas estão assistindo este vídeo agora.
+            </div>
+        </section>
+    </div>
+
+        <section class="description hidden">
+            <h2>O que é a Open Mind?</h2>
+            <p>A Open Mind é uma plataforma inovadora que conecta você a cursos e conteúdos de alta qualidade, capacitando você a desenvolver habilidades essenciais para o mundo digital.</p>
+            <img src="039409ea-f57a-4329-9b7e-1557e9bd59b3.webp" alt="Descrição da Open Mind" class="kelcia-img hidden">
+        </section>
+
+        <section class="what-you-will-learn hidden">
+            <h2>O que você irá aprender?</h2>
+    
+    <ul class="animated-list">
+        <li class="animated-item">✅ Criação e Estruturação de Sites: Desde o básico até técnicas avançadas de design.</li>
+        <li class="animated-item">✅ Uso de HTML/CSS: Como construir e estilizar páginas web.</li>
+        <li class="animated-item">✅ Interatividade com JavaScript: Como adicionar funcionalidades interativas aos sites.</li>
+        <li class="animated-item">✅ Práticas de UX: Como criar experiências de usuário mais envolventes.</li>
+        <li class="animated-item">✅ Estratégias de Conteúdo Digital: Como redigir textos eficazes para a web.</li>
+        <li class="animated-item">✅ Fundamentos do Marketing Digital: Introdução a conceitos de promoção online e engajamento de audiência.</li>
+        <li class="animated-item">✅ Reparação e Manutenção de Software: Técnicas e melhores práticas.</li>
+        <li class="animated-item">✅ Criação e Edição de Vídeos: Ferramentas e dicas para criar conteúdo audiovisual.</li>
+        <li class="animated-item">✅ Análise de Dados: Como coletar e interpretar dados para tomada de decisão.</li>
+        <li class="animated-item">✅ Gestão de Redes Sociais: Como construir e manter uma presença eficaz nas mídias sociais.</li>
+        <li class="animated-item">✅ SEO e Otimização de Sites: Práticas para melhorar a visibilidade nos motores de busca.</li>
+        <li class="animated-item">✅ Publicidade Digital: Estratégias para campanhas online eficazes.</li>
+        <li class="animated-item">✅ Pesquisa de Mercado: Métodos e técnicas para entender o mercado.</li>
+        <li class="animated-item">✅ Tenha a chance de se tornar especialista em mais de 1000 inteligências artificiais como bônus, com aprendizado através de cursos online interativos, workshops e materiais de estudo abrangentes.</li>
+
+    </ul>
+    
+            
+            
+            
+        </section>
+
+        <section class="benefits hidden">
+            <h2>Benefícios de participar na</h2>
+            <h2>Open Mind</h2>
+            
+            
+            <ul class="animated-list">
+                <li class="animated-item">✅ Acesso a uma comunidade vibrante e colaborativa.</li>
+                <li class="animated-item">✅ Conteúdos atualizados regularmente.</li>
+                <li class="animated-item">✅ Oportunidades de networking.</li>
+                <li class="animated-item">✅ Suporte contínuo de especialistas.</li>
+                <li class="animated-item">✅ Suporte no WhatsApp: Online até 12 horas por dia e 6 dias da semana (das 9h às 20h) para dúvidas.</li>
+                <li class="animated-item">✅ Acesso aos conteúdos de forma vitalícia.</li>
+                
+               
+            </ul>
+            <div class="btn-container hidden">
+                <a href="register.html" class="btn-principal">Quero me Cadastrar</a>
+            </div>
+            
+        </section>
+
+        <section class="vpn hidden">
+            <h2>Garanta seu acesso com uma conexão rápida!</h2>
+            <img src="1.webp" alt="Benefícios da Open Mind" class="kelcia-img hidden">
+            <!-- Lista de Instruções com Animação -->
+<ul class="animated-list">
+    <li class="animated-item">✅ Acesse a App Store ou Google Play Store.</li>
+    <li class="animated-item">✅ Abra o aplicativo e clique em "Conectar" para começar.</li>
+</ul>
+
+            
+            <div class="btn-container">
+                <a href="visibilidadefree.html" class="btn-principal">Saiba mais sobre os VPN</a>
+            </div>
+           
+        </section>
+
+        <section class="comments hidden">
+            <h2>Veja o que estão dizendo no Facebook</h2>
+            <img src="landingOpneMind (1).png" alt="Comentários" class="kelcia-img hidden">
+
+          
+        </section>
+
+         
+
+        
+        
+        <section class="video-vsl hidden">
+            <h2>Veja como se cadastrar</h2>
+            
+            <!-- Contêiner escuro para o vídeo -->
+            <div class="video-dark-container">
+                <div class="video-container1">
+                    <video id="myVideo1" width="480" height="726" controls loop>
+                        <source src="video.mp4" type="video/mp4">
+                        Seu navegador não suporta a reprodução de vídeos.
+                    </video>
+        
+                    <!-- Contador de visualizações -->
+                    <div class="view-counter">
+                        <span id="view-count1">0</span> pessoas estão assistindo este vídeo agora.
+                    </div>
+                </div>
+            </div>
+        
+            <style>
+                /* Estilo específico da seção de vídeo */
+                .video-vsl {
+                    
+                    
+                    text-align: center;
+                    max-width: 480px; /* Largura fixa da seção */
+                    
+                    
+                    padding: 10px; /* Espaçamento interno */
+                    
+                }
+        
+                /* Estilo do contêiner escuro */
+                .video-dark-container {
+                    background-color: #000000; /* Cor de fundo escura */
+                    padding: 15px; /* Espaçamento interno da div escura */
+                    border-radius: 8px; /* Arredondamento dos cantos da div escura */
+                }
+        
+                /* Estilo do contêiner do vídeo */
+                .video-container1 {
+                    background-color: #000000; /* Cor de fundo escura */
+                    position: relative; /* Para posicionar elementos filhos */
+                    width: 100%; /* Largura total */
+                    height: 726px; /* Altura fixa */
+                    overflow: hidden; /* Para ocultar o que ultrapassar o contêiner */
+                }
+        
+                /* Estilo do vídeo */
+                video {
+                    background-color: #000000; /* Cor de fundo escura */
+                    width: 100%; /* Largura total */
+                    height: 100%; /* Altura total */
+                    display: block; /* Para evitar espaços em branco */
+                }
+            </style>
+             
+        </section>
+        <div class="btn-container hidden">
+            <a href="register.html" class="btn-principal">Quero me Cadastrar</a>
+        </div>
+        
+        
+        
+        
+
+        <section class="cta hidden">
+            <h2>Pronto para turbinar suas vendas?</h2>
+            <p>Não perca a oportunidade de transformar sua presença digital. Entre agora na comunidade e comece a aprender com outros profissionais.</p>
+            <img src="11.webp" alt="Benefícios da Open Mind" class="kelcia-img hidden">
+            
+            
+             
+            <div class="btn-container hidden">
+                <a href="informatica-openmind.html" class="btn-principal">Quero o Presente</a>
+            </div>
+        </section>
+        
+
+        
+                              
+       
+       
+        
+        
+        
+        
+    </div>
+
+    <footer>
+        <p>&copy; 2024 - Open Mind. Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module">
+        // Importação e Configuração do Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, doc, setDoc, updateDoc, increment, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Variável e Atualização de Contagem de Visualizações Simulada
+        let viewCount = Math.floor(Math.random() * (16 - 8 + 1)) + 8; // Gera entre 8 e 16 visualizações inicialmente
+        const viewCountElement = document.getElementById('view-count');
+        
+        setInterval(() => {
+            if (viewCount <= 52) {
+                viewCount++;
+                viewCountElement.textContent = viewCount;
+            }
+        }, 10000); // Atualiza a cada 10 segundos
+    
+        // Função para inicializar visualizações no Firestore
+        async function initializeViewCount() {
+            const videoDocRef = doc(db, "videoViews", "statistics");
+    
+            const docSnapshot = await getDoc(videoDocRef);
+            if (!docSnapshot.exists()) {
+                // Se o documento não existe, cria um com 0 visualizações
+                await setDoc(videoDocRef, { views: 0 });
+            }
+        }
+    
+        // Função para registrar visualização no Firestore
+        async function registerVideoView() {
+            const videoDocRef = doc(db, "videoViews", "statistics");
+            await updateDoc(videoDocRef, { views: increment(1) }); // Incrementa o contador de visualizações
+        }
+    
+        // Exibir elementos ocultos após um tempo (ajustado para 7,5 segundos)
+        setTimeout(() => {
+            document.querySelectorAll('.hidden').forEach(element => element.classList.remove('hidden'));
+        }, 80000);
+    
+        // Dados e exibição de pop-ups de inscrições simuladas
+        const names = [
+            "Ana", "Carlos", "Mariana", "José", "Patrícia", "Fernando", "Luciana", "Rafael", "Fernanda", "Roberto",
+            "Juliana", "Eduardo", "Amanda", "Thiago", "Bruna", "Marcos", "Simone", "Gustavo", "Tatiane", "Diego",
+            "Letícia", "Sérgio", "Aline", "Renato", "Lívia", "Isabella", "Felipe", "Danielle", "Jéssica", "Gabriel",
+            "Flávia", "Samuel", "Juliano", "Nathalia", "Vinícius", "Cláudia", "Núbia", "Paulo", "Kátia", "Juliana",
+            "Ronaldo", "Camila", "Eduarda", "Luan", "Fernando", "Victor", "Yasmin", "Gisele", "Luiz", "Aline",
+            "Paula", "Thais", "Rodrigo", "Priscila", "Cecília", "Luan", "Letícia", "Murilo", "Luana", "Tânia",
+            "Marcel", "Daniela", "Fábio", "Roberta", "Sofia", "André", "Cristiane", "Catarina", "Milena", "Leonardo",
+            "Luciane", "Jorge", "Elaine", "Patrícia", "Gabriela", "Sérgio", "Karla", "Marcelo", "Raquel", "Tássia", 
+            "Felipe", "Henrique", "Vera", "Isabel", "Joana", "Pedro", "Antônio", "Cássia", "Miguel", "Elisabete"
+        ];
+        
+        const messages = [
+            "inscreveu-se na Open Mind!",
+            "se registrou no curso de Informática Básica!",
+            "inscreveu-se em Cursos de Marketing Digital!",
+            "aderiu ao Hotmart do Zero!",
+            "entrou no curso Preparação Mental!"
+        ];
+    
+        setInterval(() => {
+            const randomName = names[Math.floor(Math.random() * names.length)];
+            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
+            showPopup(`${randomName} ${randomMessage}`);
+        }, 15000); // Cada 15 segundos
+    
+        // Função para exibir e ocultar pop-ups de mensagens
+        function showPopup(message) {
+            const popup = document.createElement('div');
+            popup.classList.add('popup');
+            popup.textContent = message;
+            document.body.appendChild(popup);
+    
+            setTimeout(() => {
+                popup.style.opacity = '0'; // Inicia a transição de opacidade
+                setTimeout(() => document.body.removeChild(popup), 500); // Remove o pop-up após a animação
+            }, 3000); // O pop-up desaparece após 3 segundos
+        }
+    
+        // Controles de vídeo e barra de progresso
+        const video = document.getElementById('myVideo');
+        const playButton = document.getElementById('playButton');
+        const progressBar = document.getElementById('progressBar');
+    
+        playButton.addEventListener('click', async function() {
+            video.style.display = 'block';
+            video.play();
+            playButton.style.display = 'none';
+            await registerVideoView(); // Registra a visualização no Firestore
+    
+            video.addEventListener('timeupdate', function() {
+                const percent = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = `${percent}%`;
+            });
+        });
+    
+        video.addEventListener('ended', function() {
+            progressBar.style.width = '0%';
+            playButton.style.display = 'block';
+            video.style.display = 'none';
+        });
+    
+        // Oculta o texto do botão após 5 segundos
+        setTimeout(() => {
+            document.getElementById('buttonText').style.display = 'none';
+        }, 5000);
+    
+        // Inicializa o contador de visualizações no Firestore
+        initializeViewCount();
+    </script>
+    
+    
+    </script>
+</body>
+</html>
