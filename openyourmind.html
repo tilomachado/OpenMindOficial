@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPEN MIND - Open Your Mind Here</title>
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="Um Caminho para o Crescimento e a Compreensão">
+    <meta name="keywords" content="Renda Extra, dicas, vídeo, comunidade">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 10px;
+            background: rgba(0, 0, 0, 0.8);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+        }
+
+        header h1 {
+            color: #ffcc00;
+            font-size: 3em;
+            text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.7);
+            margin: 0;
+        }
+
+        .carousel-container {
+    overflow: hidden;
+    width: 100%;
+    max-width: 600px; /* Limita a largura do carrossel */
+    margin: 10px auto;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5);
+}
+
+.carousel {
+    display: flex;
+    transition: transform 0.6s ease-in-out;
+    padding: 10px 0;
+}
+
+.course {
+    background: rgba(0, 0, 0, 0.85);
+    padding: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    width: 90%; /* Alterar para width para um comportamento mais consistente */
+    margin: 0 5%; /* Margem lateral para espaçamento */
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column; /* Coloca os elementos em coluna */
+    align-items: center; /* Centraliza os itens */
+    justify-content: center; /* Alinha o conteúdo no centro */
+    min-width: 300px; /* Para garantir que os cursos não fiquem muito pequenos */
+}
+
+/* Ajuste adicional para responsividade */
+@media (max-width: 600px) {
+    .course {
+        width: 100%; /* Em telas menores, os cursos ocupam 100% da largura */
+        margin: 0; /* Remove margens para que não causem overflow */
+    }
+}
+
+
+        .course:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+        }
+
+        .kelcia-img {
+            width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            margin-bottom: 15px;
+        }
+
+        .course h2 {
+            color: #ffcc00;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .course p {
+            text-align: center;
+            margin-bottom: 15px;
+            line-height: 1.6;
+            color: #d3d3d3;
+        }
+
+        .carousel-buttons {
+            display: flex;
+            justify-content: space-between;
+            width: 90%;
+            max-width: 600px; /* Ajuste a largura máxima para os botões do carrossel */
+            margin: 10px auto;
+        }
+
+        .nav-button {
+            background-color: #ffcc00;
+            border: none;
+            padding: 15px 25px;
+            cursor: pointer;
+            font-size: 1.5em;
+            border-radius: 10px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .nav-button:hover {
+            background-color: #ff9900;
+            transform: scale(1.1);
+        }
+
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        .btn-principal {
+            background: linear-gradient(90deg, #00ff00, #32cd32);
+            color: #333;
+            padding: 15px 25px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            animation: pulse 1.5s infinite;
+            transition: background 0.3s ease, transform 0.2s;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .btn-principal:hover {
+            background: linear-gradient(90deg, #32cd32, #00ff00);
+            transform: scale(1.1);
+        }
+
+        footer {
+            text-align: center;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.6);
+            width: 100%;
+            max-width: 1200px;
+            border-radius: 10px;
+            margin-top: 20px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            text-align: justify;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(31, 31, 31, 0.9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 9999;
+        }
+
+        .spinner {
+            border: 8px solid rgba(255, 255, 255, 0.2);
+            border-top: 8px solid #ffcc00;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .popup {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+        .box {
+    width: 200px;
+    height: 100px;
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.moving {
+    opacity: 0;
+    transform: translateX(50px); /* Mover para a direita */
+}
+
+.move-to-destination {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+    </style>
+</head>
+<body>
+    <div id="loading" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+    
+    <header>
+        <h1>Open Your Mind Here!</h1>
+        <p class="course-description">
+            Aprenda estratégias de marketing digital, desde o básico até campanhas avançadas. Ao final do curso, você será capaz de:
+        </p>
+        <ul>
+            <li>✅ Compreender fundamentos do marketing digital.</li>
+            <li>✅ Criar campanhas eficazes.</li>
+            <li>✅ Implementar SEO.</li>
+            <li>✅ Gerenciar redes sociais.</li>
+            <li>✅ Analisar métricas.</li>
+        </ul>
+    </header>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="course">
+                <h2>Preparação Mental</h2>
+                <img src="mental-preparation.webp" alt="Preparação Mental" class="kelcia-img">
+                <p>Aprenda a desenvolver uma mente preparada para o sucesso pessoal e profissional.</p>
+                <div class="btn-container">
+                    <a href="VLS.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="course">
+                <h2>Curso de Informática Básica</h2>
+                <img src="DALL·E 2024-11-01 23.30.39 - A high-quality image representing a basic computer course, featuring digital learning elements such as a computer, .webp" alt="Curso de Informática" class="kelcia-img">
+                <p>Aprenda os conceitos fundamentais de informática e inicie sua jornada no mundo digital.</p>
+                <div class="btn-container">
+                    <a href="maquinadevendas.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="course">
+                <h2>Guia de Criação de Contas no Facebook</h2>
+                <img src="facebook-setup.webp" alt="Preparação Mental" class="kelcia-img">
+                <p>Transforme seu Facebook em uma máquina de vendas com estratégias eficazes!</p>
+                <div class="btn-container">
+                    <a href="maquinadevendas.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="course">
+                <h2>Transforme seu Hotmart em uma Máquina de Vendas</h2>
+                <img src="44d98171-2e12-4f39-9979-435816c98281.webp" alt="Criação de Contas no Facebook" class="kelcia-img">
+                <p>Aprenda técnicas de otimização, lançamento de produtos que impulsionam vendas e seu alcance no mercado de produtos digitais.</p>
+                <div class="btn-container">
+                    <a href="principalplayer.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="carousel-buttons">
+        <button id="prev" class="nav-button">&#9664; Anterior</button>
+        <button id="next" class="nav-button">Próximo &#9654;</button>
+    </div>
+
+    <footer>
+        <p>© 2024 Open Mind - Todos os direitos reservados.</p>
+        
+    </footer>
+
+    <script>
+        let currentIndex = 0;
+
+        function showCarouselItem(index) {
+            const items = document.querySelectorAll('.course');
+            const totalItems = items.length;
+
+            // Ocultar todos os itens
+            items.forEach(item => item.style.display = 'none');
+
+            // Mostrar o item atual
+            items[index].style.display = 'block';
+        }
+
+        // Navegar para o próximo item
+        function nextItem() {
+            currentIndex = (currentIndex + 1) % document.querySelectorAll('.course').length;
+            showCarouselItem(currentIndex);
+        }
+
+        // Navegar para o item anterior
+        function prevItem() {
+            currentIndex = (currentIndex - 1 + document.querySelectorAll('.course').length) % document.querySelectorAll('.course').length;
+            showCarouselItem(currentIndex);
+        }
+
+        // Adicionar eventos aos botões
+        document.getElementById('next').addEventListener('click', nextItem);
+        document.getElementById('prev').addEventListener('click', prevItem);
+
+        // Mostrar o primeiro item inicialmente
+        showCarouselItem(currentIndex);
+
+        // Ocultar a sobreposição de carregamento após 1 segundo
+        window.onload = function() {
+            document.getElementById('loading').style.display = 'none';
+        };
+    </script>
+</body>
+</html>

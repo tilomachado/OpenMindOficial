@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <title>Cadastro</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        /* Estilos Básicos */
+        /* Estilos Básicos */
+/* Estilo global */
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: auto; /* Permite rolagem, se necessário */
+}
+
+/* Container do formulário */
+.container {
+    background: linear-gradient(135deg, #3a3a3a, #444, #1f1f1f);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+    max-width: 90%;
+    width: 400px;
+    text-align: center;
+    max-height: 90vh; /* Impede que ultrapasse a altura da tela */
+    overflow-y: auto; /* Rolagem se necessário */
+}
+
+/* Título */
+h2 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ffcc00;
+    font-size: 2em;
+}
+
+/* Campos de entrada */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #aaa;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 2px solid transparent;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+    font-size: 1em;
+    transition: background-color 0.3s, border 0.3s;
+}
+
+.input-field:focus {
+    background-color: #555;
+    border: 2px solid #ff007f;
+}
+
+/* Botão principal */
+.btn {
+    background: linear-gradient(90deg, #28a745, #218838);
+    color: #ffffff;
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 1.2em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #218838, #28a745);
+    transform: scale(1.05);
+}
+
+/* Modal */
+.modal, .error-modal, .success-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.modal-content {
+    background-color: #000;
+    color: #ffcc00;
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 500px;
+    position: relative;
+    box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #ff0000;
+}
+
+/* Estilo de botão alternativo */
+.pink-btn {
+    background-color: #ff007f;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.pink-btn:hover {
+    background-color: #ff0057;
+}
+
+/* Ícones de erro e sucesso */
+.error-icon, .success-icon {
+    font-size: 1.5em;
+}
+
+/* Animação de carregamento */
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #ffcc00;
+    border-radius: 50%;
+    border-top: 4px solid transparent;
+    animation: spin 1s linear infinite;
+    box-shadow: 0 0 10px rgba(255, 204, 0, 0.8), 0 0 20px rgba(255, 204, 0, 0.6);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Ajustes para telas menores */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 1.8em;
+    }
+
+    .btn {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <body>
+        <div class="container">
+            <h2>Cadastro</h2>
+            <form id="registerForm">
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" class="input-field" placeholder="Digite seu nome de usuário" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="input-field" placeholder="Digite seu email" required>
+        
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" class="input-field" placeholder="Digite seu telefone" required>
+        
+                <label for="password">Senha:</label>
+                <input type="password" id="password" class="input-field" placeholder="Digite sua senha" required>
+        
+                <label for="confirmPassword">Confirme sua Senha:</label>
+                <input type="password" id="confirmPassword" class="input-field" placeholder="Confirme sua senha" required>
+        
+                <label for="favoriteSubject">Qual é a sua disciplina favorita? (Resposta de Segurança)</label>
+                <input type="text" id="favoriteSubject" class="input-field" placeholder="Digite sua disciplina favorita" required>
+        
+                <label class="accept-terms">
+                    <input type="checkbox" id="acceptTerms" required>
+                    Aceito os <a href="termos-de-servico.html" target="_blank" class="pink-btn">Termos de Serviço</a> e a <a href="politica-privacidade.html" target="_blank" class="pink-btn">Política de Privacidade</a>
+                </label>
+        
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+            
+            <button id="loginButton" class="btn" style="margin-top: 10px;">Já tem uma conta? Faça login aqui</button>
+        
+            <div class="loading" id="loadingIndicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Criando conta...</p>
+            </div>
+        
+            <!-- Modal de Erro -->
+            <div class="error-modal" id="errorModal" style="display: none;">
+                <div class="error-modal-content">
+                    <h1 class="error-icon">⚠️ Erro no Cadastro</h1>
+                    <p id="errorMessage">😢 Este email já está em uso nesta plataforma. Tente com outro email.</p>
+                    <button class="close-error-btn" id="closeErrorModal">Fechar</button>
+                </div>
+            </div>
+        
+            <!-- Modal de Sucesso -->
+            <div class="success-modal" id="successModal" style="display: none;">
+                <div class="success-modal-content">
+                    <h1 class="success-icon">🎉Parabêns!</h1>
+                    <p id="successMessage">Sua conta foi criada com sucesso!</p>
+                    <p>Junte-se ao nosso grupo no WhatsApp:</p>
+                    <a href="https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR" target="_blank">
+                        <button class="btn">Clique aqui para participar</button>
+                    </a>
+                    <button class="close-success-btn" id="closeSuccessModal">Fechar</button>
+                </div>
+            </div>
+        </div>
+        
+            <script type="module">
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+                import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+                import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+            
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+                    authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+                    projectId: "plataforma-do-mini-curso",
+                    storageBucket: "plataforma-do-mini-curso.appspot.com",
+                    messagingSenderId: "424655587612",
+                    appId: "1:424655587612:web:851858a379c334227056e4",
+                    measurementId: "G-6CE0E9R3J5"
+                };
+            
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                const db = getFirestore(app);
+        
+            const registerForm = document.getElementById('registerForm');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorModal = document.getElementById('errorModal');
+            const successModal = document.getElementById('successModal');
+            const errorMessage = document.getElementById('errorMessage');
+            const closeErrorModal = document.getElementById('closeErrorModal');
+            const closeSuccessModal = document.getElementById('closeSuccessModal');
+        
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                loadingIndicator.style.display = 'flex';
+        
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const password = document.getElementById('password').value;
+                const favoriteSubject = document.getElementById('favoriteSubject').value;
+        
+                // Captura a data atual
+                const creationDate = new Date().toISOString();
+        
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+        
+                    // Armazenar informações do usuário no Firestore
+                    await setDoc(doc(db, "usuarios", user.uid), {
+                        username,
+                        email,
+                        phone,
+                        favoriteSubject,
+                        creationDate // Adiciona a data de criação aqui
+                    });
+        
+                    loadingIndicator.style.display = 'none';
+                    successModal.style.display = 'flex';
+        
+                    // Atualiza a mensagem de sucesso com o nome do usuário
+                    document.getElementById('successMessage').innerHTML = `Olá ${username}, seja bem vindo/a! a nossa Plataforma de Ensino e Aprendizagem Digital!`;
+        
+                } catch (error) {
+                    loadingIndicator.style.display = 'none';
+        
+                    if (error.code === 'auth/email-already-in-use') {
+                        errorMessage.textContent = "😢 Este email já está em uso nesta plataforma. Tente com outro email.";
+                        errorModal.style.display = 'flex';
+                    } else {
+                        errorMessage.textContent = "😢 Ocorreu um erro inesperado. Tente novamente.";
+                        errorModal.style.display = 'flex';
+                    }
+                }
+            });
+        
+            closeErrorModal.addEventListener('click', () => {
+                errorModal.style.display = 'none';
+            });
+        
+            closeSuccessModal.addEventListener('click', () => {
+                successModal.style.display = 'none';
+                window.location.href = "index.html"; // Redireciona para index.html quando o modal de sucesso é fechado
+            });
+        
+            document.getElementById('loginButton').addEventListener('click', () => {
+                window.location.href = "index.html";
+            });
+        </script>
+        
+                
+    </body>
+    </html>
+

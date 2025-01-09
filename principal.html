@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <title>Minicurso Gratuito</title>
+    
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        /* Estilos Gerais */
+        body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza verticalmente */
+    text-align: center; /* Centraliza texto */
+    min-height: 100vh; /* Garante que ocupe a altura total da tela */
+    overflow-x: hidden; /* Evita a rolagem horizontal */
+}
+
+/* Animação de brilho no título */
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 10px #ff007f, 0 0 20px #7700ff, 0 0 30px #ff007f;
+    }
+    to {
+        text-shadow: 0 0 20px #ff007f, 0 0 40px #7700ff, 0 0 60px #ff007f;
+    }
+}
+
+/* Estilo do cabeçalho */
+header {
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    padding: 20px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+header h1 {
+    font-size: 2.5em;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: neon-glow 1.5s infinite alternate;
+}
+
+/* Contêiner principal */
+.container {
+    width: 100%;
+    max-width: 800px; /* Largura máxima para evitar conteúdo muito largo */
+    margin: 0; /* Remove margens */
+    padding: 0 20px; /* Adiciona um pequeno preenchimento lateral */
+}
+
+/* Estilo das seções de vídeo */
+.video-section {
+    background: rgba(255, 255, 255, 0.05);
+    margin: 20px 0; /* Espaçamento vertical */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    transition: box-shadow 0.3s; /* Remove a transformação */
+}
+.video-section:hover {
+    box-shadow: 0 0 30px rgba(0, 255, 255, 0.8);
+}
+.video-section h2 {
+    font-size: 1.8em;
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+}
+
+/* Estilo do container do vídeo */
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* Proporção 16:9 */
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 5px 20px rgba(0, 255, 255, 0.3);
+    margin-bottom: 20px; /* Espaço abaixo do vídeo */
+}
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+}
+
+/* Ícone do cadeado */
+.lock-icon {
+    font-size: 3em; /* Tamanho do ícone */
+    color: #ffcc00; /* Cor do ícone */
+    margin: 20px 0; /* Espaçamento em cima e embaixo */
+}
+
+/* Botão Adquirir */
+.adquirir-button {
+    background-color: #ff00cc;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+    display: inline-block;
+    margin-top: 20px; /* Espaçamento acima do botão */
+}
+.adquirir-button:hover {
+    background-color: #ff33ff;
+    transform: scale(1.1); /* Efeito de aumento */
+}
+/* Estilo do botão para o link do eBook */
+.e-book-button {
+    display: inline-block; /* Para adicionar padding */
+    padding: 10px 20px; /* Espaçamento interno */
+    background-color: #4CAF50; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado */
+    transition: background-color 0.3s; /* Animação ao passar o mouse */
+}
+
+.e-book-button:hover {
+    background-color: #45a049; /* Cor de fundo ao passar o mouse */
+}
+
+
+
+/* Rodapé */
+footer {
+    background-color: #111;
+    color: #999;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    width: 100%;
+    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
+}
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    .video-container iframe {
+        height: 250px;
+    }
+    .container {
+        padding: 0; /* Remove o preenchimento lateral em telas menores */
+    }
+    .lock-icon {
+        font-size: 2.5em; /* Ajusta o tamanho do ícone em telas menores */
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+    .video-section h2 {
+        font-size: 1.5em;
+    }
+    .video-container iframe {
+        height: 200px;
+    }
+    .container {
+        padding: 0; /* Remove o preenchimento lateral em telas menores */
+    }
+    .lock-icon {
+        font-size: 2em; /* Ajusta o tamanho do ícone em telas menores */
+    }
+}
+
+
+
+    </style>
+</head>
+<body>
+   
+
+    <main>
+        <!-- Seções de aulas com efeito de desfoque -->
+        <section id="aula1" class="video-section blurred">
+            <h2>Aula 1: Introdução ao Marketing Digital</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO1" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula2" class="video-section blurred">
+            <h2>Aula 2: Como Usar Seu Celular para Criar Conteúdos</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO2" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula3" class="video-section blurred">
+            <h2>Aula 3: Configurando Seus Perfis no Facebook</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO3" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula4" class="video-section blurred">
+            <h2>Aula 4: Criando e Configurando Imagens e Logos</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO4" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula5" class="video-section blurred">
+            <h2>Aula 5: Criação e Edição de Vídeos para Redes Sociais</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO5" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula6" class="video-section blurred">
+            <h2>Aula 6: O que é Marketing Digital e Como Trabalhar com Hotmart (Teoria)</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO6" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula7" class="video-section blurred">
+            <h2>Aula 7: Como Criar Conteúdos no Instagram (Teoria)</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO7" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula8" class="video-section blurred">
+            <h2>Aula 8: Teoria de Utilização de Redes Sociais para Vendas</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO8" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula9" class="video-section blurred">
+            <h2>Aula 9: Prática de Criação de Campanhas de Vendas no Facebook e Instagram</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO9" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula10" class="video-section blurred">
+            <h2>Aula 10: Preparação do Conteúdo de Marketing e Criação da Campanha no Facebook</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO10" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula11" class="video-section blurred">
+            <h2>Aula 11: Como Funciona a Hotmart e Como Usar a Plataforma (Teoria)</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO11" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula12" class="video-section blurred">
+            <h2>Aula 12: Criação da Página de Vendas e Estrutura de Lançamento</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO12" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula13" class="video-section blurred">
+            <h2>Aula 13: Como Criar a Página de Agradecimento</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO13" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula14" class="video-section blurred">
+            <h2>Aula 14: Ferramentas que Você Pode Usar para Gerar Leads</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/EXEMPLO14" allowfullscreen></iframe>
+            </div>
+        </section>
+    
+        <section id="aula15" class="video-section blurred">
+            <h2>Guia Completo para a Criação de Riqueza: Estratégias, Planejamento e Gestão de Patrimônio</h2>
+            <div class="video-container">
+                <iframe src="https://www.youtube.com/embed/e-yV2O-hytQ" allowfullscreen></iframe>
+            </div>
+            <p>
+                O guia aborda a criação de riqueza através da identificação de talentos e da agregação de valor à vida das pessoas. Enfatiza a importância de entender as necessidades humanas e de se conectar com os outros para resolver problemas. A mentalidade e a persistência são cruciais para o sucesso e a realização pessoal.
+            </p>
+            <a href="https://pay.hotmart.com/U91756543K" class="adquirir-button">Adquira o Curso Avançado Agora!</a>
+        </section>
+    </main>
+
+    <style>
+        /* Estilo para o efeito de desfoque */
+        .blurred {
+            filter: blur(4px); /* Ajuste a intensidade do desfoque conforme necessário */
+            pointer-events: none; /* Impede interações com elementos desfocados */
+        }
+    </style>
+</body>
+</html>

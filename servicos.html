@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistência em Trabalhos de Pesquisa</title>
+    <meta name="description" content="Oferecemos assistência completa em trabalhos acadêmicos, incluindo redações, dissertações e teses, com suporte para instituições de ensino em Moçambique. Inscreva-se em nosso curso gratuito online!">
+    <meta name="keywords" content="assistência acadêmica, trabalhos de pesquisa, curso gratuito, Moçambique, suporte acadêmico">
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+     body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /* Garantir que o body ocupe toda a largura */
+    overflow-x: hidden; /* Ocultar qualquer transbordamento horizontal */
+}
+
+header {
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 3.2em;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: neon-glow 1.5s infinite alternate;
+}
+
+/* Botões */
+.btn {
+    background: linear-gradient(90deg, #ff6a00, #ff006e);
+    color: white;
+    padding: 20px 40px;
+    font-size: 1.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    transition: all 0.4s ease;
+    box-shadow: 0 5px 15px rgba(255, 105, 135, 0.3);
+    display: inline-block;
+    margin: 15px 0;
+    width: 100%; /* Garantir que o botão ocupe 100% da largura */
+    max-width: 300px;
+    position: relative; /* Para efeito de carregamento */
+    overflow: hidden; /* Para esconder o efeito de carregamento */
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #ff006e, #ff6a00);
+    transform: scale(1.1);
+    box-shadow: 0 10px 30px rgba(255, 105, 135, 0.7);
+}
+
+/* Seções */
+.section {
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
+    border-radius: 10px;
+    width: 100%; /* Garantir que a seção ocupe 100% da largura */
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    padding: 15px; /* Ajustar o padding para melhor espaço interno */
+}
+
+.section:hover {
+    transform: scale(1.03);
+    opacity: 0.9;
+}
+
+.section h2 {
+    font-size: 2.5em;
+    color: #ffcc00;
+}
+
+.section p {
+    font-size: 1.4rem;
+    line-height: 1.6;
+}
+
+.section ul, .section ol {
+    font-size: 1.4rem;
+    text-align: left;
+    line-height: 1.8;
+}
+
+/* Footer */
+footer {
+    background-color: #111;
+    color: #999;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    width: 100%;
+    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.footer-signature {
+    color: #ffcc00;
+    font-size: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer-signature:hover {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    body {
+        padding: 0; /* Remover o padding do body em dispositivos móveis */
+    }
+    
+    header h1 {
+        font-size: 2.5em;
+    }
+
+    .btn {
+        font-size: 1.2rem;
+        padding: 15px 25px;
+        max-width: 250px; /* Ajustar a largura máxima do botão */
+    }
+
+    footer p {
+        font-size: 1em;
+    }
+
+    .section h2 {
+        font-size: 2em;
+    }
+
+    .section p, .section ul, .section ol {
+        font-size: 1.2rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+   
+
+    <div class="loading-spinner" id="loading-spinner"></div>
+
+    <main>
+        <div class="section">
+            <h2>📚 Assistência Completa:</h2>
+            <p>Estamos aqui para facilitar sua jornada acadêmica! Oferecemos suporte especializado em:</p>
+            <ul>
+                <li>Escolas Primárias e Secundárias;</li>
+                <li>Institutos Privados e Públicos;</li>
+                <li>Universidades;</li>
+                <li>Acompanhamento em EAD;</li>
+            </ul>
+            <form id="submit-form" action="submissao_trabalhos.html" method="GET">
+                <button type="submit" class="btn" id="submit-button">Submeter</button>
+            </form>
+        </div>
+
+        <div class="section">
+            <h2>📝 Agendar um Trabalho:</h2>
+            <p>Agendar seu trabalho é simples:</p>
+            <ol>
+                <li>Defina os requisitos;</li>
+                <li>Escolha a data de entrega;</li>
+                <li>Confirme os detalhes;</li>
+                <li><strong>Preencha o formulário:</strong></li>
+            </ol>
+            <a href="submissao_trabalhos.html" class="btn">Submeter</a>
+        </div>
+
+        <div class="section">
+            <h2>🎓 Curso Gratuito:</h2>
+            <p>Inscreva-se no nosso curso gratuito para aprimorar suas habilidades acadêmicas:</p>
+            <a href="https://rocketpages.pro/sucessomz/" class="btn">Inscreva-se</a>
+        </div>
+
+        <div class="section">
+            <h2>📞 Contatos:</h2>
+            <ul style="list-style: none; padding: 0;">
+                <li style="text-align: center;">
+                    <a href="https://wa.link/eq5rhp" class="btn">WhatsApp</a>
+                </li>
+                <li style="text-align: center;">
+                    <a href="mailto:tilomachado1@gmail.com" class="btn">Email</a>
+                </li>
+                <li style="text-align: center;">
+                    <a href="tel:+258875343733" class="btn">Telefone</a>
+                </li>
+            </ul>
+        </div>
+        
+    </main>
+
+    <footer>
+        <p>© 2024 Assistência em Trabalhos de Pesquisa. Todos os direitos reservados.</p>
+        <p class="footer-signature" onclick="window.location.href='https://wa.link/eq5rhp'">Desenvolvido por Tilo Machado</p>
+    </footer>
+
+    <script>
+        // Efeito de Carregamento
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function(event) {
+                const spinner = document.getElementById('loading-spinner');
+                spinner.style.display = 'block';
+
+                // Simula o carregamento
+                setTimeout(() => {
+                    spinner.style.display = 'none';
+                }, 3000); // Simula 3 segundos de carregamento
+            });
+        });
+    </script>
+</body>
+</html>

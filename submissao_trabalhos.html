@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <title>Submissão de Trabalhos</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+     body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+header h1 {
+    font-size: 3.2em;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: neon-glow 1.5s infinite alternate;
+}
+
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 10px #ff007f, 0 0 20px #7700ff, 0 0 30px #ff007f;
+    }
+    to {
+        text-shadow: 0 0 20px #ff007f, 0 0 40px #7700ff, 0 0 60px #ff007f;
+    }
+}
+
+.section {
+    margin: 20px 0;
+    padding: 20px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
+    border-radius: 10px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+#loading-spinner {
+    display: none; 
+    margin-top: 10px;
+    font-size: 1.2rem;
+    color: white;
+    animation: spinner 1.5s linear infinite;
+    text-align: center; 
+}
+
+@keyframes spinner {
+    0% { 
+        color: #ff6a00; 
+        text-shadow: 0 0 10px #ff6a00, 0 0 20px #ff006e; 
+    }
+    25% { 
+        color: #ff006e; 
+        text-shadow: 0 0 10px #ff006e, 0 0 20px #ff6a00; 
+    }
+    50% { 
+        color: #6a00ff; 
+        text-shadow: 0 0 10px #6a00ff, 0 0 20px #ff006e; 
+    }
+    75% { 
+        color: #00c8ff; 
+        text-shadow: 0 0 10px #00c8ff, 0 0 20px #6a00ff; 
+    }
+    100% { 
+        color: #ff6a00; 
+        text-shadow: 0 0 10px #ff6a00, 0 0 20px #00c8ff; 
+    }
+}
+
+.section h2 {
+    font-size: 2.5em;
+    color: #ffcc00;
+}
+
+.section label {
+    font-size: 1.2rem;
+    display: block;
+    margin-top: 10px;
+}
+
+.section input, .section textarea, .section select {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+    border: none;
+}
+
+.section button {
+    background: linear-gradient(90deg, #ff6a00, #ff006e);
+    color: white;
+    padding: 10px 20px;
+    font-size: 1.2rem;
+    border-radius: 50px;
+    transition: all 0.4s ease;
+    display: inline-block;
+    margin-top: 15px;
+    cursor: pointer;
+}
+
+.section button:hover {
+    background: linear-gradient(90deg, #ff006e, #ff6a00);
+}
+
+/* Estilos do Modal */
+#modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+#modal-content {
+    background-color: #282828;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 500px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#close-modal {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+#close-modal:hover,
+#close-modal:focus {
+    color: white;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#success-message {
+    display: none;
+    margin-top: 10px;
+    color: #4CAF50; /* Cor verde para sucesso */
+}
+
+#error-message {
+    margin-top: 10px;
+    display: none;
+    color: #f44336; /* Cor vermelha para erro */
+}
+
+/* Estilos específicos para dispositivos móveis */
+@media (max-width: 786px) {
+    body {
+        height: auto; /* Permite que a altura do corpo se ajuste ao conteúdo */
+    }
+
+    header h1 {
+        font-size: 2.5em; /* Reduz o tamanho da fonte do cabeçalho em dispositivos móveis */
+    }
+
+    .section h2 {
+        font-size: 2em; /* Reduz o tamanho da fonte do subtítulo em dispositivos móveis */
+    }
+
+    .section label {
+        font-size: 1rem; /* Ajusta o tamanho da fonte dos rótulos */
+    }
+
+    .section input, .section textarea, .section select, 
+    .section button {
+        font-size: 1rem; /* Ajusta o tamanho da fonte dos campos e botões */
+    }
+
+    #loading-spinner, #error-message, #success-message {
+        font-size: 1rem; /* Tamanho da fonte das mensagens */
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    
+    <div class="section">
+        <form id="submission-form">
+            <label for="title">Título do Trabalho:</label>
+            <input type="text" id="title" placeholder="Ex: História da Arte" required>
+    
+            <label for="teacherName">Nome do Docente/Professor:</label>
+            <input type="text" id="teacherName" placeholder="Ex: MA/Doc/Prof. João Silva" required>
+    
+            <label for="subject">Disciplina/Cadeira:</label>
+            <input type="text" id="subject" placeholder="Ex: Artes Visuais" required>
+    
+            <label for="dueDate">Data de Entrega:</label>
+            <input type="date" id="dueDate" required>
+    
+            <label for="content">Conteúdo do Trabalho:</label>
+            <textarea id="content" rows="4" placeholder="Ex: Análise de obras de Van Gogh" required></textarea>
+    
+            <label for="studentName">Nome do Estudante:</label>
+            <input type="text" id="studentName" placeholder="Ex: Maria Oliveira" required>
+    
+            <label for="attachment">Anexo (opcional):</label>
+            <input type="file" id="attachment" accept="application/pdf,image/*">
+    
+            <button type="submit" id="submit-button">Enviar Trabalho</button>
+            <div id="loading-spinner">Enviando o Trabalho...</div>
+        </form>
+        <div id="error-message"></div>
+    </div>
+    
+
+    <!-- Modal para a mensagem de sucesso -->
+    <div id="modal">
+        <div id="modal-content">
+            <span id="close-modal">&times;</span>
+            <div id="success-message"></div>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+        const auth = getAuth(app);
+    
+        const submissionForm = document.getElementById("submission-form");
+        const loadingSpinner = document.getElementById("loading-spinner");
+        const errorMessage = document.getElementById("error-message");
+        const successMessage = document.getElementById("success-message");
+        const modal = document.getElementById("modal");
+        const closeModal = document.getElementById("close-modal");
+    
+        submissionForm.addEventListener("submit", async (event) => {
+            event.preventDefault();
+            loadingSpinner.style.display = "block";
+            errorMessage.style.display = "none";
+            successMessage.style.display = "none";
+            modal.style.display = "none"; // Ocultar modal ao iniciar nova submissão
+    
+            const title = document.getElementById("title").value;
+            const teacherName = document.getElementById("teacherName").value;
+            const subject = document.getElementById("subject").value;
+            const dueDateInput = document.getElementById("dueDate").value;
+            const content = document.getElementById("content").value;
+            const studentName = document.getElementById("studentName").value;
+            const attachment = document.getElementById("attachment").files[0];
+    
+            // Converte a data de entrega, se disponível
+            const dueDate = dueDateInput ? new Date(dueDateInput) : null;
+    
+            try {
+                const submissionData = {
+                    title,
+                    teacherName,
+                    subject,
+                    dueDate,
+                    content,
+                    studentName,
+                    attachment: attachment ? attachment.name : null,
+                    submittedAt: new Date(), // Data de submissão
+                    createdAt: new Date()
+                };
+    
+                await setDoc(doc(db, "submissoes", `${studentName}_${title}`), submissionData);
+                
+                loadingSpinner.style.display = "none";
+                successMessage.innerText = `Olá ${studentName}, as respostas do seu trabalho foram submetidas com sucesso!`;
+                successMessage.style.display = "block";
+                modal.style.display = "block";
+    
+                // Limpar o formulário
+                submissionForm.reset();
+            } catch (error) {
+                loadingSpinner.style.display = "none";
+                errorMessage.innerText = "Erro ao enviar o trabalho: " + error.message;
+                errorMessage.style.display = "block";
+            }
+        });
+    
+        closeModal.onclick = function() {
+            modal.style.display = "none";
+        };
+    
+        window.onclick = function(event) {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+   
+    
+    </script>
+    </body>
+</html>
