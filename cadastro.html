@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <meta name="description" content="Aprenda habilidades essenciais e amplie seu alcance digital.">
+    <meta name="keywords" content="presença digital, aprendizado, comunidade, cursos online">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+    
+    <title>Inscrição para os Cursos Gratuitos</title>
+    <style>
+        /* Estilos básicos */
+        body {
+            font-family: 'Roboto', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+            color: #ffffff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow-y: auto; /* Habilita a rolagem se necessário */
+        }
+    
+        /* Container do formulário */
+        .container {
+            background: linear-gradient(135deg, #3a3a3a, #444, #1f1f1f);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            max-width: 90%;
+            width: 400px;
+            text-align: center;
+            margin: 20px;
+            max-height: 80vh; /* Limita a altura máxima do contêiner */
+            overflow-y: auto; /* Permite rolar dentro do contêiner */
+        }
+    
+        h2 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+            text-shadow: 0 0 10px #ffcc00;
+            font-size: 2em;
+            word-wrap: break-word;
+            text-align: center;
+            padding: 0 10px;
+            margin-top: 10px; /* Garante que o título não fique colado no topo */
+        }
+    
+        /* Campos de entrada */
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #aaa;
+        }
+    
+        .input-field {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px solid transparent;
+            border-radius: 5px;
+            background-color: #444;
+            color: white;
+            font-size: 1em;
+            transition: background-color 0.3s, border 0.3s;
+        }
+    
+        .input-field:focus {
+            background-color: #555;
+            border: 2px solid #ff007f;
+        }
+    
+        .btn {
+            background: linear-gradient(90deg, #28a745, #218838);
+            color: #ffffff;
+            padding: 12px 20px;
+            border-radius: 25px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3s, transform 0.3s;
+            margin-top: 20px;
+            width: 100%;
+        }
+    
+        .btn:hover {
+            background: linear-gradient(90deg, #218838, #28a745);
+            transform: scale(1.05);
+        }
+    
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    
+        .modal-content {
+            background-color: #000;
+            color: #ffcc00;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+        }
+    
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #ff0000;
+        }
+    
+        /* Ajustes para telas menores */
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 20px;
+            }
+    
+            h2 {
+                font-size: 1.8em;
+                margin-bottom: 10px;
+                text-align: center;
+            }
+    
+            .btn {
+                font-size: 1em;
+                padding: 10px;
+            }
+    
+            /* Ajuste do modal */
+            .modal-content {
+                width: 90%;
+                padding: 15px;
+            }
+    
+            .input-field {
+                font-size: 0.9em;
+            }
+        }
+        
+        /* Ajuste para telas muito pequenas (ex: celular em modo retrato) */
+        @media (max-width: 480px) {
+            .container {
+                width: 95%;
+            }
+    
+            .btn {
+                padding: 10px;
+                font-size: 1em;
+            }
+    
+            h2 {
+                font-size: 1.6em;
+                text-align: center;;
+
+            }
+    
+            .modal-content {
+                width: 90%;
+                padding: 10px;
+            }
+    
+            .input-field {
+                font-size: 0.85em;
+            }
+        }
+
+        /* Indicador de carregamento */
+.loading {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+/* Estilos do spinner */
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #fff;
+    border-top: 5px solid #ffcc00; /* Cor do topo */
+    border-radius: 50%;
+    animation: spin 1s linear infinite; /* Animação do spinner */
+}
+
+/* Animação de rotação do spinner */
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: #ffcc00;
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #fff;
+}
+
+    </style>
+    
+</head>
+<body>
+    <div class="container">
+        <h2>Inscrição para os Cursos Gratuitos</h2>
+        <!-- Formulário de inscrição -->
+        <form id="registrationForm">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" class="input-field" required><br><br>
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" class="input-field" required>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select><br><br>
+
+            <label for="idade">Idade:</label>
+            <input type="number" id="idade" class="input-field" required><br><br>
+
+            <label for="localizacao">Você mora em Nampula?</label>
+            <select id="localizacao" class="input-field" required>
+                <option value="sim">Sim</option>
+                <option value="nao">Não</option>
+            </select><br><br>
+
+            <label for="telefone">Telefone (WhatsApp):</label>
+            <input type="text" id="telefone" class="input-field" required><br><br>
+
+            <label for="curso">Escolha o curso:</label>
+<select id="curso" class="input-field" onchange="mostrarDetalhes()" required>
+    <option value="">Selecione um curso</option>
+    <option value="gestao_negocios">Gestão e Desenvolvimento de Negócios</option>
+    <option value="habilidades_sociais">Habilidades Socioemocionais</option>
+    <option value="mercado_trabalho">Preparação para o Mercado de Trabalho</option>
+</select><br><br>
+
+<div id="detalhesCurso" style="display:none;">
+    <p id="descricaoCurso"></p>
+    <p id="precoCurso"></p>
+</div><br><br>
+
+<script>
+    function mostrarDetalhes() {
+        const cursoSelecionado = document.getElementById('curso').value;
+        const detalhesCurso = document.getElementById('detalhesCurso');
+        const descricaoCurso = document.getElementById('descricaoCurso');
+        const precoCurso = document.getElementById('precoCurso');
+
+        switch (cursoSelecionado) {
+            case 'gestao_negocios':
+                descricaoCurso.textContent = 'Aprenda técnicas de gestão e estratégias para desenvolver negócios lucrativos e sustentáveis.';
+                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
+                break;
+            case 'habilidades_sociais':
+                descricaoCurso.textContent = 'Desenvolva habilidades socioemocionais para se destacar no ambiente profissional e melhorar relacionamentos interpessoais.';
+                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
+                break;
+            case 'mercado_trabalho':
+                descricaoCurso.textContent = 'Prepare-se para o mercado de trabalho com técnicas de elaboração de currículos, simulação de entrevistas e muito mais.';
+                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
+                break;
+            default:
+                descricaoCurso.textContent = '';
+                precoCurso.textContent = '';
+                detalhesCurso.style.display = 'none';
+                return;
+        }
+
+        // Exibe os detalhes do curso
+        detalhesCurso.style.display = 'block';
+    }
+</script>
+
+
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+
+        <!-- Indicador de carregamento -->
+        <div class="loading" id="loadingIndicator" style="display: none;">
+            <div class="spinner"></div>
+            <p>Criando seu recibo...</p>
+        </div>
+
+        <!-- Modal de sucesso -->
+        <div class="modal" id="successModal" style="display: none;">
+            <div class="modal-content">
+                <h1>🎉 Inscrição Confirmada!</h1>
+                <p>Sua inscrição foi realizada com sucesso!</p>
+                <p><strong>Recibo Número:</strong> <span id="reciboNumber"></span></p>
+                <p>Junte-se ao nosso grupo no WhatsApp para mais informações:</p>
+                <a href="https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR" target="_blank">
+                    <button class="btn">Clique aqui para participar</button>
+                </a>
+                <button id="downloadReceipt" class="btn">Baixar Recibo</button>
+                <button class="close-modal" id="closeModal">Fechar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Referências aos elementos DOM
+        const registrationForm = document.getElementById('registrationForm');
+        const loadingIndicator = document.getElementById('loadingIndicator');
+        const successModal = document.getElementById('successModal');
+        const downloadReceiptButton = document.getElementById('downloadReceipt');
+    
+        // Evento de envio do formulário
+registrationForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    loadingIndicator.style.display = 'flex';
+
+    const nome = document.getElementById('nome').value;
+    const sexo = document.getElementById('sexo').value;
+    const idade = document.getElementById('idade').value;
+    const localizacao = document.getElementById('localizacao').value;
+    const telefone = document.getElementById('telefone').value;
+    const curso = document.getElementById('curso').value;
+
+    const receiptNumber = `REC-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+
+    try {
+        // Salvar dados no Firestore
+        await setDoc(doc(db, "inscricoes_novas", receiptNumber), {
+            nome,
+            sexo,
+            idade,
+            localizacao,
+            telefone,
+            curso,
+            recibo: receiptNumber,
+            data_inscricao: new Date().toISOString(),
+            preco: "Gratuito" // Adiciona a informação de que o curso é gratuito
+        });
+
+        loadingIndicator.style.display = 'none';
+
+        // Exibir modal de sucesso
+        document.getElementById('reciboNumber').textContent = receiptNumber;
+        successModal.style.display = 'flex';
+    } catch (error) {
+        loadingIndicator.style.display = 'none';
+        alert("Ocorreu um erro ao salvar os dados. Tente novamente.");
+    }
+});
+
+// Evento de download do recibo
+downloadReceiptButton.addEventListener('click', () => {
+    const receiptNumber = document.getElementById('reciboNumber').textContent;
+    const nome = document.getElementById('nome').value;
+    const curso = document.getElementById('curso').value;
+
+    // Criar o PDF com jsPDF
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF();
+
+    // Cabeçalho
+    doc.setFont("helvetica", "bold");
+    doc.setFontSize(16);
+    doc.setTextColor(255, 0, 0); // Cor vermelha para destacar
+    doc.text("RECIBO DE INSCRIÇÃO - CURSO GRATUITO", 105, 20, null, null, 'center');
+
+    
+
+    // Informações do recibo
+    doc.setFont("helvetica", "normal");
+    doc.setFontSize(12);
+    doc.setTextColor(0, 0, 0); // Texto em preto
+    doc.text(`Nome: ${nome}`, 20, 50);
+    doc.text(`Curso: ${curso}`, 20, 60);
+    doc.text(`Número do Recibo: ${receiptNumber}`, 20, 70);
+    doc.text(`Data: ${new Date().toLocaleDateString()}`, 20, 80);
+    doc.text(`Preço: Gratuito`, 20, 90);
+
+    // Mensagem de agradecimento estilizada
+    doc.setFont("helvetica", "italic");
+    doc.setFontSize(12);
+    doc.setTextColor(128, 0, 0); // Cor vinho para diferenciar
+    doc.text("Obrigado por se inscrever no curso gratuito!", 20, 110);
+    doc.text("Estamos ansiosos para vê-lo nas aulas. Guarde bem este recibo.", 20, 120);
+
+    // Adicionar logotipo no rodapé
+    const imagePath = 'icone.png'; // Caminho da imagem do logotipo
+    const imgWidth = 30; // Largura da imagem
+    const imgHeight = 30; // Altura da imagem
+    const imgX = (doc.internal.pageSize.width - imgWidth) / 2; // Centralizar a imagem
+    const imgY = doc.internal.pageSize.height - 40; // Posicionar no rodapé
+    doc.addImage(imagePath, 'PNG', imgX, imgY, imgWidth, imgHeight);
+
+    // Salvando o PDF
+    doc.save(`Recibo_${receiptNumber}.pdf`);
+});
+
+    
+        // Evento para fechar o modal
+        document.getElementById('closeModal').addEventListener('click', () => {
+            successModal.style.display = 'none';
+        });
+    </script>
+    
+</body>
+</html>
