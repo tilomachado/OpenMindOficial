@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Usar IA para Criar Páginas de Captura Que Convertem</title>
+
+    <!-- Adicionando suporte a idiomas -->
+    <meta name="description" content="Guia completo para criar textos de vendas de sucesso">
+    <meta name="keywords" content="informática, curso, eBook, vendas, marketing digital">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <!-- Suporte a múltiplos idiomas -->
+    <link rel="alternate" hreflang="es" href="pagina_espanhol.html">
+    <link rel="alternate" hreflang="en" href="pagina_ingles.html">
+</head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+        .cover {
+            text-align: center;
+            padding: 80px 0;
+            background-color: #222;
+            color: #fff;
+        }
+        
+        .cover h1 {
+            font-size: 48px;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+        .cover h2 {
+            font-size: 28px;
+            margin: 10px 0;
+            
+        }
+        .cover img {
+            max-width: 90%;
+            height: auto;
+            margin-top: 20px;
+            text-align: center;
+        }
+        .content {
+            padding: 40px 10%;
+            background-color: #111;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        h1 {
+            font-size: 38px;
+            color: #00ff08;
+            margin-top: 40px;
+            text-align: center;
+        }
+        h3, h4 {
+            font-size: 28px;
+            color: #ffd500;
+            margin-top: 40px;
+            text-align: center;
+        }
+        p {
+            font-size: 23px;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 20px;
+        }
+        ul li {
+            margin-bottom: 15px;
+        }
+        .cta {
+    background-color: #ff0000;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-size: 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 40px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    animation: pulse 1.5s infinite; /* Adiciona a animação pulse */
+}
+
+.cta:hover {
+    background-color: #00ff0d;
+}
+
+/* Animação Pulse */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05); /* Leve aumento de tamanho */
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+        .progress-bar {
+            height: 5px;
+            background-color: #444;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+        }
+        .progress-bar .progress {
+            height: 100%;
+            background-color: #00ff08;
+            width: 0;
+        }
+        
+        .image-placeholder {
+            width: 100%;
+            height: 300px;
+            background-color: #333;
+            margin: 20px 0;
+            
+        }
+        .chapter img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 80%;
+    height: auto;
+}
+
+        
+        
+    </style>
+</head>
+<div class="cover">
+    <h1>Como Usar IA para Criar Páginas de Captura Que Convertem</h1>
+    <h2>Transforme Seus Visitantes em Clientes em Poucos Passos</h2>
+    <img src="latam.webp" alt="Capa do eBook">
+</div>
+
+<div class="content">
+    <h1>1. Introdução</h1>
+    
+    <p><strong>Objetivo do eBook:</strong> Ensinar como criar uma página de captura de leads simples, funcional e eficiente usando IA, HTML, CSS e JavaScript.</p>
+    <p><strong>Visão geral das ferramentas:</strong></p>
+    <ul>
+        <li><strong>ChatGPT:</strong> O ChatGPT pode ser usado para gerar códigos automaticamente, tornando o desenvolvimento de páginas mais ágil e eficiente. No eBook, vamos usar o ChatGPT para gerar a estrutura HTML, sugerir melhores práticas de design e até mesmo otimizar chamadas para ação (CTAs).</li>
+        <li><strong>Visual Studio Code:</strong> A melhor ferramenta de código aberto para edição e desenvolvimento web. Vamos usá-la para escrever, editar e testar os códigos que criamos ao longo do eBook.</li>
+    </ul>
+
+    <h1>2. Configuração Inicial: Preparando o Ambiente de Desenvolvimento</h1>
+    
+    <div style="margin-top: 20px; text-align: center;">
+            <img src="latam2.webp" alt="Capa do eBook">
+    </div>
+    <p>Antes de começarmos a escrever o código, é importante garantir que o seu ambiente de desenvolvimento esteja pronto.</p>
+
+    <h4>Passo 1: Instalando o Visual Studio Code</h4>
+    <ol>
+        <li>Baixe o Visual Studio Code acessando o <a href="https://code.visualstudio.com/" style="text-decoration: none; color: #007acc; font-weight: bold; transition: transform 0.3s ease; animation: pulse 1s infinite;">site oficial do Visual Studio Code</a>.</li>
+
+<style>
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+</style>
+
+
+        <li>Após o download, execute o instalador e siga as instruções para instalar o Visual Studio Code em seu computador.</li>
+        <li>Uma vez instalado, abra o Visual Studio Code e instale alguns plugins úteis para facilitar o desenvolvimento. Acesse o menu de extensões (ícone de quadrado no menu lateral) e pesquise por:</li>
+        <ul>
+            <li><strong>Live Server:</strong> Um plugin que permite visualizar as alterações no seu código em tempo real, direto no navegador.</li>
+            <li><strong>Prettier:</strong> Uma ferramenta que formata automaticamente seu código para melhorar a legibilidade.</li>
+            <li><strong>Emmet:</strong> Um atalho para agilizar a escrita de código HTML e CSS.</li>
+        </ul>
+    </ol>
+
+    <h4>Passo 2: Preparando a Estrutura do Projeto</h4>
+    <p>Agora, vamos criar a estrutura básica de pastas e arquivos para o seu projeto:</p>
+    <ol>
+        <li>Criar uma pasta chamada "pagina-captura" no seu computador.</li>
+        <li>Dentro dessa pasta, crie três arquivos principais:</li>
+        <ul>
+            <li><strong>index.html:</strong> O arquivo HTML que conterá a estrutura da página.</li>
+            <li><strong>styles.css:</strong> O arquivo CSS para estilizar a página.</li>
+            <li><strong>scripts.js:</strong> O arquivo JavaScript para adicionar funcionalidades interativas, como validação de formulários e interação com o usuário.</li>
+        </ul>
+    </ol>
+
+    <h1>3. Criando a Estrutura Básica da Página de Captura de Leads (HTML)</h1>
+    <div style="margin-top: 20px; text-align: center;">
+        <img src="latam3.jpg" alt="Capa do eBook">
+</div>
+<p><strong>Dica ChatGPT:</strong> "Usando o ChatGPT para gerar a estrutura básica do HTML." Vamos agora criar uma página simples e funcional para capturar leads para sua loja de doces.</p>
+
+<p><strong>Exemplo de interação com o ChatGPT:</strong></p>
+<blockquote>
+    <p><strong>Usuário:</strong> "ChatGPT, por favor, me ajude a criar uma página de captura de leads para uma loja de doces. A página deve coletar nome e e-mail para enviar promoções de novos produtos."</p>
+    <p><strong>ChatGPT:</strong> "Aqui está a estrutura básica de uma página de captura de leads para sua loja de doces:</p>"
+</blockquote>
+
+<pre>
+    <code>
+        &lt;!DOCTYPE html&gt;
+        &lt;html lang="pt-br"&gt;
+        &lt;head&gt;
+            &lt;meta charset="UTF-8"&gt;
+            &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+            &lt;title&gt;Loja de Doces - Promoções Especiais&lt;/title&gt;
+            &lt;link rel="stylesheet" href="styles.css"&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+            &lt;header&gt;
+                &lt;h1&gt;Receba Ofertas Doces!&lt;/h1&gt;
+                &lt;p&gt;Cadastre-se para receber descontos e novidades exclusivas.&lt;/p&gt;
+            &lt;/header&gt;
+            &lt;section class="form-container"&gt;
+                &lt;form action="#" method="POST"&gt;
+                    &lt;label for="name"&gt;Nome:&lt;/label&gt;
+                    &lt;input type="text" id="name" name="name" placeholder="Seu nome completo" required&gt;
+
+                    &lt;label for="email"&gt;Email:&lt;/label&gt;
+                    &lt;input type="email" id="email" name="email" placeholder="Seu melhor email" required&gt;
+
+                    &lt;button type="submit"&gt;Quero Receber Ofertas!&lt;/button&gt;
+                &lt;/form&gt;
+            &lt;/section&gt;
+            &lt;footer&gt;
+                &lt;p&gt;&copy; 2024 Loja de Doces - Todos os direitos reservados&lt;/p&gt;
+            &lt;/footer&gt;
+        &lt;/body&gt;
+        &lt;/html&gt;
+    </code>
+</pre>
+
+<h4>Estilizando a Página</h4>
+<p>Vamos criar o estilo para deixar a página visualmente agradável. No arquivo <strong>styles.css</strong>, insira o seguinte código:</p>
+
+<pre>
+    <code>
+        /* Estilo geral */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background-color: #ffcbdb; /* Rosa claro */
+            padding: 20px;
+        }
+
+        header h1 {
+            color: #ff6680; /* Rosa forte */
+        }
+
+        header p {
+            color: #555;
+        }
+
+        .form-container {
+            margin: 20px auto;
+            width: 80%;
+            max-width: 400px;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        form label {
+            display: block;
+            text-align: left;
+            margin: 10px 0 5px;
+            font-weight: bold;
+        }
+
+        form input {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        button {
+            background-color: #ff6680; /* Rosa forte */
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #e5536c; /* Rosa escuro */
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #ffcbdb; /* Rosa claro */
+            color: #555;
+        }
+    </code>
+</pre>
+
+<p>Com esses ajustes, sua página de captura de leads terá uma aparência moderna e atraente, ideal para atrair clientes e promover sua loja de doces!</p>
+
+<h1>4. Estilizando a Página com CSS</h1>
+<div style="margin-top: 20px; text-align: center;">
+    <img src="latam7.jpg" alt="Capa do eBook">
+</div>
+<p><strong>Dica ChatGPT:</strong> "Como pedir ao ChatGPT para gerar estilos simples e modernos em CSS."</p>
+
+<p>Vamos adicionar estilos que garantam uma aparência limpa e moderna à página de captura de leads. Aqui está um exemplo de CSS para estilizar elementos básicos:</p>
+
+<pre>
+    <code>
+        /* Estilo geral */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4; /* Fundo cinza claro */
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Cabeçalho */
+        header {
+            background-color: #4CAF50; /* Verde forte */
+            color: white;
+            text-align: center;
+            padding: 50px;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        header p {
+            font-size: 18px;
+        }
+
+        /* Contêiner do formulário */
+        .form-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 60vh; /* Altura mínima */
+        }
+
+        form {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+            width: 100%;
+            max-width: 400px;
+        }
+
+        /* Estilo dos inputs e botão */
+        input, button {
+            padding: 10px;
+            margin: 10px 0;
+            width: 100%;
+            border-radius: 4px;
+            border: 1px solid #ccc; /* Borda cinza */
+            font-size: 16px;
+        }
+
+        button {
+            background-color: #4CAF50; /* Verde forte */
+            color: white;
+            cursor: pointer;
+            border: none; /* Remove borda */
+            transition: background-color 0.3s ease; /* Efeito suave */
+        }
+
+        button:hover {
+            background-color: #45a049; /* Verde mais escuro ao passar o mouse */
+        }
+    </code>
+</pre>
+
+<p>Esses estilos foram desenvolvidos para dar um toque profissional à página. O cabeçalho usa cores vibrantes, enquanto o formulário tem uma aparência centralizada e organizada, com inputs e botão que destacam a ação do usuário.</p>
+
+
+<h1>5. Adicionando Funcionalidade com JavaScript</h1>
+<div style="margin-top: 20px; text-align: center;">
+    <img src="latam4.jpg" alt="Capa do eBook">
+</div>
+<p><strong>Dica ChatGPT:</strong> "Como usar o ChatGPT para gerar código JavaScript simples para validar formulários ou interações dinâmicas."</p>
+<p>Agora, vamos adicionar um código JavaScript para validar o formulário e melhorar a experiência do usuário ao capturar leads:</p>
+
+<pre>
+    <code>
+        // Seleciona o formulário e adiciona um evento de 'submit'
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita o envio do formulário padrão
+            
+            // Obtém os valores dos campos
+            let name = document.getElementById('name').value.trim();
+            let email = document.getElementById('email').value.trim();
+            
+            // Validação básica
+            if (name === '' || email === '') {
+                alert('Por favor, preencha todos os campos.');
+            } else if (!validateEmail(email)) {
+                alert('Por favor, insira um e-mail válido.');
+            } else {
+                alert('Lead capturado com sucesso!');
+                // Lógica adicional: Enviar dados para um servidor ou API
+                console.log(`Nome: ${name}, Email: ${email}`);
+            }
+        });
+
+        // Função para validar o formato do e-mail
+        function validateEmail(email) {
+            const re = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            return re.test(email);
+        }
+    </code>
+</pre>
+
+<h1>6. Integrando a Inteligência Artificial para Otimização de Páginas de Captura</h1>
+<div style="margin-top: 20px; text-align: center;">
+    <img src="latam8.jpg" alt="Capa do eBook">
+</div>
+<p><strong>Dica ChatGPT:</strong> "Como usar IA para gerar melhores chamadas de ação e otimizar a página."</p>
+
+<p>A integração de ferramentas de inteligência artificial pode transformar sua página de captura, tornando-a mais eficaz e personalizada. Aqui estão algumas maneiras práticas de usar IA na sua estratégia:</p>
+
+<h4>1. Melhores Chamadas para Ação (CTA)</h4>
+<p>A IA pode ajudar a criar chamadas para ação irresistíveis e altamente persuasivas. Exemplos:</p>
+<ul>
+    <li><strong>Urgência:</strong> "Garanta Seu Acesso Exclusivo Antes Que Acabe!"</li>
+    <li><strong>Curiosidade:</strong> "Descubra o Segredo que Está Transformando Vendas em 2024!"</li>
+    <li><strong>Personalização:</strong> "João, este guia foi feito para você! Baixe agora."</li>
+</ul>
+<p>Com ferramentas de IA, você pode gerar variações dessas mensagens e adaptá-las conforme o perfil do público.</p>
+
+<h4>2. Testes A/B Automáticos</h4>
+<p>Configure testes A/B automatizados para experimentar diferentes elementos da página, como:</p>
+<ul>
+    <li>Títulos: Compare "Transforme suas vendas com este guia" com "O segredo para vender mais no mercado LATAM".</li>
+    <li>Cores: Teste botões em tons de azul versus vermelho para ver qual gera mais cliques.</li>
+    <li>Imagens: Experimente visuais minimalistas versus ilustrações detalhadas.</li>
+</ul>
+<p>A IA analisa os resultados rapidamente, identificando as combinações mais eficazes.</p>
+
+<h4>3. Sugestões de Layout</h4>
+<p>Baseado em tendências de design, a IA pode sugerir:</p>
+<ul>
+    <li>Layouts com foco em conversão, como formulários destacados ou imagens atraentes.</li>
+    <li>Otimização da navegação, por exemplo, botões visíveis no topo e rodapé.</li>
+    <li>Design responsivo, garantindo que a página funcione em dispositivos móveis.</li>
+</ul>
+
+<h4>4. Geração de Conteúdo Dinâmico</h4>
+<p>Ferramentas de IA como o ChatGPT podem criar conteúdos adaptados ao comportamento dos visitantes:</p>
+<ul>
+    <li>Texto personalizado com base no histórico de compras ou navegação.</li>
+    <li>Chamada para ação que muda dinamicamente: "Bem-vindo de volta! Pronto para mais dicas de vendas?"</li>
+    <li>Sugestões de produtos ou serviços com base em dados demográficos.</li>
+</ul>
+
+<h4>5. Geração de Design e Paleta de Cores</h4>
+<p>Com IA, você pode obter sugestões de cores e elementos visuais alinhados à psicologia do consumidor. Por exemplo:</p>
+<ul>
+    <li>Tons de verde para transmitir confiança e crescimento.</li>
+    <li>Cores vibrantes para chamar atenção em áreas de ação.</li>
+    <li>Layouts minimalistas para atrair públicos profissionais.</li>
+</ul>
+
+<h4>6. Personalização Regional</h4>
+<p>Se você está mirando o mercado LATAM, a IA pode ajustar o conteúdo com base na localização:</p>
+<ul>
+    <li>Mensagens no idioma local: "¡Descubre cómo transformar tus ventas ahora!"</li>
+    <li>Referências culturais: "Seja o próximo sucesso no mercado brasileiro ou argentino."</li>
+    <li>Adaptação de preços para moedas locais.</li>
+</ul>
+
+<h4>Ferramentas Recomendadas</h4>
+<p>Considere integrar as seguintes ferramentas:</p>
+<ul>
+    <li><strong>Copy.ai:</strong> Para gerar textos personalizados e criativos.</li>
+    <li><strong>Optimizely:</strong> Para realizar testes A/B e monitorar o desempenho.</li>
+    <li><strong>Canva + IA:</strong> Criação de designs otimizados para páginas de captura.</li>
+    <li><strong>Google Optimize:</strong> Para otimização e personalização com base em métricas de comportamento.</li>
+</ul>
+
+<h4>Exemplo Prático</h4>
+<p>Imagine uma página de captura onde:</p>
+<ul>
+    <li>A IA sugere o melhor horário para enviar notificações com base na atividade do público.</li>
+    <li>Os CTAs mudam dinamicamente para refletir as preferências do visitante.</li>
+    <li>O layout se ajusta automaticamente ao dispositivo utilizado.</li>
+</ul>
+
+<p>Ao combinar criatividade humana com inteligência artificial, você pode criar uma página de captura que não apenas impressiona, mas converte de forma consistente.</p>
+
+<h1>7. Publicando Sua Página</h1>
+<div style="margin-top: 20px; text-align: center;">
+    <img src="latam9.jpg" alt="Capa do eBook">
+</div>
+<p>Agora que sua página está pronta, vamos publicá-la. Aqui estão os passos:</p>
+<ul>
+    <li><strong>Passo 1:</strong> Hospede sua página gratuitamente no <a href="https://pages.github.com/" target="_blank" style="color: #007BFF; text-decoration: none;">GitHub Pages</a> ou no <a href="https://www.netlify.com/" target="_blank" style="color: #007BFF; text-decoration: none;">Netlify</a>.</li>
+    <li><strong>Passo 2:</strong> Conecte um domínio personalizado para dar uma aparência profissional ao seu site. Você pode registrar um domínio em serviços como <a href="https://www.godaddy.com/" target="_blank" style="color: #007BFF; text-decoration: none;">GoDaddy</a> ou <a href="https://www.namecheap.com/" target="_blank" style="color: #007BFF; text-decoration: none;">Namecheap</a> e configurar o redirecionamento para o seu site.</li>
+    <li><strong>Passo 3:</strong> Teste a página em diferentes dispositivos (computadores, tablets, celulares) para garantir que está responsiva. Ferramentas como o <a href="https://www.browserstack.com/" target="_blank" style="color: #007BFF; text-decoration: none;">BrowserStack</a> podem ajudar a simular como seu site ficará em diferentes plataformas.</li>
+</ul>
+
+
+
+<p>Esses passos garantirão que sua página esteja acessível e otimizada para todos os visitantes, independentemente do dispositivo que utilizem.</p>
+
+
+<h1>8. Conclusão</h1>
+<div style="margin-top: 20px; text-align: center;">
+    <img src="latam10.webp" alt="Capa do eBook">
+</div>
+<p>Recapitulando, você aprendeu:</p>
+<ul>
+    <li>Como criar a estrutura básica de uma página de captura de leads com HTML.</li>
+    <li>Como estilizar a página para um design moderno com CSS.</li>
+    <li>Como adicionar validações e interações dinâmicas com JavaScript.</li>
+    <li>Como otimizar a página com inteligência artificial.</li>
+    <li>Como publicar sua página para alcançar potenciais leads.</li>
+</ul>
+<p><strong>Próximos Passos:</strong> Considere integrar sua página com uma ferramenta de email marketing como <a href="https://mailchimp.com/" target="_blank" style="color: #007BFF; text-decoration: none;">Mailchimp</a> ou <a href="https://www.sendinblue.com/" target="_blank" style="color: #007BFF; text-decoration: none;">Sendinblue</a> para gerenciar os leads capturados de forma eficiente.</p>
+
+<div style="margin-top: 20px; text-align: center;">
+    <a href="Cómo utilizar IA para crear páginas de captura que conviertan.pdf" 
+       download="Cómo utilizar IA para crear páginas de captura que conviertan.pdf" 
+       class="button" style="
+       display: inline-block;
+       padding: 10px 20px;
+       font-size: 16px;
+       color: white;
+       background-color: #007bff;
+       text-decoration: none;
+       border-radius: 5px;
+       transition: background-color 0.3s ease;
+       margin-right: 15px;">
+       Descargar eBook PDF
+    </a>
+</div>
+
+
+
+<h1>Primeiro Bônus: Botão de Surpresa para Página de Vendas</h1>
+<div style="margin-top: 20px; text-align: center;">
+    <img src="latam14.webp" alt="Capa do eBook">
+</div>
+<p><strong>Dica Especial:</strong> Adicione um botão interativo na sua página para direcionar os usuários a ofertas exclusivas ou conteúdo premium, como o seu eBook mais avançado.</p>
+
+<p>Que tal um botão surpresa que redireciona o visitante para a página de vendas do seu eBook estruturado, com o texto envolvente abaixo?</p>
+
+<p><em>¿Sabías que la forma en que te comunicas puede marcar toda la diferencia en tus ventas? Si deseas conquistar el mercado LATAM 🌎 e impulsar tus resultados, ¡este eBook es para ti! 💡</em></p>
+
+<p><strong>Exemplo de Código:</strong></p>
+
+<pre>
+    <code>
+        // Criação do botão surpresa
+        const surpriseButton = document.createElement('button');
+        surpriseButton.textContent = '🎁 Descubre Nuestro Secreto de Ventas';
+        surpriseButton.style = `
+            background-color: #ff5722;
+            color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, background-color 0.3s;
+        `;
+        
+        // Adiciona animação ao passar o mouse
+        surpriseButton.addEventListener('mouseenter', function () {
+            surpriseButton.style.transform = 'scale(1.1)';
+            surpriseButton.style.backgroundColor = '#e64a19';
+        });
+
+        surpriseButton.addEventListener('mouseleave', function () {
+            surpriseButton.style.transform = 'scale(1)';
+            surpriseButton.style.backgroundColor = '#ff5722';
+        });
+
+        // Ação ao clicar no botão
+        surpriseButton.addEventListener('click', function () {
+            window.location.href = 'https://seu-link-de-vendas.com';
+        });
+
+        // Adiciona o botão ao contêiner da página
+        document.querySelector('.form-container').appendChild(surpriseButton);
+    </code>
+</pre>
+
+<p><strong>Nota:</strong> Certifique-se de substituir "https://seu-link-de-vendas.com" pelo link correto para a página de vendas do seu eBook.</p>
+
+<h4>Mensagem de Vendas:</h4>
+<p><em>💬 Copywriting no solo se trata de escribir bien, sino de escribir de una manera que encante, persuada y convierta. Con las estrategias correctas, aprenderás a crear mensajes irresistibles que captan la atención de tu público objetivo 🧠.</em></p>
+
+<p><strong>Inclua uma seção atraente na página para destacar os benefícios:</strong></p>
+<ul>
+    <li>🎯 Domine a técnica AIDA para capturar e converter leads.</li>
+    <li>📖 Use storytelling poderoso para conectar emocionalmente.</li>
+    <li>⚡ Ative gatilhos mentais que maximizam resultados.</li>
+    <li>🚫 Evite erros comuns que sabotam suas vendas.</li>
+</ul>
+
+<p><strong>Próximo Passo:</strong> Dê vida à sua página com este botão surpresa e atraia seu público diretamente para a transformação que seu eBook pode proporcionar!</p>
+
+<h1>Segundo Bônus: Aproveite o Super Desconto no Nosso Produto!</h1>
+<div style="margin-top: 20px; text-align: center;">
+    <img src="latam12.webp" alt="Capa do eBook">
+</div>
+
+
+<p><strong>¿Sabías que la forma en que te comunicas puede marcar toda la diferencia en tus ventas?</strong> Si deseas conquistar el mercado LATAM 🌎 e impulsar tus resultados, ¡este eBook es para ti! 💡</p>
+<p><strong>💬 Copywriting no solo se trata de escribir bien, sino de escribir de una manera que encante, persuada y convierta.</strong> Con las estrategias correctas, aprenderás a crear mensajes irresistibles que captan la atención de tu público objetivo 🧠. ¡Imagina escribir un texto tan poderoso que tus lectores no puedan resistirse a hacer clic en tu enlace! 🔥</p>
+<p>En esta guía descubrirás cómo aplicar la técnica AIDA 🎯, crear storytelling envolventes 📖, usar disparadores mentales ⚡ y evitar errores comunes que pueden perjudicar tus ventas 🚫. Además, entenderás el comportamiento del consumidor LATAM y cómo personalizar tu mensaje según las distintas culturas y preferencias.</p>
+<p>Ya seas emprendedor, marketero o vendedor, aprender a usar el copywriting a tu favor transformará tu negocio y aumentará tus ventas 📊. ¡No pierdas esta oportunidad de dominar el arte de escribir para vender! 💪</p>
+<p><strong>¡Descárgalo ahora y empieza a escribir para el éxito! ✍️💥</strong></p>
+
+<p><strong>¡Y como un bonus especial por llegar hasta aquí, ofrecemos un super descuento en este producto!</strong> No dejes pasar esta oportunidad única de mejorar tus habilidades de ventas con un descuento exclusivo. ¡Aprovecha ahora!</p>
+
+
+
+
+<!-- Barra de progresso fixa no topo -->
+<div class="progress-bar">
+    <div class="progress"></div>
+</div>
+
+<!-- Botões com links para download e desconto -->
+<div style="margin-top: 20px; text-align: center;">
+    
+    <a href="https://tilomachado.github.io/OpenMindOficial/textoquevende" class="button" style="background-color: #ff5733; color: #fff;">Aprovechar Super Descuento</a>
+</div>
+
+<!-- Estilo dos botões -->
+<style>
+    .button {
+        display: inline-block;
+        padding: 12px 30px;
+        font-size: 16px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #28a745;
+        color: white;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+        background-color: #218838;
+    }
+
+    .button:active {
+        background-color: #1e7e34;
+    }
+
+    /* Estilo da barra de progresso fixa */
+    .progress-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 5px;
+        background-color: #e0e0e0;
+        z-index: 9999; /* Garante que a barra fique acima de outros elementos */
+    }
+
+    .progress {
+        height: 100%;
+        background-color: red;
+        width: 0%; /* Começa com a barra vazia */
+        transition: width 0.1s ease-in-out;
+    }
+</style>
+
+<!-- JavaScript para controlar o progresso da leitura -->
+<script>
+    window.addEventListener('scroll', function() {
+        var docHeight = document.documentElement.scrollHeight;
+        var winHeight = window.innerHeight;
+        var scrollPos = window.scrollY;
+
+        var progress = (scrollPos / (docHeight - winHeight)) * 100; // Calcular a porcentagem de rolagem
+
+        // Atualiza a largura da barra de progresso
+        document.querySelector('.progress').style.width = progress + '%';
+    });
+</script>
+
+</body>
+</html>

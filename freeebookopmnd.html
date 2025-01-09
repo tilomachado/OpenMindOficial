@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baixe Nossos E-books Gratuitos</title>
+
+    <!-- Meta tags para SEO -->
+    <meta name="description" content="Baixe nossos e-books gratuitos e aprimore suas habilidades com conteúdos exclusivos e práticos!">
+    <meta name="keywords" content="E-books gratuitos, informática, teclados, Microsoft Word, aprendizado">
+    <meta name="author" content="Tilo Machado">
+
+    <link rel="icon" href="icone.png" type="image/png">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #000;
+            color: #fff;
+            margin: 0;
+            padding: 0;
+        }
+    
+        .cover {
+            text-align: center;
+            padding: 80px 0;
+            background-color: #222;
+            color: #fff;
+        }
+    
+        .cover h1 {
+            font-size: 48px;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+    
+        .cover p {
+            font-size: 20px;
+            margin-top: 10px;
+        }
+    
+        .content {
+            padding: 20px 10%;
+            background-color: #111;
+            margin-top: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+    
+        h2 {
+            font-size: 32px;
+            color: #00ff08;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+    
+        .ebook {
+            display: flex;
+            flex-direction: column; /* Imagem em cima e descrição embaixo */
+            align-items: center;
+            margin-bottom: 30px;
+        }
+    
+        .ebook img {
+            max-width: 250px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin-bottom: 20px; /* Espaço entre a imagem e o conteúdo */
+        }
+    
+        .ebook-details {
+            text-align: center;
+            flex: 1;
+        }
+    
+        .cta {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            font-size: 18px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.3s ease;
+        }
+    
+        .cta:hover {
+            background-color: #00ff0d;
+        }
+    
+        .download-count {
+            font-size: 14px;
+            margin-top: 5px;
+            color: #ffd500;
+        }
+    
+        /* Estilo da barra de progresso */
+        .progress-container {
+            width: 100%;
+            height: 20px;
+            background-color: #333;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;  /* Centraliza a barra */
+        }
+    
+        .progress-bar {
+            height: 100%;
+            width: 0;
+            background-color: #00ff08;
+            border-radius: 10px;
+            transition: width 2s;
+        }
+    
+        /* Estilo do modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            justify-content: center;
+            align-items: center;
+        }
+    
+        .modal-content {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+    
+        .close {
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+        }
+    
+        /* Responsividade para dispositivos móveis */
+        @media (max-width: 600px) {
+            .content {
+                padding: 20px 5%;
+            }
+    
+            .cta {
+                width: 100%;
+                font-size: 16px;
+                padding: 12px;
+            }
+    
+            .ebook img {
+                max-width: 200px; /* Ajusta o tamanho da imagem em dispositivos móveis */
+            }
+        }
+    </style>
+
+    
+    
+      <div class="cover">
+        <h1>Baixe Nossos E-books Gratuitos</h1>
+        <p>Melhore suas habilidades com conteúdos exclusivos e práticos!</p>
+    </div>
+    
+    <div class="content">
+        <h2>E-books Disponíveis</h2>
+    
+        <div class="ebook">
+            <img src="pc.webp" alt="E-book sobre teclados">
+            <div class="ebook-details">
+                <h3>Manual Completo sobre Todos os Teclados de Computador</h3>
+                <p>Aprenda todos os atalhos e segredos para otimizar seu uso do teclado.</p>
+                <button class="cta" onclick="downloadEbook('teclados')">Baixar Agora</button>
+                <p class="download-count">Baixado <span id="teclados-count">11</span> vezes</p>
+            </div>
+        </div>
+    
+        <div class="ebook">
+            <img src="pc1.webp" alt="E-book sobre Microsoft Word">
+            <div class="ebook-details">
+                <h3>Configurações Básicas no Microsoft Word</h3>
+                <p>Configure documentos profissionais com facilidade.</p>
+                <button class="cta" onclick="downloadEbook('word')">Baixar Agora</button>
+                <p class="download-count">Baixado <span id="word-count">9</span> vezes</p>
+            </div>
+        </div>
+   <!-- Barra de progresso -->
+   <div class="progress-container" id="progress-container">
+    <div class="progress-bar" id="progress-bar"></div>
+</div>
+</div>
+        <div class="intro">
+            <h2>Explore Alguns dos Nossos Cursos Gratuitos que Você Pode se Interessar</h2>
+            <p>Temos uma seleção de cursos gratuitos que irão ajudá-lo a transformar suas habilidades e alcançar seus objetivos no mundo digital. Aproveite essa oportunidade única para aprender, crescer e conquistar novos horizontes. Confira os cursos abaixo e comece agora mesmo!</p>
+        </div>
+        
+        <div class="ebook">
+            <img src="Post de Instagram minimalista vermelho de promoção de moto (1).png" alt="Canal no YouTube">
+            <div class="ebook-details">
+                <h3>Nosso Canal no YouTube</h3>
+                <p>Assista tutoriais e aprenda mais sobre o mundo digital.</p>
+                <button class="cta" onclick="window.location.href='https://rebrand.ly/DESCUBRAMAISAQUI'">Confira Aqui</button>
+            </div>
+        </div>
+        
+        <div class="ebook">
+            <img src="mental-preparation.webp" alt="Curso Facebook que Vende">
+            <div class="ebook-details">
+                <h3>3 Aulas Gratuitas sobre Facebook que Vende e 3 Aulas de Preparação Mental</h3>
+                <p>Aprenda a criar um Facebook que vende e atrai clientes.</p>
+                <button class="cta" onclick="window.location.href='https://tilomachado.github.io/Maquina-de-Vendas/'">Acesse as Aulas Aqui</button>
+            </div>
+        </div>
+        
+      
+        
+        <div class="ebook">
+            <img src="68be7ea9-aa5d-4974-80d3-64f7aab89729.webp" alt="Mestre do Software V1.0">
+            <div class="ebook-details">
+                <h3>Mestre do Software V1.0 - Curso Gratuito</h3>
+                <p>Transforme seu PC em uma máquina de renda extra! 💻💰</p>
+                <button class="cta" onclick="window.location.href='https://tilomachado.github.io/OpenMindOficial/'">Acesse o Curso Aqui</button>
+            </div>
+        </div>
+
+        <div class="ebook">
+            <img src="trab.webp" alt="Oportunidade na Hotmart">
+            <div class="ebook-details">
+                <h3>Mestre dos Trabalhos Científicos V1.0</h3>
+                <p>Aprenda Do Zero ao Topo: Criando Trabalhos Científicos com Qualidade</p>
+                <button class="cta" onclick="window.location.href='https://tilomachado.github.io/OpenMindOficial/'">Aprenda Mais Aqui</button>
+            </div>
+        </div>
+        
+        <div class="ebook">
+            <img src="produto1.webp" alt="Oportunidade na Hotmart">
+            <div class="ebook-details">
+                <h3>Para Moçambique: Oportunidade na Hotmart</h3>
+                <p>Venda produtos digitais e ganhe comissões incríveis.</p>
+                <button class="cta" onclick="window.location.href='https://tilomachado.github.io/OpenMindOficial/hotmartintro.html'">Aprenda Mais Aqui</button>
+            </div>
+        </div>
+        
+        <div class="ebook">
+            <img src="Instagram post internet chamativo roxo e branco (9).png" alt="Grupo de Serviços">
+            <div class="ebook-details">
+                <h3>Grupo de Serviços</h3>
+                <p>Junte-se ao nosso grupo para mais conteúdos e ofertas exclusivas.</p>
+                <button class="cta" onclick="window.location.href='https://chat.whatsapp.com/C0ef0uaaSuG1A0QgG2w1Hj'">Acesse o Grupo</button>
+            </div>
+        </div>
+        
+        
+    </div>
+
+
+
+    
+    <footer style="text-align: center; padding: 20px; background-color: #000000; font-family: Arial, sans-serif; font-size: 14px;">
+        <p>&copy; 2024 - Open Mind. Todos os direitos reservados.</p>
+    </footer>
+    
+
+     
+
+    <!-- Modal -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>Parabéns!</h2>
+            <p>Seu e-book está pronto para ser baixado.</p>
+            <button class="close" onclick="closeModal()">Fechar</button>
+        </div>
+    </div>
+
+    <script>
+        // Links para os e-books
+        const ebookLinks = {
+            teclados: 'Manual Completo sobre Todos os Teclados de Computador.pdf',
+            word: 'Configurações Básicas no Microsoft Word_ Times New Roman, Tamanho 12, Espaçamento 1,5 e Justificado.pdf'
+        };
+
+        // Função para baixar o e-book e atualizar contagem
+        function downloadEbook(ebook) {
+            let downloadCount = parseInt(localStorage.getItem(ebook)) || 0;
+            downloadCount++;
+            localStorage.setItem(ebook, downloadCount);
+            document.getElementById(`${ebook}-count`).textContent = `${downloadCount} `;
+
+            // Exibe a barra de progresso
+            document.getElementById("progress-container").style.display = "flex";
+            let progress = 0;
+
+            // Atualiza a barra de progresso
+            const interval = setInterval(() => {
+                progress += 10;
+                document.getElementById("progress-bar").style.width = `${progress}%`;
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    alert(`Download do e-book "${ebook}" iniciado!`);
+                    document.getElementById("progress-container").style.display = "none";
+
+                    // Ação para iniciar o download
+                    const link = document.createElement('a');
+                    link.href = ebookLinks[ebook];
+                    link.download = ebookLinks[ebook].split('/').pop(); // Pega o nome do arquivo para o download
+                    link.click();
+
+                    // Exibe o modal de sucesso
+                    showModal();
+                }
+            }, 500);
+        }
+
+        // Exibir modal de sucesso
+        function showModal() {
+            document.getElementById("successModal").style.display = "flex";
+        }
+
+        // Fechar modal
+        function closeModal() {
+            document.getElementById("successModal").style.display = "none";
+        }
+    </script>
+    
+</body>
+</html>
