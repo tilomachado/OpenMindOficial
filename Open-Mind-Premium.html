@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estrutura Geral de Trabalho de Pesquisa</title>
+    <meta name="description" content="Guia para trabalhos de pesquisa em informática">
+    <meta name="keywords" content="informática, pesquisa, eBook, inteligência artificial, desenvolvimento de software">
+    <meta name="author" content="Tilo Machado">
+
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <link rel="icon" href="icone.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e1e2f, #3a3a5a);
+            color: #fff;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+            box-sizing: border-box;
+        }
+        .cover {
+            text-align: center;
+            padding: 50px 10%;
+            background: linear-gradient(135deg, #14142a, #2a2a4d);
+            color: #fff;
+        }
+        .cover h1 {
+            font-size: 50px;
+            margin: 0;
+            letter-spacing: 2px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.7);
+        }
+        .cover h2 {
+            font-size: 30px;
+            margin: 10px 0;
+            color: #ccc;
+        }
+        .content {
+            padding: 50px 10%;
+            background: rgba(32, 32, 54, 0.95);
+            margin-top: -20px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+            border-radius: 15px;
+        }
+        h1 {
+            font-size: 42px;
+            color: #64ffda;
+            margin-top: 40px;
+            text-align: center;
+        }
+        h2, h3, h4 {
+            font-size: 28px;
+            color: #ffd700;
+            margin-top: 40px;
+            text-align: center;
+        }
+        p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            font-size: 18px;
+        }
+        ul li {
+            margin-bottom: 15px;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+        .progress-bar {
+            height: 5px;
+            background-color: #444;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+        }
+        .progress-bar .progress {
+            height: 100%;
+            background: linear-gradient(135deg, #00ff08, #00aaff);
+            width: 0;
+        }
+        .chapter img {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 90%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 36px;
+            }
+            .cover h2 {
+                font-size: 24px;
+            }
+            .content {
+                padding: 20px 5%;
+            }
+            p {
+                font-size: 16px;
+                text-align: justify;
+            }
+            h1 {
+                font-size: 32px;
+            }
+            .cta {
+                font-size: 18px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .cover h1 {
+                font-size: 28px;
+            }
+            .cover h2 {
+                font-size: 20px;
+            }
+            .content {
+                padding: 15px 2%;
+            }
+            p {
+                font-size: 14px;
+                text-align: justify;
+            }
+            h1 {
+                font-size: 28px;
+            }
+            .cta {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Primeira Seção: Estrutura Geral de um Trabalho de Pesquisa -->
+    <div class="cover">
+        <h1>Estrutura Geral de um Trabalho de Pesquisa</h1>
+        <h3>Introdução</h3>
+        <p>Apresentação do tema e relevância do trabalho.</p>
+        <p>Contextualização histórica e científica.</p>
+        <p>Problemática que o trabalho busca abordar.</p>
+
+        <div class="section">
+            <h3>1.1 Objetivo Geral</h3>
+            <p>Declaração clara do objetivo principal.</p>
+        </div>
+
+        <div class="section">
+            <h3>1.2 Objetivos Específicos</h3>
+            <p>Metas detalhadas que guiam o trabalho.</p>
+        </div>
+
+        <div class="section">
+            <h3>1.3 Metodologia Usada</h3>
+            <p>Descrição das técnicas e métodos utilizados na pesquisa.</p>
+        </div>
+
+        <h3>Desenvolvimento (Tema do Trabalho)</h3>
+        <p>O desenvolvimento deve ser estruturado de maneira lógica e progressiva, explorando o tema em profundidade.</p>
+
+        <div class="section">
+            <h3>2. Tema: Contexto e Definição</h3>
+            <p>Discussão aprofundada sobre o primeiro aspecto principal do tema, utilizando exemplos, análises e referências para embasar as ideias.</p>
+        </div>
+
+        <div class="section">
+            <h3>3. Tema: Benefícios e Aplicações Práticas</h3>
+            <p>Abordagem de outro aspecto relevante do tema, detalhando conceitos, dados e implicações.</p>
+        </div>
+
+        <h3>Conclusão</h3>
+        <p>Resumo dos principais pontos discutidos.</p>
+        <p>Reflexão sobre a importância do tema.</p>
+        <p>Recomendações para estudos futuros ou aplicação prática.</p>
+
+        <h3>Referências Bibliográficas</h3>
+        <p>Listagem detalhada das fontes consultadas, seguindo normas acadêmicas (APA, ABNT ou conforme requerido).</p>
+  <!-- Botão para baixar PDF -->
+<div class="cta">
+    <button id="downloadBtn">Baixar o Exemplo em PDF</button>
+</div>
+
+<!-- Modal para progresso -->
+<div id="downloadModal" class="modal hidden">
+    <div class="modal-content">
+        <h3>Baixando o PDF</h3>
+        <div class="progress-bar">
+            <div class="progress"></div>
+        </div>
+        <p id="progressText">Processando...</p>
+        <button id="closeModal" class="close-btn hidden">Fechar</button>
+    </div>
+</div>
+
+<!-- Estilos -->
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9fa;
+    }
+
+    .cta {
+        text-align: center;
+        margin: 20px 0;
+    }
+
+    #downloadBtn {
+        padding: 12px 20px;
+        font-size: 16px;
+        font-weight: bold;
+        color: #fff;
+        background-color: #007bff;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    #downloadBtn:hover {
+        background-color: #0056b3;
+        transform: scale(1.05);
+    }
+
+    #downloadBtn:active {
+        background-color: #003f7f;
+        transform: scale(0.95);
+    }
+
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-content {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+    }
+
+    .progress-bar {
+        width: 100%;
+        background-color: #e9ecef;
+        border-radius: 8px;
+        overflow: hidden;
+        margin: 15px 0;
+        height: 20px;
+    }
+
+    .progress {
+        width: 0;
+        height: 100%;
+        background-color: #007bff;
+        transition: width 1s ease;
+    }
+
+    #progressText {
+        font-size: 14px;
+        color: #6c757d;
+    }
+
+    .close-btn {
+        margin-top: 15px;
+        padding: 10px 15px;
+        font-size: 14px;
+        background-color: #6c757d;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .close-btn:hover {
+        background-color: #5a6268;
+    }
+
+    .hidden {
+        display: none;
+    }
+</style>
+
+
+
+        
+        
+
+
+    
+
+    
+
+
+    <script>
+document.getElementById("downloadBtn").addEventListener("click", function () {
+    const modal = document.getElementById("downloadModal");
+    const progressBar = document.querySelector(".progress");
+    const progressText = document.getElementById("progressText");
+    const closeModal = document.getElementById("closeModal");
+
+    // Mostrar o modal
+    modal.classList.remove("hidden");
+
+    // Simular progresso
+    let progress = 0;
+    progressText.innerText = "Iniciando download...";
+    const interval = setInterval(() => {
+        progress += 25; // Incrementar em 25%
+        progressBar.style.width = `${progress}%`;
+
+        if (progress === 100) {
+            clearInterval(interval);
+            progressText.innerText = "Download concluído!";
+            closeModal.classList.remove("hidden");
+
+            // Criar e iniciar o download do arquivo
+            const link = document.createElement("a");
+            link.href =
+                "https://drive.google.com/uc?export=download&id=15P3jslF_SaZNjt027-U3bNkpSjU6BuzD";
+            link.download = "Trabalho Acadêmico - Inteligência Artificial no Desenvolvimento de Software.pdf";
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+    }, 1000); // Atualizar a cada 1 segundo
+});
+
+// Fechar o modal
+document.getElementById("closeModal").addEventListener("click", function () {
+    const modal = document.getElementById("downloadModal");
+    const progressBar = document.querySelector(".progress");
+
+    // Resetar o progresso
+    progressBar.style.width = "0";
+    modal.classList.add("hidden");
+});
+
+
+    </script>
+
+    
+</body>
+
+ 
+    </html>
