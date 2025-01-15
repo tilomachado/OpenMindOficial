@@ -96,6 +96,81 @@
         <button id="prev" class="nav-button">⬅️</button>
         <button id="next" class="nav-button">➡️</button>
     </div>
+    
+    <style>
+       
+    
+       .slide-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(45deg, #ff6f61, #ffa000);
+    padding: 8px 16px; /* Tamanho igual para cima/baixo e esquerda/direita */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    line-height: 1; /* Ajusta o espaçamento vertical do texto */
+    height: 40px; /* Altura fixa para manter proporção */
+    width: auto; /* Ajusta automaticamente com base no texto */
+    animation: pulse 2s infinite; /* Animação opcional */
+}
+
+/* Animação para efeito pulsante */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+    </style>
+    
+    <script>
+        // Configuração inicial
+        const totalSlides = 6; // Total de slides
+        let currentSlide = 1; // Slide atual
+    
+        // Elementos do carrossel
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+    
+        // Criar elemento para o contador e adicioná-lo no meio dos botões
+        const slideCounter = document.createElement('span');
+        slideCounter.className = 'slide-number';
+        slideCounter.textContent = `${currentSlide}/${totalSlides}`;
+    
+        // Inserir o contador entre os botões
+        const buttonsContainer = document.querySelector('.carousel-buttons');
+        buttonsContainer.insertBefore(slideCounter, nextButton);
+    
+        // Função para atualizar o contador
+        function updateSlideCounter() {
+            slideCounter.textContent = `${currentSlide}/${totalSlides}`;
+        }
+    
+        // Função para ir para o slide anterior
+        prevButton.addEventListener('click', () => {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlideCounter();
+            }
+        });
+    
+        // Função para ir para o próximo slide
+        nextButton.addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlideCounter();
+            }
+        });
+    </script>
+    
 
     <footer>
         <p>© 2024 - OpenMind. Todos os direitos reservados.</p>
