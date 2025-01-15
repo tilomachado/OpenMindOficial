@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vídeo Disponível em 24 Horas</title>
+    <link rel="icon" href="icone.png" type="image/png">
+    <meta name="description" content="O vídeo estará disponível dentro de 24 horas a partir de agora. Fique atento!">
+    <meta name="keywords" content="vídeo, disponível, 24 horas, conteúdo, notificação">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- CSS para o estilo da página -->
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #e74c3c;
+            margin: 20px 0;
+            font-family: 'Roboto', sans-serif;
+        }
+
+        p {
+            font-size: 1.5rem;
+            margin: 10px 0;
+            color: #ecf0f1;
+        }
+
+        .countdown {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #f39c12;
+        }
+
+        .notify {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #3498db;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+        }
+
+        .notify:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Conteúdo principal -->
+    <h1>Vídeo Disponível em 24 Horas</h1>
+    <p>Estamos finalizando o conteúdo, e ele estará disponível para você dentro de 24 horas.</p>
+
+    <div class="countdown" id="countdown">
+        24:00:00
+    </div>
+
+    <p>Fique atento para acessar assim que o vídeo for liberado.</p>
+
+    <!-- Botão para redirecionar para o WhatsApp -->
+<a href="https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR" class="notify" target="_blank">Notifique-me</a>
+
+<style>
+    .notify {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #3498db;
+        color: #fff;
+        border-radius: 5px;
+        cursor: pointer;
+        text-transform: uppercase;
+        font-size: 1.2rem;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    .notify:hover {
+        background-color: #2980b9;
+    }
+</style>
+
+
+    <script>
+        // Função para atualizar o countdown
+        function startCountdown() {
+            const endTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 horas a partir de agora
+            const countdownElement = document.getElementById('countdown');
+
+            setInterval(function() {
+                const now = new Date().getTime();
+                const distance = endTime - now;
+
+                if (distance <= 0) {
+                    countdownElement.innerHTML = "Vídeo Disponível!";
+                } else {
+                    const hours = Math.floor(distance / (1000 * 60 * 60));
+                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                    countdownElement.innerHTML = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+                }
+            }, 1000);
+        }
+
+        // Iniciar o countdown
+        startCountdown();
+    </script>
+
+</body>
+</html>
