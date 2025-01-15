@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Receita</title>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-app.js";
+        import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/9.17.2/firebase-firestore.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        async function adicionarReceita(data, valor) {
+            try {
+                await addDoc(collection(db, "receitas"), {
+                    data,
+                    valor,
+                    timestamp: new Date()
+                });
+                console.log("Receita adicionada com sucesso!");
+            } catch (e) {
+                console.error("Erro ao adicionar receita: ", e);
+            }
+        }
+
+        async function obterReceitas() {
+            const receitas = [];
+            try {
+                const querySnapshot = await getDocs(collection(db, "receitas"));
+                querySnapshot.forEach((doc) => {
+                    receitas.push(doc.data());
+                });
+            } catch (e) {
+                console.error("Erro ao obter receitas: ", e);
+            }
+            return receitas;
+        }
+
+        function exportarCSV(receitas) {
+            let csvContent = "data:text/csv;charset=utf-8,Data,Valor (MZN)\n";
+            receitas.forEach(r => {
+                csvContent += `${r.data},${r.valor}\n`;
+            });
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "receitas.csv");
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        async function atualizarGrafico(chart) {
+            const receitas = await obterReceitas();
+            const labels = receitas.map(r => r.data);
+            const data = receitas.map(r => r.valor);
+            const acumulado = data.reduce((acc, val, i) => {
+                acc.push((acc[i - 1] || 0) + val);
+                return acc;
+            }, []);
+
+            chart.data.labels = labels;
+            chart.data.datasets[0].data = data;
+            chart.data.datasets[1].data = acumulado;
+            chart.update();
+
+            atualizarTabelaMotivacional(receitas);
+        }
+
+        function atualizarTabelaMotivacional(receitas) {
+            const tabelaMotivacional = document.getElementById("tabela-motivacional");
+            tabelaMotivacional.innerHTML = "";
+            let totalMZN = 0;
+
+            receitas.forEach(r => {
+                totalMZN += r.valor;
+                const valorUSD = (r.valor / 63).toFixed(2); // Taxa de câmbio aproximada
+                const linha = `<tr><td>${r.data}</td><td>${r.valor} MZN</td><td>${valorUSD} USD</td></tr>`;
+                tabelaMotivacional.innerHTML += linha;
+            });
+
+            const mensagemMotivacional = document.getElementById("mensagem-motivacional");
+            const mensagens = [
+                "Continue assim, grandes conquistas começam com pequenos passos!",
+                "Você está no caminho certo para alcançar seus objetivos financeiros!",
+                "Cada Metical conta. Mantenha o foco!",
+                "Persistência é a chave para o sucesso. Não desista!",
+                "Acredite no seu potencial e você alcançará suas metas!"
+            ];
+
+            mensagemMotivacional.textContent = mensagens[Math.floor(Math.random() * mensagens.length)];
+        }
+
+        document.addEventListener("DOMContentLoaded", async () => {
+            const botaoAdicionar = document.getElementById("adicionar");
+            const botaoExportar = document.getElementById("exportar");
+            const ctx = document.getElementById('grafico').getContext('2d');
+            const grafico = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: [],
+                    datasets: [
+                        {
+                            label: 'Valores diários',
+                            data: [],
+                            borderColor: 'rgba(75, 192, 192, 1)',
+                            tension: 0.3
+                        },
+                        {
+                            label: 'Acumulado',
+                            data: [],
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            tension: 0.3
+                        }
+                    ]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+
+            botaoAdicionar.addEventListener("click", async () => {
+                const data = document.getElementById("data").value;
+                const valor = parseFloat(document.getElementById("valor").value);
+
+                if (!data || isNaN(valor) || valor <= 0 || new Date(data) > new Date()) {
+                    alert("Por favor, preencha todos os campos corretamente!");
+                    return;
+                }
+
+                await adicionarReceita(data, valor);
+                atualizarGrafico(grafico);
+            });
+
+            botaoExportar.addEventListener("click", async () => {
+                const receitas = await obterReceitas();
+                exportarCSV(receitas);
+            });
+
+            atualizarGrafico(grafico);
+        });
+    </script>
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: linear-gradient(to right, #ffffff, #e6f7ff);
+            min-height: 100vh;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 800px;
+            background: #ffffff;
+            padding: 20px;
+            margin-top: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 2rem;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        input, button {
+            margin: 5px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        button {
+            cursor: pointer;
+            background: #007bff;
+            color: #fff;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #0056b3;
+        }
+
+        table {
+            width: 100%;
+            margin-top: 20px;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .motivacao {
+            margin-top: 20px;
+            font-size: 1.2em;
+            color: #555;
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Gestão de Receita - N.L.E SERVIÇOS</h1>
+        <input id="data" type="date" placeholder="Data">
+        <input id="valor" type="number" placeholder="Valor (MZN)">
+        <button id="adicionar">Adicionar</button>
+        <button id="exportar">Exportar CSV</button>
+
+        <canvas id="grafico" width="400" height="200"></canvas>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Data</th>
+                    <th>Valor (MZN)</th>
+                    <th>Valor (USD)</th>
+                </tr>
+            </thead>
+            <tbody id="tabela-motivacional"></tbody>
+        </table>
+
+        <div class="motivacao" id="mensagem-motivacional"></div>
+    </div>
+</body>
+</html>
