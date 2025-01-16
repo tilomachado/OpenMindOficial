@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <title>Curso Edição Pro V3</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        /* Estilo Geral */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Títulos */
+h1 {
+    color: #00eaff;
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 3rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 10px rgba(0, 234, 255, 0.6);
+}
+
+h2 {
+    color: #ffc107;
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Carrossel */
+.carousel-container {
+    width: 100%;
+    max-width: 900px;
+    overflow: hidden;
+    position: relative;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    background: rgba(255, 255, 255, 0.05);
+    padding: 10px;
+}
+
+.carousel {
+    display: flex;
+    transition: transform 1s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.carousel-item {
+    min-width: 100%;
+    box-sizing: border-box;
+    transition: transform 0.5s, box-shadow 0.5s;
+}
+
+.carousel-item:hover {
+    transform: scale(1.02);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.2);
+}
+
+/* Video Container */
+.video-container {
+    background: linear-gradient(145deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+}
+
+iframe {
+    width: 100%;
+    height: 450px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Barra de Progresso */
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #444;
+    border-radius: 6px;
+    margin-top: 15px;
+    overflow: hidden;
+    box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.5);
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #39ff14, #00d4ff, #ff5733);
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+/* Botão de Concluir Aula */
+.close-modal {
+    margin-top: 15px;
+    padding: 12px 25px;
+    background: linear-gradient(90deg, #00d4ff, #00b3ff, #0073ff);
+    border: none;
+    border-radius: 8px;
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    box-shadow: 0 5px 15px rgba(0, 212, 255, 0.5);
+}
+
+.close-modal:hover {
+    background: linear-gradient(90deg, #0073ff, #00b3ff, #00d4ff);
+    transform: translateY(-3px);
+}
+
+/* Botões do Carrossel */
+.carousel-buttons {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 900px;
+    margin-top: 15px;
+}
+
+.carousel-button {
+    background: linear-gradient(145deg, #00d4ff, #0073ff);
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 24px;
+    padding: 15px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+}
+
+.carousel-button:hover {
+    background: linear-gradient(145deg, #0073ff, #00d4ff);
+    transform: scale(1.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    iframe {
+        height: 300px;
+    }
+
+    .carousel-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .carousel-button {
+        font-size: 20px;
+        padding: 12px;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 28px;
+    }
+
+    iframe {
+        height: 220px;
+    }
+
+    .carousel-container {
+        padding: 5px;
+    }
+
+    .close-modal {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+}
+
+#slide-indicator {
+    font-size: 18px;
+    color: #ffffff;
+    background-color: rgba(0, 0, 0, 0.6);
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0 10px;
+}
+.carousel-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 10px;
+}
+.carousel-button {
+    background-color: #00d4ff;
+    border: none;
+    border-radius: 50%;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.carousel-button:hover {
+    background-color: #008cba;
+}
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Curso Edição Pro V3</h1>
+        <p class="intro-text">
+            Bem-vindo ao curso definitivo para aprender técnicas avançadas de edição. Explore cada aula no carrossel e desbloqueie materiais exclusivos!
+        </p>
+    </header>
+
+    <div class="carousel-container">
+        <div class="carousel" id="carousel">
+            <!-- Slide 1 -->
+            <div class="carousel-item">
+                <div class="video-container">
+                    <iframe id="video1" src="https://www.youtube.com/embed/YdaYgVcmijs?enablejsapi=1&controls=1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress1"></div>
+                    </div>
+                    <button class="close-modal" id="finish-btn2" onclick="downloadEbook()">
+                        Baixar Material
+                    </button>
+                    
+                    <script>
+                        function downloadEbook() {
+                            // URL de exportação do Google Docs para download como PDF
+                            const ebookUrl = "https://docs.google.com/document/d/1ZDKGscf8hLtLj42Wz3cvSkkZJ5E_mTnMkk46gcFcJrk/export?format=pdf";
+                            
+                            // Criar um link de download temporário
+                            const link = document.createElement('a');
+                            link.href = ebookUrl;
+                            link.download = 'ebook-material.pdf';  // Define o nome do arquivo para o download
+                            link.click();  // Simula o clique no link para o download
+                        }
+                    </script>
+                </div>
+            </div>
+    
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <div class="video-container">
+                    <iframe id="video2" src="https://www.youtube.com/embed/HNaFpYqnkeA?enablejsapi=1&controls=1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress2"></div>
+                    </div>
+                    <button class="close-modal" id="finish-btn2" onclick="downloadEbook()">
+                        Baixar Material
+                    </button>
+                    
+                    <script>
+                        function downloadEbook() {
+                            // URL de exportação do Google Docs para download como PDF
+                            const ebookUrl = "https://docs.google.com/document/d/1ZDKGscf8hLtLj42Wz3cvSkkZJ5E_mTnMkk46gcFcJrk/export?format=pdf";
+                            
+                            // Criar um link de download temporário
+                            const link = document.createElement('a');
+                            link.href = ebookUrl;
+                            link.download = 'ebook-material.pdf';  // Define o nome do arquivo para o download
+                            link.click();  // Simula o clique no link para o download
+                        }
+                    </script>
+                    
+                </div>
+            </div>
+    
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <div class="video-container">
+                    <iframe id="video3" src="https://www.youtube.com/embed/j6EVQnpOt8E?enablejsapi=1&controls=1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress3"></div>
+                    </div>
+                    <button class="close-modal" id="finish-btn3" onclick="finishLesson(3)">
+                        <button class="close-modal" id="finish-btn2" onclick="downloadEbook()">
+                            Baixar Material
+                        </button>
+                        
+                        <script>
+                            function downloadEbook() {
+                                // URL de exportação do Google Docs para download como PDF
+                                const ebookUrl = "https://docs.google.com/document/d/1ZDKGscf8hLtLj42Wz3cvSkkZJ5E_mTnMkk46gcFcJrk/export?format=pdf";
+                                
+                                // Criar um link de download temporário
+                                const link = document.createElement('a');
+                                link.href = ebookUrl;
+                                link.download = 'ebook-material.pdf';  // Define o nome do arquivo para o download
+                                link.click();  // Simula o clique no link para o download
+                            }
+                        </script>
+
+<!-- CSS do Modal -->
+<style>
+    .modal.hidden {
+        display: none;
+    }
+    .modal {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 1000;
+    }
+    .modal-content {
+        background: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        text-align: center;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+    .modal-content h2 {
+        margin-bottom: 10px;
+    }
+    .modal-content p {
+        margin-bottom: 20px;
+        font-size: 1rem;
+        color: #555;
+    }
+    .download-button {
+        display: inline-block;
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        margin-bottom: 15px;
+        text-decoration: none;
+        font-size: 1rem;
+        border-radius: 5px;
+        transition: background-color 0.3s;
+    }
+    .download-button:hover {
+        background-color: #45a049;
+    }
+    .close-modal-button {
+        background: #f44336;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 1rem;
+        transition: background-color 0.3s;
+    }
+    .close-modal-button:hover {
+        background: #d32f2f;
+    }
+</style>
+
+<!-- JavaScript do Modal -->
+<script>
+    function finishLesson(lessonNumber) {
+        // Define o número da aula no modal
+        document.getElementById("lesson-number").textContent = lessonNumber;
+
+        // Define o link de download para o material correspondente
+        const downloadLink = document.getElementById("download-link");
+        downloadLink.href = `material-aula-${lessonNumber}.pdf`; // Exemplo de arquivo
+
+        // Exibe o modal
+        document.getElementById("modal").classList.remove("hidden");
+    }
+
+    function closeModal() {
+        // Oculta o modal
+        document.getElementById("modal").classList.add("hidden");
+    }
+</script>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        const totalDuration = 18 * 60; // 18 minutes in seconds
+        const progressBars = [
+            document.getElementById('progress1'),
+            document.getElementById('progress2'),
+            document.getElementById('progress3'),
+        ];
+        const videoIds = ['video1', 'video2', 'video3'];
+        let progressIntervals = [null, null, null]; // To store interval IDs for each video
+        let players = []; // YouTube players array
+    
+        // Function to initialize YouTube API players
+        function onYouTubeIframeAPIReady() {
+            videoIds.forEach((id, index) => {
+                players[index] = new YT.Player(id, {
+                    events: {
+                        'onStateChange': (event) => onPlayerStateChange(event, index)
+                    }
+                });
+            });
+        }
+    
+        // Handle player state changes
+        function onPlayerStateChange(event, index) {
+            if (event.data === YT.PlayerState.PLAYING) {
+                startProgressBar(index);
+            } else if (event.data === YT.PlayerState.PAUSED || event.data === YT.PlayerState.ENDED) {
+                stopProgressBar(index);
+            }
+        }
+    
+        // Start progress bar for the video
+        function startProgressBar(index) {
+            if (progressIntervals[index] === null) { // Avoid multiple intervals
+                let progress = 0;
+                progressIntervals[index] = setInterval(() => {
+                    progress++;
+                    const progressPercent = (progress / totalDuration) * 100;
+                    progressBars[index].style.width = progressPercent + '%';
+    
+                    if (progress >= totalDuration) {
+                        clearInterval(progressIntervals[index]);
+                        progressIntervals[index] = null; // Clear interval reference
+                    }
+                }, 1000); // Update every second
+            }
+        }
+    
+        // Stop progress bar when video is paused or ends
+        function stopProgressBar(index) {
+            if (progressIntervals[index] !== null) {
+                clearInterval(progressIntervals[index]);
+                progressIntervals[index] = null;
+            }
+        }
+    
+        // Function to mark a lesson as complete
+        function finishLesson(lessonNumber) {
+            alert(`Parabéns! Você completou a aula ${lessonNumber}.`);
+        }
+    
+        // Load YouTube IFrame API
+        const script = document.createElement('script');
+        script.src = "https://www.youtube.com/iframe_api";
+        document.head.appendChild(script);
+    </script>
+    
+
+    <div class="carousel-buttons">
+        <button class="carousel-button" id="prev" onclick="prevSlide()" aria-label="Aula anterior">
+            &#8249;
+        </button>
+        <div id="slide-indicator">1/3</div> <!-- Indicador dinâmico -->
+        <button class="carousel-button" id="next" onclick="nextSlide()" aria-label="Próxima aula">
+            &#8250;
+        </button>
+    </div>
+    
+
+    <footer>
+        <p>
+            © 2025 Curso Edição Pro V3 - Todos os direitos reservados. 
+            
+        </p>
+    </footer>
+</body>
+
+
+<script>
+    let currentSlide = 0; // Slide atual
+    const carousel = document.getElementById('carousel'); // Carrossel
+    const totalSlides = document.querySelectorAll('.carousel-item').length; // Total de slides
+    const slideIndicator = document.getElementById('slide-indicator'); // Indicador de progresso
+
+    // Atualiza o carrossel e o indicador
+    function updateCarousel() {
+        const offset = currentSlide * -100; // Calcula a posição do carrossel
+        carousel.style.transform = `translateX(${offset}%)`; // Move o carrossel
+        slideIndicator.textContent = `${currentSlide + 1}/${totalSlides}`; // Atualiza o texto do indicador
+    }
+
+    // Avança para o próximo slide
+    function nextSlide() {
+        if (currentSlide < totalSlides - 1) {
+            currentSlide++;
+            updateCarousel();
+        }
+    }
+
+    // Volta para o slide anterior
+    function prevSlide() {
+        if (currentSlide > 0) {
+            currentSlide--;
+            updateCarousel();
+        }
+    }
+
+    // Exibe uma mensagem ao finalizar uma aula
+    function finishLesson(lessonNumber) {
+        alert(`Parabéns! Você completou a aula ${lessonNumber}.`);
+    }
+
+    // Inicializa o indicador na primeira exibição
+    document.addEventListener('DOMContentLoaded', () => {
+        slideIndicator.textContent = `1/${totalSlides}`;
+    });
+</script>
+
+</body>
+</html>
