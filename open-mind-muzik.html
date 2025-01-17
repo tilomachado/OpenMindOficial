@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Músicas Exclusivas</title>
+    <!-- Adicionando suporte a idiomas -->
+    <meta name="description" content="Guia completo para criar textos de vendas de sucesso">
+    <meta name="keywords" content="informática, curso, eBook, vendas, marketing digital">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <!-- Suporte a múltiplos idiomas -->
+    <link rel="alternate" hreflang="es" href="pagina_espanhol.html">
+    <link rel="alternate" hreflang="en" href="pagina_ingles.html">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+    
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    
+        header {
+            background: linear-gradient(45deg, #1f1f1f, #3a3a3a);
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            animation: slideDown 1s ease-out;
+        }
+    
+        @keyframes slideDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
+        main {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+    
+        .card {
+            background: #1a1a1a;
+            margin: 20px 0;
+            padding: 15px;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            color: #fff;
+            transform: scale(0.95);
+            animation: popIn 0.6s ease-out;
+        }
+    
+        @keyframes popIn {
+            from {
+                transform: scale(0.7);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    
+        .card:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+    
+        .card h3 {
+            margin-top: 0;
+        }
+    
+        .card img {
+            max-width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            animation: fadeIn 1.5s ease-out;
+        }
+    
+        .download-btn {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 10px 15px;
+            background: linear-gradient(45deg, #6200ea, #b400ff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 3px;
+            cursor: pointer;
+            transition: transform 0.2s ease-in-out, background 0.3s;
+        }
+    
+        .download-btn:hover {
+            background: linear-gradient(45deg, #4500b0, #9300cc);
+            transform: translateY(-3px);
+        }
+    
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px;
+            background: #111;
+            color: #fff;
+        }
+    
+        .metrics {
+            text-align: center;
+            margin: 20px 0;
+            font-size: 1.5em;
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+    
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    
+        .metrics span {
+            font-weight: bold;
+            color: #ff4081;
+        }
+    
+        /* Barra de Processamento */
+        .processing-container {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #fff;
+        }
+    
+        .processing-bar {
+            width: 0;
+            height: 5px;
+            background: linear-gradient(90deg, #ff4081, #ffa500);
+            margin-top: 10px;
+            animation: loading 2s ease-in-out infinite;
+        }
+    
+        @keyframes loading {
+            0% {
+                width: 0;
+            }
+            50% {
+                width: 50%;
+            }
+            100% {
+                width: 100%;
+            }
+        }
+    
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            padding-top: 100px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0, 0, 0, 0.4);
+            animation: fadeInModal 0.5s ease-out;
+        }
+    
+        @keyframes fadeInModal {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            color: #333;
+            animation: zoomIn 0.4s ease-out;
+        }
+    
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+    
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+    </style>
+    
+</head>
+<body>
+    <header>
+        <h1>Músicas Exclusivas</h1>
+        <p>Baixe suas músicas favoritas e veja o número de downloads e visitas em tempo real.</p>
+        <p>Site desenvolvido por Tilo Machado, especialista em tecnologia e empreendedor digital, com o objetivo de trazer acessibilidade e inovação para amantes da música.</p>
+    </header>
+    
+    <style>
+        /* Estilo do cabeçalho */
+        header {
+            background: linear-gradient(135deg, #ff6b6b, #f7c2c2); /* Gradiente suave */
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            color: #fff;
+            font-family: 'Arial', sans-serif;
+            margin: 20px 0;
+            animation: headerAnim 3s ease-in-out infinite;
+        }
+    
+        /* Animação do cabeçalho */
+        @keyframes headerAnim {
+            0% {
+                transform: translateY(-20px);
+                opacity: 0.5;
+            }
+            50% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20px);
+                opacity: 0.5;
+            }
+        }
+    
+        h1 {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 10px;
+            animation: textGlow 2s ease-in-out infinite alternate;
+        }
+    
+        /* Animação de brilho no título */
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.7), 0 0 15px rgba(255, 255, 255, 0.5);
+            }
+            100% {
+                text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6), 0 0 45px rgba(255, 255, 255, 0.4);
+            }
+        }
+    
+        p {
+            font-size: 18px;
+            font-weight: 400;
+            margin: 10px 0 0;
+            opacity: 0.8;
+            animation: fadeInText 2s ease-in-out forwards;
+        }
+    
+        /* Animação do texto */
+        @keyframes fadeInText {
+            0% {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+    
+    <main>
+        
+<style>
+    /* Estilo para a área de métricas */
+    .metrics {
+        background: #2d2d2d; /* Fundo mais sóbrio */
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+        text-align: center;
+        border: 3px solid #444; /* Bordas discretas */
+        margin: 20px;
+    }
+
+    .metrics p {
+        font-size: 24px;
+        font-weight: bold;
+        color: #fff;
+        margin: 15px 0;
+    }
+
+    /* Estilo de contagem com emojis */
+    .counter {
+        font-size: 40px;
+        font-weight: bold;
+        color: #ffcc00; /* Amarelo suave */
+        display: inline-block;
+        text-shadow: 0 0 8px rgba(255, 204, 0, 0.7);
+        transition: all 0.3s ease-in-out;
+    }
+
+    /* Efeito de animação para os números */
+    @keyframes counterFadeIn {
+        0% {
+            transform: scale(1.2);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1);
+            opacity: 1;
+        }
+    }
+
+    .counter {
+        animation: counterFadeIn 0.5s ease-in-out forwards;
+    }
+
+    /* Botão estilo grupo exclusivo */
+    .exclusive-btn {
+        background-color: #4CAF50; /* Verde mais sóbrio */
+        color: #fff;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 30px;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        text-transform: uppercase;
+        margin-top: 20px;
+    }
+
+    .exclusive-btn:hover {
+        background-color: #45a049; /* Efeito ao passar o mouse */
+        transform: scale(1.05);
+    }
+
+    .exclusive-btn:active {
+        background-color: #3e8e41;
+        transform: scale(1);
+    }
+</style>
+
+
+        
+        
+        <div id="processing" class="processing-container">
+            <p>Aguarde um instante...</p>
+            <div class="processing-bar"></div>
+        </div>
+
+        <style>
+            /* Estilo de Processamento */
+            #processing {
+                display: none; /* Inicialmente escondido */
+                text-align: center;
+                padding: 20px;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 10px;
+                color: #fff;
+                position: fixed;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 9999; /* Para aparecer sobre outros elementos */
+            }
+        
+            .processing-bar {
+                margin-top: 10px;
+                border: 4px solid #00aaff;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                border-top: 4px solid transparent;
+                animation: spin 1s linear infinite;
+            }
+        
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+
+<script>
+    function showProcessing() {
+        // Exibe o processamento
+        document.getElementById('processing').style.display = 'block';
+    }
+
+    function hideProcessing() {
+        // Esconde o processamento
+        document.getElementById('processing').style.display = 'none';
+    }
+
+    // Exemplo de como chamar as funções
+    // Vamos simular um download
+    function prepareDownload(songName, songUrl) {
+        showProcessing(); // Mostrar a animação de "aguarde"
+        
+        // Simulando o tempo de download com setTimeout
+        setTimeout(function() {
+            hideProcessing(); // Esconder a animação de "aguarde"
+            alert("Download de '" + songName + "' iniciado!");
+            window.location.href = songUrl; // Iniciar o download
+        }, 2000); // Simula 2 segundos de espera (você pode mudar o tempo aqui)
+    }
+</script>
+
+        
+        
+        <div class="card">
+            <img src="nle.webp" alt="Capa da Música">
+            <h3>XT Blazy - Por Causa de Money</h3>
+            <button class="download-btn" onclick="prepareDownload('XT Blazy - Por Causa de Money', 'https://www.mediafire.com/file/o6t59vrkwp9m87x/XT_Blazy_Por_Causa_de_Money.mp3/file')">Baixar</button>
+        </div>
+        
+        <div class="card">
+            <img src="nle1.webp" alt="Capa da Música">
+            <h3>Ad3m3rio Nada Ft XT Blazy 17</h3>
+            <button class="download-btn" onclick="prepareDownload('Ad3m3rio Nada Ft XT Blazy 17', 'https://www.mediafire.com/file/ws6pinw32xv04ac/Ad3m3rio_Nada__Ft_XT_Blazy_17.mp3/file')">Baixar</button>
+        </div>
+        
+        <div class="card">
+            <img src="nle2.webp" alt="Capa da Música">
+            <h3>Baskid feat Scarlinho</h3>
+            <button class="download-btn" onclick="prepareDownload('Baskid feat Scarlinho', 'https://www.mediafire.com/file/ft1qzu21kaatnox/Baskid_feat_Scarlinho.mp3/file')">Baixar</button>
+        </div>
+        
+        <div class="card">
+            <img src="nle3.webp" alt="Capa da Música">
+            <h3>Baskidd Paranóia</h3>
+            <button class="download-btn" onclick="prepareDownload('Baskidd Paranóia', 'https://www.mediafire.com/file/a8s3x4jh05eanlf/Baskidd_Paran%25C3%25B3ia__.mp3/file')">Baixar</button>
+        </div>
+        
+        <div class="card">
+            <img src="nle4.webp" alt="Capa da Música">
+            <h3>F.I.N.E</h3>
+            <button class="download-btn" onclick="prepareDownload('F.I.N.E', 'https://www.mediafire.com/file/v74t5bs2wxvumce/DEMOtwi.mp3/file')">Baixar</button>
+        </div>
+        
+        <div class="card">
+            <img src="nle5.webp" alt="Capa da Música">
+            <h3>Filho da Ana - Diamante do Futuro EP</h3>
+            <button class="download-btn" onclick="prepareDownload('Filho da Ana - Diamante do Futuro EP', 'https://www.mediafire.com/file/mdf5cm9t93cu5t2/Filho_da_Ana_Diamante_Do_Futuro_EP.rar/file')">Baixar</button>
+        </div>
+        
+        <div class="card">
+            <img src="nle6.webp" alt="Capa da Música">
+            <h3>HAPPY BIRTHDAY MIXTAPE vol.1</h3>
+            <button class="download-btn" onclick="prepareDownload('HAPPY BIRTHDAY MIXTAPE vol.1', 'https://www.mediafire.com/file/5dbn5wujtzw0wod/HAPPY_BIRTHDAY_MIXTAPE_vol.1.zip/file')">Baixar</button>
+        </div>
+        
+        <div class="card">
+            <img src="nle7.webp" alt="Capa da Música">
+            <h3>PLAYER (NLE33 X XTBLAZY17)</h3>
+            <button class="download-btn" onclick="prepareDownload('PLAYER (NLE33 X XTBLAZY17)', 'https://www.mediafire.com/file/8fctn61bowygj6b/PLAYER_%2528NLE33_X_XTBLAZY17%2529_prod._ZACK_BEATZ.mp3/file')">Baixar</button>
+        </div>
+        
+        <div class="card">
+            <img src="nle8.webp" alt="Capa da Música">
+            <h3>Tudo de Bom</h3>
+            <button class="download-btn" onclick="prepareDownload('Tudo de Bom', 'https://www.mediafire.com/file/xeqmro1ta5c8mrf/Tudo_de_Bom.mp3/file')">Baixar</button>
+        
+        </div>
+
+        <div class="card">
+            <img src="nle9.webp" alt="Capa da Música">
+            <h3>Twitch_NLE_DBB_Myself</h3>
+            <button class="download-btn" onclick="prepareDownload('Twitch_NLE_DBB_Myself', 'https://www.mediafire.com/file/y0349kztd5ozofa/Twich_NLE_DBB_Myself.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle10.webp" alt="Capa da Música">
+            <h3>twIchI_NLE_DBB - Dark Night</h3>
+            <button class="download-btn" onclick="prepareDownload('twIchI_NLE_DBB - Dark Night', 'https://www.mediafire.com/file/gdzfo3cxjmz51ex/twIchI_NLE_DBB-_-Dark_Night.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle11.webp" alt="Capa da Música">
+            <h3>twIchI_NLE_DBB_H.P.H</h3>
+            <button class="download-btn" onclick="prepareDownload('twIchI_NLE_DBB_H.P.H', 'https://www.mediafire.com/file/8yw4udvik16mcqy/twIchI_NLE_DBB_H.P.H.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle12.webp" alt="Capa da Música">
+            <h3>TwIchI_NLE_DBB_I</h3>
+            <button class="download-btn" onclick="prepareDownload('TwIchI_NLE_DBB_I', 'https://www.mediafire.com/file/r7fxo2wdkrvzf4z/TwIchI_NLE_DBB_I.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle13.webp" alt="Capa da Música">
+            <h3>twIchI_NLE_DBB_Merci_Merci</h3>
+            <button class="download-btn" onclick="prepareDownload('twIchI_NLE_DBB_Merci_Merci', 'https://www.mediafire.com/file/obbakrasacjn9ax/twIchI_NLE_DBB_Merci_Merci.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle14.webp" alt="Capa da Música">
+            <h3>twIchI_NLE_DBB_NDU</h3>
+            <button class="download-btn" onclick="prepareDownload('twIchI_NLE_DBB_NDU', 'https://www.mediafire.com/file/vhd9yplevo0w4wo/twIchI_NLE_DBB_NDU.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle15.webp" alt="Capa da Música">
+            <h3>twIchi_NLE_DBB_NoTime</h3>
+            <button class="download-btn" onclick="prepareDownload('twIchi_NLE_DBB_NoTime', 'https://www.mediafire.com/file/3wbd9f8odiw2zut/twIchi_NLE_DBB_NoTime.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle16.webp" alt="Capa da Música">
+            <h3>Twichi_NLE_DBB_Shawty_2</h3>
+            <button class="download-btn" onclick="prepareDownload('Twichi_NLE_DBB_Shawty_2', 'https://www.mediafire.com/file/gq1jo85y6gn2oor/Twichi_NLE_DBB_Shawty_2.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle17.webp" alt="Capa da Música">
+            <h3>twichI_NLE_DBB_Wanna_Know</h3>
+            <button class="download-btn" onclick="prepareDownload('twichI_NLE_DBB_Wanna_Know', 'https://www.mediafire.com/file/1m76o1zcdkx1cda/twichI_NLE_DBB_Wanna_Know.mp3/file')">Baixar</button>
+        
+        </div>
+        <div class="card">
+            <img src="nle18.webp" alt="Capa da Música">
+            <h3>FakeniggasFREESTYLE</h3>
+            <button class="download-btn" onclick="prepareDownload('TwIchI_NLE_DBB_XT_BLAZY_FakeniggasFREESTYLE', 'https://www.mediafire.com/file/xb9s0wdfos2xji1/TwIchI_NLE_DBB_XT_BLAZY_FakeniggasFREESTYLE.mp3/file')">Baixar</button>
+        
+        </div>
+        
+
+        <style>
+            /* Estilo do Cabeçalho */
+            header {
+                background: linear-gradient(135deg, #00aaff, #003366); /* Gradiente futurista */
+                padding: 40px 20px;
+                text-align: center;
+                border-radius: 10px;
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+                color: #fff;
+                font-family: 'Arial', sans-serif;
+                margin: 20px 0;
+                animation: headerAnim 3s ease-in-out infinite;
+            }
+        
+            @keyframes headerAnim {
+                0% {
+                    transform: translateY(-20px);
+                    opacity: 0.5;
+                }
+                50% {
+                    transform: translateY(0);
+                    opacity: 1;
+                }
+                100% {
+                    transform: translateY(-20px);
+                    opacity: 0.5;
+                }
+            }
+        
+            h1 {
+                font-size: 36px;
+                font-weight: 700;
+                margin: 0 0 10px;
+                animation: textGlow 2s ease-in-out infinite alternate;
+            }
+        
+            @keyframes textGlow {
+                0% {
+                    text-shadow: 0 0 5px rgba(255, 255, 255, 0.8), 0 0 10px rgba(255, 255, 255, 0.7);
+                }
+                100% {
+                    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 255, 255, 0.6);
+                }
+            }
+        
+            /* Estilo dos Cards */
+            .card {
+                background: #1c1c1c;
+                margin: 15px;
+                padding: 20px;
+                border-radius: 10px;
+                box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3);
+                color: #fff;
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+                animation: cardAnim 1s ease-out;
+            }
+        
+            .card:hover {
+                transform: scale(1.05);
+                box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            }
+        
+            .card img {
+                max-width: 100%;
+                height: auto;
+                border-radius: 8px;
+                transition: transform 0.3s ease;
+            }
+        
+            .card img:hover {
+                transform: scale(1.1);
+            }
+        
+            h3 {
+                font-size: 20px;
+                font-weight: 600;
+                margin: 10px 0;
+            }
+        
+            .download-btn {
+                background-color: #00aaff;
+                color: #fff;
+                padding: 10px 20px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: background-color 0.3s ease, transform 0.3s ease;
+            }
+        
+            .download-btn:hover {
+                background-color: #0077cc;
+                transform: scale(1.1);
+            }
+        
+            /* Estilo de Processamento */
+            #processing {
+                display: none;
+                text-align: center;
+                padding: 20px;
+                background: rgba(0, 0, 0, 0.7);
+                border-radius: 10px;
+                color: #fff;
+            }
+        
+            .processing-bar {
+                margin-top: 10px;
+                border: 4px solid #00aaff;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                border-top: 4px solid transparent;
+                animation: spin 1s linear infinite;
+            }
+        
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+        
+            footer {
+                text-align: center;
+                margin-top: 50px;
+                font-size: 14px;
+                color: #fff;
+            }
+        
+        </style>
+        
+
+        <div class="metrics">
+            <p>Total de visitas: <span class="counter" id="visitCount">0️⃣0️⃣0️⃣0️⃣0️⃣</span></p>
+            <p>Total de downloads: <span class="counter" id="downloadCount">0️⃣0️⃣0️⃣0️⃣0️⃣</span></p>
+            <button class="exclusive-btn" onclick="window.open('https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR', '_blank')">Faça parte do nosso grupo Exclusivo da OPEN MIND</button>
+            <button class="exclusive-btn" onclick="window.open('https://tilomachado.github.io/bot/-')">Explore nosso Chatbot Inteligente</button>
+        </div>
+        
+        
+        <!-- Demais músicas são adicionadas da mesma forma -->
+        <!-- Outras músicas aqui... -->
+
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Tilo Machado. Todos os direitos reservados.</p>
+    </footer>
+
+    <script type="module">
+        // Inicializar Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, setDoc, doc, getDoc, updateDoc, increment } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        document.addEventListener("DOMContentLoaded", () => {
+            // Atualizar contadores com Firestore
+            async function updateFirestoreMetrics() {
+                const visitCountDoc = doc(db, "metrics", "visitCount");
+                const downloadCountDoc = doc(db, "metrics", "downloadCount");
+    
+                // Atualizar contador de visitas
+                const visitSnapshot = await getDoc(visitCountDoc);
+                if (visitSnapshot.exists()) {
+                    await updateDoc(visitCountDoc, {
+                        count: increment(1)
+                    });
+                } else {
+                    await setDoc(visitCountDoc, { count: 1 });
+                }
+    
+                // Atualizar interface
+                const updatedVisitSnapshot = await getDoc(visitCountDoc);
+                document.getElementById('visitCount').innerText = String(updatedVisitSnapshot.data().count).padStart(6, '0');
+    
+                // Obter contagem de downloads
+                const downloadSnapshot = await getDoc(downloadCountDoc);
+                if (!downloadSnapshot.exists()) {
+                    await setDoc(downloadCountDoc, { count: 0 });
+                }
+                document.getElementById('downloadCount').innerText = String(downloadSnapshot.data()?.count || 0).padStart(6, '0');
+            }
+    
+            async function incrementDownloadCount() {
+                const downloadCountDoc = doc(db, "metrics", "downloadCount");
+                const downloadSnapshot = await getDoc(downloadCountDoc);
+                if (downloadSnapshot.exists()) {
+                    await updateDoc(downloadCountDoc, {
+                        count: increment(1)
+                    });
+                } else {
+                    await setDoc(downloadCountDoc, { count: 1 });
+                }
+    
+                const updatedDownloadSnapshot = await getDoc(downloadCountDoc);
+                document.getElementById('downloadCount').innerText = String(updatedDownloadSnapshot.data().count).padStart(6, '0');
+            }
+    
+            window.prepareDownload = (title, url) => {
+                const processing = document.getElementById('processing');
+                processing.style.display = 'block';
+                setTimeout(() => {
+                    processing.style.display = 'none';
+                    incrementDownloadCount();
+                    window.open(url, '_blank');
+                }, 2000);
+            };
+    
+            updateFirestoreMetrics();
+        });
+    </script>
+</body>
+</html>

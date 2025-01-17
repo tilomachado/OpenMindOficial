@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <meta name="description" content="Aprenda habilidades essenciais e amplie seu alcance digital.">
+    <meta name="keywords" content="presença digital, aprendizado, comunidade, cursos online">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+    
+    <title>Registre-se</title>
+
+    <style>
+        /* Estilo mais limpo e moderno */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            overflow-y: auto;
+        }
+    
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            margin: 20px;
+        }
+    
+        h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            font-weight: 600;
+        }
+    
+        h3 {
+            color: #777;
+            font-size: 1.1em;
+            margin-bottom: 30px;
+        }
+    
+        label {
+            display: block;
+            margin: 15px 0 5px;
+            color: #555;
+            font-size: 1.1em;
+        }
+    
+        .input-field {
+            width: 100%;
+            padding: 15px;
+            margin-bottom: 25px;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+            color: #333;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+        }
+    
+        .input-field:focus {
+            border: 2px solid #5C6BC0;
+            box-shadow: 0 0 5px rgba(92, 107, 192, 0.5);
+            background-color: #fff;
+        }
+    
+        .btn {
+            background: #5C6BC0;
+            color: #fff;
+            padding: 15px;
+            border-radius: 50px;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            margin-top: 20px;
+            width: 100%;
+        }
+    
+        .btn:hover {
+            transform: scale(1.05);
+            background: #3f51b5;
+        }
+    
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+    
+        .modal-content {
+            background-color: #fff;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            width: 80%;
+            max-width: 500px;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+    
+        .close-modal {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            color: #ff0000;
+            font-size: 1.5em;
+        }
+    
+        @media (max-width: 768px) {
+            .container {
+                width: 90%;
+                padding: 25px;
+            }
+    
+            h2 {
+                font-size: 2em;
+            }
+    
+            .btn {
+                font-size: 1.1em;
+            }
+    
+            .input-field {
+                font-size: 1em;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Inscrição Confirmada</h2>
+        <h3>Crie sua conta para receber atualizações e músicas exclusivas!</h3>
+        <form id="registrationForm">
+            <label for="nome">Nome Completo:</label>
+            <input type="text" id="nome" class="input-field" required><br><br>
+    
+            <label for="sexo">Sexo:</label>
+            <select id="sexo" class="input-field" required>
+                <option value="masculino">Masculino</option>
+                <option value="feminino">Feminino</option>
+            </select><br><br>
+    
+            <label for="telefone">Telefone (WhatsApp):</label>
+            <input type="text" id="telefone" class="input-field" required><br><br>
+    
+            <button type="submit" class="btn">Confirmar Inscrição</button>
+        </form>
+    
+        <!-- Indicador de carregamento -->
+        <div class="loading" id="loadingIndicator" style="display: none;">
+            <div class="spinner"></div>
+            <p>Processando...</p>
+        </div>
+    
+        <!-- Modal de sucesso -->
+        <div class="modal" id="successModal" style="display: none;">
+            <div class="modal-content">
+                <h1>🎉 Inscrição Realizada!</h1>
+                <p>Sua inscrição foi realizada com sucesso!</p>
+                <p>Acesse o grupo no WhatsApp:</p>
+                <a href="https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR" target="_blank" class="btn">Acessar Grupo</a>
+                <p>Após o cadastro, você será redirecionado para o login.</p>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Função para fechar o modal
+        function closeModal() {
+            document.getElementById('successModal').style.display = 'none';
+        }
+    
+        // Função para processar o formulário e redirecionar após confirmação
+        document.getElementById('registrationForm').addEventListener('submit', function (event) {
+            event.preventDefault(); // Impede o envio padrão do formulário
+    
+            // Exibe o indicador de carregamento
+            document.getElementById('loadingIndicator').style.display = 'block';
+    
+            // Simula o processamento do formulário
+            setTimeout(function () {
+                // Oculta o indicador de carregamento
+                document.getElementById('loadingIndicator').style.display = 'none';
+    
+                // Exibe o modal de sucesso
+                document.getElementById('successModal').style.display = 'flex';
+    
+                // Redireciona após 3 segundos
+                setTimeout(function () {
+                    window.location.href = 'open-mind-muzik.html'; // Redireciona para a página de login
+                }, 3000);
+            }, 2000);
+        });
+    </script>
+    </body>
+</html>

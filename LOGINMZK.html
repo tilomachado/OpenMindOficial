@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    
+<!-- Meta Tags para SEO -->
+    <meta name="description" content="Um Caminho para o Crescimento e a Compreensão">
+    <meta name="keywords" content="Renda Extra, dicas, vídeo, comunidade">
+    <meta name="author" content="Tilo Machado">
+    
+    <title>OPEN MIND</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+    
+    <link rel="icon" href="icone.png" type="image/png">
+    <style>
+        /* Estilo geral do corpo */
+/* Estilo geral do corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(90deg, #ff007f, #7700ff);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #fff;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    animation: neon-glow 1.5s infinite alternate;
+}
+
+/* Efeitos de neon */
+@keyframes neon-glow {
+    from {
+        text-shadow: 0 0 10px #ff007f, 0 0 20px #7700ff, 0 0 30px #ff007f;
+    }
+    to {
+        text-shadow: 0 0 20px #ff007f, 0 0 40px #7700ff, 0 0 60px #ff007f;
+    }
+}
+
+/* Contêiner do formulário */
+.login-container {
+    background-color: #333;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    max-width: 400px;
+    margin: 20px auto; /* Ajuste para mobile */
+    text-align: center;
+    flex: 1; /* Permite que o contêiner se expanda em telas maiores */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+/* Hover effect for container */
+.login-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+
+.login-container h2 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #ffcc00;
+    font-size: 2em;
+}
+
+/* Estilos de entrada */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #aaa;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #444;
+    color: white;
+    font-size: 1em;
+    transition: background-color 0.3s;
+}
+
+input[type="email"]:hover,
+input[type="password"]:hover {
+    background-color: #555;
+}
+
+input::placeholder {
+    color: #ccc;
+}
+
+/* Botões */
+.btn {
+    background: linear-gradient(90deg, #ff007f, #7700ff);
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.4s, box-shadow 0.3s, transform 0.3s;
+    width: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #7700ff, #ff007f);
+    box-shadow: 0 5px 15px rgba(255, 0, 127, 0.7);
+    transform: scale(1.02);
+}
+
+
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+}
+
+.forgot-password {
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+    color: #007BFF; /* Cor do texto do link */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+.forgot-password:hover {
+    text-decoration: underline; /* Adiciona sublinhado ao passar o mouse */
+}
+
+/* Links de registro */
+.register-link {
+    margin-top: 15px;
+    color: #f7b731;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease, text-shadow 0.3s, transform 0.3s;
+}
+
+.register-link a {
+    color: #f7b731;
+    text-decoration: none;
+    transition: color 0.3s ease, text-shadow 0.3s, transform 0.3s;
+}
+
+.register-link a:hover {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00, 0 0 20px #ffcc00;
+    transform: scale(1.1);
+}
+
+/* Mensagem de erro e sucesso */
+.message {
+    display: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: left;
+    position: relative;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.message.success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+}
+
+.message.error {
+    background-color: rgba(255, 77, 77, 0.1);
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+}
+
+/* Indicador de carregamento */
+.spinner {
+    border: 4px solid rgba(0, 0, 0, 0.1);
+    border-left: 4px solid #ff007f;
+    border-right: 4px solid #7700ff;
+    border-top: 4px solid #00ffcc;
+    border-bottom: 4px solid #ff007f;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    animation: spin 0.75s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px #ff007f, 0 0 20px #7700ff, 0 0 30px #00ffcc;
+}
+.forgot-password {
+    display: inline-block; /* Para que possamos aplicar padding */
+    padding: 10px 15px; /* Espacamento interno */
+    background-color: #007BFF; /* Cor de fundo */
+    color: white; /* Cor do texto */
+    border: none; /* Sem borda */
+    border-radius: 5px; /* Bordas arredondadas */
+    text-decoration: none; /* Remove o sublinhado */
+    font-size: 16px; /* Tamanho da fonte */
+    text-align: center; /* Centraliza o texto */
+    cursor: pointer; /* Mostra o ponteiro ao passar o mouse */
+    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
+}
+
+.forgot-password:hover {
+    background-color: #0056b3; /* Cor de fundo ao passar o mouse */
+}
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Rodapé */
+footer {
+    background-color: #111;
+    color: #999;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    width: 100%;
+    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3);
+    transition: transform 0.3s ease;
+}
+
+footer:hover {
+    transform: scale(1.02);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.footer-signature {
+    color: #ffcc00;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    position: relative;
+    display: inline-block;
+    transition: color 0.3s, text-shadow 0.3s;
+}
+
+.footer-signature:hover {
+    color: #ffcc00;
+    text-shadow: 0 0 10px #ffcc00;
+}
+
+.footer-signature:after {
+    content: '📞';
+    display: none;
+    position: absolute;
+    left: 100%;
+    top: 0;
+    margin-left: 10px;
+    transition: opacity 0.3s;
+}
+
+
+.footer-signature:hover:after {
+    display: inline;
+    opacity: 1;
+}
+
+/* Estilos para links */
+.terms-link:hover {
+    color: #ff007f;
+    text-shadow: 0 0 10px #ff007f;
+    text-decoration: underline;
+}
+
+/* Fundo com desfoque */
+.blur-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('path_to_your_background_image.jpg') no-repeat center center;
+    background-size: cover;
+    filter: blur(10px);
+    z-index: -1;
+    transition: filter 0.5s ease;
+}
+
+.blurred {
+    filter: blur(10px);
+}
+
+.clear {
+    filter: blur(0);
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 20px;
+        padding: 30px;
+    }
+
+    header h1 {
+        font-size: 2em; /* Tamanho do texto reduzido para dispositivos móveis */
+    }
+
+    .login-container h2 {
+        font-size: 1.8em; /* Ajuste no tamanho do cabeçalho do formulário */
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        font-size: 0.9em; /* Tamanho do texto reduzido nos campos de entrada */
+    }
+
+    .btn {
+        font-size: 1em; /* Tamanho do botão ajustado */
+    }
+
+    footer p {
+        font-size: 0.8em; /* Tamanho do texto no rodapé reduzido */
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5em; /* Tamanho do texto ainda menor para telas pequenas */
+    }
+
+    .login-container {
+        padding: 20px; /* Reduzir o preenchimento */
+    }
+
+    .login-container h2 {
+        font-size: 1.5em; /* Ajuste adicional para o cabeçalho */
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        font-size: 0.8em; /* Reduzir ainda mais o tamanho do texto */
+    }
+
+    .btn {
+        font-size: 0.9em; /* Botão ainda menor */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+    <body>
+        
+    
+        <div class="login-container">
+            <h1>Conhecimento é o nosso Maior Investimento</h1>
+            <h2>Faça seu Login</h2>
+        
+            <!-- Mensagem de erro e link de recuperação de senha, centralizados -->
+            <div class="message-container">
+                <div class="message error modal-erro" id="error-message" style="display: none;">
+                    <p>Por favor, verifique o e-mail/senha ou crie uma nova conta.</p>
+                </div>
+        
+                <!-- Link para recuperação de senha (inicialmente escondido) -->
+                <div class="forgot-password" id="forgot-password" style="display: none; text-align: center; margin-bottom: 10px;">
+                    <a href="esqueceu-senha.html" id="forgot-password" class="forgot-password">Esqueceu a senha?</a>
+
+                </div>
+                
+            </div>
+        
+            <!-- Formulário de login -->
+            <form id="login-form" onsubmit="handleSubmit(event)">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+        
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+        
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+        
+            <!-- Mensagem de sucesso -->
+            <div class="message success" id="success-message" style="display: none;">
+                Login realizado com sucesso!
+            </div>
+        
+            <!-- Indicador de carregamento -->
+            <div class="spinner" id="loading-spinner" style="display: none;"></div>
+        
+            <!-- Link para criar nova conta -->
+            <div class="register-link">
+                <a href="registermuzik.html">Crie uma conta nova aqui</a>
+            </div>
+        </div>
+        
+        
+            
+        <script type="module">
+           import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+// Configuração do Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+    authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+    projectId: "plataforma-do-mini-curso",
+    storageBucket: "plataforma-do-mini-curso.appspot.com",
+    messagingSenderId: "424655587612",
+    appId: "1:424655587612:web:851858a379c334227056e4",
+    measurementId: "G-6CE0E9R3J5"
+};
+
+// Inicialização do Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Elementos do DOM
+const loginForm = document.getElementById("login-form");
+const errorMessage = document.getElementById("error-message");
+const successMessage = document.getElementById("success-message");
+const loadingSpinner = document.getElementById("loading-spinner");
+const forgotPasswordLink = document.getElementById('forgot-password');
+
+let loginAttempts = 0; // Contador de tentativas de login
+
+// Manipulação do formulário de login
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = loginForm.email.value;
+    const password = loginForm.password.value;
+
+    loadingSpinner.style.display = "block";
+    errorMessage.style.display = "none"; // Esconder mensagem de erro antes de nova tentativa
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            loadingSpinner.style.display = "none";
+            successMessage.style.display = "block";
+            successMessage.textContent = "Login realizado com sucesso!";
+
+            const userRef = doc(db, "usuarios", user.uid);
+            setDoc(userRef, {
+                ultima_entrada: new Date().toISOString()
+            }, { merge: true });
+
+            setTimeout(() => {
+                window.location.href = "open-mind-muzik.html";
+            }, 2000);
+        })
+        .catch((error) => {
+            loadingSpinner.style.display = 'none';
+            const errorMessageText = getErrorMessage(error.code);
+            errorMessage.textContent = errorMessageText;
+            errorMessage.style.display = 'block';
+
+            loginAttempts++; // Incrementa o número de tentativas
+
+            // Exibe o link "Esqueceu a senha?" após a primeira tentativa falhada
+            if (loginAttempts >= 1) {
+                forgotPasswordLink.style.display = 'block';
+            }
+        });
+});
+
+// Função para obter mensagens de erro
+function getErrorMessage(errorCode) {
+    switch (errorCode) {
+        case 'auth/user-not-found':
+            return 'Conta não encontrada.';
+        case 'auth/wrong-password':
+            return 'Senha incorreta.';
+        case 'auth/invalid-credential':
+            return 'Credenciais inválidas. Por favor, verifique seu e-mail e senha.';
+        default:
+            return 'Por favor, verifique o e-mail/senha ou crie uma nova conta.';
+    }
+}
+
+            
+        </script>
+        
+  
+   
+    
+
+</body>
+</html>
