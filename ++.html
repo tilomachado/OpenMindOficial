@@ -3,108 +3,250 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vídeo Disponível em 24 Horas</title>
+    <title>Curso - Liberação de Aulas</title>
     <link rel="icon" href="icone.png" type="image/png">
-    <meta name="description" content="O vídeo estará disponível dentro de 24 horas a partir de agora. Fique atento!">
-    <meta name="keywords" content="vídeo, disponível, 24 horas, conteúdo, notificação">
+    <meta name="description" content="Descubra mais sobre o curso e acesse as aulas assim que forem liberadas.">
+    <meta name="keywords" content="curso, aulas, aprendizado, liberação">
     <meta name="author" content="Tilo Machado">
 
-    <!-- CSS para o estilo da página -->
     <style>
         body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background-color: #2c3e50;
-            color: #ecf0f1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            text-align: center;
-        }
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #212121;
+    color: #ececec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    text-align: center;
+}
 
-        h1 {
-            font-size: 3rem;
-            color: #e74c3c;
-            margin: 20px 0;
-            font-family: 'Roboto', sans-serif;
-        }
+header {
+    background-color: #1e1e1e;
+    width: 100%;
+    padding: 15px 0;
+    color: #ececec;
+    font-size: 1.8rem;
+    font-weight: bold;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+}
 
-        p {
-            font-size: 1.5rem;
-            margin: 10px 0;
-            color: #ecf0f1;
-        }
+h1 {
+    font-size: 3rem;
+    color: #f39c12;
+    margin: 20px 0;
+}
 
-        .countdown {
-            font-size: 2rem;
-            font-weight: bold;
-            color: #f39c12;
-        }
+p {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    line-height: 1.6;
+}
 
-        .notify {
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #3498db;
-            color: #fff;
-            border-radius: 5px;
-            cursor: pointer;
-            text-transform: uppercase;
-        }
+.countdown {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #f39c12;
+}
 
-        .notify:hover {
-            background-color: #2980b9;
-        }
+.notify, .access {
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #2980b9;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.notify:hover, .access:hover {
+    background-color: #3498db;
+}
+
+footer {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #bdc3c7;
+}
+
+.progress-bar-container {
+    width: 80%;
+    height: 18px;
+    background-color: #34495e;
+    border-radius: 10px;
+    margin-top: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: #f39c12;
+    width: 0%;
+    border-radius: 10px;
+    position: relative;
+    transition: width 1s ease-in-out;
+}
+
+.flame {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 10px;
+    height: 100%;
+    background-color: #e74c3c;
+    animation: flameAnimation 1s infinite;
+    transform: translateX(-50%);
+    border-radius: 50%;
+}
+
+@keyframes flameAnimation {
+    0% {
+        opacity: 0.8;
+        height: 100%;
+    }
+    50% {
+        opacity: 0.4;
+        height: 110%;
+    }
+    100% {
+        opacity: 0.8;
+        height: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2.5rem;
+    }
+
+    .notify, .access {
+        padding: 10px 20px;
+        font-size: 1rem;
+    }
+
+    .progress-bar-container {
+        width: 95%;
+    }
+}
+
+
     </style>
 </head>
 <body>
+  
+    
+    <header>Curso - Domine Novas Habilidades</header>
 
-    <!-- Conteúdo principal -->
-    <h1>Vídeo Disponível em 24 Horas</h1>
-    <p>Estamos finalizando o conteúdo, e ele estará disponível para você dentro de 24 horas.</p>
+    <h1>Bem-vindo ao Curso</h1>
+    <p>Estamos preparando conteúdos exclusivos para ajudá-lo a atingir seus objetivos. Este curso abrange tópicos avançados, abordagens práticas e estratégias para aplicar o conhecimento adquirido diretamente no mercado.</p>
 
+    <h2>Liberação das Aulas</h2>
+    <p>As aulas estarão disponíveis em:</p>
     <div class="countdown" id="countdown">
-        24:00:00
+        72:00:00
+
+        
     </div>
+    <div class="progress-bar-container">
+        <div class="progress-bar">
+            <div class="flame"></div>
+        </div>
+    </div>
+    
 
-    <p>Fique atento para acessar assim que o vídeo for liberado.</p>
+    <p>Enquanto isso, fique à vontade para explorar os materiais introdutórios e se preparar para os módulos do curso.</p>
 
-    <!-- Botão para redirecionar para o WhatsApp -->
-<a href="https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR" class="notify" target="_blank">Notifique-me</a>
+    <a href="https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR" class="notify" target="_blank">Receber Notificações</a>
 
-<style>
-    .notify {
-        margin-top: 20px;
-        padding: 10px 20px;
-        background-color: #3498db;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-        text-transform: uppercase;
-        font-size: 1.2rem;
-        text-decoration: none;
-        display: inline-block;
-    }
+    <a href="aulas.html" id="accessButton" class="access" style="display: none;">Acessar as Aulas</a>
 
-    .notify:hover {
-        background-color: #2980b9;
-    }
-</style>
-
+    <footer>&copy; 2025 Tilo Machado. Todos os direitos reservados.</footer>
 
     <script>
-        // Função para atualizar o countdown
-        function startCountdown() {
-            const endTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 horas a partir de agora
-            const countdownElement = document.getElementById('countdown');
+    // Função para atualizar a contagem regressiva e a barra de progresso
+function startCountdown(releaseTime) {
+    const countdownElement = document.getElementById('countdown');
+    const progressBar = document.querySelector('.progress-bar');
+    const accessButton = document.getElementById('accessButton');
+    const totalTime = releaseTime - new Date().getTime(); // Tempo total até a liberação
 
-            setInterval(function() {
+    // Função para calcular o tempo restante e atualizar a contagem regressiva
+    const interval = setInterval(function () {
+        const now = new Date().getTime();
+        const distance = releaseTime - now;
+
+        if (distance <= 0) {
+            clearInterval(interval);
+            countdownElement.innerHTML = "Aulas Disponíveis!";
+            accessButton.style.display = 'inline-block';
+            progressBar.style.width = '100%'; // Preenche a barra completamente
+            countdownElement.style.color = '#2ecc71';
+        } else {
+            // Atualiza a contagem regressiva
+            const hours = Math.floor(distance / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+            countdownElement.innerHTML = `${hours}:${minutes < 10 ? '0' : ''}${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+
+            // Atualiza a largura da barra de progresso proporcionalmente
+            const progress = ((totalTime - distance) / totalTime) * 100;
+            progressBar.style.width = `${progress}%`;
+        }
+    }, 1000); // Atualiza a cada segundo
+}
+
+// Função para obter o tempo de liberação (simulado como 72 horas de atraso)
+function getReleaseTime() {
+    const releaseTime = new Date().getTime() + 72 * 60 * 60 * 1000; // Definido para 72 horas no futuro
+    startCountdown(releaseTime);
+}
+
+// Chama a função para iniciar a contagem e a barra de progresso
+window.onload = getReleaseTime;
+
+
+
+
+
+        // Função para obter o tempo de liberação
+        function getReleaseTime() {
+            const releaseTime = localStorage.getItem('releaseTime');
+            if (releaseTime) {
+                startCountdown(parseInt(releaseTime));
+            } else {
+                // Se não houver um tempo de liberação, defina um
+                setReleaseTime();
+                const newReleaseTime = localStorage.getItem('releaseTime');
+                startCountdown(parseInt(newReleaseTime));
+            }
+        }
+
+        // Função para atualizar o countdown com o tempo real
+        function startCountdown(releaseTime) {
+            const countdownElement = document.getElementById('countdown');
+            const accessButton = document.getElementById('accessButton');
+
+            const interval = setInterval(function() {
                 const now = new Date().getTime();
-                const distance = endTime - now;
+                const distance = releaseTime - now;
 
                 if (distance <= 0) {
-                    countdownElement.innerHTML = "Vídeo Disponível!";
+                    clearInterval(interval);
+                    countdownElement.innerHTML = "Aulas Disponíveis!";
+                    accessButton.style.display = 'inline-block';
+                    countdownElement.style.color = '#2ecc71';
                 } else {
                     const hours = Math.floor(distance / (1000 * 60 * 60));
                     const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
@@ -114,9 +256,8 @@
             }, 1000);
         }
 
-        // Iniciar o countdown
-        startCountdown();
+        // Chama a função para obter o tempo de liberação
+        getReleaseTime();
     </script>
-
 </body>
 </html>
