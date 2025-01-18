@@ -150,9 +150,9 @@
 <p>Estamos preparando conteúdos exclusivos para ajudá-lo a atingir seus objetivos. Este curso abrange tópicos avançados, abordagens práticas e estratégias para aplicar o conhecimento adquirido diretamente no mercado.</p>
 
 <h2>Liberação das Aulas</h2>
-<p>As aulas estarão disponíveis em:</p>
+<p>As aulas estarão disponíveis na Próxima Segunda-Feira às 20 Horas!: </p>
 <div class="countdown" id="countdown">
-    Conteúdo Liberado em 24 Horas!
+    Coisas Boas Levam Tempo
 </div>
 
 <div class="progress-bar-container">
@@ -163,13 +163,13 @@
 
 <p>Enquanto isso, fique à vontade para explorar os materiais introdutórios e se preparar para os módulos do curso.</p>
 
-<a href="https://chat.whatsapp.com/JrWRl6dBPtJ0khShLBqXCW" class="notify" target="_blank">Receber Notificações</a>
+<a href="https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR" class="notify" target="_blank">Receber Notificações</a>
 <a href="aulas.html" id="accessButton" class="access" style="display: none;">Acessar as Aulas</a>
 
 <footer>&copy; 2025 Tilo Machado. Todos os direitos reservados.</footer>
 
 <script>
-    // Função para obter o tempo de liberação (24 horas a partir de agora)
+    // Função para obter o tempo de liberação (segunda-feira às 20h)
     function getReleaseTime() {
         const releaseTime = localStorage.getItem('releaseTime');
         if (releaseTime) {
@@ -181,10 +181,22 @@
         }
     }
 
-    // Função para definir o tempo de liberação (24 horas a partir de agora)
+    // Função para calcular e definir o próximo horário de liberação
     function setReleaseTime() {
-        const releaseTime = new Date().getTime() + 24 * 60 * 60 * 1000; // 24 horas no futuro
-        localStorage.setItem('releaseTime', releaseTime);
+        const now = new Date();
+        const currentDay = now.getDay(); // Dia da semana (0 = Domingo, 1 = Segunda, ..., 6 = Sábado)
+        const daysUntilMonday = (1 - currentDay + 7) % 7; // Dias até a próxima segunda-feira
+        const nextMonday = new Date(
+            now.getFullYear(),
+            now.getMonth(),
+            now.getDate() + daysUntilMonday, // Ajusta para a próxima segunda
+            20, // Horas (20h)
+            0,  // Minutos
+            0   // Segundos
+        );
+
+        const releaseTime = nextMonday.getTime(); // Converte para timestamp
+        localStorage.setItem('releaseTime', releaseTime); // Salva no localStorage
     }
 
     // Função para atualizar a contagem regressiva
@@ -218,5 +230,6 @@
 
     window.onload = getReleaseTime;
 </script>
+
 </body>
 </html>
