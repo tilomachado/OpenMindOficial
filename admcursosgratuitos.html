@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Plataforma de Cursos</title>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js"></script>
+    <script type="module" src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #007BFF;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        main {
+            padding: 20px;
+        }
+
+        #userList {
+            margin-top: 20px;
+        }
+
+        .user {
+            background-color: white;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        .user p {
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Painel de Administração</h1>
+        <button id="logoutButton">Sair</button>
+    </header>
+    
+    <main>
+        <h2>Usuários Cadastrados</h2>
+        <div id="userList"></div>
+    </main>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+
+        // Inicializa o Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Função para carregar os usuários
+        const loadUsers = async () => {
+            const querySnapshot = await getDocs(collection(db, "usuarioscursogratuito"));
+            const userListDiv = document.getElementById('userList');
+            userListDiv.innerHTML = ''; // Limpa a lista
+
+            querySnapshot.forEach((doc) => {
+                const userData = doc.data();
+                const userDiv = document.createElement('div');
+                userDiv.classList.add('user');
+
+                userDiv.innerHTML = `
+                    <p><strong>Nome:</strong> ${userData.username}</p>
+                    <p><strong>Email:</strong> ${userData.email}</p>
+                    <p><strong>Telefone:</strong> ${userData.phone}</p>
+                    <p><strong>Assunto Favorito:</strong> ${userData.favoriteSubject}</p>
+                    <p><strong>Data de Cadastro:</strong> ${userData.creationDate}</p>
+                `;
+
+                userListDiv.appendChild(userDiv);
+            });
+        };
+
+        // Carregar os usuários ao carregar a página
+        loadUsers();
+
+        // Logout (redirecionar ou limpar sessão)
+        document.getElementById('logoutButton').addEventListener('click', () => {
+            // Redireciona para a página inicial de login (ou implementar logout real)
+            window.location.href = 'index.html'; // Mude para o arquivo de login, se necessário
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Open Mind</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .course-card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+
+        .course-card h3 {
+            margin: 0;
+            color: #4CAF50;
+        }
+
+        .course-card p {
+            color: #555;
+        }
+
+        .course-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .course-details {
+            margin-top: 20px;
+            display: none;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .course-details p {
+            font-size: 18px;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .spinner {
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            border-top: 4px solid #4CAF50;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 20px auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="navbar">
+    <h1>Bem-vindo ao Dashboard!</h1>
+</div>
+
+<div class="container">
+    <h2>Explore os Cursos:</h2>
+
+    <!-- Lista de cursos (exemplo) -->
+    <div class="course-card" onclick="openCourse('gestao_negocios')">
+        <h3>Gestão de Negócios</h3>
+        <p>Aprenda técnicas de gestão e estratégias para desenvolver negócios lucrativos e sustentáveis.</p>
+    </div>
+
+    <div class="course-card" onclick="openCourse('habilidades_sociais')">
+        <h3>Habilidades Sociais</h3>
+        <p>Desenvolva habilidades socioemocionais para se destacar no ambiente profissional e melhorar relacionamentos interpessoais.</p>
+    </div>
+
+    <div class="course-card" onclick="openCourse('mercado_trabalho')">
+        <h3>Mercado de Trabalho</h3>
+        <p>Prepare-se para o mercado de trabalho com técnicas de elaboração de currículos, simulação de entrevistas e muito mais.</p>
+    </div>
+
+    <!-- Detalhes do curso -->
+    <div id="courseDetails" class="course-details">
+        <h2 id="courseTitle">Escolha um curso</h2>
+        <p id="courseDescription">Selecione um curso para ver mais detalhes.</p>
+        <p id="coursePrice">Preço: <span style="color: green;">Gratuito</span></p>
+        <button id="subscribeBtn" onclick="subscribeCourse()" style="display: none;">Inscreva-se</button>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div id="loadingSpinner" class="loading" style="display: none;">
+        <div class="spinner"></div>
+        <p>Carregando...</p>
+    </div>
+
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+    // Configuração do Firebase
+    const firebaseConfig = {
+        apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+        authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+        projectId: "plataforma-do-mini-curso",
+        storageBucket: "plataforma-do-mini-curso.appspot.com",
+        messagingSenderId: "424655587612",
+        appId: "1:424655587612:web:851858a379c334227056e4",
+        measurementId: "G-6CE0E9R3J5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Função para registrar a interação do usuário
+    async function registerUserAction(action, courseName) {
+        const nomeUsuario = localStorage.getItem("nomeUsuario");
+        const actionData = {
+            usuario: nomeUsuario,
+            action: action,
+            course: courseName || 'N/A',
+            timestamp: new Date().toISOString()
+        };
+
+        // Salva os dados de interação do usuário no Firestore
+        try {
+            await addDoc(collection(db, "user_actions"), actionData);
+            console.log("Ação registrada com sucesso");
+        } catch (e) {
+            console.error("Erro ao registrar a ação: ", e);
+        }
+    }
+
+    // Função chamada ao clicar em um curso
+    function openCourse(courseName) {
+        // Mostra o spinner de carregamento
+        document.getElementById('loadingSpinner').style.display = 'block';
+        document.getElementById('courseDetails').style.display = 'none';
+        
+        // Registra a ação do usuário (visualização do curso)
+        registerUserAction('Visualizou Curso', courseName);
+
+        // Simula o carregamento dos detalhes do curso
+        setTimeout(() => {
+            // Esconde o spinner
+            document.getElementById('loadingSpinner').style.display = 'none';
+
+            // Atualiza os detalhes do curso
+            updateCourseDetails(courseName);
+        }, 2000);
+    }
+
+    // Função para atualizar os detalhes do curso
+    function updateCourseDetails(courseName) {
+        const descricaoCurso = document.getElementById("courseDescription");
+        const precoCurso = document.getElementById("coursePrice");
+        const tituloCurso = document.getElementById("courseTitle");
+        const subscribeBtn = document.getElementById("subscribeBtn");
+
+        switch(courseName) {
+            case 'gestao_negocios':
+                tituloCurso.textContent = 'Gestão de Negócios';
+                descricaoCurso.textContent = 'Aprenda técnicas de gestão e estratégias para desenvolver negócios lucrativos e sustentáveis.';
+                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
+                break;
+            case 'habilidades_sociais':
+                tituloCurso.textContent = 'Habilidades Sociais';
+                descricaoCurso.textContent = 'Desenvolva habilidades socioemocionais para se destacar no ambiente profissional e melhorar relacionamentos interpessoais.';
+                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
+                break;
+            case 'mercado_trabalho':
+                tituloCurso.textContent = 'Mercado de Trabalho';
+                descricaoCurso.textContent = 'Prepare-se para o mercado de trabalho com técnicas de elaboração de currículos, simulação de entrevistas e muito mais.';
+                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
+                break;
+            default:
+                tituloCurso.textContent = 'Curso não encontrado';
+                descricaoCurso.textContent = 'Não há detalhes disponíveis para este curso.';
+                precoCurso.innerHTML = 'Preço: <span style="color: red;">Indisponível</span>';
+                break;
+        }
+
+        // Exibe a área de detalhes e o botão de inscrição
+        document.getElementById('courseDetails').style.display = 'block';
+        subscribeBtn.style.display = 'inline-block';
+    }
+
+    // Função para inscrever o usuário no curso
+    function subscribeCourse() {
+        const courseName = document.getElementById("courseTitle").textContent;
+
+        // Registra a ação de inscrição
+        registerUserAction('Inscreveu-se no Curso', courseName);
+        
+        alert(`Você se inscreveu no curso: ${courseName}`);
+    }
+</script>
+
+</body>
+</html>

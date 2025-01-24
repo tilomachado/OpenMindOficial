@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        .login-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #4CAF50;
+        }
+        .input-group {
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        .input-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .error {
+            color: red;
+            font-size: 14px;
+            text-align: center;
+        }
+
+        /* Estilo para o Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0, 0, 0);
+            background-color: rgba(0, 0, 0, 0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: white;
+            margin: 5% auto;
+            padding: 20px;
+            border-radius: 8px;
+            width: 80%;
+            max-width: 400px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        .modal-header {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4CAF50;
+        }
+        .modal-body {
+            font-size: 16px;
+            margin: 15px 0;
+            color: #333;
+        }
+        .modal-footer button {
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .modal-footer button:hover {
+            background-color: #45a049;
+        }
+
+        /* Spinner de carregamento */
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #4CAF50;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 2s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Animação para o modal */
+        .fade-in {
+            animation: fadeIn 0.5s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .login-container {
+                width: 80%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .login-container {
+                width: 90%;
+                padding: 10px;
+            }
+            button {
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h2>Login</h2>
+        <div class="input-group">
+            <label for="nomeUsuario">Nome de Usuário:</label>
+            <input type="text" id="nomeUsuario" placeholder="Digite seu nome">
+        </div>
+        <div class="input-group">
+            <label for="senhaUsuario">Senha:</label>
+            <input type="password" id="senhaUsuario" placeholder="Digite sua senha">
+        </div>
+        <button id="loginBtn">Entrar</button>
+        <p id="errorMsg" class="error"></p>
+    </div>
+
+    <!-- Modal de Sucesso -->
+    <div id="successModal" class="modal">
+        <div class="modal-content fade-in">
+            <div class="modal-header">
+                <h2>Autenticação bem-sucedida!</h2>
+            </div>
+            <div class="modal-body">
+                <p>Olá, <span id="userNameDisplay"></span>! Você foi autenticado com sucesso.</p>
+                <div id="spinner" class="spinner"></div>
+            </div>
+            <div class="modal-footer">
+                <button id="redirectBtn">Ir para o Dashboard</button>
+            </div>
+        </div>
+    </div>
+
+    <script type="module">
+        // Importando dependências do Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+        
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+    
+        // Inicializando o Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Função para verificar se o usuário existe
+        async function verifyUser(nomeUsuario) {
+            if (!nomeUsuario || nomeUsuario.trim() === '') {
+                return null; // Retorna null se o nome não for válido
+            }
+            
+            try {
+                const inscritosRef = collection(db, "inscricoes_novas");
+                const snapshot = await getDocs(inscritosRef);
+                const inscritos = snapshot.docs.map(doc => doc.data());
+                return inscritos.find(usuario => usuario.nome.toLowerCase() === nomeUsuario.toLowerCase());
+            } catch (error) {
+                console.error("Erro ao buscar usuários:", error);
+                return null; // Retorna null em caso de erro
+            }
+        }
+
+        // Função para exibir o modal
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = "block";
+        }
+
+        // Função para fechar o modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+
+        // Função chamada quando o botão de verificar nome for clicado
+        document.getElementById("loginBtn").addEventListener("click", async () => {
+            const nomeUsuario = document.getElementById("nomeUsuario").value;
+            
+            // Verifica se o nome foi preenchido
+            if (!nomeUsuario.trim()) {
+                document.getElementById("errorMsg").textContent = "Por favor, insira seu nome.";
+                return; // Retorna caso o campo esteja vazio
+            }
+
+            const usuario = await verifyUser(nomeUsuario);
+    
+            if (usuario) {
+                // Se o usuário for encontrado, exibe o modal de sucesso
+                localStorage.setItem("nomeUsuario", nomeUsuario); // Armazenando o nome do usuário
+                showModal('successModal');
+                document.getElementById('userNameDisplay').textContent = nomeUsuario;
+            } else {
+                // Caso o usuário não seja encontrado, exibe o modal de erro
+                document.getElementById("errorMessage").textContent = "Nome não encontrado, por favor tente novamente.";
+                showModal('errorModal');
+            }
+        });
+
+        // Função para redirecionar ao dashboard
+        document.getElementById("redirectBtn").addEventListener("click", () => {
+            document.getElementById("spinner").style.display = "block"; // Exibe o spinner
+            setTimeout(() => {
+                window.location.href = "dashboard.html"; // Redirecionamento
+            }, 2000); // Espera 2 segundos para exibir o spinner
+        });
+    </script>
+</body>
+</html>

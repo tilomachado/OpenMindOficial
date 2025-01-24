@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="Descubra músicas incríveis e compartilhe sua paixão pela arte sonora.">
+    <meta name="keywords" content="música, áudio, download, playlists, artistas">
+    <meta name="author" content="Tilo Machado">
+    
+    <title>OPEN MIND - MUZIK</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+    
+    <link rel="icon" href="icone.png" type="image/png">
+    <style>
+        /* Estilo geral do corpo */
+/* Estilo geral do corpo */
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f9f9f9, #eaeaea);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+/* Cabeçalho */
+header {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    padding: 20px;
+    text-align: center;
+    width: 100%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #fff;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+/* Contêiner do formulário */
+.login-container {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 20px auto;
+    text-align: center;
+    flex: 1;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.login-container h2 {
+    color: #4facfe;
+    margin-bottom: 20px;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+/* Estilos de entrada */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+    font-weight: bold;
+}
+
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 1em;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #4facfe;
+    box-shadow: 0 0 5px rgba(79, 172, 254, 0.5);
+}
+
+input::placeholder {
+    color: #aaa;
+}
+
+/* Botões */
+.btn {
+    background: linear-gradient(90deg, #4facfe, #00f2fe);
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+    transition: background 0.4s, box-shadow 0.3s, transform 0.3s;
+    width: 100%;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #00f2fe, #4facfe);
+    box-shadow: 0 5px 15px rgba(79, 172, 254, 0.3);
+    transform: scale(1.02);
+}
+
+/* Links de recuperação de senha */
+.forgot-password {
+    display: inline-block;
+    margin-top: 15px;
+    color: #4facfe;
+    text-decoration: none;
+    font-size: 0.9em;
+    transition: color 0.3s;
+}
+
+.forgot-password:hover {
+    color: #007acc;
+    text-decoration: underline;
+}
+
+/* Links de registro */
+.register-link {
+    margin-top: 15px;
+    color: #007acc;
+    font-size: 1em;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.register-link:hover {
+    color: #005f99;
+    text-decoration: underline;
+}
+
+/* Rodapé */
+footer {
+    background-color: #eaeaea;
+    color: #666;
+    text-align: center;
+    padding: 15px;
+    margin-top: auto;
+    width: 100%;
+    box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+}
+
+.footer-signature {
+    color: #4facfe;
+    font-size: 0.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.footer-signature:hover {
+    color: #007acc;
+}
+
+/* Ajustes para responsividade */
+@media (max-width: 768px) {
+    .login-container {
+        margin: 20px;
+        padding: 30px;
+    }
+
+    header h1 {
+        font-size: 2em;
+    }
+
+    .login-container h2 {
+        font-size: 1.8em;
+    }
+
+    input[type="email"],
+    input[type="password"] {
+        font-size: 0.9em;
+    }
+
+    .btn {
+        font-size: 1em;
+    }
+
+    footer p {
+        font-size: 0.8em;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <body>
+        
+    
+        <div class="login-container">
+            <h1>Transforme Seu Futuro com os Nossos Cursos Grátuitos!</h1>
+
+            <h2>Faça seu Login</h2>
+        
+            <!-- Mensagem de erro e link de recuperação de senha, centralizados -->
+            <div class="message-container">
+                <div class="message error modal-erro" id="error-message" style="display: none;">
+                    <p>Por favor, verifique o e-mail/senha ou crie uma nova conta.</p>
+                </div>
+        
+                <!-- Link para recuperação de senha (inicialmente escondido) -->
+                <div class="forgot-password" id="forgot-password" style="display: none; text-align: center; margin-bottom: 10px;">
+                    <a href="esqueceu-senhaa.html" id="forgot-password" class="forgot-password">Esqueceu a senha?</a>
+
+                </div>
+                
+            </div>
+        
+            <!-- Formulário de login -->
+            <form id="login-form" onsubmit="handleSubmit(event)">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+        
+                <label for="password">Senha:</label>
+                <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+        
+                <button type="submit" class="btn">Entrar</button>
+            </form>
+        
+            <!-- Mensagem de sucesso -->
+            <div class="message success" id="success-message" style="display: none;">
+                Login realizado com sucesso!
+            </div>
+        
+            <!-- Indicador de carregamento -->
+            <div class="spinner" id="loading-spinner" style="display: none;"></div>
+        
+            <!-- Link para criar nova conta -->
+            <div class="register-link">
+                <a href="registro.html">Crie uma conta nova aqui</a>
+            </div>
+        </div>
+        
+        
+            
+        <script type="module">
+           import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+// Configuração do Firebase
+const firebaseConfig = {
+    apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+    authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+    projectId: "plataforma-do-mini-curso",
+    storageBucket: "plataforma-do-mini-curso.appspot.com",
+    messagingSenderId: "424655587612",
+    appId: "1:424655587612:web:851858a379c334227056e4",
+    measurementId: "G-6CE0E9R3J5"
+};
+
+// Inicialização do Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+const db = getFirestore(app);
+
+// Elementos do DOM
+const loginForm = document.getElementById("login-form");
+const errorMessage = document.getElementById("error-message");
+const successMessage = document.getElementById("success-message");
+const loadingSpinner = document.getElementById("loading-spinner");
+const forgotPasswordLink = document.getElementById('forgot-password');
+
+let loginAttempts = 0; // Contador de tentativas de login
+
+// Manipulação do formulário de login
+loginForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const email = loginForm.email.value;
+    const password = loginForm.password.value;
+
+    loadingSpinner.style.display = "block";
+    errorMessage.style.display = "none"; // Esconder mensagem de erro antes de nova tentativa
+
+    signInWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            const user = userCredential.user;
+            loadingSpinner.style.display = "none";
+            successMessage.style.display = "block";
+            successMessage.textContent = "Login realizado com sucesso!";
+
+            const userRef = doc(db, "usuarios", user.uid);
+            setDoc(userRef, {
+                ultima_entrada: new Date().toISOString()
+            }, { merge: true });
+
+            setTimeout(() => {
+                window.location.href = "open-mind-muzik.html";
+            }, 2000);
+        })
+        .catch((error) => {
+            loadingSpinner.style.display = 'none';
+            const errorMessageText = getErrorMessage(error.code);
+            errorMessage.textContent = errorMessageText;
+            errorMessage.style.display = 'block';
+
+            loginAttempts++; // Incrementa o número de tentativas
+
+            // Exibe o link "Esqueceu a senha?" após a primeira tentativa falhada
+            if (loginAttempts >= 1) {
+                forgotPasswordLink.style.display = 'block';
+            }
+        });
+});
+
+// Função para obter mensagens de erro
+function getErrorMessage(errorCode) {
+    switch (errorCode) {
+        case 'auth/user-not-found':
+            return 'Conta não encontrada.';
+        case 'auth/wrong-password':
+            return 'Senha incorreta.';
+        case 'auth/invalid-credential':
+            return 'Credenciais inválidas. Por favor, verifique seu e-mail e senha.';
+        default:
+            return 'Por favor, verifique o e-mail/senha ou crie uma nova conta.';
+    }
+}
+
+            
+        </script>
+        
+  
+   
+    
+
+</body>
+</html>

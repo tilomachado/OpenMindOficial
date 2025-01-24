@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Senha</title>
+    <style>
+        /* CSS para a página de criação de senha */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        p {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            font-size: 14px;
+            color: #555;
+            display: block;
+        }
+
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+            position: relative;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        /* Spinner */
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 2s linear infinite;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-left: -12px;
+            margin-top: -12px;
+        }
+
+        /* Animação de rotação */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            width: 300px;
+        }
+
+        .modal h2 {
+            color: #4CAF50;
+        }
+
+        .modal button {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .modal button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Criar Senha</h1>
+        <p>Por favor, digite a nova senha para sua conta.</p>
+        <div id="passwordForm">
+            <div class="input-group">
+                <label for="newPassword">Nova Senha:</label>
+                <input type="password" id="newPassword" placeholder="Digite sua nova senha" required>
+            </div>
+            <div class="input-group">
+                <label for="confirmPassword">Confirmar Senha:</label>
+                <input type="password" id="confirmPassword" placeholder="Confirme sua senha" required>
+            </div>
+            <button id="createPasswordBtn">Criar Senha</button>
+        </div>
+    </div>
+
+    <!-- Modal de sucesso -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <h2>Senha Criada com Sucesso!</h2>
+            <p>Agora você pode acessar sua conta.</p>
+            <button id="dashboardBtn">Ir para o Dashboard</button>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Função para salvar a senha no Firestore (na coleção "inscricoes_novas")
+        async function savePassword(nomeUsuario, senha) {
+            try {
+                const usuarioRef = doc(db, "inscricoes_novas", nomeUsuario); // Usando o nome do usuário como ID do documento
+                await setDoc(usuarioRef, { senha: senha }, { merge: true }); // Adiciona a senha ao documento existente ou cria um novo
+                showModal(); // Mostra o modal de sucesso
+            } catch (error) {
+                console.error("Erro ao salvar a senha:", error);
+                alert("Houve um erro ao salvar a senha. Tente novamente.");
+            }
+        }
+
+        // Função para adicionar o spinner ao botão de criação de senha
+        function addSpinnerToButton(button) {
+            const spinner = document.createElement("div");
+            spinner.classList.add("spinner");
+            button.appendChild(spinner);
+            button.disabled = true; // Desativa o botão enquanto o spinner está ativo
+        }
+
+        // Função para remover o spinner após o processo
+        function removeSpinnerFromButton(button) {
+            const spinner = button.querySelector(".spinner");
+            if (spinner) {
+                spinner.remove();
+            }
+            button.disabled = false; // Reativa o botão
+        }
+
+        // Função para validar a senha
+        function validatePassword(senha, confirmSenha) {
+            if (senha !== confirmSenha) {
+                alert("As senhas não coincidem. Tente novamente.");
+                return false;
+            }
+            if (senha.length < 6) {
+                alert("A senha precisa ter pelo menos 6 caracteres.");
+                return false;
+            }
+            return true;
+        }
+
+        // Evento de clique do botão "Criar Senha"
+        document.getElementById("createPasswordBtn").addEventListener("click", () => {
+            const nomeUsuario = localStorage.getItem("nomeUsuario"); // Recupera o nome do usuário da sessão local
+            const senha = document.getElementById("newPassword").value;
+            const confirmSenha = document.getElementById("confirmPassword").value;
+            const button = document.getElementById("createPasswordBtn");
+
+            // Adiciona o spinner ao clicar no botão
+            addSpinnerToButton(button);
+
+            // Valida e salva a senha
+            if (validatePassword(senha, confirmSenha)) {
+                savePassword(nomeUsuario, senha);
+            } else {
+                removeSpinnerFromButton(button); // Remove o spinner se a validação falhar
+            }
+        });
+
+        // Função para mostrar o modal
+        function showModal() {
+            document.getElementById("successModal").style.display = "flex";
+            document.getElementById("dashboardBtn").addEventListener("click", redirectToDashboard);
+        }
+
+        // Função para redirecionar para o Dashboard
+        function redirectToDashboard() {
+            // Adiciona o spinner ao clicar no botão
+            const button = document.querySelector("#successModal button");
+            addSpinnerToButton(button);
+
+            // Simulação do mapeamento antes do redirecionamento
+            setTimeout(() => {
+                window.location.href = "dashboard.html"; // Corrigido o nome do arquivo para "dashboard.html"
+            }, 2000); // Adiciona uma pequena pausa para o spinner ser exibido
+        }
+    </script>
+</body>

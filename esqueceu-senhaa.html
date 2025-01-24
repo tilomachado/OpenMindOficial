@@ -1,0 +1,301 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <title>Esqueceu a Senha</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+  body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #f4f4f4, #e0e0e0);
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow: hidden; /* Para evitar rolagem indesejada */
+}
+
+.reset-container {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    margin: 50px auto;
+    text-align: center;
+    transition: transform 0.3s ease;
+    width: 90%; /* A largura será de 90% da tela em dispositivos menores */
+}
+
+.reset-container:hover {
+    transform: scale(1.05);
+}
+
+.reset-container h2 {
+    color: #ffcc00;
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+    color: #555;
+}
+
+input[type="email"],
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f4f4f4;
+    color: #333;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+input[type="email"]:focus,
+input[type="text"]:focus {
+    background-color: #e0e0e0;
+    outline: none;
+}
+
+.btn {
+    background: linear-gradient(90deg, #ff007f, #ff7f00);
+    color: white;
+    padding: 12px;
+    border-radius: 25px;
+    font-size: 1.1em;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.btn:hover {
+    background: linear-gradient(90deg, #ff7f00, #ff007f);
+    transform: scale(1.05);
+}
+
+.btn.loading {
+    background: transparent;
+    color: transparent;
+    pointer-events: none;
+}
+
+.btn.loading::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: 30px;
+    height: 30px;
+    border: 4px solid rgba(255, 255, 255, 0.5);
+    border-top: 4px solid #ff007f;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    transform: translate(-50%, -50%);
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.message {
+    display: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.message.success {
+    background-color: rgba(76, 175, 80, 0.1);
+    border: 1px solid #4CAF50;
+    color: #4CAF50;
+}
+
+.error-container {
+    background-color: rgba(255, 77, 77, 0.2);
+    border: 1px solid #ff4d4d;
+    color: #ff4d4d;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    display: none; /* Esconder inicialmente */
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+    .reset-container {
+        padding: 20px;
+        margin: 20px; /* Diminui a margem para dispositivos menores */
+    }
+
+    .reset-container h2 {
+        font-size: 1.5em; /* Tamanho da fonte menor em telas pequenas */
+    }
+
+    input[type="email"],
+    input[type="text"] {
+        font-size: 0.9em; /* Tamanho da fonte dos inputs em telas pequenas */
+    }
+
+    .btn {
+        font-size: 1em; /* Tamanho da fonte do botão em telas pequenas */
+    }
+}
+
+
+    </style>
+</head>
+<body>
+
+    <div class="reset-container">
+        <h2>Esqueceu a Senha?</h2>
+
+        <div class="error-container" id="error-container"></div>
+        <div class="message success" id="success-message"></div>
+
+        <form id="reset-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Digite seu email">
+
+            <label for="favoriteSubject">Qual é a sua disciplina favorita? (Resposta de Segurança)</label>
+            <input type="text" id="favoriteSubject" name="favoriteSubject" required placeholder="Digite sua disciplina favorita">
+
+            <button type="submit" class="btn">Recuperar Agora</button>
+        </form>
+
+        <div class="link-section">
+            <p>Já tem uma conta?</p>
+            <a href="Bem-vindo.html" style="color: #f7b731; text-decoration: none;">Faça login aqui!</a>
+        </div>
+    </div>
+
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+        import { getFirestore, collection, query, where, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js"; 
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+
+        const resetForm = document.getElementById("reset-form");
+        const errorContainer = document.getElementById("error-container");
+        const successMessage = document.getElementById("success-message");
+        const submitButton = document.querySelector(".btn");
+
+        resetForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = resetForm.email.value;
+            const favoriteSubject = resetForm.favoriteSubject.value;
+
+            if (!email || !favoriteSubject) {
+                errorContainer.style.display = "block";
+                errorContainer.textContent = "Por favor, preencha todos os campos.";
+                return;
+            }
+
+            submitButton.classList.add("loading");
+            submitButton.textContent = "Recuperar conta agora...";
+
+            try {
+                const userRef = collection(db, "usuarios");
+                const q = query(userRef, where("email", "==", email), where("favoriteSubject", "==", favoriteSubject));
+                const querySnapshot = await getDocs(q);
+
+                if (!querySnapshot.empty) {
+                    await sendPasswordResetEmail(auth, email);
+                    successMessage.style.display = "block";
+                    successMessage.textContent = "Email de recuperação enviado com sucesso!";
+                    errorContainer.style.display = "none"; // Esconde mensagem de erro
+                    
+                    setTimeout(() => {
+                        window.location.href = "criar-nova-senha.html"; 
+                    }, 2000);
+                } else {
+                    throw new Error("Email ou disciplina incorretos.");
+                }
+            } catch (error) {
+                errorContainer.style.display = "block";
+                errorContainer.textContent = error.message;
+                successMessage.style.display = "none"; 
+            } finally {
+                submitButton.classList.remove("loading");
+                submitButton.textContent = "Enviar Email de Recuperação";
+            }
+        });
+    </script>
+
+<!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Escolha de Aulas</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="escolha-container">
+        <h1>Escolha o tipo de aula</h1>
+        <div class="opcoes">
+            <div class="opcao presencial" onclick="escolherAula('presencial')">
+                <h2>Aula Presencial</h2>
+                <p>Participe presencialmente com nossos instrutores.</p>
+            </div>
+            <div class="opcao online" onclick="escolherAula('online')">
+                <h2>Aula Online</h2>
+                <p>Assista de qualquer lugar, ao vivo ou gravado.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function escolherAula(tipo) {
+            alert(`Você escolheu a aula ${tipo}.`);
+            // Aqui você pode redirecionar ou enviar a escolha para o servidor
+        }
+    </script>
+</body>
+</html>
