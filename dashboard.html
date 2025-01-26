@@ -5,128 +5,228 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Open Mind</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 0;
-        }
+        body body {
+    font-family: 'Arial', sans-serif;
+    background-color: #121212; /* Fundo escuro para destacar os efeitos neon */
+    color: #f4f4f4; /* Texto claro para contraste */
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
 
-        .navbar {
-            background-color: #333;
-            color: white;
-            padding: 10px;
-            text-align: center;
-        }
+.navbar {
+    background: linear-gradient(45deg, #ff0066, #00ccff); /* Efeito neon */
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1.2em;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    font-weight: bold;
+}
 
-        .container {
-            padding: 20px;
-        }
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+}
 
-        .course-card {
-            background-color: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+.navbar a:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.6); /* Brilho neon ao passar o mouse */
+}
 
-        .course-card h3 {
-            margin: 0;
-            color: #4CAF50;
-        }
+.container {
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
 
-        .course-card p {
-            color: #555;
-        }
+.loading {
+    text-align: center;
+    padding: 40px;
+    display: none;
+}
 
-        .course-card:hover {
-            transform: scale(1.05);
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.2);
-        }
+.loader {
+    border: 6px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top: 6px solid #ff0066;
+    width: 60px;
+    height: 60px;
+    animation: spin 1.5s linear infinite;
+    margin: 0 auto;
+}
 
-        .course-details {
-            margin-top: 20px;
-            display: none;
-            animation: fadeIn 1s ease-in;
-        }
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
-        .course-details p {
-            font-size: 18px;
-        }
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo mais escuro */
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
 
-        .loading {
-            text-align: center;
-            padding: 20px;
-        }
+.modal-content {
+    background-color: #222;
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    max-width: 500px;
+    width: 90%;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    border: 2px solid #ff0066; /* Borda com efeito neon */
+}
 
-        .spinner {
-            border: 4px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50%;
-            border-top: 4px solid #4CAF50;
-            width: 50px;
-            height: 50px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-        }
+.modal-content h2 {
+    color: #00ccff;
+    font-size: 1.8em;
+    margin-bottom: 20px;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #ff0066; /* Efeito neon no título */
+}
 
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
+.modal-content p {
+    font-size: 1.2em;
+    margin: 20px 0;
+    color: #f4f4f4;
+}
 
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
+.close {
+    color: #aaa;
+    font-size: 32px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close:hover {
+    color: #ff0066; /* Cor do close com efeito neon */
+}
+
+button {
+    background-color: #ff0066;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 1.1em;
+}
+
+button:hover {
+    background-color: #00ccff;
+    box-shadow: 0 0 15px rgba(0, 204, 255, 0.7); /* Brilho neon no botão */
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 2px solid #555;
+    border-radius: 6px;
+    font-size: 1.1em;
+    background-color: #222;
+    color: #f4f4f4;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+    border-color: #ff0066;
+    background-color: #333; /* Escurecer um pouco o fundo do input quando focado */
+}
+
+form {
+    margin-top: 30px;
+    background-color: #222;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    border: 2px solid #ff0066;
+}
+
+form h3 {
+    font-size: 1.6em;
+    margin-bottom: 20px;
+    color: #fff;
+    text-shadow: 0 0 10px #ff0066, 0 0 20px #00ccff; /* Efeito neon no título do formulário */
+}
+
+label {
+    font-size: 1.1em;
+    color: #ddd;
+    display: block;
+    margin: 10px 0;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    padding: 15px 20px;
+    text-align: center;
+    font-size: 1em;
+    position: relative;
+    width: 100%;
+    bottom: 0;
+}
+
     </style>
 </head>
 <body>
 
 <div class="navbar">
-    <h1>Bem-vindo ao Dashboard!</h1>
+    <h1>Bem-vindo a Open Mind Para Todos!</h1>
 </div>
 
 <div class="container">
-    <h2>Explore os Cursos:</h2>
+    <h2>Verifique seu Cadastro:</h2>
+    <input type="text" id="nomeUsuario" placeholder="Digite seu nome completo" style="width: 80%; padding: 10px; margin-bottom: 10px;">
+    <input type="text" id="recibo" placeholder="Digite o número do recibo" style="width: 80%; padding: 10px; margin-bottom: 10px;">
+    <button id="verifyNameBtn" style="padding: 10px 20px; background-color: #4CAF50; color: white; border: none; cursor: pointer;">Verificar</button>
 
-    <!-- Lista de cursos (exemplo) -->
-    <div class="course-card" onclick="openCourse('gestao_negocios')">
-        <h3>Gestão de Negócios</h3>
-        <p>Aprenda técnicas de gestão e estratégias para desenvolver negócios lucrativos e sustentáveis.</p>
-    </div>
-
-    <div class="course-card" onclick="openCourse('habilidades_sociais')">
-        <h3>Habilidades Sociais</h3>
-        <p>Desenvolva habilidades socioemocionais para se destacar no ambiente profissional e melhorar relacionamentos interpessoais.</p>
-    </div>
-
-    <div class="course-card" onclick="openCourse('mercado_trabalho')">
-        <h3>Mercado de Trabalho</h3>
-        <p>Prepare-se para o mercado de trabalho com técnicas de elaboração de currículos, simulação de entrevistas e muito mais.</p>
-    </div>
-
-    <!-- Detalhes do curso -->
-    <div id="courseDetails" class="course-details">
-        <h2 id="courseTitle">Escolha um curso</h2>
-        <p id="courseDescription">Selecione um curso para ver mais detalhes.</p>
-        <p id="coursePrice">Preço: <span style="color: green;">Gratuito</span></p>
-        <button id="subscribeBtn" onclick="subscribeCourse()" style="display: none;">Inscreva-se</button>
-    </div>
-
-    <!-- Loading Spinner -->
-    <div id="loadingSpinner" class="loading" style="display: none;">
-        <div class="spinner"></div>
+    <!-- Loader -->
+    <div class="loading">
+        <div class="loader"></div>
         <p>Carregando...</p>
     </div>
 
+    <!-- Modal de Sucesso -->
+    <div id="successModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('successModal')">&times;</span>
+            <h2>Bem-vindo(a)!</h2>
+            <p>Redirecionando para o seu curso...</p>
+        </div>
+    </div>
+
+    <!-- Modal de Erro -->
+    <div id="errorModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('errorModal')">&times;</span>
+            <h2>Erro!</h2>
+            <p>Cadastro não encontrado. Verifique os dados e tente novamente.</p>
+        </div>
+    </div>
 </div>
 
 <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-    import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
     // Configuração do Firebase
     const firebaseConfig = {
@@ -139,90 +239,56 @@
         measurementId: "G-6CE0E9R3J5"
     };
 
+    // Inicializando Firebase
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // Função para registrar a interação do usuário
-    async function registerUserAction(action, courseName) {
-        const nomeUsuario = localStorage.getItem("nomeUsuario");
-        const actionData = {
-            usuario: nomeUsuario,
-            action: action,
-            course: courseName || 'N/A',
-            timestamp: new Date().toISOString()
-        };
-
-        // Salva os dados de interação do usuário no Firestore
+    // Função para buscar informações do usuário
+    async function getUserData(nomeUsuario, recibo) {
         try {
-            await addDoc(collection(db, "user_actions"), actionData);
-            console.log("Ação registrada com sucesso");
-        } catch (e) {
-            console.error("Erro ao registrar a ação: ", e);
+            const inscritosRef = collection(db, "inscricoes_novas");
+            const q = query(inscritosRef, where("nome", "==", nomeUsuario), where("recibo", "==", recibo));
+            const snapshot = await getDocs(q);
+
+            if (snapshot.empty) {
+                return null;
+            }
+
+            let userData = null;
+            snapshot.forEach(doc => userData = doc.data());
+            return userData;
+        } catch (error) {
+            console.error("Erro ao buscar dados:", error);
+            return null;
         }
     }
 
-    // Função chamada ao clicar em um curso
-    function openCourse(courseName) {
-        // Mostra o spinner de carregamento
-        document.getElementById('loadingSpinner').style.display = 'block';
-        document.getElementById('courseDetails').style.display = 'none';
-        
-        // Registra a ação do usuário (visualização do curso)
-        registerUserAction('Visualizou Curso', courseName);
+    // Verificar Cadastro
+    document.getElementById('verifyNameBtn').addEventListener('click', async () => {
+        const nomeUsuario = document.getElementById('nomeUsuario').value.trim();
+        const recibo = document.getElementById('recibo').value.trim();
 
-        // Simula o carregamento dos detalhes do curso
-        setTimeout(() => {
-            // Esconde o spinner
-            document.getElementById('loadingSpinner').style.display = 'none';
+        if (nomeUsuario && recibo) {
+            document.querySelector('.loading').style.display = "block";
 
-            // Atualiza os detalhes do curso
-            updateCourseDetails(courseName);
-        }, 2000);
-    }
+            const userData = await getUserData(nomeUsuario, recibo);
 
-    // Função para atualizar os detalhes do curso
-    function updateCourseDetails(courseName) {
-        const descricaoCurso = document.getElementById("courseDescription");
-        const precoCurso = document.getElementById("coursePrice");
-        const tituloCurso = document.getElementById("courseTitle");
-        const subscribeBtn = document.getElementById("subscribeBtn");
+            document.querySelector('.loading').style.display = "none";
 
-        switch(courseName) {
-            case 'gestao_negocios':
-                tituloCurso.textContent = 'Gestão de Negócios';
-                descricaoCurso.textContent = 'Aprenda técnicas de gestão e estratégias para desenvolver negócios lucrativos e sustentáveis.';
-                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
-                break;
-            case 'habilidades_sociais':
-                tituloCurso.textContent = 'Habilidades Sociais';
-                descricaoCurso.textContent = 'Desenvolva habilidades socioemocionais para se destacar no ambiente profissional e melhorar relacionamentos interpessoais.';
-                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
-                break;
-            case 'mercado_trabalho':
-                tituloCurso.textContent = 'Mercado de Trabalho';
-                descricaoCurso.textContent = 'Prepare-se para o mercado de trabalho com técnicas de elaboração de currículos, simulação de entrevistas e muito mais.';
-                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
-                break;
-            default:
-                tituloCurso.textContent = 'Curso não encontrado';
-                descricaoCurso.textContent = 'Não há detalhes disponíveis para este curso.';
-                precoCurso.innerHTML = 'Preço: <span style="color: red;">Indisponível</span>';
-                break;
+            if (userData) {
+                document.getElementById('successModal').style.display = "flex";
+                setTimeout(() => {
+                    window.location.href = `/cursos/${userData.curso}.html`; // Redireciona para a página do curso
+                }, 1500);
+            } else {
+                document.getElementById('errorModal').style.display = "flex";
+            }
         }
+    });
 
-        // Exibe a área de detalhes e o botão de inscrição
-        document.getElementById('courseDetails').style.display = 'block';
-        subscribeBtn.style.display = 'inline-block';
-    }
-
-    // Função para inscrever o usuário no curso
-    function subscribeCourse() {
-        const courseName = document.getElementById("courseTitle").textContent;
-
-        // Registra a ação de inscrição
-        registerUserAction('Inscreveu-se no Curso', courseName);
-        
-        alert(`Você se inscreveu no curso: ${courseName}`);
+    // Fechar modal
+    function closeModal(modalId) {
+        document.getElementById(modalId).style.display = "none";
     }
 </script>
 
