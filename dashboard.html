@@ -278,7 +278,7 @@ footer {
             if (userData) {
                 document.getElementById('successModal').style.display = "flex";
                 setTimeout(() => {
-                    window.location.href = `OpenMindOficial/cursos/${userData.curso}.html`; // Redireciona para a página do curso
+                    window.location.href = `OpenMindOficial/cursos${userData.curso}.html`; // Redireciona para a página do curso
                 }, 1500);
             } else {
                 document.getElementById('errorModal').style.display = "flex";
