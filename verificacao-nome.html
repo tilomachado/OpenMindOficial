@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt">
 <head>
@@ -251,6 +252,96 @@
                 <input type="text" id="recibo" placeholder="Digite o número do recibo" required>
             </div>
             <button id="goToDashboardBtn">Acessar Dashboard</button>
+
+<style>
+    #goToDashboardBtn {
+        background-color: #4caf50;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+
+    #goToDashboardBtn:hover {
+        background-color: #45a049;
+    }
+
+    #loadingProgress {
+        margin-left: 10px;
+        font-size: 14px;
+        color: white;
+    }
+
+    #progressBarContainer {
+        width: 100%;
+        background-color: #ddd;
+        height: 6px;
+        border-radius: 4px;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+    }
+
+    #progressBar {
+        height: 100%;
+        width: 0%;
+        background-color: #000000; /* Barra de progresso com outra cor */
+        border-radius: 4px;
+    }
+</style>
+
+<script>
+    document.getElementById('goToDashboardBtn').addEventListener('click', function() {
+        var btn = this;
+        
+        // Adiciona o indicador de progresso
+        var progress = document.createElement('span');
+        progress.id = 'loadingProgress';
+        progress.textContent = '0%';
+        btn.appendChild(progress);
+
+        // Adiciona a barra de progresso
+        var progressBarContainer = document.createElement('div');
+        progressBarContainer.id = 'progressBarContainer';
+        var progressBar = document.createElement('div');
+        progressBar.id = 'progressBar';
+        progressBarContainer.appendChild(progressBar);
+        btn.appendChild(progressBarContainer);
+
+        // Mostrar o botão como carregando
+        btn.disabled = true;
+
+        var progressValue = 0;
+        var totalTime = 11000; // 3 minutos em milissegundos
+        var interval = totalTime / 100; // Dividindo o tempo total por 100 para aumentar o progresso de 1% a cada intervalo
+
+        var progressInterval = setInterval(function() {
+            progressValue += 1;
+            progress.textContent = progressValue + '%';
+            progressBar.style.width = progressValue + '%';
+
+            if (progressValue === 100) {
+                clearInterval(progressInterval);
+                // Após 3 minutos, o carregamento termina
+                btn.textContent = 'Acessar Dashboard';
+                btn.disabled = false;
+                progress.textContent = '';
+                // Redireciona para o dashboard após o progresso ser concluído
+                window.location.href = "dashboard.html"; // Redireciona para o dashboard
+            }
+        }, interval); // Progresso de 0 a 100% em 3 minutos (180000ms)
+    });
+</script>
+
+
         </div>
     </div>
 
@@ -268,8 +359,8 @@
     <script type="module">
         // Importando dependências do Firebase
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-        import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-        
+        import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
         // Configuração do Firebase
         const firebaseConfig = {
             apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
@@ -280,24 +371,24 @@
             appId: "1:424655587612:web:851858a379c334227056e4",
             measurementId: "G-6CE0E9R3J5"
         };
-
+    
         // Inicializando o Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-
+    
         // Função para verificar se o usuário existe
         async function verifyUser(nomeUsuario) {
             if (!nomeUsuario || nomeUsuario.trim() === '') {
                 return null; // Retorna null se o nome não for válido
             }
-            
+    
             try {
                 const inscritosRef = collection(db, "inscricoes_novas");
                 const snapshot = await getDocs(inscritosRef);
                 const inscritos = snapshot.docs.map(doc => doc.data());
-
+    
                 console.log("Dados retornados do Firestore:", inscritos); // Log para debug
-
+    
                 // Verifica se algum documento tem a propriedade `nome` e se ela é igual ao nome do usuário
                 return inscritos.find(usuario => usuario.nome && usuario.nome.toLowerCase() === nomeUsuario.toLowerCase());
             } catch (error) {
@@ -305,30 +396,67 @@
                 return null; // Retorna null em caso de erro
             }
         }
-
+    
+        // Função para verificar o número do recibo
+        async function verifyRecibo(recibo) {
+            if (!recibo) {
+                return null;
+            }
+    
+            try {
+                const inscritosRef = collection(db, "inscricoes_novas");
+                const q = query(inscritosRef, where("recibo", "==", recibo));
+                const snapshot = await getDocs(q);
+    
+                if (snapshot.empty) {
+                    console.log("Recibo não encontrado.");
+                    return null; // Se o recibo não for encontrado
+                }
+    
+                // Se o recibo for encontrado, retorna o documento
+                const usuario = snapshot.docs[0].data();
+                console.log("Recibo encontrado:", usuario);
+                return usuario;
+            } catch (error) {
+                console.error("Erro ao buscar recibo:", error);
+                return null;
+            }
+        }
+    
         // Função para exibir o modal
         function showModal(modalId) {
             document.getElementById(modalId).style.display = "flex";
         }
-
+    
         // Função para fechar o modal
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
         }
-
+    
         // Função de redirecionamento para o dashboard
-        function goToDashboard() {
-            const nomeUsuario = document.getElementById("userName").textContent; // O nome do usuário é recuperado aqui
+        async function goToDashboard() {
+            const nomeUsuario = document.getElementById("nome").textContent; // O nome do usuário é recuperado aqui
             const recibo = document.getElementById("recibo").value; // O número de recibo inserido é recuperado aqui
-            
+    
             if (nomeUsuario && recibo) {
                 // Verifica o tempo da última inserção do recibo
                 const lastReciboTime = localStorage.getItem("lastReciboTime");
                 const currentTime = new Date().getTime();
-
+    
                 if (lastReciboTime && (currentTime - lastReciboTime) < 48 * 60 * 60 * 1000) {
                     // Se passou menos de 48 horas, permite o acesso ao dashboard
-                    window.location.href = "dashboard.html"; // Redireciona para o dashboard
+                    const usuario = await verifyUser(nomeUsuario);
+    
+                    if (usuario && usuario.recibo === recibo) {
+                        // Exibir apenas o curso específico do usuário
+                        const curso = usuario.curso; // Pegando o curso do documento retornado
+                        
+                        // Armazenar o curso no localStorage
+                        localStorage.setItem("Curso", curso);
+                        window.location.href = "dashboard.html"; // Redireciona para o dashboard
+                    } else {
+                        alert("Número de recibo inválido ou usuário não encontrado.");
+                    }
                 } else {
                     // Caso contrário, atualiza o tempo e armazena
                     localStorage.setItem("lastReciboTime", currentTime);
@@ -338,7 +466,7 @@
                 alert("Por favor, insira seu nome de usuário e número do recibo.");
             }
         }
-
+    
         // Evento de clique para verificar o nome do usuário
         document.getElementById("verifyNameBtn").addEventListener("click", async () => {
             const nomeUsuario = document.getElementById("nomeUsuario").value;
@@ -348,9 +476,9 @@
                 alert("Por favor, insira seu nome.");
                 return; // Retorna caso o campo esteja vazio
             }
-
+    
             const usuario = await verifyUser(nomeUsuario);
-
+    
             if (usuario) {
                 // Se o usuário for encontrado, exibe o modal de sucesso
                 document.getElementById("userName").textContent = nomeUsuario;
@@ -360,10 +488,10 @@
                 showModal('errorModal');
             }
         });
-
+    
         // Evento de clique para ir ao dashboard
         document.getElementById('goToDashboardBtn').addEventListener('click', goToDashboard);
-
+    
         // Evento de clique para adicionar uma classe de carregamento ao botão
         document.getElementById('btnText').addEventListener('click', function() {
             this.classList.add('loading');
@@ -371,9 +499,11 @@
             // Simulando um carregamento, que dura 3 segundos
             setTimeout(() => {
                 this.classList.remove('loading');
-            }, 3000);
+            }, 40000);
         });
     </script>
+    
+    
 </body>
     
 </html>
