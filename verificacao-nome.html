@@ -292,7 +292,11 @@
                 const inscritosRef = collection(db, "inscricoes_novas");
                 const snapshot = await getDocs(inscritosRef);
                 const inscritos = snapshot.docs.map(doc => doc.data());
-                return inscritos.find(usuario => usuario.nome.toLowerCase() === nomeUsuario.toLowerCase());
+    
+                console.log("Dados retornados do Firestore:", inscritos); // Log para debug
+    
+                // Verifica se algum documento tem a propriedade `nome` e se ela é igual ao nome do usuário
+                return inscritos.find(usuario => usuario.nome && usuario.nome.toLowerCase() === nomeUsuario.toLowerCase());
             } catch (error) {
                 console.error("Erro ao buscar usuários:", error);
                 return null; // Retorna null em caso de erro
@@ -316,7 +320,7 @@
                 // Armazena o nome do usuário no localStorage para ser usado na página de criação de senha
                 localStorage.setItem("nomeUsuario", nomeUsuario);
                 // Redireciona para a página de criação de senha
-                window.location.href = "-«-.html"; // Substitua "paginaCriarSenha.html" pelo caminho correto
+                window.location.href = "paginaCriarSenha.html"; // Substitua pelo caminho correto
             } else {
                 alert("Nome do usuário não encontrado!");
             }
@@ -357,6 +361,7 @@
             }, 3000);
         });
     </script>
+    
     
 </body>
 </html>
