@@ -245,9 +245,12 @@
         <div class="modal-content">
             <span class="close-btn" onclick="closeModal('successModal')">&times;</span>
             <h2>Bem-vindo, <span id="userName"></span>!</h2>
-            <p>Que bom ver você novamente!</p>
-            <!-- Botão de criação de senha -->
-            <button id="createPasswordBtn">Criar Nova Senha</button>
+            <p>Que bom ver você novamente! Agora, insira o número do seu recibo para prosseguir.</p>
+            <div class="input-group">
+                <label for="recibo">Número do Recibo:</label>
+                <input type="text" id="recibo" placeholder="Digite o número do recibo" required>
+            </div>
+            <button id="goToDashboardBtn">Acessar Dashboard</button>
         </div>
     </div>
 
@@ -277,11 +280,11 @@
             appId: "1:424655587612:web:851858a379c334227056e4",
             measurementId: "G-6CE0E9R3J5"
         };
-    
+
         // Inicializando o Firebase
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
-    
+
         // Função para verificar se o usuário existe
         async function verifyUser(nomeUsuario) {
             if (!nomeUsuario || nomeUsuario.trim() === '') {
@@ -292,9 +295,9 @@
                 const inscritosRef = collection(db, "inscricoes_novas");
                 const snapshot = await getDocs(inscritosRef);
                 const inscritos = snapshot.docs.map(doc => doc.data());
-    
+
                 console.log("Dados retornados do Firestore:", inscritos); // Log para debug
-    
+
                 // Verifica se algum documento tem a propriedade `nome` e se ela é igual ao nome do usuário
                 return inscritos.find(usuario => usuario.nome && usuario.nome.toLowerCase() === nomeUsuario.toLowerCase());
             } catch (error) {
@@ -302,30 +305,40 @@
                 return null; // Retorna null em caso de erro
             }
         }
-    
+
         // Função para exibir o modal
         function showModal(modalId) {
             document.getElementById(modalId).style.display = "flex";
         }
-    
+
         // Função para fechar o modal
         function closeModal(modalId) {
             document.getElementById(modalId).style.display = "none";
         }
-    
-        // Função de redirecionamento para a página de criação de senha
-        function goToCreatePassword() {
+
+        // Função de redirecionamento para o dashboard
+        function goToDashboard() {
             const nomeUsuario = document.getElementById("userName").textContent; // O nome do usuário é recuperado aqui
-            if (nomeUsuario) {
-                // Armazena o nome do usuário no localStorage para ser usado na página de criação de senha
-                localStorage.setItem("nomeUsuario", nomeUsuario);
-                // Redireciona para a página de criação de senha
-                window.location.href = "-«-.html"; // Substitua pelo caminho correto
+            const recibo = document.getElementById("recibo").value; // O número de recibo inserido é recuperado aqui
+            
+            if (nomeUsuario && recibo) {
+                // Verifica o tempo da última inserção do recibo
+                const lastReciboTime = localStorage.getItem("lastReciboTime");
+                const currentTime = new Date().getTime();
+
+                if (lastReciboTime && (currentTime - lastReciboTime) < 48 * 60 * 60 * 1000) {
+                    // Se passou menos de 48 horas, permite o acesso ao dashboard
+                    window.location.href = "dashboard.html"; // Redireciona para o dashboard
+                } else {
+                    // Caso contrário, atualiza o tempo e armazena
+                    localStorage.setItem("lastReciboTime", currentTime);
+                    window.location.href = "dashboard.html"; // Redireciona para o dashboard
+                }
             } else {
-                alert("Nome do usuário não encontrado!");
+                alert("Por favor, insira seu nome de usuário e número do recibo.");
             }
         }
-    
+
         // Evento de clique para verificar o nome do usuário
         document.getElementById("verifyNameBtn").addEventListener("click", async () => {
             const nomeUsuario = document.getElementById("nomeUsuario").value;
@@ -335,9 +348,9 @@
                 alert("Por favor, insira seu nome.");
                 return; // Retorna caso o campo esteja vazio
             }
-    
+
             const usuario = await verifyUser(nomeUsuario);
-    
+
             if (usuario) {
                 // Se o usuário for encontrado, exibe o modal de sucesso
                 document.getElementById("userName").textContent = nomeUsuario;
@@ -347,10 +360,10 @@
                 showModal('errorModal');
             }
         });
-    
-        // Evento de clique para ir à página de criação de senha
-        document.getElementById('createPasswordBtn').addEventListener('click', goToCreatePassword);
-    
+
+        // Evento de clique para ir ao dashboard
+        document.getElementById('goToDashboardBtn').addEventListener('click', goToDashboard);
+
         // Evento de clique para adicionar uma classe de carregamento ao botão
         document.getElementById('btnText').addEventListener('click', function() {
             this.classList.add('loading');
@@ -361,8 +374,7 @@
             }, 3000);
         });
     </script>
-    
-    
 </body>
+    
 </html>
 
