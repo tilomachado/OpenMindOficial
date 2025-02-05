@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <title>Minicurso de Preparação Mental</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        /* Estilos Globais */
+     
+    body {
+        font-family: 'Arial', sans-serif;
+        background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+        color: #ffffff;
+        margin: 0;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh; /* Preencher a altura da tela */
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #ffcc00;
+        text-align: center;
+    }
+
+    .video-container {
+        width: 100%;
+        max-width: 800px; /* Aumenta a largura máxima para uma tela de PC */
+        margin-bottom: 20px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        position: relative;
+    }
+
+    iframe {
+        width: 100%;
+        height: 450px; /* Aumenta a altura do vídeo para melhor visualização */
+        border: none;
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 10px;
+        background: #555;
+        border-radius: 5px;
+        margin-top: 10px;
+        overflow: hidden;
+    }
+
+    .progress {
+        height: 100%;
+        background: linear-gradient(90deg, #39FF14, #00B300); /* Gradiente verde néon */
+        width: 0%;
+        transition: width 0.5s ease;
+    }
+
+    /* Modal */
+    #modal, #congratulations-modal, #trophy-modal {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.8);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background: #2e2e2e;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-content h2 {
+        color: #ffcc00;
+    }
+
+    .modal-content p {
+        color: #ffffff;
+        margin: 20px 0;
+    }
+
+    .close-modal {
+        margin-top: 20px;
+        padding: 10px 20px;
+        background-color: #ffcc00;
+        border: none;
+        border-radius: 5px;
+        color: #1f1f1f;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    .close-modal:hover {
+        background-color: #e6b800;
+    }
+
+    /* Botões de Controle */
+    .control-buttons {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+
+    .control-button {
+        padding: 10px 20px;
+        background-color: #ffcc00;
+        border: none;
+        border-radius: 5px;
+        color: #1f1f1f;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        display: none; /* Inicialmente oculto */
+    }
+
+    .control-button:hover {
+        background-color: #e6b800;
+    }
+
+    /* Mensagem de instrução */
+    #instruction {
+        display: none;
+        position: fixed;
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: rgba(0, 0, 0, 0.7);
+        color: #ffffff;
+        padding: 10px;
+        border-radius: 5px;
+        z-index: 2000;
+        animation: fadeIn 0.5s forwards;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+
+    /* Responsividade */
+    @media (max-width: 600px) {
+        h1 {
+            font-size: 24px;
+        }
+
+        iframe {
+            height: 200px;
+        }
+    }
+
+    /* Estilo do Troféu */
+    .trophy {
+        width: 100px;
+        height: 100px;
+        background: url('trofeu.png') no-repeat center;
+        background-size: contain;
+    }
+</style>
+
+</head>
+<body>
+
+    <div id="modal">
+        <div class="modal-content">
+            <h2>Condições de Acesso ao Minicurso Gratuito</h2>
+            <p>Para assistir aos vídeos  de forma gratuita, você precisará desbloquer cada vídeo assistindo até um determinado ponto. Para uma melhor experiência, vire seu dispositivo para o modo paisagem!</p>
+            <button class="close-modal" onclick="closeModal()">Entendi</button>
+            
+        </div>
+    </div>
+
+    <h1>Minicurso de Preparação Mental</h1>
+
+    <div id="instruction">Coloque seu dispositivo em modo horizontal para melhor visualização!</div>
+
+    <div class="video-container" id="video1-container">
+        <iframe id="video1" src="https://www.youtube.com/embed/r59LViAGGfA?enablejsapi=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="progress-bar">
+            <div class="progress" id="progress1"></div>
+        </div>
+        <div class="control-buttons">
+            <button class="control-button" id="finish-btn1" onclick="finishLesson(1)">Terminar Aula Atual</button>
+            <button class="control-button" id="next-btn1" onclick="nextLesson()">Ir para Próxima Aula</button>
+        </div></div>Explore o conteúdo e siga cada etapa para extrair o máximo valor deste minicurso. 
+        </div>
+    </div>
+
+    <div class="video-container" id="video2-container" style="display: none;">
+        <iframe id="video2" src="https://www.youtube.com/embed/Hku437BGpwM?enablejsapi=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="progress-bar">
+            <div class="progress" id="progress2"></div>
+        </div>
+        <div class="control-buttons">
+            <button class="control-button" id="finish-btn2" onclick="finishLesson(2)">Terminar Aula Atual</button>
+            <button class="control-button" id="next-btn2" onclick="nextLesson()">Ir para Próxima Aula</button>
+        </div>Você chegou a segunda aula do minicurso! Sua perseverança e compromisso são inspiradores.
+    </div>
+
+    <div class="video-container" id="video3-container" style="display: none;">
+        <iframe id="video3" src="https://www.youtube.com/embed/fYJpQDl3HfA?enablejsapi=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="progress-bar">
+            <div class="progress" id="progress3"></div>
+        </div>
+        <div class="control-buttons">
+            <button class="control-button" id="finish-btn3" onclick="finishLesson(3)">Terminar Aula Atual</button>
+            <button class="control-button" id="next-btn3" onclick="nextLesson()">Ir para Próxima Aula</button>
+        
+        </div>
+    </div>
+
+    <div id="trophy-modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Parabéns!</h2>
+            <p>Você conluiu com sucesso a aula do minicurso. Sua jornada de aprendizado é um exemplo a ser seguido.</p>
+            <img src="mente-aberta.png" alt="Mente Aberta" style="width: 100%; max-width: 200px; margin: 20px 0;"> <!-- Imagem adicionada -->
+            
+            <div class="trophy"></div>
+            <button class="close-modal" onclick="closeTrophyModal()">Fechar</button>
+        </div>
+    </div>
+
+    <div id="congratulations-modal" style="display: none;">
+        <div class="modal-content">
+            <h2>Parabéns por completar o curso!</h2>
+            <p>Você concluiu todas as aulas do minicurso de preparação mental. Continue seu desenvolvimento mental e emocional!</p>
+            <img src="mente-aberta.png" alt="Mente Aberta" style="width: 100%; max-width: 200px; margin: 20px 0;"> <!-- Imagem adicionada -->
+            <button class="close-modal" onclick="closeCongratulationsModal()">Fechar</button>
+        </div>
+    </div>
+    
+    
+
+    <script>
+        let currentLesson = 1;
+        const timers = [290, 410, 590]; // Duração ajustada em segundos (-10s para cada vídeo)
+        const videos = []; // Array para armazenar os elementos de vídeo
+    
+        // Função para iniciar a barra de progresso do vídeo atual
+        function startProgress(videoIndex, duration) {
+            let progressBar = document.getElementById(`progress${videoIndex}`);
+            let progress = 0;
+            let interval = setInterval(() => {
+                progress += 100 / duration;
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    document.getElementById(`finish-btn${videoIndex}`).style.display = "inline-block";
+                }
+                progressBar.style.width = `${progress}%`;
+            }, 1000); // Atualiza a cada segundo
+        }
+    
+        // Quando a página carregar, exibir o modal informativo e iniciar a barra de progresso
+        window.onload = function() {
+            document.getElementById("modal").style.display = "flex";
+            startProgress(currentLesson, timers[0]); // Iniciar a barra de progresso do primeiro vídeo
+        }
+    
+        function closeModal() {
+            document.getElementById("modal").style.display = "none";
+        }
+    
+        function closeTrophyModal() {
+            document.getElementById("trophy-modal").style.display = "none";
+        }
+    
+        function closeCongratulationsModal() {
+            document.getElementById("congratulations-modal").style.display = "none";
+            window.location.href = "vitrine.html"; // Redireciona após fechar o modal
+        }
+    
+        function finishLesson(lesson) {
+            document.getElementById(`finish-btn${lesson}`).style.display = "none";
+            document.getElementById(`next-btn${lesson}`).style.display = "inline-block";
+            document.getElementById("trophy-modal").style.display = "flex"; // Exibe o troféu de conquista
+        }
+    
+        function nextLesson() {
+            // Muta o vídeo atual
+            videos[currentLesson - 1].mute(); // Função para mutar o vídeo atual
+    
+            // Oculta o vídeo atual e avança para a próxima lição
+            document.getElementById(`video${currentLesson}-container`).style.display = "none";
+            currentLesson++;
+            if (currentLesson <= 3) {
+                // Exibe o próximo vídeo
+                document.getElementById(`video${currentLesson}-container`).style.display = "block";
+                startProgress(currentLesson, timers[currentLesson - 1]);
+            } else {
+                // Exibe o modal de congratulação ao finalizar todas as lições
+                document.getElementById("congratulations-modal").style.display = "flex";
+            }
+        }
+    
+        // Adiciona os elementos de vídeo ao array e configura o comportamento de mute
+        function setupVideos() {
+            for (let i = 1; i <= 3; i++) {
+                const videoElement = document.getElementById(`video${i}`); // Supondo que seus vídeos tenham IDs "video1", "video2", "video3"
+                videos.push(videoElement);
+                videoElement.mute = function() {
+                    this.volume = 0; // Muta o vídeo
+                };
+            }
+        }
+    
+        // Inicializa os vídeos assim que a página é carregada
+        window.onload = function() {
+            setupVideos(); // Chama a função de setup dos vídeos
+            document.getElementById("modal").style.display = "flex";
+            startProgress(currentLesson, timers[0]); // Iniciar a barra de progresso do primeiro vídeo
+        }
+    </script>
+    
+</body>
+</html>
