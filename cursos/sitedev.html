@@ -1,274 +1,380 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preparação para o Mercado de Trabalho - Curso Gratuito</title>
-
-    <!-- Metadados -->
-    <meta name="description" content="Curso gratuito da Open Mind: prepare-se para o mercado de trabalho com habilidades práticas e estratégias para se destacar profissionalmente.">
-    <meta name="keywords" content="mercado de trabalho, curso gratuito, Open Mind, desenvolvimento profissional, habilidades práticas, empregabilidade">
-    <meta name="author" content="Tilo Machado">
-    <meta name="robots" content="index, follow">
-
-    <!-- Favicon -->
-    <link rel="icon" href="icone.png" type="image/png">
-
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-GDDY8TGYQV');
-    </script>
-
-    <!-- Suporte a múltiplos idiomas -->
-    <link rel="alternate" hreflang="pt" href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_trabalho.html">
-    <link rel="alternate" hreflang="es" href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_laboral.html">
-    <link rel="alternate" hreflang="en" href="https://tilomachado.github.io/OpenMindOficial/cursos/job_market.html">
-
-    <!-- Estilos CSS -->
+    <title>Cursos Systeme.io</title>
     <style>
-        /* Estilos Gerais */
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff; /* Azul claro para um fundo suave */
-            color: #333;
+            background-color: #111;
+            color: #fff;
             margin: 0;
             padding: 0;
             line-height: 1.6;
+            animation: fadeIn 1.5s ease-in-out;
         }
-
-        /* Cabeçalho */
+    
+        /* Animação geral de fade-in */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+    
         header {
-            background-color: #32cd32; /* Cor verde vibrante para o header */
-            color: white;
-            padding: 50px 20px;
             text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-bottom: 5px solid #228b22; /* Cor de destaque mais intensa */
+            background-color: #333;
+            padding: 20px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.6);
+            margin-bottom: 20px;
+            animation: slideInFromTop 1s ease-out;
         }
-
+    
+        /* Animação de entrada para o cabeçalho */
+        @keyframes slideInFromTop {
+            0% {
+                transform: translateY(-50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+    
         h1 {
-            font-size: 3.2em;
             margin: 0;
-            letter-spacing: 3px;
+            color: #4CAF50;
+            font-size: 3rem;
+            letter-spacing: 1px;
+            animation: colorPulse 2s infinite ease-in-out;
         }
-
-        p {
-            font-size: 1.4em;
-            max-width: 850px;
-            margin: 10px auto;
+    
+        /* Animação de pulso de cor no título */
+        @keyframes colorPulse {
+            0% {
+                color: #4CAF50;
+            }
+            50% {
+                color: #9CFF00;
+            }
+            100% {
+                color: #4CAF50;
+            }
         }
-
-        /* Seção do Conteúdo */
-        .course-content {
-            margin: 40px auto;
-            padding: 40px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            max-width: 960px;
+    
+        .course-section {
+            padding: 20px;
+            margin: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            animation: fadeInUp 1.5s ease-in-out;
         }
-
-        h2 {
-            font-size: 2.2em;
-            color: #2d3e50; /* Azul escuro */
-            margin-bottom: 25px;
-            text-align: center;
+    
+        /* Animação de fade-in para a seção de curso */
+        @keyframes fadeInUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
-
-        /* Módulo */
-        .module {
-            margin-bottom: 40px;
+    
+        .course-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.7);
         }
-
-        .module h3 {
-            font-size: 1.8em;
-            color: #228b22; /* Tom de verde mais intenso para os títulos dos módulos */
-            margin-bottom: 12px;
-        }
-
-        .module p {
-            font-size: 1.2em;
-            margin: 12px 0;
-        }
-
-        .module ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .module li {
-            font-size: 1.2em;
-            margin-bottom: 12px;
-            padding-left: 18px;
-            position: relative;
-        }
-
-        .module li::before {
-            content: "✔";
-            position: absolute;
-            left: 0;
-            color: #228b22; /* Verde para os checkmarks */
+    
+        .course-title {
+            font-size: 2rem;
+            color: #4CAF50;
+            margin-bottom: 10px;
             font-weight: bold;
+            text-transform: capitalize;
         }
-
-        /* Seção de Destaque */
-        .section-highlight {
-            background-color: #98fb98; /* Cor de fundo verde claro */
-            border-left: 6px solid #228b22; /* Verde */
-            padding: 18px;
-            margin: 25px 0;
-            font-size: 1.2em;
+    
+        .course-description {
+            font-size: 1.1rem;
+            color: #ddd;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+    
+        .course-video {
+            padding: 15px;
+            background-color: #333;
+            border-radius: 8px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            margin-top: 20px;
+            animation: zoomIn 1s ease-in-out;
+        }
+    
+        /* Animação de zoom-in para o vídeo */
+        @keyframes zoomIn {
+            0% {
+                transform: scale(0.9);
+                opacity: 0;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    
+        .course-video button {
+            padding: 12px 25px;
+            background-color: #4CAF50;
+            border: none;
+            color: #fff;
+            font-size: 1.1rem;
+            cursor: pointer;
             border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
-
-        /* Botão de Chamada para Ação */
-        .cta-button {
-            display: inline-block;
-            background-color: #228b22; /* Verde brilhante */
-            color: white;
-            padding: 14px 22px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 1.3em;
+    
+        .course-video button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
+        }
+    
+        .course-video button:focus {
+            outline: none;
+            box-shadow: 0 0 5px rgba(72, 163, 78, 0.7);
+        }
+    
+        .course-image {
+            margin-top: 20px;
             text-align: center;
-            margin: 25px 0;
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+            animation: fadeInImage 1.5s ease-in-out;
         }
-
-        .cta-button:hover {
-            background-color: #006400; /* Verde mais forte ao passar o mouse */
-            transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
+    
+        /* Animação de fade-in para a imagem */
+        @keyframes fadeInImage {
+            0% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
         }
-
-        /* Rodapé */
-        footer {
-            background-color: #2d3e50; /* Azul escuro para o rodapé */
-            color: white;
+    
+        .course-image img {
+            width: 80%;
+            max-width: 650px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+    
+        .course-image img:hover {
+            transform: scale(1.05);
+        }
+    
+        .next-lesson {
+            margin-top: 20px;
+            font-size: 1.1rem;
             text-align: center;
-            padding: 18px 0;
-            position: relative;
-            width: 100%;
-            margin-top: 30px;
+            color: #ddd;
+            font-weight: bold;
+            animation: bounceIn 1.5s ease-in-out;
         }
-
-        footer p {
-            margin: 0;
+    
+        /* Animação de bounce-in para o próximo curso */
+        @keyframes bounceIn {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+            }
+            60% {
+                transform: translateY(-20px);
+            }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
-
-        footer nav {
-            margin-top: 10px;
+    
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+    
+            .course-title {
+                font-size: 1.8rem;
+            }
+    
+            .course-description {
+                font-size: 1rem;
+            }
+    
+            .course-video button {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+    
+            .course-image img {
+                width: 90%;
+                max-width: 500px;
+            }
         }
-
-        footer nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer nav a:hover {
-            text-decoration: underline;
+    
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+    
+            .course-title {
+                font-size: 1.5rem;
+            }
+    
+            .course-description {
+                font-size: 0.9rem;
+            }
+    
+            .course-video button {
+                font-size: 1rem;
+                padding: 8px 15px;
+            }
+    
+            .course-image img {
+                width: 95%;
+                max-width: 400px;
+            }
         }
     </style>
+    
+    
 </head>
 <body>
 
     <header>
-        <h1>Preparação para o Mercado de Trabalho - Curso Avançado</h1>
-        <p>Este curso prepara você para ser um profissional competitivo no mercado de trabalho, com habilidades essenciais em busca de emprego e desenvolvimento de carreira.</p>
+        <h1>Curso de Criação de Sites com Systeme.io</h1>
     </header>
 
-    <section class="course-content">
-        <h2>Conteúdo do Curso:</h2>
-        
-        <!-- Módulo 1 -->
-        <div class="module">
-            <h3>Módulo 1: Como Elaborar um Currículo Imbatível</h3>
-            <p>Saiba como criar um currículo que destaque suas habilidades e conquiste a atenção dos recrutadores.</p>
-            <ul>
-                <li>Estrutura básica do currículo</li>
-                <li>Como descrever suas experiências profissionais</li>
-                <li>Como escolher as palavras certas para seu currículo</li>
-            </ul>
-            <a href="mestredoswaulas1.html" class="cta-button">Aula Prática em Vídeo</a>
+    <!-- Aula 1 -->
+    <section class="course-section" id="aula-1">
+        <h2 class="course-title">Aula 1 - Criando um Site Profissional com Systeme.io</h2>
+        <p class="course-description">
+            Nesta aula inaugural do curso, você aprenderá a criar um site profissional usando a plataforma Systeme.io, sem precisar programar. Ideal para quem deseja entrar no mundo digital sem complicações técnicas, esta aula mostra passo a passo como configurar e personalizar seu site, utilizando uma interface intuitiva e repleta de recursos.
+        </p>
+        <ul>
+            <li>✅ Introdução à plataforma Systeme.io</li>
+            <li>✅ Passo a passo para criar sua conta e acessar o painel de controle</li>
+            <li>✅ Configuração inicial para um site profissional</li>
+            <li>✅ Dicas de personalização e melhores práticas de design</li>
+            <li>✅ Recursos essenciais para impulsionar sua presença online</li>
+        </ul>
+
+       
+
+        <div class="course-video">
+            <button onclick="document.getElementById('video-aula-1').style.display = 'block'">Assistir Aula 1</button>
+            <div id="video-aula-1" style="display:none; margin-top: 20px;">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/uAEpVxXBCcU" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
 
-        <!-- Módulo 2 -->
-        <div class="module">
-            <h3>Módulo 2: Como Preparar para Entrevistas de Emprego</h3>
-            <p>Este módulo irá ensinar como se preparar para entrevistas e causar uma ótima impressão.</p>
-            <ul>
-                <li>Como se comportar durante a entrevista</li>
-                <li>Respondendo perguntas difíceis com confiança</li>
-                <li>Como demonstrar suas habilidades e experiência</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 3 -->
-        <div class="module">
-            <h3>Módulo 3: Soft Skills para o Sucesso Profissional</h3>
-            <p>Aprenda habilidades interpessoais essenciais para se destacar no ambiente de trabalho.</p>
-            <ul>
-                <li>Comunicação eficaz no ambiente profissional</li>
-                <li>Trabalho em equipe e liderança</li>
-                <li>Gestão de conflitos e resolução de problemas</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 4 -->
-        <div class="module">
-            <h3>Módulo 4: Networking e Construção de Relações Profissionais</h3>
-            <p>Entenda como construir e manter uma rede de contatos poderosa para o seu crescimento profissional.</p>
-            <ul>
-                <li>Estratégias para networking eficaz</li>
-                <li>Como cultivar relacionamentos profissionais</li>
-                <li>Utilizando o LinkedIn para alavancar sua carreira</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 5 -->
-        <div class="module">
-            <h3>Módulo 5: Como Enfrentar Desafios e Crescer na Carreira</h3>
-            <p>Este módulo ajuda a desenvolver a mentalidade necessária para crescer na carreira e enfrentar os desafios do mercado de trabalho.</p>
-            <ul>
-                <li>Como lidar com mudanças no ambiente de trabalho</li>
-                <li>Definindo metas de carreira e o plano de ação</li>
-                <li>Superando obstáculos e avançando na carreira</li>
-            </ul>
-        </div>
-
-        <!-- Seção de Destaque -->
-        <div class="section-highlight">
-            <h3>Estudos de Caso e Exemplos Práticos</h3>
-            <p>Ao longo do curso, você terá acesso a estudos de caso reais e exemplos práticos para aplicar as estratégias no mercado de trabalho.</p>
-        </div>
-
-        <!-- Nova Seção de Destaque -->
-        <div class="section-highlight">
-            <h3>Novos Conteúdos em Breve!</h3>
-            <p>Fique atento às atualizações do curso com novos módulos e dicas sobre o mundo profissional!</p>
-        </div>
-
-        <!-- Aula Introdutória -->
-        <div class="section-highlight">
-            <h3>Aula Introdutória</h3>
-            <p>Aprenda como identificar suas habilidades, agregar valor à vida das pessoas e se destacar no mercado. Vamos guiá-lo para entender as reais necessidades humanas, conectar-se profundamente com os outros e resolver problemas de forma impactante. Acreditamos que sua mentalidade e persistência são as chaves para criar oportunidades extraordinárias e atingir seus sonhos.</p>
-            <a href="https://typebot.co/aula-edpp1z9" class="cta-button" target="_blank" rel="noopener noreferrer">Assistir Aula Introdutória</a>
-        </div>
+       
     </section>
 
-    <!-- Rodapé -->
-    <footer>
-        <p>Open Mind - Todos os direitos reservados © 2025</p>
-        <nav>
-            <a href="politica-de-privacidade.html">Política de Privacidade</a> |
-            <a href="termos-de-uso.html">Termos de Uso</a> |
-            <a href="https://linkedin.com/company/openmind" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </nav>
-    </footer>
+    <!-- Aula 2 -->
+    <section class="course-section" id="aula-2">
+        <h2 class="course-title">Aula 2 - Criando uma Conta no Systeme.io</h2>
+        <p class="course-description">
+            Nesta segunda aula do curso, vamos criar uma conta na plataforma Systeme.io, uma das ferramentas mais completas para automação de marketing digital, criação de funis de vendas e hospedagem de cursos online.
+        </p>
+        <ul>
+            <li>✅ Como se cadastrar gratuitamente no Systeme.io</li>
+            <li>✅ Explorando o painel de controle da plataforma</li>
+            <li>✅ Configuração inicial da conta e opções essenciais</li>
+            <li>✅ Dicas para aproveitar ao máximo os recursos disponíveis</li>
+        </ul>
+
+        
+        <div class="course-video">
+            <button onclick="document.getElementById('video-aula-2').style.display = 'block'">Assistir Aula 2</button>
+            <div id="video-aula-2" style="display:none; margin-top: 20px;">
+                <iframe width="100%" height="400" src="https://www.youtube.com/embed/r1UJnhGS_nI" frameborder="0" allowfullscreen></iframe>
+            </div>
+        </div>
+
+       
+    </section>
+    <!-- Aula 3 -->
+<section class="course-section" id="aula-3">
+    <h2 class="course-title">Aula 3 - Criando um Funil de Vendas para o Site | System.IO</h2>
+    <p class="course-description">
+        Na terceira aula do curso, vamos aprender a criar um Funil de Vendas eficiente para o nosso site. Você descobrirá como estruturar páginas estratégicas para capturar leads e converter visitantes em clientes.
+    </p>
+    <ul>
+        <li>✅ O que é um Funil de Vendas e por que ele é essencial?</li>
+        <li>✅ Criando páginas de captura e agradecimento</li>
+        <li>✅ Estruturando chamadas para ação (CTAs) eficazes</li>
+        <li>✅ Integração com formulários e e-mails automáticos</li>
+        <li>✅ Dicas para aumentar a conversão no seu site</li>
+    </ul>
+
+    <div class="course-video">
+        <button onclick="document.getElementById('video-aula-3').style.display = 'block'">Assistir Aula 3</button>
+        <div id="video-aula-3" style="display:none; margin-top: 20px;">
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/3TmhkpAVHc4" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+<!-- Aula 4 -->
+<section class="course-section" id="aula-4">
+    <h2 class="course-title">Aula 4 - Criando as Páginas do Site | System.IO</h2>
+    <p class="course-description">
+        Nesta quarta aula do curso, vamos criar as páginas essenciais do nosso site. Você aprenderá a estruturar corretamente os arquivos HTML e a organizar os conteúdos de forma eficiente.
+    </p>
+    <ul>
+        <li>✅ Planejamento das páginas principais (Home, Sobre, Contato, etc.)</li>
+        <li>✅ Estruturando o HTML de cada página</li>
+        <li>✅ Organização de diretórios e arquivos</li>
+        <li>✅ Implementação de links de navegação</li>
+        <li>✅ Melhores práticas para desenvolvimento web</li>
+    </ul>
+
+    <div class="course-video">
+        <button onclick="document.getElementById('video-aula-4').style.display = 'block'">Assistir Aula 4</button>
+        <div id="video-aula-4" style="display:none; margin-top: 20px;">
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/o5ie6R3KKIs" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+
+<!-- Aula 5 -->
+<section class="course-section" id="aula-5">
+    <h2 class="course-title">Aula 5 - Configurando a Automação de E-mails | System.IO</h2>
+    <p class="course-description">
+        Nesta aula, você aprenderá a configurar a automação de e-mails para manter uma comunicação eficiente com seus leads e clientes. Descubra como utilizar as ferramentas da plataforma Systeme.io para criar fluxos de e-mails automatizados que potencializam a sua estratégia de marketing digital.
+    </p>
+    <ul>
+        <li>✅ Configuração básica da automação de e-mails</li>
+        <li>✅ Criação e personalização de campanhas automatizadas</li>
+        <li>✅ Segmentação de contatos para comunicações mais assertivas</li>
+        <li>✅ Integração com formulários e funis de vendas</li>
+        <li>✅ Dicas para otimizar a taxa de abertura e conversão dos seus e-mails</li>
+    </ul>
+
+    <div class="course-video">
+        <button onclick="document.getElementById('video-aula-5').style.display = 'block'">Assistir Aula 5</button>
+        <div id="video-aula-5" style="display:none; margin-top: 20px;">
+            <iframe width="100%" height="400" src="https://www.youtube.com/embed/j9VM5H2PBCQ" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
