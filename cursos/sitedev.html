@@ -258,11 +258,75 @@
 </head>
 <body>
     <div id="loading">
-        <p>Criando Sala Virtual...</p>
+        <p id="loading-text">Criando Sala Virtual...</p>
         <div class="progress-bar-container">
-            <div class="progress-bar"></div>
+          <div class="progress-bar"></div>
         </div>
-    </div>
+      </div>
+      
+      <style>
+        /* Container geral com fade-in sutil */
+        #loading {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          background: #f0f0f0; /* Fundo claro */
+          animation: fadeIn 0.5s ease forwards;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        /* Texto com fonte e transição suaves */
+        #loading-text {
+          font-family: "Segoe UI", sans-serif;
+          font-size: 1.5rem;
+          color: #333;
+          transition: opacity 0.3s ease;
+        }
+        
+        /* Container da barra de progresso */
+        .progress-bar-container {
+          width: 80%;
+          max-width: 400px;
+          height: 4px;
+          background-color: #ccc;
+          border-radius: 2px;
+          margin-top: 20px;
+          overflow: hidden;
+        }
+        
+        /* Barra de progresso com animação linear */
+        .progress-bar {
+          height: 100%;
+          background-color: #0078d4; /* Azul característico do Windows */
+          width: 0%;
+          animation: progress 5s linear forwards;
+        }
+        
+        @keyframes progress {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      </style>
+      
+      <script>
+        // Após 5 segundos, faz a transição do texto de forma suave
+        setTimeout(function() {
+          var textEl = document.getElementById("loading-text");
+          // Inicia a transição de opacidade (fade-out)
+          textEl.style.opacity = 0;
+          // Após 300ms (tempo suficiente para o fade-out), altera o texto e faz fade-in
+          setTimeout(function() {
+            textEl.innerText = "Carregando vídeo aulas em 4K...";
+            textEl.style.opacity = 1;
+          }, 300);
+        }, 5000);
+      </script>
+      
     
     <style>
         /* Carregamento - Estilo */
@@ -315,64 +379,17 @@
     </style>
     
     <script>
-        // Função de carregamento de 40 segundos
+        // Função de carregamento de 10 segundos
         setTimeout(function() {
             document.getElementById('loading').style.display = 'none'; // Oculta o carregamento
             document.getElementById('content').style.display = 'block'; // Exibe o conteúdo
-        }, 10000); // 40 segundos
+        }, 10000);
     </script>
     
-    <header>
-        <h1>Curso de Criação de Sites com Systeme.io</h1>
-    </header>
-    
-    <div id="greeting-container">
-        <p id="greeting"></p>
-        <p id="motivational-message"></p>
-    </div>
-    
-    <style>
-        #greeting-container {
-            text-align: center;
-            margin-top: 50px;
-            font-size: 1.5rem;
-        }
-    </style>
-    
-    <script>
-        // Lista de mensagens motivacionais que irão ser alteradas a cada visita
-        const motivationalMessages = [
-            "Você está no caminho certo para se tornar um especialista em criação de sites!",
-            "A cada dia você se aproxima mais do seu objetivo. Continue assim!",
-            "O sucesso começa com as decisões que você toma hoje. Vamos em frente!",
-            "Seja persistente, você está construindo um futuro digital incrível!",
-            "A sua jornada de aprendizado só está começando. Vamos com tudo!"
-        ];
-    
-        // Função para exibir saudação e mensagem motivacional
-        function displayGreeting() {
-            const greetingElement = document.getElementById('greeting');
-            const motivationalMessageElement = document.getElementById('motivational-message');
-    
-            // Verifica se o usuário já visitou a página anteriormente
-            if (localStorage.getItem('firstVisit') === null) {
-                // Primeira visita
-                greetingElement.textContent = "Bem-vindo/a ao nosso curso!";
-                localStorage.setItem('firstVisit', 'false'); // Marca como já visitado
-            } else {
-                // Visita de retorno
-                greetingElement.textContent = "Bem-vindo/a de volta!";
-            }
-    
-            // Seleciona uma mensagem motivacional aleatória
-            const randomMessage = motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
-            motivationalMessageElement.textContent = randomMessage;
-        }
-    
-        // Chama a função para exibir a saudação e a mensagem motivacional
-        displayGreeting();
-    </script>
-    
+    <div id="content" style="display: none;">
+        <header>
+            <h1>Curso de Criação de Sites com Systeme.io</h1>
+        </header>
 
     <!-- Aula 1 -->
     <section class="course-section" id="aula-1">
