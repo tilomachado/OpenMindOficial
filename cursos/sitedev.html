@@ -325,6 +325,54 @@
     <header>
         <h1>Curso de Criação de Sites com Systeme.io</h1>
     </header>
+    
+    <div id="greeting-container">
+        <p id="greeting"></p>
+        <p id="motivational-message"></p>
+    </div>
+    
+    <style>
+        #greeting-container {
+            text-align: center;
+            margin-top: 50px;
+            font-size: 1.5rem;
+        }
+    </style>
+    
+    <script>
+        // Lista de mensagens motivacionais que irão ser alteradas a cada visita
+        const motivationalMessages = [
+            "Você está no caminho certo para se tornar um especialista em criação de sites!",
+            "A cada dia você se aproxima mais do seu objetivo. Continue assim!",
+            "O sucesso começa com as decisões que você toma hoje. Vamos em frente!",
+            "Seja persistente, você está construindo um futuro digital incrível!",
+            "A sua jornada de aprendizado só está começando. Vamos com tudo!"
+        ];
+    
+        // Função para exibir saudação e mensagem motivacional
+        function displayGreeting() {
+            const greetingElement = document.getElementById('greeting');
+            const motivationalMessageElement = document.getElementById('motivational-message');
+    
+            // Verifica se o usuário já visitou a página anteriormente
+            if (localStorage.getItem('firstVisit') === null) {
+                // Primeira visita
+                greetingElement.textContent = "Bem-vindo/a ao nosso curso!";
+                localStorage.setItem('firstVisit', 'false'); // Marca como já visitado
+            } else {
+                // Visita de retorno
+                greetingElement.textContent = "Bem-vindo/a de volta!";
+            }
+    
+            // Seleciona uma mensagem motivacional aleatória
+            const randomMessage = motivationalMessages[Math.floor(Math.random() * motivationalMessages.length)];
+            motivationalMessageElement.textContent = randomMessage;
+        }
+    
+        // Chama a função para exibir a saudação e a mensagem motivacional
+        displayGreeting();
+    </script>
+    
 
     <!-- Aula 1 -->
     <section class="course-section" id="aula-1">
