@@ -48,7 +48,7 @@
     
         h1 {
             margin: 0;
-            color: #4CAF50;
+            color: hwb(203 0% 13%);
             font-size: 3rem;
             letter-spacing: 1px;
             animation: colorPulse 2s infinite ease-in-out;
@@ -257,7 +257,71 @@
     
 </head>
 <body>
-
+    <div id="loading">
+        <p>Criando Sala Virtual...</p>
+        <div class="progress-bar-container">
+            <div class="progress-bar"></div>
+        </div>
+    </div>
+    
+    <style>
+        /* Carregamento - Estilo */
+        #loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            font-size: 2rem;
+            color: #4CAF50;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+    
+        /* Container da barra de progresso */
+        .progress-bar-container {
+            width: 80%;
+            height: 20px;
+            background-color: #f3f3f3;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    
+        /* Barra de progresso */
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: hsl(152, 99%, 32%);
+            animation: loading 40s linear forwards;
+        }
+    
+        /* Animação de carregamento (da esquerda para a direita) */
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+    
+        /* Efeito de fade-in */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    
+        /* Esconde o conteúdo inicialmente */
+        #content {
+            display: none;
+        }
+    </style>
+    
+    <script>
+        // Função de carregamento de 40 segundos
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none'; // Oculta o carregamento
+            document.getElementById('content').style.display = 'block'; // Exibe o conteúdo
+        }, 10000); // 40 segundos
+    </script>
+    
     <header>
         <h1>Curso de Criação de Sites com Systeme.io</h1>
     </header>
