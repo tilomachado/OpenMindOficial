@@ -615,6 +615,83 @@
 
 
 
+/* Estilos para os itens de FAQ */
+.faq-item {
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-item h3 {
+  background-color: #5c6bc0;
+  color: #fff;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item h3:hover {
+  background-color: #3f4d92;
+}
+
+.faq-item p {
+  display: none;
+  padding: 15px;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+/* Quando o FAQ for expandido, o parágrafo se torna visível */
+.faq-item.active p {
+  display: block;
+}
+
+/* Estilos para o resumo de aprendizados */
+.summary {
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.summary h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.summary p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 10px;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .summary h2 {
+    font-size: 1.5rem;
+  }
+  
+  .summary p {
+    font-size: 0.95rem;
+  }
+}
 
 
   </style>
@@ -689,6 +766,62 @@
   
 </section>
 
+<section>
+
+  <!-- Seção de FAQ e Dicas -->
+  <div class="faq-section">
+    <h2>Dúvidas Frequentes & Dicas</h2>
+    
+    <div class="faq-item">
+      <h3>O que é o curso Crie Sites Profissionais com Systeme.io?</h3>
+      <p>O curso Crie Sites Profissionais com Systeme.io foi desenvolvido para ensinar como criar sites incríveis e funcionais de maneira fácil e rápida, sem precisar de conhecimentos de programação. Utilize a plataforma Systeme.io para transformar suas ideias em sites modernos e eficientes.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>Quais são os principais conteúdos abordados?</h3>
+      <p>O curso abrange o uso completo do Systeme.io, desde a criação de páginas de captura até lojas virtuais, integrando ferramentas para automação de vendas, criação de funis de vendas e estratégias de conversão sem necessidade de codificação.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>Dicas para criar sites de alta conversão</h3>
+      <p>Concentre-se em criar páginas de captura simples e objetivas, utilize chamadas para ação (CTAs) estratégicas, mantenha o design limpo e direto, e aproveite a automação de marketing para facilitar o processo de vendas.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>Como este curso pode me ajudar no meu negócio?</h3>
+      <p>Este curso capacita você a construir sites profissionais sem a necessidade de programação, economizando tempo e dinheiro, ao mesmo tempo em que aumenta suas chances de conversão e crescimento no mercado digital.</p>
+    </div>
+  </div>
+  
+  <!-- Resumo dos Aprendizados -->
+  <div class="summary">
+    <h2>Resumo do que você pode aprender</h2>
+    <p>
+      Neste curso, você aprenderá a usar o Systeme.io para criar sites profissionais de maneira simples e sem codificação. Desde a construção de páginas de captura até a criação de funis de vendas completos, este curso oferece as ferramentas necessárias para transformar seu site em uma máquina de conversão.
+    </p>
+  </div>
+  
+  <!-- Script JavaScript para FAQ -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const faqItems = document.querySelectorAll(".faq-item h3");
+      
+      faqItems.forEach(item => {
+        item.addEventListener("click", function() {
+          const content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            document.querySelectorAll(".faq-item p").forEach(p => p.style.display = "none");
+            content.style.display = "block";
+          }
+        });
+      });
+    });
+  </script>
+  
+  </section>
+  
 
 </section>
 

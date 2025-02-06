@@ -620,7 +620,100 @@
 
 
 
+/* Estilos gerais da seção FAQ */
+.faq-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
 
+.faq-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para os itens de FAQ */
+.faq-item {
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-item h3 {
+  background-color: #5c6bc0;
+  color: #fff;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item h3:hover {
+  background-color: #3f4d92;
+}
+
+.faq-item p {
+  display: none;
+  padding: 15px;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+/* Quando o FAQ for expandido, o parágrafo se torna visível */
+.faq-item.active p {
+  display: block;
+}
+
+/* Estilos para o resumo de aprendizados */
+.summary {
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.summary h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.summary p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 10px;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .summary h2 {
+    font-size: 1.5rem;
+  }
+  
+  .summary p {
+    font-size: 0.95rem;
+  }
+}
 
   </style>
 </head>
@@ -715,7 +808,62 @@
   
 </section>
 
+</section>
 
+<!-- Seção de FAQ e Dicas -->
+<div class="faq-section">
+  <h2>Dúvidas Frequentes & Dicas</h2>
+  
+  <div class="faq-item">
+    <h3>O que é o curso Mestre do Software?</h3>
+    <p>O curso Mestre do Software foi desenvolvido para ajudá-lo a desbloquear seu verdadeiro potencial no universo do desenvolvimento de software, fornecendo habilidades essenciais para se destacar no mercado.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Quais tecnologias são abordadas?</h3>
+    <p>O curso cobre fundamentos essenciais de programação, incluindo linguagens populares como Java, Python e JavaScript, além de metodologias ágeis e melhores práticas no desenvolvimento de software.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Dicas para se destacar como desenvolvedor</h3>
+    <p>Para se tornar um mestre do software, é essencial praticar constantemente, contribuir para projetos open-source, construir um portfólio sólido e acompanhar as tendências do setor.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Quais são as oportunidades de carreira?</h3>
+    <p>Ao concluir o curso, você poderá atuar como desenvolvedor de software, engenheiro de dados, especialista em IA, entre outras áreas, abrindo portas para um mercado altamente competitivo.</p>
+  </div>
+</div>
+
+<!-- Resumo dos Aprendizados -->
+<div class="summary">
+  <h2>Resumo do que você pode aprender</h2>
+  <p>
+    Neste curso, você aprenderá as habilidades fundamentais para conquistar destaque no mercado de desenvolvimento de software. Domine as principais linguagens de programação, compreenda os princípios da engenharia de software, desenvolva projetos práticos e aprenda estratégias para alavancar sua carreira. Além disso, tenha acesso a dicas exclusivas, suporte de especialistas e uma comunidade engajada para acelerar seu aprendizado e evolução profissional.
+  </p>
+</div>
+
+<!-- Script JavaScript para FAQ -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const faqItems = document.querySelectorAll(".faq-item h3");
+    
+    faqItems.forEach(item => {
+      item.addEventListener("click", function() {
+        const content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          document.querySelectorAll(".faq-item p").forEach(p => p.style.display = "none");
+          content.style.display = "block";
+        }
+      });
+    });
+  });
+</script>
+
+</div>
+</section>
 </section>
 
 <section id="testemunhos">

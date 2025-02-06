@@ -620,7 +620,100 @@
 }
 
 
+/* Estilos gerais da seção FAQ */
+.faq-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
 
+.faq-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para os itens de FAQ */
+.faq-item {
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-item h3 {
+  background-color: #5c6bc0;
+  color: #fff;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item h3:hover {
+  background-color: #3f4d92;
+}
+
+.faq-item p {
+  display: none;
+  padding: 15px;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+/* Quando o FAQ for expandido, o parágrafo se torna visível */
+.faq-item.active p {
+  display: block;
+}
+
+/* Estilos para o resumo de aprendizados */
+.summary {
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.summary h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.summary p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 10px;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .summary h2 {
+    font-size: 1.5rem;
+  }
+  
+  .summary p {
+    font-size: 0.95rem;
+  }
+}
 
 
   </style>
@@ -700,6 +793,65 @@
   </div>
 </div>
 
+</section>
+
+<!-- Seção de FAQ e Dicas -->
+<div class="faq-section">
+  <h2>Dúvidas Frequentes & Dicas</h2>
+  
+  <div class="faq-item">
+    <h3>O que é a Hotmart?</h3>
+    <p>A Hotmart é uma plataforma líder para a criação, venda e distribuição de produtos digitais, permitindo que empreendedores monetizem seus conhecimentos globalmente.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Como começar a vender na Hotmart?</h3>
+    <p>Para começar, basta criar uma conta gratuita na Hotmart, cadastrar seu produto digital e definir sua estratégia de vendas. Também é possível se afiliar a produtos existentes e ganhar comissões.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Dicas para vender mais na Hotmart</h3>
+    <p>Para obter mais vendas, utilize estratégias de tráfego pago e orgânico, explore o marketing de afiliados e crie conteúdos que engajem seu público-alvo.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Como funciona o pagamento na Hotmart?</h3>
+    <p>A Hotmart oferece diversas opções de pagamento e permite que você receba seus ganhos de forma segura e prática, diretamente na sua conta bancária.</p>
+  </div>
+</div>
+
+<!-- Resumo dos Aprendizados -->
+<div class="summary">
+  <h2>Resumo do que você pode aprender</h2>
+  <p>
+    Neste curso, você descobrirá como a Hotmart está transformando ideias em negócios de sucesso. Aprenda a criar, vender e escalar produtos digitais no mercado global, explorando estratégias eficazes de marketing digital e monetização. Conheça as melhores práticas para trabalhar como afiliado, criar páginas de vendas persuasivas e aumentar sua conversão. Além disso, tenha acesso a dicas exclusivas e suporte de uma comunidade engajada que irá te ajudar a alcançar resultados reais!
+  </p>
+</div>
+
+
+  
+
+<!-- Script JavaScript para FAQ -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const faqItems = document.querySelectorAll(".faq-item h3");
+    
+    faqItems.forEach(item => {
+      item.addEventListener("click", function() {
+        const content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          document.querySelectorAll(".faq-item p").forEach(p => p.style.display = "none");
+          content.style.display = "block";
+        }
+      });
+    });
+  });
+</script>
+
+</div>
+</section>
 
 
 
@@ -717,10 +869,7 @@
     });
   </script>
   
-</section>
 
-
-</section>
 
 <section id="testemunhos">
   <h2>O que nossos alunos dizem</h2>

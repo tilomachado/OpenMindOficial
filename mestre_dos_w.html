@@ -620,7 +620,100 @@
 
 
 
+/* Estilos gerais da seção FAQ */
+.faq-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
 
+.faq-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para os itens de FAQ */
+.faq-item {
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-item h3 {
+  background-color: #5c6bc0;
+  color: #fff;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item h3:hover {
+  background-color: #3f4d92;
+}
+
+.faq-item p {
+  display: none;
+  padding: 15px;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+/* Quando o FAQ for expandido, o parágrafo se torna visível */
+.faq-item.active p {
+  display: block;
+}
+
+/* Estilos para o resumo de aprendizados */
+.summary {
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.summary h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.summary p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 10px;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .summary h2 {
+    font-size: 1.5rem;
+  }
+  
+  .summary p {
+    font-size: 0.95rem;
+  }
+}
 
   </style>
 </head>
@@ -653,7 +746,7 @@
 
   <!-- Seção "O que você vai aprender?" com balões flutuantes e botões interativos -->
 <section id="sobre">
-  <h2>O que você vai aprender?</h2>
+
 
   <!-- Contêiner dos balões (decoração) -->
   <div class="balloons">
@@ -664,37 +757,42 @@
     <div class="balloon" style="--left: 55%; --delay: 4s;"></div>
   </div>
 
- <!-- Container para os botões interativos -->
-<!-- Container para os botões interativos -->
+<!-- Seção de Aprendizado Interativo -->
 <div class="learn-container">
+  <h2>Passos Essenciais para um Trabalho Científico Perfeito</h2>
+  
   <div class="learn-item">
-      <button class="learn-btn">Criar uma Conta Pessoal no Facebook</button>
+      <button class="learn-btn">Escolher um Tema Relevante</button>
       <div class="learn-detail">
-          <p>Aprenda como criar uma conta pessoal no Facebook, essencial para iniciar sua jornada no marketing digital.</p>
+          <p>Saiba como selecionar um tema adequado e alinhado às exigências acadêmicas para garantir um trabalho de alto impacto.</p>
       </div>
   </div>
+  
   <div class="learn-item">
-      <button class="learn-btn">Criar uma Página de Negócios</button>
+      <button class="learn-btn">Pesquisar Fontes Confiáveis</button>
       <div class="learn-detail">
-          <p>Aprenda a criar uma página de negócios no Facebook para promover seus produtos ou serviços.</p>
+          <p>Aprenda a encontrar e utilizar fontes confiáveis para embasar seu trabalho científico com qualidade.</p>
       </div>
   </div>
+
   <div class="learn-item">
-      <button class="learn-btn">Configurar as Informações da Página</button>
+      <button class="learn-btn">Estruturar o Trabalho Científico</button>
       <div class="learn-detail">
-          <p>Aprenda a otimizar as informações da sua página para torná-la mais atrativa e eficiente.</p>
+          <p>Compreenda a estrutura ideal para um trabalho acadêmico, incluindo introdução, desenvolvimento e conclusão.</p>
       </div>
   </div>
+
   <div class="learn-item">
-      <button class="learn-btn">Atuar em Vários Nichos de Forma Segura</button>
+      <button class="learn-btn">Formatar Segundo as Normas ABNT</button>
       <div class="learn-detail">
-          <p>Aprenda a atuar em diferentes nichos no Facebook de forma segura, sem comprometer sua conta.</p>
+          <p>Domine as regras de formatação acadêmica (ABNT, APA, etc.) para garantir um documento bem organizado.</p>
       </div>
   </div>
+
   <div class="learn-item">
-      <button class="learn-btn">Aquecer a Conta com Interações e Postagens</button>
+      <button class="learn-btn">Preparar uma Apresentação Eficiente</button>
       <div class="learn-detail">
-          <p>Aprenda a aumentar o engajamento da sua página com postagens e interações consistentes.</p>
+          <p>Aprenda técnicas para criar slides envolventes e realizar apresentações acadêmicas de alto nível.</p>
       </div>
   </div>
 </div>
@@ -716,6 +814,63 @@
   
 </section>
 
+
+</section>
+
+<!-- Seção de FAQ e Dicas -->
+<div class="faq-section">
+  <h2>Dúvidas Frequentes & Dicas</h2>
+  
+  <div class="faq-item">
+    <h3>O que é o curso Mestre dos Trabalhos Científicos?</h3>
+    <p>O curso Mestre dos Trabalhos Científicos foi desenvolvido para ajudá-lo a dominar as técnicas essenciais para criar trabalhos científicos de alta qualidade, desde a estruturação até a apresentação final.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Quais são os principais conteúdos abordados?</h3>
+    <p>O curso cobre normas acadêmicas, estruturação de trabalhos, formatação ABNT, metodologias de pesquisa, escrita científica e técnicas para apresentações eficazes.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Dicas para elaborar um trabalho científico perfeito</h3>
+    <p>Para garantir excelência acadêmica, siga as normas exigidas pela sua instituição, use fontes confiáveis, revise sua escrita cuidadosamente e pratique apresentações para melhor desempenho.</p>
+  </div>
+  
+  <div class="faq-item">
+    <h3>Como este curso pode me ajudar na vida acadêmica?</h3>
+    <p>Ao concluir o curso, você terá domínio sobre a elaboração de trabalhos científicos, facilitando a criação de artigos, monografias e teses, além de aumentar suas chances de sucesso acadêmico e profissional.</p>
+  </div>
+</div>
+
+<!-- Resumo dos Aprendizados -->
+<div class="summary">
+  <h2>Resumo do que você pode aprender</h2>
+  <p>
+    Neste curso, você aprenderá passo a passo como estruturar, formatar e apresentar trabalhos científicos com excelência. Domine as diretrizes acadêmicas, desenvolva uma escrita objetiva e argumentativa, e aprenda a utilizar ferramentas para otimizar seu processo de pesquisa e formatação. Além disso, tenha acesso a dicas exclusivas, suporte especializado e uma comunidade engajada para aprimorar seu aprendizado.
+  </p>
+</div>
+
+<!-- Script JavaScript para FAQ -->
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const faqItems = document.querySelectorAll(".faq-item h3");
+    
+    faqItems.forEach(item => {
+      item.addEventListener("click", function() {
+        const content = this.nextElementSibling;
+        if (content.style.display === "block") {
+          content.style.display = "none";
+        } else {
+          document.querySelectorAll(".faq-item p").forEach(p => p.style.display = "none");
+          content.style.display = "block";
+        }
+      });
+    });
+  });
+</script>
+
+</div>
+</section>
 
 </section>
 

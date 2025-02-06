@@ -617,6 +617,100 @@
 }
 
 
+/* Estilos gerais da seção FAQ */
+.faq-section {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+}
+
+.faq-section h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Estilos para os itens de FAQ */
+.faq-item {
+  margin-bottom: 15px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.faq-item h3 {
+  background-color: #5c6bc0;
+  color: #fff;
+  padding: 15px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 0;
+  transition: background-color 0.3s ease;
+}
+
+.faq-item h3:hover {
+  background-color: #3f4d92;
+}
+
+.faq-item p {
+  display: none;
+  padding: 15px;
+  font-size: 1rem;
+  color: #666;
+  margin: 0;
+  background-color: #f9f9f9;
+}
+
+/* Quando o FAQ for expandido, o parágrafo se torna visível */
+.faq-item.active p {
+  display: block;
+}
+
+/* Estilos para o resumo de aprendizados */
+.summary {
+  padding: 20px;
+  background-color: #fff;
+  margin-top: 30px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.summary h2 {
+  font-size: 1.8rem;
+  color: #333;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+.summary p {
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+/* Ajustes de responsividade */
+@media (max-width: 768px) {
+  .faq-section {
+    padding: 10px;
+  }
+  
+  .faq-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .summary h2 {
+    font-size: 1.5rem;
+  }
+  
+  .summary p {
+    font-size: 0.95rem;
+  }
+}
 
 
 
@@ -714,6 +808,62 @@
   
 </section>
 
+<section>
+
+  <!-- Seção de FAQ e Dicas -->
+  <div class="faq-section">
+    <h2>Dúvidas Frequentes & Dicas</h2>
+    
+    <div class="faq-item">
+      <h3>O que é o curso Guia Completo para Criar Contas no Facebook?</h3>
+      <p>O curso Guia Completo para Criar Contas no Facebook foi desenvolvido para ensinar como criar e gerenciar contas no Facebook de maneira estratégica, ajudando a construir um negócio de sucesso e aumentar suas vendas.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>Quais são os principais conteúdos abordados?</h3>
+      <p>O curso aborda desde a criação de contas no Facebook, configuração de perfis e páginas, até estratégias avançadas para aumentar o alcance de suas postagens, segmentar o público e utilizar anúncios eficazes para maximizar as vendas.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>Dicas para aumentar suas vendas no Facebook</h3>
+      <p>Use anúncios direcionados, crie conteúdo de valor, engaje com seu público de forma autêntica, e utilize a segmentação para alcançar seu público-alvo com precisão. A chave é a consistência e a otimização das campanhas.</p>
+    </div>
+    
+    <div class="faq-item">
+      <h3>Como este curso pode me ajudar no meu negócio?</h3>
+      <p>Este curso oferece as ferramentas e estratégias necessárias para otimizar sua presença no Facebook, aumentar suas vendas e construir um negócio sólido e escalável com a plataforma.</p>
+    </div>
+  </div>
+  
+  <!-- Resumo dos Aprendizados -->
+  <div class="summary">
+    <h2>Resumo do que você pode aprender</h2>
+    <p>
+      Neste curso, você aprenderá desde a criação e configuração de contas no Facebook até as táticas avançadas para maximizar suas vendas. Compreenda como segmentar seu público, criar anúncios eficazes e utilizar ferramentas para aumentar o engajamento, alcançando o sucesso no seu negócio digital.
+    </p>
+  </div>
+  
+  <!-- Script JavaScript para FAQ -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function() {
+      const faqItems = document.querySelectorAll(".faq-item h3");
+      
+      faqItems.forEach(item => {
+        item.addEventListener("click", function() {
+          const content = this.nextElementSibling;
+          if (content.style.display === "block") {
+            content.style.display = "none";
+          } else {
+            document.querySelectorAll(".faq-item p").forEach(p => p.style.display = "none");
+            content.style.display = "block";
+          }
+        });
+      });
+    });
+  </script>
+  
+  </section>
+  
 
 </section>
 
