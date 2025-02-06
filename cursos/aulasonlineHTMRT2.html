@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <title>Curso Mestre do Software</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        /* Estilos Globais */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            justify-content: center;
+        }
+
+        h3 {
+            font-size: 40px;
+            font-weight: bold;
+            color: #ffcc00;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+        }
+
+        #countdown {
+            font-size: 70px;
+            font-weight: bold;
+            color: #39FF14;
+            background: linear-gradient(135deg, #39FF14, #00B300);
+            -webkit-background-clip: text;
+            text-align: center;
+            letter-spacing: 2px;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        /* Animação de brilho para o contador */
+        @keyframes glow {
+            0% {
+                text-shadow: 0 0 10px rgba(57, 255, 20, 0.8), 0 0 20px rgba(57, 255, 20, 0.6), 0 0 30px rgba(57, 255, 20, 0.4);
+            }
+            100% {
+                text-shadow: 0 0 20px rgba(57, 255, 20, 1), 0 0 40px rgba(57, 255, 20, 0.8), 0 0 60px rgba(57, 255, 20, 0.6);
+            }
+        }
+
+        /* Barra de progresso futurista */
+        #download-bar-container {
+            margin-top: 30px;
+            width: 80%;
+            max-width: 600px;
+            height: 30px;
+            background: #333;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.6);
+        }
+
+        #download-bar {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #00FF00, #00B300);
+            border-radius: 15px;
+            transition: width 1s ease;
+        }
+
+        /* Responsividade */
+        @media (max-width: 600px) {
+            h3 {
+                font-size: 30px;
+            }
+
+            #countdown {
+                font-size: 50px;
+            }
+
+            #download-bar-container {
+                width: 95%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="countdown-container">
+        <h3>Segunda Aula Disponível em:</h3>
+        <div id="countdown"></div>
+    </div>
+
+    <!-- Barra de Download -->
+    <div id="download-bar-container">
+        <div id="download-bar"></div>
+    </div>
+
+    <script>
+        // Contagem regressiva para 7 dias
+        var countDownDate = new Date();
+        countDownDate.setDate(countDownDate.getDate() + 7); // Adiciona 7 dias
+
+        var countdownFunction = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            // Calcula o tempo restante
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Exibe a contagem regressiva
+            document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+
+            // Calcula a porcentagem do tempo restante
+            var totalDuration = countDownDate - (new Date().getTime()); // Tempo total restante
+            var totalTimeInSeconds = totalDuration / 1000; // Converte para segundos
+            var timeElapsed = totalTimeInSeconds - (distance / 1000); // Tempo decorrido
+            var progressPercentage = (timeElapsed / totalTimeInSeconds) * 100;
+
+            // Atualiza a largura da barra de progresso
+            document.getElementById("download-bar").style.width = progressPercentage + "%";
+
+            // Quando a contagem regressiva terminar
+            if (distance < 0) {
+                clearInterval(countdownFunction);
+                document.getElementById("countdown").innerHTML = "A segunda aula está disponível agora!";
+                document.getElementById("download-bar").style.width = "100%";
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
