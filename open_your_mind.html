@@ -746,6 +746,8 @@
   }
 }
 
+
+
   </style>
 </head>
 <body>
@@ -772,11 +774,13 @@
 </header>
 
 
+
+
   
 
   <!-- Seção "O que você vai aprender?" com balões flutuantes e botões interativos -->
 <section id="sobre">
-  
+
 
   <!-- Contêiner dos balões (decoração) -->
   <div class="balloons">
@@ -787,13 +791,10 @@
     <div class="balloon" style="--left: 55%; --delay: 4s;"></div>
   </div>
 
- <!-- Container para os botões interativos -->
-<div class="course-container">
-  
-  <!-- Cursos -->
-  <!-- Curso 1 -->
+ 
   <div class="course-item">
-    <h2>Mestre dos Trabalhos Científicos: Da Ideia à Perfeição</h2>
+    
+<h2>Mestre dos Trabalhos Científicos: Da Ideia à Perfeição</h2>
     <div class="image-section">
       <img src="mestredoso.webp" alt="Imagem ilustrativa">
     </div>
@@ -967,9 +968,9 @@
     <h2>Sobre o Mentor</h2>
     <img src="2024_05_06_09_16_IMG_3703.JPG" alt="Tilo Machado" />
     <p>
-        Olá! Eu sou o Tilo Machado!
-        Sou especialista em copywriting, marketing digital e tecnologia, ajudando empreendedores a vender com estratégia e expandir seus negócios online. Desenvolvo sites, utilizo automação digital e crio soluções inovadoras para maximizar resultados. Estou sempre em busca de novas estratégias para transformar ideias em ações concretas e impulsionar projetos de forma eficiente.  
-    </p>
+      Olá! Eu sou o Tilo Machado, mentor e especialista em copywriting, marketing digital e tecnologia. Dedico meu trabalho a ajudar empreendedores como você a impulsionar seus negócios online com estratégias eficazes. Crio sites, automatizo processos e desenvolvo soluções inovadoras para transformar desafios em oportunidades reais. Este é mais um projeto que visa capacitar jovens interessados na tecnologia e no marketing do mundo moderno. Aqui, você encontra cursos cuidadosamente elaborados para transformar suas ideias em ações concretas. Escolha um dos nossos cursos e junte-se à nossa comunidade para crescer e alcançar resultados excepcionais!
+      </p>
+      
   </section>
   
   
@@ -983,34 +984,105 @@
     <h2>Garanta sua vaga agora!</h2>
     <p>Preencha o formulário abaixo para se inscrever no curso gratuito. Após o cadastro, você precisará fazer login com seu nome e número de recibo. </p>
   
-  <!-- Botão para exibir o vídeo -->
-    <button id="mostrar-video">Saiba como verificar seus dados após o cadastro</button>
+ 
+    <section id="saiba-mais">
+      <!-- Vídeo 1: Como converter leads -->
+      <button id="mostrar-video-1">Saiba Mais Sobre a Open Mind</button>
+      <div id="video-container-1" style="display: none; margin-top: 20px; text-align: center;">
+        <div style="position: relative; width: 100%; max-width: 315px; margin: auto;">
+          <iframe 
+            width="315" 
+            height="560" 
+            src="https://www.youtube.com/embed/X_XWLyXga2A" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            style="border-radius: 10px; display: block; margin: auto;">
+          </iframe>
+        </div>
+      </div>
+      
+      <!-- Vídeo 2: Como se inscrever em nossos cursos gratuitos -->
+      <button id="mostrar-video-2">Veja Como se inscrever em nossos cursos gratuitos</button>
+      <div id="video-container-2" style="display: none; margin-top: 20px; text-align: center;">
+        <div style="position: relative; width: 100%; max-width: 315px; margin: auto;">
+          <iframe 
+            width="315" 
+            height="560" 
+            src="https://www.youtube.com/embed/HpcM_eerBV8" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            style="border-radius: 10px; display: block; margin: auto;">
+          </iframe>
+        </div>
+      </div>
+      
+      <!-- Vídeo 3: Como verificar seus dados e acessar os cursos -->
+      <button id="mostrar-video-3">Veja Como verificar seus dados e acessar os cursos</button>
+      <div id="video-container-3" style="display: none; margin-top: 20px; text-align: center;">
+        <div style="position: relative; width: 100%; max-width: 315px; margin: auto;">
+          <iframe 
+            width="315" 
+            height="560" 
+            src="https://www.youtube.com/embed/vDTW04HMXdE" 
+            title="YouTube video player" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen 
+            style="border-radius: 10px; display: block; margin: auto;">
+          </iframe>
+        </div>
+      </div>
+    </section>
     
- <!-- Container do vídeo, inicialmente oculto -->
-<div id="video-container" style="display: none; margin-top: 20px; text-align: center;">
-    <div style="position: relative; width: 100%; max-width: 315px; margin: auto;">
-      <iframe 
-        width="315" 
-        height="560" 
-        src="https://www.youtube.com/embed/vDTW04HMXdE" 
-        title="YouTube video player" 
-        frameborder="0" 
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-        allowfullscreen 
-        style="border-radius: 10px; display: block; margin: auto;">
-      </iframe>
-    </div>
-  </div>
-  
-
-  
-</section>
-
-<script>
-  document.getElementById("mostrar-video").addEventListener("click", function() {
-    document.getElementById("video-container").style.display = "block";
-  });
-</script>
+    <style>
+      /* CSS para os botões com IDs que começam com "mostrar-video" */
+      button[id^="mostrar-video"] {
+        background: linear-gradient(90deg, #ff8a00, #e52e71);
+        color: white;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease-in-out;
+        box-shadow: 0px 4px 10px rgba(229, 46, 113, 0.3);
+        display: block;
+        width: fit-content;
+        margin: 15px auto; /* Espaçamento superior e inferior, centralizado */
+      }
+    
+      button[id^="mostrar-video"]:hover {
+        transform: scale(1.05);
+        box-shadow: 0px 6px 15px rgba(229, 46, 113, 0.5);
+      }
+    
+      button[id^="mostrar-video"]:active {
+        transform: scale(0.98);
+        box-shadow: 0px 2px 8px rgba(229, 46, 113, 0.3);
+      }
+    </style>
+    
+    <script>
+      document.getElementById("mostrar-video-1").addEventListener("click", function() {
+        var container = document.getElementById("video-container-1");
+        container.style.display = container.style.display === "block" ? "none" : "block";
+      });
+      
+      document.getElementById("mostrar-video-2").addEventListener("click", function() {
+        var container = document.getElementById("video-container-2");
+        container.style.display = container.style.display === "block" ? "none" : "block";
+      });
+      
+      document.getElementById("mostrar-video-3").addEventListener("click", function() {
+        var container = document.getElementById("video-container-3");
+        container.style.display = container.style.display === "block" ? "none" : "block";
+      });
+    </script>
 
     <form id="registrationForm" action="#" method="POST">
       <label for="nome">Nome (sem acento):</label>
@@ -1075,6 +1147,7 @@
   <div id="successModal">
     <div>
       <h2>Inscrição Realizada com Sucesso!</h2>
+      <h3>Cópie O Número do Recibo!</h3>
       <p>Seu recibo: <span id="reciboNumber"></span></p>
       <button id="downloadReceipt" class="btn">Baixar Recibo</button>
       <button id="closeModal" class="btn" style="margin-top: 10px;">Fechar</button>
