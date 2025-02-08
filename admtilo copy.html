@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8">
+  <title>Painel Administrativo - Inscrições</title>
+  <!-- Inclusão do jsPDF, se necessário para outras funcionalidades -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 20px;
+      background: #f2f2f2;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      background: #fff;
+    }
+    th, td {
+      padding: 10px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    th {
+      background: #4CAF50;
+      color: #fff;
+    }
+    tr:nth-child(even) {
+      background: #f9f9f9;
+    }
+  </style>
+</head>
+<body>
+  <h1>Painel Administrativo - Inscrições</h1>
+
+  <!-- Tabela para exibir os dados das inscrições -->
+  <table>
+    <thead>
+      <tr>
+        <th>Nº</th>
+        <th>Nome</th>
+        <th>Sexo</th>
+        <th>Idade</th>
+        <th>Localização</th>
+        <th>Telefone</th>
+        <th>Curso</th>
+        <th>Número do Recibo</th>
+        <th>Data de Inscrição</th>
+      </tr>
+    </thead>
+    <tbody id="inscricoesList">
+      <!-- Os dados serão inseridos aqui dinamicamente -->
+    </tbody>
+  </table>
+
+  <!-- Script de conexão com Firebase e exibição dos dados -->
+  <script type="module">
+    // Importa os módulos do Firebase necessários
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getFirestore, collection, onSnapshot } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+    // Configuração do Firebase (substitua pelos dados do seu projeto)
+    const firebaseConfig = {
+      apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+      authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+      projectId: "plataforma-do-mini-curso",
+      storageBucket: "plataforma-do-mini-curso.appspot.com",
+      messagingSenderId: "424655587612",
+      appId: "1:424655587612:web:851858a379c334227056e4",
+      measurementId: "G-6CE0E9R3J5"
+    };
+
+    // Inicializa o aplicativo Firebase e o Firestore
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Referência ao elemento da tabela onde os dados serão exibidos
+    const inscricoesList = document.getElementById("inscricoesList");
+
+    // Cria uma referência à coleção de inscrições
+    const inscricoesCollection = collection(db, "inscricoes_novas");
+
+    // Atualiza a tabela em tempo real conforme os dados são adicionados/alterados
+    onSnapshot(inscricoesCollection, (snapshot) => {
+      // Limpa a tabela para atualizar os dados
+      inscricoesList.innerHTML = "";
+      
+      // Usando snapshot.docs para ter acesso ao índice
+      snapshot.docs.forEach((doc, index) => {
+        const inscricao = doc.data();
+
+        // Formata a data da inscrição
+        const dataInscricao = inscricao.data_inscricao ? new Date(inscricao.data_inscricao).toLocaleString() : '';
+
+        // Cria uma nova linha na tabela para cada inscrição
+        inscricoesList.innerHTML += `
+          <tr>
+            <td>${index + 1}</td>
+            <td>${inscricao.nome || ""}</td>
+            <td>${inscricao.sexo || ""}</td>
+            <td>${inscricao.idade || ""}</td>
+            <td>${inscricao.localizacao || ""}</td>
+            <td>${inscricao.telefone || ""}</td>
+            <td>${inscricao.curso || ""}</td>
+            <td>${inscricao.recibo || ""}</td>
+            <td>${dataInscricao}</td>
+          </tr>
+        `;
+      });
+    });
+  </script>
+</body>
+</html>
