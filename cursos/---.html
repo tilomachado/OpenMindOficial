@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OPEN MIND</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="icone.png" type="image/png">
+
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="Um Caminho para o Crescimento e a Compreensão">
+    <meta name="keywords" content="Renda Extra, dicas, vídeo, comunidade">
+    <meta name="author" content="Tilo Machado">
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+</head>
+<body>
+  
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="course">
+                
+                <h2>Minicurso de Preparação Mental: Rumo ao Sucesso Pessoal e Profissional</h2>
+        <img src="metalidade.webp" alt="Preparação Mental" class="kelcia-img">
+        <p>Prepare sua mente para os desafios da vida! Aprenda técnicas de autoconfiança, foco e superação para alcançar seus objetivos com uma mentalidade vencedora.</p>
+        <div class="btn-container">
+                    <a href="VLS.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+
+            <div class="course">
+                <h2>Guia Completo para Criar Contas no Facebook: Estratégias de Sucesso</h2>
+                <img src="facebook.webp" alt="Criação de Contas no Facebook" class="kelcia-img">
+                <p>Aprenda a criar contas no Facebook e utilizá-las para construir um negócio de sucesso. Descubra táticas avançadas para aumentar suas vendas e alcançar seu público-alvo com eficiência.</p>
+                <div class="btn-container">
+                    <a href="maquinadevendas.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+            
+
+            <div class="course">
+                <h2>Mestre dos Trabalhos Científicos: Da Ideia à Perfeição</h2>
+                <img src="mestredoso.webp" alt="Mestre dos Trabalhos Científicos" class="kelcia-img">
+                <p>Domine as técnicas essenciais para criar trabalhos científicos de alta qualidade. Desde a estruturação até a apresentação, aprenda passo a passo como alcançar excelência acadêmica.</p>
+                <div class="btn-container">
+                    <a href="cursodeinformatica.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+            
+
+            
+            <div class="course">
+                <h2>Mestre do Software: Transforme Seu Potencial</h2>
+                <img src="mestredos.webp" alt="Mestre do Software" class="kelcia-img">
+                <p>Desbloqueie o seu verdadeiro potencial no universo do desenvolvimento de software. Aprenda as habilidades fundamentais para conquistar destaque em um mercado altamente competitivo.</p>
+                <div class="btn-container">
+                    <a href="mestredosoftware.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+            
+
+            
+
+            <div class="course">
+                <h2>Introdução à Hotmart: Sua Porta para o Mercado Digital</h2>
+                <img src="cc" alt="Mestre do Software" class="kelcia-img">
+                <p>Descubra como a Hotmart está transformando ideias em negócios de sucesso. Aprenda a utilizar essa plataforma líder para criar, vender e escalar produtos digitais no mercado global.</p>
+                <div class="btn-container">
+                    <a href="hotmartintro.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+            
+
+            <div class="course">
+                <h2>Curso Mestre da Edição Pro V3</h2>
+                <img src="ed.webp" alt="Mestre da Edição" class="kelcia-img">
+                <p>Aprenda a criar vídeos de alta qualidade e monetizar no YouTube e TikTok com nosso curso especializado. Desenvolva suas habilidades e comece a gerar renda extra criando vídeos incríveis!</p>
+                <div class="btn-container">
+                    <a href="++.html" class="btn-principal">Saiba Mais</a>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <div class="carousel-buttons">
+        <button id="prev" class="nav-button">⬅️</button>
+        <button id="next" class="nav-button">➡️</button>
+    </div>
+    
+    <style>
+       
+    
+       .slide-number {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(45deg, #ff6f61, #ffa000);
+    padding: 8px 16px; /* Tamanho igual para cima/baixo e esquerda/direita */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center; /* Centraliza verticalmente */
+    justify-content: center; /* Centraliza horizontalmente */
+    line-height: 1; /* Ajusta o espaçamento vertical do texto */
+    height: 40px; /* Altura fixa para manter proporção */
+    width: auto; /* Ajusta automaticamente com base no texto */
+    animation: pulse 2s infinite; /* Animação opcional */
+}
+
+/* Animação para efeito pulsante */
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+
+    </style>
+    
+    <script>
+        // Configuração inicial
+        const totalSlides = 6; // Total de slides
+        let currentSlide = 1; // Slide atual
+    
+        // Elementos do carrossel
+        const prevButton = document.getElementById('prev');
+        const nextButton = document.getElementById('next');
+    
+        // Criar elemento para o contador e adicioná-lo no meio dos botões
+        const slideCounter = document.createElement('span');
+        slideCounter.className = 'slide-number';
+        slideCounter.textContent = `${currentSlide}/${totalSlides}`;
+    
+        // Inserir o contador entre os botões
+        const buttonsContainer = document.querySelector('.carousel-buttons');
+        buttonsContainer.insertBefore(slideCounter, nextButton);
+    
+        // Função para atualizar o contador
+        function updateSlideCounter() {
+            slideCounter.textContent = `${currentSlide}/${totalSlides}`;
+        }
+    
+        // Função para ir para o slide anterior
+        prevButton.addEventListener('click', () => {
+            if (currentSlide > 1) {
+                currentSlide--;
+                updateSlideCounter();
+            }
+        });
+    
+        // Função para ir para o próximo slide
+        nextButton.addEventListener('click', () => {
+            if (currentSlide < totalSlides) {
+                currentSlide++;
+                updateSlideCounter();
+            }
+        });
+    </script>
+    
+
+    <footer>
+        <p>© 2024 - OpenMind. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

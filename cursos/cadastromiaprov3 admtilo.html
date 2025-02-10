@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Mestres da IA</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Função para carregar os dados das inscrições
+        async function carregarInscricoes() {
+            const tabela = document.getElementById("tabelaInscricoes");
+            tabela.innerHTML = "<tr><th>Nome</th><th>Curso</th><th>Recibo</th><th>Contato</th><th>Ações</th></tr>"; // Cabeçalho da tabela
+
+            try {
+                const querySnapshot = await getDocs(collection(db, "mestre das ias"));
+                querySnapshot.forEach((doc) => {
+                    const dados = doc.data();
+                    const novaLinha = `
+                        <tr>
+                            <td>${dados.nome}</td>
+                            <td>${dados.curso}</td>
+                            <td>${dados.recibo}</td>
+                            <td>${dados.telefone}</td> <!-- Exibindo o contato -->
+                            <td>
+                                <button onclick="deletarInscricao('${doc.id}')">Deletar</button>
+                            </td>
+                        </tr>
+                    `;
+                    tabela.innerHTML += novaLinha;
+                });
+            } catch (error) {
+                alert("Erro ao carregar dados: " + error.message);
+            }
+        }
+
+        // Função para deletar uma inscrição
+        async function deletarInscricao(id) {
+            if (confirm("Tem certeza que deseja deletar esta inscrição?")) {
+                try {
+                    await deleteDoc(doc(db, "mestre das ias", id));
+                    alert("Inscrição deletada com sucesso!");
+                    carregarInscricoes(); // Atualizar a tabela
+                } catch (error) {
+                    alert("Erro ao deletar inscrição: " + error.message);
+                }
+            }
+        }
+
+        // Carregar dados automaticamente ao abrir a página
+        window.onload = carregarInscricoes;
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: #fff;
+        }
+
+        table th, table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        table th {
+            background-color: #f8f8f8;
+        }
+
+        button {
+            background-color: #d9534f;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            background-color: #c9302c;
+        }
+    </style>
+</head>
+<body>
+    <h1>Painel Administrativo - Mestres da IA</h1>
+    <p>Bem-vindo(a) ao painel administrativo. Aqui você pode gerenciar as inscrições realizadas na plataforma.</p>
+
+    <table id="tabelaInscricoes">
+        <!-- Dados carregados dinamicamente -->
+    </table>
+</body>
+</html>

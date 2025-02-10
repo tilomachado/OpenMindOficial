@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <title>Curso Mestre do Software</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+    <style>
+        /* Estilos Globais */
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+            color: #ffffff;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #ffcc00;
+            text-align: center;
+        }
+
+        .control-button {
+            padding: 10px 20px;
+            background-color: #ffcc00;
+            border: none;
+            border-radius: 5px;
+            color: #1f1f1f;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .control-button:hover {
+            background-color: #e6b800;
+        }
+
+        /* Mensagem de carregamento */
+        #loadingMessage {
+            display: none;
+            background-color: #2e2e2e;
+            color: #ffcc00;
+            padding: 15px;
+            border-radius: 5px;
+            text-align: center;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Botão de outros cursos */
+        .btn-cursos {
+            margin-top: 20px;
+            padding: 10px 20px;
+            background-color: #ff6600;
+            border: none;
+            border-radius: 5px;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            display: inline-block;
+        }
+
+        .btn-cursos:hover {
+            background-color: #e65c00;
+        }
+    </style>
+</head>
+<body>
+    <h1>Curso Mestre do Software</h1>
+
+    <!-- Botão para próxima aula -->
+    <button class="control-button" onclick="nextLesson()">Ir para Próxima Aula</button>
+
+    <!-- Mensagem de carregamento -->
+    <div id="loadingMessage">
+        As próximas aulas estão sendo criadas. Enquanto isso, explore nossos outros cursos abaixo!
+        <br><br>
+        <a href="openyourmindfree.html" class="btn-cursos">Ver Outros Cursos</a>
+    </div>
+
+    <script>
+        function nextLesson() {
+            // Exibir mensagem de carregamento
+            var messageDiv = document.getElementById('loadingMessage');
+            messageDiv.style.display = 'block';
+
+            // Ocultar o botão para evitar cliques repetidos
+            document.querySelector('.control-button').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
