@@ -181,6 +181,136 @@
 
 </head>
 <body>
+    <div id="loading">
+        <p id="loading-text">Criando Sala Virtual...</p>
+        <div class="progress-bar-container">
+          <div class="progress-bar"></div>
+        </div>
+      </div>
+      
+      <style>
+        /* Container geral com fade-in sutil */
+        #loading {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
+          background: #f0f0f0; /* Fundo claro */
+          animation: fadeIn 0.5s ease forwards;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        
+        /* Texto com fonte e transição suaves */
+        #loading-text {
+          font-family: "Segoe UI", sans-serif;
+          font-size: 1.5rem;
+          color: #333;
+          transition: opacity 0.3s ease;
+        }
+        
+        /* Container da barra de progresso */
+        .progress-bar-container {
+          width: 80%;
+          max-width: 400px;
+          height: 4px;
+          background-color: #ccc;
+          border-radius: 2px;
+          margin-top: 20px;
+          overflow: hidden;
+        }
+        
+        /* Barra de progresso com animação linear */
+        .progress-bar {
+          height: 100%;
+          background-color: #0078d4; /* Azul característico do Windows */
+          width: 0%;
+          animation: progress 5s linear forwards;
+        }
+        
+        @keyframes progress {
+          from { width: 0%; }
+          to { width: 100%; }
+        }
+      </style>
+      
+      <script>
+        // Após 5 segundos, faz a transição do texto de forma suave
+        setTimeout(function() {
+          var textEl = document.getElementById("loading-text");
+          // Inicia a transição de opacidade (fade-out)
+          textEl.style.opacity = 0;
+          // Após 300ms (tempo suficiente para o fade-out), altera o texto e faz fade-in
+          setTimeout(function() {
+            textEl.innerText = "Carregando vídeo aulas em 4K...";
+            textEl.style.opacity = 1;
+          }, 300);
+        }, 5000);
+      </script>
+      
+    
+    <style>
+        /* Carregamento - Estilo */
+        #loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            font-size: 2rem;
+            color: #4CAF50;
+            text-align: center;
+            animation: fadeIn 1s ease-in-out;
+        }
+    
+        /* Container da barra de progresso */
+        .progress-bar-container {
+            width: 80%;
+            height: 20px;
+            background-color: #f3f3f3;
+            margin-top: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+    
+        /* Barra de progresso */
+        .progress-bar {
+            width: 0%;
+            height: 100%;
+            background-color: hsl(152, 99%, 32%);
+            animation: loading 40s linear forwards;
+        }
+    
+        /* Animação de carregamento (da esquerda para a direita) */
+        @keyframes loading {
+            0% { width: 0%; }
+            100% { width: 100%; }
+        }
+    
+        /* Efeito de fade-in */
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+    
+        /* Esconde o conteúdo inicialmente */
+        #content {
+            display: none;
+        }
+    </style>
+    
+    <script>
+        // Função de carregamento de 10 segundos
+        setTimeout(function() {
+            document.getElementById('loading').style.display = 'none'; // Oculta o carregamento
+            document.getElementById('content').style.display = 'block'; // Exibe o conteúdo
+        }, 10000);
+    </script>
+    
+    <div id="content" style="display: none;">
 
     <div id="modal">
         <div class="modal-content">
