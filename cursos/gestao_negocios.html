@@ -30,251 +30,169 @@
 
   <!-- Estilos Gerais do Curso -->
   <style>
-    /* Estilos Gerais */
-    body {
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f8ff;
-      color: #333;
-      margin: 0;
-      padding: 0;
-      line-height: 1.6;
-    }
-    
-    header {
-      background-color: #32cd32;
-      color: white;
-      padding: 50px 20px;
-      text-align: center;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-      border-bottom: 5px solid #228b22;
-    }
-    
-    h1 {
-      font-size: 3.2em;
-      margin: 0;
-      letter-spacing: 3px;
-    }
-    
-    p {
-      font-size: 1.4em;
-      max-width: 850px;
-      margin: 10px auto;
-    }
-    
-    .course-content {
-      margin: 40px auto;
-      padding: 40px;
-      background-color: white;
-      border-radius: 12px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      max-width: 960px;
-    }
-    
-    h2 {
-      font-size: 2.2em;
-      color: #2d3e50;
-      margin-bottom: 25px;
-      text-align: center;
-    }
-    
-    .module p {
-      font-size: 1.2em;
-      margin: 12px 0;
-    }
-    
-    .module ul {
-      list-style-type: none;
-      padding-left: 0;
-    }
-    
-    .module li {
-      font-size: 1.2em;
-      margin-bottom: 12px;
-      padding-left: 18px;
-      position: relative;
-    }
-    
-    .module li::before {
-      content: "✔";
-      position: absolute;
-      left: 0;
-      color: #228b22;
-      font-weight: bold;
-    }
-    
-    .cta-button {
-      display: inline-block;
-      background-color: #228b22;
-      color: white;
-      padding: 14px 22px;
-      text-decoration: none;
-      border-radius: 6px;
-      font-size: 1.3em;
-      text-align: center;
-      margin: 25px 0;
-      transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-    }
-    
-    .cta-button:hover {
-      background-color: #006400;
-      transform: scale(1.05);
-    }
-    
-    footer {
-      background-color: #2d3e50;
-      color: white;
-      text-align: center;
-      padding: 18px 0;
-      width: 100%;
-      margin-top: 30px;
-    }
-    
-    footer p {
-      margin: 0;
-    }
-    
-    footer nav {
-      margin-top: 10px;
-    }
-    
-    footer nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-    }
-    
-    footer nav a:hover {
-      text-decoration: underline;
-    }
-  </style>
+   /* Estilos Gerais - Dark Glass com Cores Vivas */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #121212, #1e1e1e);
+  color: #e0e0e0;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+}
 
-  <!-- Estilos de Carregamento -->
-  <style>
-    #loading {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      background: #f0f0f0;
-      animation: fadeIn 0.5s ease forwards;
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    #loading-text {
-      font-family: "Segoe UI", sans-serif;
-      font-size: 1.5rem;
-      color: #333;
-      transition: opacity 0.3s ease;
-    }
-    .progress-bar-container {
-      width: 80%;
-      max-width: 400px;
-      height: 4px;
-      background-color: #ccc;
-      border-radius: 2px;
-      margin-top: 20px;
-      overflow: hidden;
-    }
-    .progress-bar {
-      height: 100%;
-      background-color: #0078d4;
-      width: 0%;
-      animation: progress 5s linear forwards;
-    }
-    @keyframes progress {
-      from { width: 0%; }
-      to { width: 100%; }
-    }
-  </style>
+/* Cabeçalho com efeito Glass e Cores Vibrantes */
+header {
+  background: rgba(255, 69, 0, 0.2);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: #ffffff;
+  padding: 50px 20px;
+  text-align: center;
+  border-bottom: 3px solid rgba(255, 69, 0, 0.5);
+  box-shadow: 0 6px 20px rgba(255, 69, 0, 0.3);
+}
 
-  <!-- Estilos do Accordion Futurista -->
-  <style>
-    :root {
-      --bg-gradient-start: #0d1b2a;
-      --bg-gradient-end:   #415a77;
-      --header-bg:         rgba(255, 255, 255, 0.1);
-      --header-hover-bg:   rgba(255, 255, 255, 0.2);
-      --header-color:      #e0e0e0;
-      --content-bg:        #f0f8ff;
-      --shadow-light:      rgba(0, 0, 0, 0.3);
-      --shadow-dark:       rgba(0, 0, 0, 0.5);
-    }
+h1 {
+  font-size: 3.2em;
+  margin: 0;
+  letter-spacing: 3px;
+  text-shadow: 2px 2px 15px rgba(255, 165, 0, 0.7);
+}
 
-    .accordion-item {
-      background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
-      border-radius: 12px;
-      margin: 20px 0;
-      overflow: hidden;
-      box-shadow: 0 4px 15px var(--shadow-light);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .accordion-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px var(--shadow-dark);
-    }
-    .accordion-checkbox {
-      display: none;
-    }
-    .accordion-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 20px 30px;
-      background: var(--header-bg);
-      color: var(--header-color);
-      font-size: 1.3em;
-      font-weight: bold;
-      cursor: pointer;
-      user-select: none;
-      transition: background 0.3s ease;
-    }
-    .accordion-header:hover {
-      background: var(--header-hover-bg);
-    }
-    .accordion-header::after {
-      content: '\25BC';
-      transition: transform 0.3s ease;
-      font-size: 1.2em;
-    }
-    .accordion-checkbox:checked + .accordion-header::after {
-      transform: rotate(-180deg);
-    }
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      background: var(--content-bg);
-      transition: max-height 0.5s ease, padding 0.5s ease;
-      padding: 0 30px;
-    }
-    .accordion-checkbox:checked ~ .accordion-content {
-      max-height: 1000px;
-      padding: 20px 30px;
-    }
-    .module {
-      animation: fadeInUp 0.6s ease both;
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @media (max-width: 600px) {
-      .accordion-header {
-        font-size: 1em;
-        padding: 15px 20px;
-      }
-      .accordion-content {
-        padding: 15px 20px;
-      }
-    }
+p {
+  font-size: 1.4em;
+  max-width: 100%;
+  margin: 10px auto;
+  text-align: center;
+}
+
+/* Seção do Curso - Glass Effect com Fundo Infinito */
+.course-content {
+  margin: 40px auto;
+  padding: 40px;
+  background: rgba(0, 255, 127, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 15px;
+  box-shadow: 0 8px 25px rgba(0, 255, 127, 0.5);
+  max-width: 100%;
+}
+
+h2 {
+  font-size: 2.5em;
+  color: #ffcc00;
+  text-align: center;
+}
+
+/* Botões de CTA com Cores Mais Vivas */
+.cta-button {
+  display: inline-block;
+  background: rgba(0, 191, 255, 0.4);
+  border: 2px solid rgba(0, 191, 255, 0.7);
+  color: #00bfff;
+  padding: 16px 24px;
+  text-decoration: none;
+  border-radius: 12px;
+  font-size: 1.4em;
+  text-align: center;
+  margin: 25px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.cta-button:hover {
+  background: rgba(0, 191, 255, 0.8);
+  transform: scale(1.1);
+  color: #fff;
+}
+
+/* Rodapé */
+footer {
+  background: rgba(255, 69, 0, 0.2);
+  color: white;
+  text-align: center;
+  padding: 18px 0;
+  width: 100%;
+  margin-top: 30px;
+}
+
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffcc00;
+}
+
+/* Accordion Glass Effect com Destaque */
+.accordion-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  border-radius: 15px;
+  margin: 20px 0;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(255, 165, 0, 0.5);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.accordion-item:hover {
+  transform: translateY(-7px);
+  box-shadow: 0 10px 30px rgba(255, 165, 0, 0.7);
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 32px;
+  background: rgba(255, 165, 0, 0.3);
+  color: white;
+  font-size: 1.4em;
+  font-weight: bold;
+  cursor: pointer;
+  user-select: none;
+  transition: background 0.3s ease;
+}
+
+.accordion-header:hover {
+  background: rgba(255, 165, 0, 0.5);
+}
+
+/* Ajuste no Accordion para expandir completamente o conteúdo */
+.accordion-content {
+  height: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Quando o módulo for ativado, o conteúdo aparecerá completamente */
+.accordion-checkbox:checked ~ .accordion-content {
+  height: auto;
+  opacity: 1;
+  visibility: visible;
+  padding: 20px;
+}
+
+
+/* Responsividade */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.8em;
+  }
+  h2 {
+    font-size: 2em;
+  }
+  p {
+    font-size: 1.3em;
+  }
+  .cta-button {
+    font-size: 1.2em;
+  }
+}
   </style>
 
   <!-- Scripts de Carregamento -->
@@ -342,14 +260,15 @@
           <li><strong>Escolhendo as palavras certas:</strong> Utilize palavras-chave alinhadas à vaga desejada. Em Moçambique, setores como tecnologia, finanças e engenharia valorizam descrições claras e diretas.</li>
         </ul>
   
-        <p>Exemplo global: Um profissional que trabalhou como <em>Analista de Dados</em> pode escrever:</p>
-        <blockquote>"Gerenciei um banco de dados com mais de 1 milhão de registros, otimizando consultas SQL e reduzindo o tempo de resposta em 35%."</blockquote>
-  
-        <p>Exemplo local: Um técnico de informática em Moçambique pode destacar:</p>
-        <blockquote>"Realizei mais de 500 manutenções de hardware e software, aumentando a eficiência operacional de empresas locais."</blockquote>
-  
-        <a href="mestredoswaulas1.html" class="cta-button">▶️ Assistir Aula Prática em Vídeo</a>
-      </div>
+       </div>
+       <p>Exemplo global: Um profissional que trabalhou como <em>Analista de Dados</em> pode escrever:</p>
+       <blockquote>"Gerenciei um banco de dados com mais de 1 milhão de registros, otimizando consultas SQL e reduzindo o tempo de resposta em 35%."</blockquote>
+ 
+       <p>Exemplo local: Um técnico de informática em Moçambique pode destacar:</p>
+       <blockquote>"Realizei mais de 500 manutenções de hardware e software, aumentando a eficiência operacional de empresas locais."</blockquote>
+ 
+       <a href="mestredoswaulas1.html" class="cta-button">▶️ Assistir Aula Prática em Vídeo</a>
+     
     </div>
   </div>
   
