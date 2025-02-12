@@ -1,404 +1,457 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Preparação para o Mercado de Trabalho - Curso Gratuito</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Preparação para o Mercado de Trabalho - Curso Gratuito</title>
 
-    <!-- Metadados -->
-    <meta name="description" content="Curso gratuito da Open Mind: prepare-se para o mercado de trabalho com habilidades práticas e estratégias para se destacar profissionalmente.">
-    <meta name="keywords" content="mercado de trabalho, curso gratuito, Open Mind, desenvolvimento profissional, habilidades práticas, empregabilidade">
-    <meta name="author" content="Tilo Machado">
-    <meta name="robots" content="index, follow">
+  <!-- Metadados -->
+  <meta name="description" content="Curso gratuito da Open Mind: prepare-se para o mercado de trabalho com habilidades práticas e estratégias para se destacar profissionalmente.">
+  <meta name="keywords" content="mercado de trabalho, curso gratuito, Open Mind, desenvolvimento profissional, habilidades práticas, empregabilidade">
+  <meta name="author" content="Tilo Machado">
+  <meta name="robots" content="index, follow">
 
-    <!-- Favicon -->
-    <link rel="icon" href="icone.png" type="image/png">
+  <!-- Favicon -->
+  <link rel="icon" href="icone.png" type="image/png">
 
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-GDDY8TGYQV');
-    </script>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-GDDY8TGYQV');
+  </script>
 
-    <!-- Suporte a múltiplos idiomas -->
-    <link rel="alternate" hreflang="pt" href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_trabalho.html">
-    <link rel="alternate" hreflang="es" href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_laboral.html">
-    <link rel="alternate" hreflang="en" href="https://tilomachado.github.io/OpenMindOficial/cursos/job_market.html">
+  <!-- Suporte a múltiplos idiomas -->
+  <link rel="alternate" hreflang="pt" href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_trabalho.html">
+  <link rel="alternate" hreflang="es" href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_laboral.html">
+  <link rel="alternate" hreflang="en" href="https://tilomachado.github.io/OpenMindOficial/cursos/job_market.html">
 
-    <!-- Estilos CSS -->
-    <style>
-        /* Estilos Gerais */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff; /* Azul claro para um fundo suave */
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
+  <!-- Estilos Gerais do Curso -->
+  <style>
+    /* Estilos Gerais */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f0f8ff;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+    }
+    
+    header {
+      background-color: #32cd32;
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      border-bottom: 5px solid #228b22;
+    }
+    
+    h1 {
+      font-size: 3.2em;
+      margin: 0;
+      letter-spacing: 3px;
+    }
+    
+    p {
+      font-size: 1.4em;
+      max-width: 850px;
+      margin: 10px auto;
+    }
+    
+    .course-content {
+      margin: 40px auto;
+      padding: 40px;
+      background-color: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      max-width: 960px;
+    }
+    
+    h2 {
+      font-size: 2.2em;
+      color: #2d3e50;
+      margin-bottom: 25px;
+      text-align: center;
+    }
+    
+    .module p {
+      font-size: 1.2em;
+      margin: 12px 0;
+    }
+    
+    .module ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+    
+    .module li {
+      font-size: 1.2em;
+      margin-bottom: 12px;
+      padding-left: 18px;
+      position: relative;
+    }
+    
+    .module li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #228b22;
+      font-weight: bold;
+    }
+    
+    .cta-button {
+      display: inline-block;
+      background-color: #228b22;
+      color: white;
+      padding: 14px 22px;
+      text-decoration: none;
+      border-radius: 6px;
+      font-size: 1.3em;
+      text-align: center;
+      margin: 25px 0;
+      transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    }
+    
+    .cta-button:hover {
+      background-color: #006400;
+      transform: scale(1.05);
+    }
+    
+    footer {
+      background-color: #2d3e50;
+      color: white;
+      text-align: center;
+      padding: 18px 0;
+      width: 100%;
+      margin-top: 30px;
+    }
+    
+    footer p {
+      margin: 0;
+    }
+    
+    footer nav {
+      margin-top: 10px;
+    }
+    
+    footer nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 10px;
+    }
+    
+    footer nav a:hover {
+      text-decoration: underline;
+    }
+  </style>
 
-        /* Cabeçalho */
-        header {
-            background-color: #32cd32; /* Cor verde vibrante para o header */
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-bottom: 5px solid #228b22; /* Cor de destaque mais intensa */
-        }
+  <!-- Estilos de Carregamento -->
+  <style>
+    #loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: #f0f0f0;
+      animation: fadeIn 0.5s ease forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    #loading-text {
+      font-family: "Segoe UI", sans-serif;
+      font-size: 1.5rem;
+      color: #333;
+      transition: opacity 0.3s ease;
+    }
+    .progress-bar-container {
+      width: 80%;
+      max-width: 400px;
+      height: 4px;
+      background-color: #ccc;
+      border-radius: 2px;
+      margin-top: 20px;
+      overflow: hidden;
+    }
+    .progress-bar {
+      height: 100%;
+      background-color: #0078d4;
+      width: 0%;
+      animation: progress 5s linear forwards;
+    }
+    @keyframes progress {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+  </style>
 
-        h1 {
-            font-size: 3.2em;
-            margin: 0;
-            letter-spacing: 3px;
-        }
+  <!-- Estilos do Accordion Futurista -->
+  <style>
+    :root {
+      --bg-gradient-start: #0d1b2a;
+      --bg-gradient-end:   #415a77;
+      --header-bg:         rgba(255, 255, 255, 0.1);
+      --header-hover-bg:   rgba(255, 255, 255, 0.2);
+      --header-color:      #e0e0e0;
+      --content-bg:        #f0f8ff;
+      --shadow-light:      rgba(0, 0, 0, 0.3);
+      --shadow-dark:       rgba(0, 0, 0, 0.5);
+    }
 
-        p {
-            font-size: 1.4em;
-            max-width: 850px;
-            margin: 10px auto;
-        }
+    .accordion-item {
+      background: linear-gradient(135deg, var(--bg-gradient-start), var(--bg-gradient-end));
+      border-radius: 12px;
+      margin: 20px 0;
+      overflow: hidden;
+      box-shadow: 0 4px 15px var(--shadow-light);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .accordion-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px var(--shadow-dark);
+    }
+    .accordion-checkbox {
+      display: none;
+    }
+    .accordion-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px 30px;
+      background: var(--header-bg);
+      color: var(--header-color);
+      font-size: 1.3em;
+      font-weight: bold;
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.3s ease;
+    }
+    .accordion-header:hover {
+      background: var(--header-hover-bg);
+    }
+    .accordion-header::after {
+      content: '\25BC';
+      transition: transform 0.3s ease;
+      font-size: 1.2em;
+    }
+    .accordion-checkbox:checked + .accordion-header::after {
+      transform: rotate(-180deg);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      background: var(--content-bg);
+      transition: max-height 0.5s ease, padding 0.5s ease;
+      padding: 0 30px;
+    }
+    .accordion-checkbox:checked ~ .accordion-content {
+      max-height: 1000px;
+      padding: 20px 30px;
+    }
+    .module {
+      animation: fadeInUp 0.6s ease both;
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @media (max-width: 600px) {
+      .accordion-header {
+        font-size: 1em;
+        padding: 15px 20px;
+      }
+      .accordion-content {
+        padding: 15px 20px;
+      }
+    }
+  </style>
 
-        /* Seção do Conteúdo */
-        .course-content {
-            margin: 40px auto;
-            padding: 40px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            max-width: 960px;
-        }
+  <!-- Scripts de Carregamento -->
+  <script>
+    // Altera o texto de carregamento após 5 segundos
+    setTimeout(function() {
+      var textEl = document.getElementById("loading-text");
+      textEl.style.opacity = 0;
+      setTimeout(function() {
+        textEl.innerText = "Carregando vídeo aulas em 4K...";
+        textEl.style.opacity = 1;
+      }, 300);
+    }, 5000);
 
-        h2 {
-            font-size: 2.2em;
-            color: #2d3e50; /* Azul escuro */
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        /* Módulo */
-        .module {
-            margin-bottom: 40px;
-        }
-
-        .module h3 {
-            font-size: 1.8em;
-            color: #228b22; /* Tom de verde mais intenso para os títulos dos módulos */
-            margin-bottom: 12px;
-        }
-
-        .module p {
-            font-size: 1.2em;
-            margin: 12px 0;
-        }
-
-        .module ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .module li {
-            font-size: 1.2em;
-            margin-bottom: 12px;
-            padding-left: 18px;
-            position: relative;
-        }
-
-        .module li::before {
-            content: "✔";
-            position: absolute;
-            left: 0;
-            color: #228b22; /* Verde para os checkmarks */
-            font-weight: bold;
-        }
-
-        /* Seção de Destaque */
-        .section-highlight {
-            background-color: #98fb98; /* Cor de fundo verde claro */
-            border-left: 6px solid #228b22; /* Verde */
-            padding: 18px;
-            margin: 25px 0;
-            font-size: 1.2em;
-            border-radius: 5px;
-        }
-
-        /* Botão de Chamada para Ação */
-        .cta-button {
-            display: inline-block;
-            background-color: #228b22; /* Verde brilhante */
-            color: white;
-            padding: 14px 22px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 1.3em;
-            text-align: center;
-            margin: 25px 0;
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-        }
-
-        .cta-button:hover {
-            background-color: #006400; /* Verde mais forte ao passar o mouse */
-            transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
-        }
-
-        /* Rodapé */
-        footer {
-            background-color: #2d3e50; /* Azul escuro para o rodapé */
-            color: white;
-            text-align: center;
-            padding: 18px 0;
-            position: relative;
-            width: 100%;
-            margin-top: 30px;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-        footer nav {
-            margin-top: 10px;
-        }
-
-        footer nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 10px;
-        }
-
-        footer nav a:hover {
-            text-decoration: underline;
-        }
-    </style>
+    // Exibe o conteúdo após 10 segundos
+    setTimeout(function() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }, 10000);
+  </script>
 </head>
 <body>
-    <div id="loading">
-        <p id="loading-text">Criando Sala Virtual...</p>
-        <div class="progress-bar-container">
-          <div class="progress-bar"></div>
-        </div>
-      </div>
-      
-      <style>
-        /* Container geral com fade-in sutil */
-        #loading {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 100vh;
-          background: #f0f0f0; /* Fundo claro */
-          animation: fadeIn 0.5s ease forwards;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        
-        /* Texto com fonte e transição suaves */
-        #loading-text {
-          font-family: "Segoe UI", sans-serif;
-          font-size: 1.5rem;
-          color: #333;
-          transition: opacity 0.3s ease;
-        }
-        
-        /* Container da barra de progresso */
-        .progress-bar-container {
-          width: 80%;
-          max-width: 400px;
-          height: 4px;
-          background-color: #ccc;
-          border-radius: 2px;
-          margin-top: 20px;
-          overflow: hidden;
-        }
-        
-        /* Barra de progresso com animação linear */
-        .progress-bar {
-          height: 100%;
-          background-color: #0078d4; /* Azul característico do Windows */
-          width: 0%;
-          animation: progress 5s linear forwards;
-        }
-        
-        @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-      </style>
-      
-      <script>
-        // Após 5 segundos, faz a transição do texto de forma suave
-        setTimeout(function() {
-          var textEl = document.getElementById("loading-text");
-          // Inicia a transição de opacidade (fade-out)
-          textEl.style.opacity = 0;
-          // Após 300ms (tempo suficiente para o fade-out), altera o texto e faz fade-in
-          setTimeout(function() {
-            textEl.innerText = "Carregando vídeo aulas em 4K...";
-            textEl.style.opacity = 1;
-          }, 300);
-        }, 5000);
-      </script>
-      
-    
-    <style>
-        /* Carregamento - Estilo */
-        #loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            font-size: 2rem;
-            color: #4CAF50;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-    
-        /* Container da barra de progresso */
-        .progress-bar-container {
-            width: 80%;
-            height: 20px;
-            background-color: #f3f3f3;
-            margin-top: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-    
-        /* Barra de progresso */
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background-color: hsl(152, 99%, 32%);
-            animation: loading 40s linear forwards;
-        }
-    
-        /* Animação de carregamento (da esquerda para a direita) */
-        @keyframes loading {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-    
-        /* Efeito de fade-in */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-    
-        /* Esconde o conteúdo inicialmente */
-        #content {
-            display: none;
-        }
-    </style>
-    
-    <script>
-        // Função de carregamento de 10 segundos
-        setTimeout(function() {
-            document.getElementById('loading').style.display = 'none'; // Oculta o carregamento
-            document.getElementById('content').style.display = 'block'; // Exibe o conteúdo
-        }, 10000);
-    </script>
-    
-    <div id="content" style="display: none;">
+  <!-- Tela de Carregamento -->
+  <div id="loading">
+    <p id="loading-text">Criando Sala Virtual...</p>
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
 
+  <!-- Conteúdo Principal (oculto inicialmente) -->
+  <div id="content" style="display: none;">
     <header>
-        <h1>Preparação para o Mercado de Trabalho - Curso Avançado</h1>
-        <p>Este curso prepara você para ser um profissional competitivo no mercado de trabalho, com habilidades essenciais em busca de emprego e desenvolvimento de carreira.</p>
+      <h1>Preparação para o Mercado de Trabalho - Curso Avançado</h1>
+      <p>Este curso prepara você para ser um profissional competitivo no mercado, com habilidades essenciais para buscar emprego e desenvolver sua carreira.</p>
     </header>
 
     <section class="course-content">
-        <h2>Conteúdo do Curso:</h2>
-        
-        <!-- Módulo 1 -->
-        <div class="module">
-            <h3>Módulo 1: Como Elaborar um Currículo Imbatível</h3>
-            <p>Saiba como criar um currículo que destaque suas habilidades e conquiste a atenção dos recrutadores.</p>
-            <ul>
-                <li>Estrutura básica do currículo</li>
-                <li>Como descrever suas experiências profissionais</li>
-                <li>Como escolher as palavras certas para seu currículo</li>
-            </ul>
-            <a href="mestredoswaulas1.html" class="cta-button">Aula Prática em Vídeo</a>
-        </div>
-
-        <!-- Módulo 2 -->
-        <div class="module">
-            <h3>Módulo 2: Como Preparar para Entrevistas de Emprego</h3>
-            <p>Este módulo irá ensinar como se preparar para entrevistas e causar uma ótima impressão.</p>
-            <ul>
-                <li>Como se comportar durante a entrevista</li>
-                <li>Respondendo perguntas difíceis com confiança</li>
-                <li>Como demonstrar suas habilidades e experiência</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 3 -->
-        <div class="module">
-            <h3>Módulo 3: Soft Skills para o Sucesso Profissional</h3>
-            <p>Aprenda habilidades interpessoais essenciais para se destacar no ambiente de trabalho.</p>
-            <ul>
-                <li>Comunicação eficaz no ambiente profissional</li>
-                <li>Trabalho em equipe e liderança</li>
-                <li>Gestão de conflitos e resolução de problemas</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 4 -->
-        <div class="module">
-            <h3>Módulo 4: Networking e Construção de Relações Profissionais</h3>
-            <p>Entenda como construir e manter uma rede de contatos poderosa para o seu crescimento profissional.</p>
-            <ul>
-                <li>Estratégias para networking eficaz</li>
-                <li>Como cultivar relacionamentos profissionais</li>
-                <li>Utilizando o LinkedIn para alavancar sua carreira</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 5 -->
-        <div class="module">
-            <h3>Módulo 5: Como Enfrentar Desafios e Crescer na Carreira</h3>
-            <p>Este módulo ajuda a desenvolver a mentalidade necessária para crescer na carreira e enfrentar os desafios do mercado de trabalho.</p>
-            <ul>
-                <li>Como lidar com mudanças no ambiente de trabalho</li>
-                <li>Definindo metas de carreira e o plano de ação</li>
-                <li>Superando obstáculos e avançando na carreira</li>
-            </ul>
-        </div>
-
-        <!-- Seção de Destaque -->
-        <div class="section-highlight">
-            <h3>Estudos de Caso e Exemplos Práticos</h3>
-            <p>Ao longo do curso, você terá acesso a estudos de caso reais e exemplos práticos para aplicar as estratégias no mercado de trabalho.</p>
-        </div>
-
-        <!-- Nova Seção de Destaque -->
-        <div class="section-highlight">
-            <h3>Novos Conteúdos em Breve!</h3>
-            <p>Fique atento às atualizações do curso com novos módulos e dicas sobre o mundo profissional!</p>
-        </div>
-
-        <!-- Aula Introdutória -->
-        <div class="section-highlight">
-            <h3>Aula Introdutória</h3>
+      <h2>Conteúdo do Curso:</h2>
+       <!-- Aula Introdutória: Accordion -->
+      <div class="accordion-item">
+        <input type="checkbox" id="accordion8" class="accordion-checkbox" hidden>
+        <label for="accordion8" class="accordion-header">Aula Introdutória</label>
+        <div class="accordion-content">
+          <div class="module">
             <p>Aprenda como identificar suas habilidades, agregar valor à vida das pessoas e se destacar no mercado. Vamos guiá-lo para entender as reais necessidades humanas, conectar-se profundamente com os outros e resolver problemas de forma impactante. Acreditamos que sua mentalidade e persistência são as chaves para criar oportunidades extraordinárias e atingir seus sonhos.</p>
             <a href="https://typebot.co/aula-edpp1z9" class="cta-button" target="_blank" rel="noopener noreferrer">Assistir Aula Introdutória</a>
+          </div>
         </div>
+      </div>
+
+      <!-- Módulo 1: Accordion -->
+<div class="accordion-item">
+    <input type="checkbox" id="accordion1" class="accordion-checkbox" hidden>
+    <label for="accordion1" class="accordion-header">Módulo 1: Como Elaborar um Currículo Imbatível</label>
+    <div class="accordion-content">
+      <div class="module">
+        <p>Um currículo bem elaborado pode ser a chave para conquistar oportunidades no mercado de trabalho. Segundo um estudo da <strong>Harvard Business Review</strong>, recrutadores gastam em média <strong>6 segundos</strong> analisando cada currículo antes de decidir se um candidato passa para a próxima etapa.</p>
+  
+        <p>No contexto moçambicano, onde a competitividade por empregos formais é alta, um currículo bem estruturado pode ser a diferença entre conseguir ou perder uma vaga. Muitas empresas priorizam candidatos que apresentam um documento limpo, direto e alinhado com os padrões internacionais.</p>
+  
+        <ul>
+          <li><strong>Estrutura básica do currículo:</strong> Nome completo, contatos atualizados, resumo profissional, experiências, habilidades e formação acadêmica.</li>
+          <li><strong>Como descrever suas experiências profissionais:</strong> Use a metodologia STAR (Situação, Tarefa, Ação, Resultado) para destacar suas conquistas de forma objetiva.</li>
+          <li><strong>Escolhendo as palavras certas:</strong> Utilize palavras-chave alinhadas à vaga desejada. Em Moçambique, setores como tecnologia, finanças e engenharia valorizam descrições claras e diretas.</li>
+        </ul>
+  
+        <p>Exemplo global: Um profissional que trabalhou como <em>Analista de Dados</em> pode escrever:</p>
+        <blockquote>"Gerenciei um banco de dados com mais de 1 milhão de registros, otimizando consultas SQL e reduzindo o tempo de resposta em 35%."</blockquote>
+  
+        <p>Exemplo local: Um técnico de informática em Moçambique pode destacar:</p>
+        <blockquote>"Realizei mais de 500 manutenções de hardware e software, aumentando a eficiência operacional de empresas locais."</blockquote>
+  
+        <a href="mestredoswaulas1.html" class="cta-button">▶️ Assistir Aula Prática em Vídeo</a>
+      </div>
+    </div>
+  </div>
+  
+
+      <!-- Módulo 2: Accordion -->
+      <div class="accordion-item">
+        <input type="checkbox" id="accordion2" class="accordion-checkbox" hidden>
+        <label for="accordion2" class="accordion-header">Módulo 2: Como Preparar para Entrevistas de Emprego</label>
+        <div class="accordion-content">
+          <div class="module">
+            <p>Este módulo ensinará como se preparar para entrevistas e causar uma ótima impressão.</p>
+            <ul>
+              <li>Como se comportar durante a entrevista</li>
+              <li>Respondendo perguntas difíceis com confiança</li>
+              <li>Como demonstrar suas habilidades e experiência</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Módulo 3: Accordion -->
+      <div class="accordion-item">
+        <input type="checkbox" id="accordion3" class="accordion-checkbox" hidden>
+        <label for="accordion3" class="accordion-header">Módulo 3: Soft Skills para o Sucesso Profissional</label>
+        <div class="accordion-content">
+          <div class="module">
+            <p>Aprenda habilidades interpessoais essenciais para se destacar no ambiente de trabalho.</p>
+            <ul>
+              <li>Comunicação eficaz no ambiente profissional</li>
+              <li>Trabalho em equipe e liderança</li>
+              <li>Gestão de conflitos e resolução de problemas</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Módulo 4: Accordion -->
+      <div class="accordion-item">
+        <input type="checkbox" id="accordion4" class="accordion-checkbox" hidden>
+        <label for="accordion4" class="accordion-header">Módulo 4: Networking e Construção de Relações Profissionais</label>
+        <div class="accordion-content">
+          <div class="module">
+            <p>Entenda como construir e manter uma rede de contatos poderosa para o seu crescimento profissional.</p>
+            <ul>
+              <li>Estratégias para networking eficaz</li>
+              <li>Como cultivar relacionamentos profissionais</li>
+              <li>Utilizando o LinkedIn para alavancar sua carreira</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Módulo 5: Accordion -->
+      <div class="accordion-item">
+        <input type="checkbox" id="accordion5" class="accordion-checkbox" hidden>
+        <label for="accordion5" class="accordion-header">Módulo 5: Como Enfrentar Desafios e Crescer na Carreira</label>
+        <div class="accordion-content">
+          <div class="module">
+            <p>Desenvolva a mentalidade necessária para crescer na carreira e enfrentar os desafios do mercado de trabalho.</p>
+            <ul>
+              <li>Como lidar com mudanças no ambiente de trabalho</li>
+              <li>Definindo metas de carreira e o plano de ação</li>
+              <li>Superando obstáculos e avançando na carreira</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Estudos de Caso e Exemplos Práticos: Accordion -->
+      <div class="accordion-item">
+        <input type="checkbox" id="accordion6" class="accordion-checkbox" hidden>
+        <label for="accordion6" class="accordion-header">Estudos de Caso e Exemplos Práticos</label>
+        <div class="accordion-content">
+          <div class="module">
+            <p>Ao longo do curso, você terá acesso a estudos de caso reais e exemplos práticos para aplicar as estratégias no mercado de trabalho.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Novos Conteúdos em Breve!: Accordion -->
+      <div class="accordion-item">
+        <input type="checkbox" id="accordion7" class="accordion-checkbox" hidden>
+        <label for="accordion7" class="accordion-header">Novos Conteúdos em Breve!</label>
+        <div class="accordion-content">
+          <div class="module">
+            <p>Fique atento às atualizações do curso com novos módulos e dicas sobre o mundo profissional!</p>
+          </div>
+        </div>
+      </div>
+
+     
+
     </section>
 
-    <!-- Rodapé -->
     <footer>
-        <p>Open Mind - Todos os direitos reservados © 2025</p>
-        <nav>
-            <a href="politica-de-privacidade.html">Política de Privacidade</a> |
-            <a href="termos-de-uso.html">Termos de Uso</a> |
-            <a href="https://linkedin.com/company/openmind" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-        </nav>
+      <p>Open Mind - Todos os direitos reservados © 2025</p>
+      <nav>
+        <a href="politica-de-privacidade.html">Política de Privacidade</a> |
+        <a href="termos-de-uso.html">Termos de Uso</a> |
+        <a href="https://linkedin.com/company/openmind" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+      </nav>
     </footer>
-
+  </div>
 </body>
 </html>
