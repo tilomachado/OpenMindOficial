@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Preparação para o Mercado de Trabalho - Curso Gratuito</title>
+  <title>Gestão de Negócios - Curso Avançado</title>
 
   <!-- Metadados -->
-  <meta name="description" content="Curso gratuito da Open Mind: prepare-se para o mercado de trabalho com habilidades práticas e estratégias para se destacar profissionalmente.">
-  <meta name="keywords" content="mercado de trabalho, curso gratuito, Open Mind, desenvolvimento profissional, habilidades práticas, empregabilidade">
+  <meta name="description" content="Curso gratuito da Open Mind: prepare-se para liderar e gerenciar negócios com estratégias inovadoras e habilidades práticas para o sucesso empresarial.">
+  <meta name="keywords" content="gestão de negócios, curso gratuito, Open Mind, liderança, planejamento estratégico, finanças, inovação, empreendedorismo">
   <meta name="author" content="Tilo Machado">
   <meta name="robots" content="index, follow">
 
@@ -24,27 +24,31 @@
   </script>
 
   <!-- Suporte a múltiplos idiomas -->
-  <link rel="alternate" hreflang="pt" href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_trabalho.html">
-  <link rel="alternate" hreflang="es" href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_laboral.html">
-  <link rel="alternate" hreflang="en" href="https://tilomachado.github.io/OpenMindOficial/cursos/job_market.html">
+  <link rel="alternate" hreflang="pt" href="https://tilomachado.github.io/OpenMindOficial/cursos/gestao_negocios.html">
+  <link rel="alternate" hreflang="es" href="https://tilomachado.github.io/OpenMindOficial/cursos/gestion_negocios.html">
+  <link rel="alternate" hreflang="en" href="https://tilomachado.github.io/OpenMindOficial/cursos/business_management.html">
 
-  <!-- Estilos Gerais do Curso -->
+  <!-- Estilos Gerais do Curso - Dark Glass com Cores Vivas -->
   <style>
-   /* Estilos Gerais - Dark Glass com Cores Vivas */
-body {
+   body {
   font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #121212, #1e1e1e);
+  background: linear-gradient(135deg, #0d0d0d, #292929);
   color: #e0e0e0;
   margin: 0;
   padding: 0;
   line-height: 1.6;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
-/* Cabeçalho com efeito Glass e Cores Vibrantes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Cabeçalho com efeito dinâmico */
 header {
-  background: rgba(255, 69, 0, 0.2);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
+  background: linear-gradient(135deg, #ff4500, #ff8c00);
+  animation: headerAnimation 4s infinite alternate ease-in-out;
   color: #ffffff;
   padding: 50px 20px;
   text-align: center;
@@ -52,30 +56,35 @@ header {
   box-shadow: 0 6px 20px rgba(255, 69, 0, 0.3);
 }
 
+@keyframes headerAnimation {
+  0% { background: linear-gradient(135deg, #ff4500, #ff8c00); }
+  100% { background: linear-gradient(135deg, #ff8c00, #ff4500); }
+}
+
 h1 {
   font-size: 3.2em;
   margin: 0;
   letter-spacing: 3px;
   text-shadow: 2px 2px 15px rgba(255, 165, 0, 0.7);
+  animation: textGlow 2s infinite alternate;
 }
 
-p {
-  font-size: 1.4em;
-  max-width: 100%;
-  margin: 10px auto;
-  text-align: center;
+@keyframes textGlow {
+  0% { text-shadow: 2px 2px 15px rgba(255, 165, 0, 0.7); }
+  100% { text-shadow: 2px 2px 25px rgba(255, 69, 0, 0.9); }
 }
 
-/* Seção do Curso - Glass Effect com Fundo Infinito */
+/* Efeito de fade-in para seção de curso */
 .course-content {
   margin: 40px auto;
   padding: 40px;
   background: rgba(0, 255, 127, 0.2);
   backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
   border-radius: 15px;
   box-shadow: 0 8px 25px rgba(0, 255, 127, 0.5);
   max-width: 100%;
+  opacity: 0;
+  animation: fadeIn 1.5s ease-in-out forwards 0.5s;
 }
 
 h2 {
@@ -84,7 +93,7 @@ h2 {
   text-align: center;
 }
 
-/* Botões de CTA com Cores Mais Vivas */
+/* Botão animado */
 .cta-button {
   display: inline-block;
   background: rgba(0, 191, 255, 0.4);
@@ -97,6 +106,7 @@ h2 {
   text-align: center;
   margin: 25px 0;
   transition: all 0.3s ease-in-out;
+  animation: pulse 2s infinite;
 }
 
 .cta-button:hover {
@@ -105,32 +115,15 @@ h2 {
   color: #fff;
 }
 
-/* Rodapé */
-footer {
-  background: rgba(255, 69, 0, 0.2);
-  color: white;
-  text-align: center;
-  padding: 18px 0;
-  width: 100%;
-  margin-top: 30px;
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
 }
 
-footer a {
-  color: white;
-  text-decoration: none;
-  margin: 0 10px;
-  transition: color 0.3s;
-}
-
-footer a:hover {
-  color: #ffcc00;
-}
-
-/* Accordion Glass Effect com Destaque */
+/* Efeito no Accordion */
 .accordion-item {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(15px);
-  -webkit-backdrop-filter: blur(15px);
   border-radius: 15px;
   margin: 20px 0;
   overflow: hidden;
@@ -153,7 +146,6 @@ footer a:hover {
   font-size: 1.4em;
   font-weight: bold;
   cursor: pointer;
-  user-select: none;
   transition: background 0.3s ease;
 }
 
@@ -161,7 +153,6 @@ footer a:hover {
   background: rgba(255, 165, 0, 0.5);
 }
 
-/* Ajuste no Accordion para expandir completamente o conteúdo */
 .accordion-content {
   height: 0;
   opacity: 0;
@@ -169,7 +160,6 @@ footer a:hover {
   transition: height 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 
-/* Quando o módulo for ativado, o conteúdo aparecerá completamente */
 .accordion-checkbox:checked ~ .accordion-content {
   height: auto;
   opacity: 1;
@@ -177,8 +167,29 @@ footer a:hover {
   padding: 20px;
 }
 
+/* Rodapé com fade-in */
+footer {
+  background: rgba(255, 69, 0, 0.2);
+  color: white;
+  text-align: center;
+  padding: 18px 0;
+  width: 100%;
+  margin-top: 30px;
+  animation: fadeIn 2s ease-in-out;
+}
 
-/* Responsividade */
+footer a {
+  color: white;
+  text-decoration: none;
+  margin: 0 10px;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #ffcc00;
+}
+
+/* Responsividade aprimorada */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.8em;
@@ -193,6 +204,7 @@ footer a:hover {
     font-size: 1.2em;
   }
 }
+
   </style>
 
   <!-- Scripts de Carregamento -->
@@ -226,65 +238,57 @@ footer a:hover {
   <!-- Conteúdo Principal (oculto inicialmente) -->
   <div id="content" style="display: none;">
     <header>
-      <h1>Preparação para o Mercado de Trabalho - Curso Avançado</h1>
-      <p>Este curso prepara você para ser um profissional competitivo no mercado, com habilidades essenciais para buscar emprego e desenvolver sua carreira.</p>
+      <h1>Gestão de Negócios - Curso Avançado</h1>
+      <p>Prepare-se para liderar e gerenciar empresas com estratégias inovadoras e práticas essenciais para o sucesso empresarial.</p>
     </header>
 
     <section class="course-content">
       <h2>Conteúdo do Curso:</h2>
-       <!-- Aula Introdutória: Accordion -->
+      
+      <!-- Aula Introdutória: Accordion -->
       <div class="accordion-item">
         <input type="checkbox" id="accordion8" class="accordion-checkbox" hidden>
-        <label for="accordion8" class="accordion-header">Aula Introdutória</label>
+        <label for="accordion8" class="accordion-header">Aula Introdutória: Fundamentos da Gestão</label>
         <div class="accordion-content">
           <div class="module">
-            <p>Aprenda como identificar suas habilidades, agregar valor à vida das pessoas e se destacar no mercado. Vamos guiá-lo para entender as reais necessidades humanas, conectar-se profundamente com os outros e resolver problemas de forma impactante. Acreditamos que sua mentalidade e persistência são as chaves para criar oportunidades extraordinárias e atingir seus sonhos.</p>
-            <a href="https://typebot.co/aula-edpp1z9" class="cta-button" target="_blank" rel="noopener noreferrer">Assistir Aula Introdutória</a>
+            <p>Descubra os conceitos essenciais da gestão e como aplicar estratégias inovadoras para transformar desafios em oportunidades. Esta aula introdutória abrirá seu caminho para o universo da liderança e administração eficaz.</p>
+            <a href="https://typebot.co/aula-introdutoria-gestao" class="cta-button" target="_blank" rel="noopener noreferrer">Assistir Aula Introdutória</a>
           </div>
         </div>
       </div>
 
       <!-- Módulo 1: Accordion -->
-<div class="accordion-item">
-    <input type="checkbox" id="accordion1" class="accordion-checkbox" hidden>
-    <label for="accordion1" class="accordion-header">Módulo 1: Como Elaborar um Currículo Imbatível</label>
-    <div class="accordion-content">
-      <div class="module">
-        <p>Um currículo bem elaborado pode ser a chave para conquistar oportunidades no mercado de trabalho. Segundo um estudo da <strong>Harvard Business Review</strong>, recrutadores gastam em média <strong>6 segundos</strong> analisando cada currículo antes de decidir se um candidato passa para a próxima etapa.</p>
-  
-        <p>No contexto moçambicano, onde a competitividade por empregos formais é alta, um currículo bem estruturado pode ser a diferença entre conseguir ou perder uma vaga. Muitas empresas priorizam candidatos que apresentam um documento limpo, direto e alinhado com os padrões internacionais.</p>
-  
-        <ul>
-          <li><strong>Estrutura básica do currículo:</strong> Nome completo, contatos atualizados, resumo profissional, experiências, habilidades e formação acadêmica.</li>
-          <li><strong>Como descrever suas experiências profissionais:</strong> Use a metodologia STAR (Situação, Tarefa, Ação, Resultado) para destacar suas conquistas de forma objetiva.</li>
-          <li><strong>Escolhendo as palavras certas:</strong> Utilize palavras-chave alinhadas à vaga desejada. Em Moçambique, setores como tecnologia, finanças e engenharia valorizam descrições claras e diretas.</li>
-        </ul>
-  
-       </div>
-       <p>Exemplo global: Um profissional que trabalhou como <em>Analista de Dados</em> pode escrever:</p>
-       <blockquote>"Gerenciei um banco de dados com mais de 1 milhão de registros, otimizando consultas SQL e reduzindo o tempo de resposta em 35%."</blockquote>
- 
-       <p>Exemplo local: Um técnico de informática em Moçambique pode destacar:</p>
-       <blockquote>"Realizei mais de 500 manutenções de hardware e software, aumentando a eficiência operacional de empresas locais."</blockquote>
- 
-       <a href="mestredoswaulas1.html" class="cta-button">▶️ Assistir Aula Prática em Vídeo</a>
-     
-    </div>
-  </div>
-  
+      <div class="accordion-item">
+        <input type="checkbox" id="accordion1" class="accordion-checkbox" hidden>
+        <label for="accordion1" class="accordion-header">Módulo 1: Fundamentos da Gestão de Negócios</label>
+        <div class="accordion-content">
+          <div class="module">
+            <h1>Olá, gestores!</h1>
+            <p>Bem-vindos à nossa aula prática sobre os fundamentos da gestão de negócios! Hoje, vamos explorar os conceitos essenciais que sustentam uma administração eficaz, desde a definição de missão, visão e valores até a análise do ambiente competitivo.</p>
+            <ul>
+              <li><strong>Conceitos Básicos:</strong> Entenda os pilares da gestão, incluindo missão, visão e valores, que direcionam a estratégia empresarial.</li>
+              <li><strong>Análise do Ambiente:</strong> Aprenda a utilizar ferramentas como SWOT para identificar oportunidades e desafios no mercado.</li>
+              <li><strong>Estrutura Organizacional:</strong> Descubra como a organização interna impacta a eficiência e a competitividade da empresa.</li>
+            </ul>
+            <a href="aula-pratica-modulo1.html" class="cta-button">▶️ Assistir Aula Prática</a>
+          </div>
+        </div>
+      </div>
 
       <!-- Módulo 2: Accordion -->
       <div class="accordion-item">
         <input type="checkbox" id="accordion2" class="accordion-checkbox" hidden>
-        <label for="accordion2" class="accordion-header">Módulo 2: Como Preparar para Entrevistas de Emprego</label>
+        <label for="accordion2" class="accordion-header">Módulo 2: Planejamento Estratégico e Análise de Mercado</label>
         <div class="accordion-content">
           <div class="module">
-            <p>Este módulo ensinará como se preparar para entrevistas e causar uma ótima impressão.</p>
+            <h1>Bem-vindos à estratégia!</h1>
+            <p>Este módulo mostrará como analisar o mercado e definir estratégias que impulsionem o crescimento sustentável da sua organização.</p>
             <ul>
-              <li>Como se comportar durante a entrevista</li>
-              <li>Respondendo perguntas difíceis com confiança</li>
-              <li>Como demonstrar suas habilidades e experiência</li>
+              <li><strong>Análise de Mercado:</strong> Identifique tendências e oportunidades através de análises detalhadas.</li>
+              <li><strong>Definição de Objetivos:</strong> Aprenda a estabelecer metas estratégicas alinhadas aos desafios do mercado.</li>
+              <li><strong>Planos de Ação:</strong> Desenvolva estratégias práticas para transformar oportunidades em resultados.</li>
             </ul>
+            <a href="aula-pratica-modulo2.html" class="cta-button">▶️ Assistir Aula Prática</a>
           </div>
         </div>
       </div>
@@ -292,15 +296,17 @@ footer a:hover {
       <!-- Módulo 3: Accordion -->
       <div class="accordion-item">
         <input type="checkbox" id="accordion3" class="accordion-checkbox" hidden>
-        <label for="accordion3" class="accordion-header">Módulo 3: Soft Skills para o Sucesso Profissional</label>
+        <label for="accordion3" class="accordion-header">Módulo 3: Gestão Financeira e Controle de Custos</label>
         <div class="accordion-content">
           <div class="module">
-            <p>Aprenda habilidades interpessoais essenciais para se destacar no ambiente de trabalho.</p>
+            <h1>Controle e Crescimento Financeiro</h1>
+            <p>Aprenda a administrar os recursos financeiros da empresa, controlar custos e maximizar lucros por meio de um planejamento financeiro eficaz.</p>
             <ul>
-              <li>Comunicação eficaz no ambiente profissional</li>
-              <li>Trabalho em equipe e liderança</li>
-              <li>Gestão de conflitos e resolução de problemas</li>
+              <li><strong>Fundamentos Financeiros:</strong> Entenda os conceitos básicos de finanças empresariais.</li>
+              <li><strong>Orçamento e Planejamento:</strong> Desenvolva estratégias para a alocação eficiente de recursos.</li>
+              <li><strong>Controle de Custos:</strong> Implemente práticas que garantam a sustentabilidade financeira.</li>
             </ul>
+            <a href="aula-pratica-modulo3.html" class="cta-button">▶️ Assistir Aula Prática</a>
           </div>
         </div>
       </div>
@@ -308,15 +314,17 @@ footer a:hover {
       <!-- Módulo 4: Accordion -->
       <div class="accordion-item">
         <input type="checkbox" id="accordion4" class="accordion-checkbox" hidden>
-        <label for="accordion4" class="accordion-header">Módulo 4: Networking e Construção de Relações Profissionais</label>
+        <label for="accordion4" class="accordion-header">Módulo 4: Liderança e Gestão de Pessoas</label>
         <div class="accordion-content">
           <div class="module">
-            <p>Entenda como construir e manter uma rede de contatos poderosa para o seu crescimento profissional.</p>
+            <h1>Desenvolvendo Líderes</h1>
+            <p>Descubra como desenvolver habilidades de liderança e gerir equipes de forma inspiradora para alcançar resultados extraordinários.</p>
             <ul>
-              <li>Estratégias para networking eficaz</li>
-              <li>Como cultivar relacionamentos profissionais</li>
-              <li>Utilizando o LinkedIn para alavancar sua carreira</li>
+              <li><strong>Técnicas de Liderança:</strong> Explore métodos para motivar e conduzir equipes com eficácia.</li>
+              <li><strong>Gestão de Conflitos:</strong> Aprenda a resolver conflitos e manter um ambiente de trabalho harmonioso.</li>
+              <li><strong>Coaching e Desenvolvimento:</strong> Estimule o crescimento pessoal e profissional dos colaboradores.</li>
             </ul>
+            <a href="aula-pratica-modulo4.html" class="cta-button">▶️ Assistir Aula Prática</a>
           </div>
         </div>
       </div>
@@ -324,15 +332,17 @@ footer a:hover {
       <!-- Módulo 5: Accordion -->
       <div class="accordion-item">
         <input type="checkbox" id="accordion5" class="accordion-checkbox" hidden>
-        <label for="accordion5" class="accordion-header">Módulo 5: Como Enfrentar Desafios e Crescer na Carreira</label>
+        <label for="accordion5" class="accordion-header">Módulo 5: Inovação e Transformação Digital</label>
         <div class="accordion-content">
           <div class="module">
-            <p>Desenvolva a mentalidade necessária para crescer na carreira e enfrentar os desafios do mercado de trabalho.</p>
+            <h1>Inovação nos Negócios</h1>
+            <p>Descubra como a inovação e a transformação digital estão remodelando o cenário empresarial e aprenda a implementar estratégias que mantenham sua empresa competitiva.</p>
             <ul>
-              <li>Como lidar com mudanças no ambiente de trabalho</li>
-              <li>Definindo metas de carreira e o plano de ação</li>
-              <li>Superando obstáculos e avançando na carreira</li>
+              <li><strong>Inovação e Criatividade:</strong> Explore métodos para fomentar a inovação dentro da organização.</li>
+              <li><strong>Transformação Digital:</strong> Entenda como as novas tecnologias podem revolucionar os processos empresariais.</li>
+              <li><strong>Implementação de Soluções:</strong> Saiba como adaptar sua empresa às mudanças do mercado com agilidade.</li>
             </ul>
+            <a href="aula-pratica-modulo5.html" class="cta-button">▶️ Assistir Aula Prática</a>
           </div>
         </div>
       </div>
@@ -343,7 +353,7 @@ footer a:hover {
         <label for="accordion6" class="accordion-header">Estudos de Caso e Exemplos Práticos</label>
         <div class="accordion-content">
           <div class="module">
-            <p>Ao longo do curso, você terá acesso a estudos de caso reais e exemplos práticos para aplicar as estratégias no mercado de trabalho.</p>
+            <p>Ao longo do curso, você terá acesso a estudos de caso reais e exemplos práticos que demonstram a aplicação das estratégias de gestão em cenários empresariais variados.</p>
           </div>
         </div>
       </div>
@@ -354,12 +364,10 @@ footer a:hover {
         <label for="accordion7" class="accordion-header">Novos Conteúdos em Breve!</label>
         <div class="accordion-content">
           <div class="module">
-            <p>Fique atento às atualizações do curso com novos módulos e dicas sobre o mundo profissional!</p>
+            <p>Fique atento às atualizações do curso com novos módulos, ferramentas e dicas que potencializarão sua capacidade de gerir negócios com excelência!</p>
           </div>
         </div>
       </div>
-
-     
 
     </section>
 
