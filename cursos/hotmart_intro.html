@@ -38,6 +38,7 @@
         }
 
         .cover h1 {
+            
             font-size: 48px;
             margin: 0;
             letter-spacing: 2px;
@@ -104,189 +105,151 @@
 </head>
 <body>
     <div id="loading">
-        <p id="loading-text">Criando Sala Virtual...</p>
-        <div class="progress-bar-container">
-          <div class="progress-bar"></div>
-        </div>
+        <div class="loader"></div>
+        <p id="loading-text">Carregando sala virtual e aulas em 4K...</p>
       </div>
       
-      <style>
-        /* Container geral com fade-in sutil */
-        #loading {
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          justify-content: center;
-          height: 100vh;
-          background: #f0f0f0; /* Fundo claro */
-          animation: fadeIn 0.5s ease forwards;
-        }
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
+      <div id="content" style="display:none;">
+        <style>
+            #loading {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.8);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                z-index: 9999;
+            }
         
-        /* Texto com fonte e transição suaves */
-        #loading-text {
-          font-family: "Segoe UI", sans-serif;
-          font-size: 1.5rem;
-          color: #333;
-          transition: opacity 0.3s ease;
-        }
+            .loader {
+                border: 8px solid #f3f3f3;
+                border-top: 8px solid #3498db;
+                border-radius: 50%;
+                width: 50px;
+                height: 50px;
+                animation: spin 2s linear infinite, colorChange 4s ease-in-out infinite;
+            }
         
-        /* Container da barra de progresso */
-        .progress-bar-container {
-          width: 80%;
-          max-width: 400px;
-          height: 4px;
-          background-color: #ccc;
-          border-radius: 2px;
-          margin-top: 20px;
-          overflow: hidden;
-        }
+            #loading-text {
+                margin-top: 20px;
+                color: white;
+                font-size: 18px;
+                font-weight: bold;
+            }
         
-        /* Barra de progresso com animação linear */
-        .progress-bar {
-          height: 100%;
-          background-color: #0078d4; /* Azul característico do Windows */
-          width: 0%;
-          animation: progress 5s linear forwards;
-        }
+            @keyframes spin {
+                0% { transform: rotate(0deg); }
+                100% { transform: rotate(360deg); }
+            }
         
-        @keyframes progress {
-          from { width: 0%; }
-          to { width: 100%; }
-        }
-      </style>
-      
-      <script>
-        // Após 5 segundos, faz a transição do texto de forma suave
-        setTimeout(function() {
-          var textEl = document.getElementById("loading-text");
-          // Inicia a transição de opacidade (fade-out)
-          textEl.style.opacity = 0;
-          // Após 300ms (tempo suficiente para o fade-out), altera o texto e faz fade-in
-          setTimeout(function() {
-            textEl.innerText = "Carregando vídeo aulas em 4K...";
-            textEl.style.opacity = 1;
-          }, 300);
-        }, 5000);
-      </script>
-      
-    
-    <style>
-        /* Carregamento - Estilo */
-        #loading {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            height: 100vh;
-            font-size: 2rem;
-            color: #4CAF50;
-            text-align: center;
-            animation: fadeIn 1s ease-in-out;
-        }
-    
-        /* Container da barra de progresso */
-        .progress-bar-container {
-            width: 80%;
-            height: 20px;
-            background-color: #f3f3f3;
-            margin-top: 20px;
-            border-radius: 10px;
-            overflow: hidden;
-        }
-    
-        /* Barra de progresso */
-        .progress-bar {
-            width: 0%;
-            height: 100%;
-            background-color: hsl(152, 99%, 32%);
-            animation: loading 40s linear forwards;
-        }
-    
-        /* Animação de carregamento (da esquerda para a direita) */
-        @keyframes loading {
-            0% { width: 0%; }
-            100% { width: 100%; }
-        }
-    
-        /* Efeito de fade-in */
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-    
-        /* Esconde o conteúdo inicialmente */
-        #content {
-            display: none;
-        }
-    </style>
-    
-    <script>
-        // Função de carregamento de 10 segundos
-        setTimeout(function() {
-            document.getElementById('loading').style.display = 'none'; // Oculta o carregamento
-            document.getElementById('content').style.display = 'block'; // Exibe o conteúdo
-        }, 10000);
-    </script>
-    
-    <div id="content" style="display: none;">
+            @keyframes colorChange {
+                0% { border-top-color: #3498db; }
+                25% { border-top-color: #e74c3c; }
+                50% { border-top-color: #2ecc71; }
+                75% { border-top-color: #f39c12; }
+                100% { border-top-color: #3498db; }
+            }
+        
+            .button-container {
+                text-align: center;
+                margin: 20px 0;
+            }
+        
+            .access-button {
+                display: inline-block;
+                background-color: #007BFF;
+                color: white;
+                padding: 10px 20px;
+                text-decoration: none;
+                font-size: 16px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+        
+            .access-button:hover {
+                background-color: #0056b3;
+            }
+        </style>
+        
+        <script>
+            window.addEventListener('load', function () {
+                setTimeout(function () {
+                    document.getElementById('loading').style.display = 'none';
+                    document.getElementById('content').style.display = 'block';
+                }, 10000); // Tempo reduzido para 2 segundos
+            });
+        </script>
     <div class="content">
         <h1>O que é a Hotmart?</h1>
-        <p>Descubra como esta plataforma revolucionou a venda de produtos digitais no mundo todo.</p>
-        <img src="produto1.webp" alt="Produto Vendido 1" class="result-photo">
-    </div>
-    
-    <div class="content">
-        <h2>Breve Histórico da Plataforma</h2>
-        <p>A Hotmart foi criada em 2011, no Brasil, com o objetivo de facilitar a comercialização de produtos digitais. Desde então, cresceu exponencialmente e tornou-se uma das maiores plataformas de distribuição de conteúdo digital do mundo.</p>
-        
-        <h2>Propósito e Alcance Global</h2>
-        <p>Capacitar empreendedores digitais ao redor do mundo. Com suporte em diferentes moedas e idiomas, a Hotmart se destaca como uma solução intuitiva e acessível para vendas online.</p>
-        
-        <h2>Principais Vantagens</h2>
-        <ul>
-            <li>✔️ <strong>Plataforma Intuitiva:</strong> Fácil de usar, mesmo para iniciantes.</li>
-            <li>🌍 <strong>Pagamentos Globais:</strong> Suporte para diversos métodos e moedas.</li>
-            <li>📊 <strong>Relatórios Detalhados:</strong> Insights poderosos para otimizar vendas.</li>
-        </ul>
-        
-    </div>
+<p>A Hotmart é uma plataforma brasileira que se tornou uma referência global na comercialização de produtos digitais. Lançada em 2011, a plataforma oferece um ambiente online para a venda e distribuição de produtos como cursos, e-books, software e outras ofertas digitais. Desde sua criação, a Hotmart revolucionou o mercado de vendas online, conectando produtores e afiliados ao redor do mundo e criando oportunidades de negócios para milhões de empreendedores.</p>
 
-    <div class="content">
-        <h2>Como Funciona?</h2>
-        <p>A Hotmart oferece uma ampla variedade de produtos digitais, como cursos, e-books, assinaturas e muito mais. Sua operação é baseada na interação de três participantes principais:</p>
-        <ul>
-            <li>🛠️ <strong>Produtor:</strong> Cria e disponibiliza o produto digital na plataforma.</li>
-            <li>📢 <strong>Afiliado:</strong> Promove os produtos e ganha comissão por vendas realizadas.</li>
-            <li>🛒 <strong>Comprador:</strong> Adquire produtos para aprendizado ou uso próprio.</li>
-        </ul>
-        
-    </div>
+<p>A plataforma é uma das maiores do mundo em seu setor e é especialmente popular em países da América Latina, como Brasil, México, e Argentina, mas seu alcance é global. De acordo com dados de 2023, a Hotmart já tem presença em mais de 180 países, incluindo Moçambique, oferecendo uma solução completa para quem deseja vender produtos digitais e obter comissões através do modelo de afiliados.</p>
 
-    <div class="content">
-        <h2>Criação de Conta</h2>
-        <h3>Passo a Passo</h3>
-        <ul>
-            <li>Acesse o site oficial da Hotmart.</li>
-            <li>Clique em “Cadastre-se” e escolha entre usar e-mail ou redes sociais.</li>
-            <li>Preencha as informações necessárias (nome, e-mail, senha) e aceite os Termos de Uso.</li>
-        </ul>
-        <h3>Configuração do Perfil</h3>
-        <ul>
-            <li>Adicione seu nome completo, foto de perfil e dados bancários.</li>
-            <li>Verifique a conta com documentos, caso seja solicitado.</li>
-        </ul>
+<img src="produto1.webp" alt="Produto Vendido 1" class="result-photo">
+
+<p>Por exemplo, no contexto moçambicano, a Hotmart tem se tornado cada vez mais relevante para empreendedores locais que desejam expandir seus negócios digitais. Um exemplo notável é o caso de Moçambique, onde muitos influenciadores e criadores de conteúdo começaram a vender cursos de capacitação online sobre marketing digital e habilidades empreendedoras, aproveitando o alcance global da Hotmart. Além disso, a Hotmart também permite que empreendedores de Moçambique ganhem comissões ao promoverem produtos digitais criados por outros produtores ao redor do mundo.</p>
+
+<p>Empreendedores locais estão utilizando a plataforma para monetizar suas ideias e se conectar com um público global. Por exemplo, a venda de cursos sobre o uso de ferramentas digitais, como o <a href="https://www.hotmart.com/" target="_blank">Canva</a> e o <a href="https://www.hotmart.com/" target="_blank">Google Ads</a>, tem se mostrado um sucesso crescente no país, ajudando a capacitar pessoas em áreas urbanas e rurais.</p>
+
+<p>Com isso, a Hotmart se estabelece como uma ferramenta fundamental para o crescimento de negócios digitais, permitindo que qualquer pessoa, independentemente de sua localização, tenha acesso a um mercado global. Essa transformação reflete o poder da digitalização, que tem democratizado o acesso ao conhecimento e à educação, especialmente em países com mercados emergentes, como Moçambique.</p>
+
+<p>A plataforma não só facilita a comercialização de produtos digitais, mas também oferece recursos como relatórios detalhados, gestão de afiliados e suporte ao cliente, o que torna o processo de venda mais eficiente e acessível. Ao promover produtos de outros empreendedores, qualquer pessoa pode começar a gerar receita, independente de seu conhecimento técnico prévio.</p>
+
+<p>Em resumo, a Hotmart é uma ponte entre produtores de conteúdo digital e consumidores ao redor do mundo. Sua missão de democratizar o acesso ao mercado global de produtos digitais está transformando vidas e negócios, e sua presença em Moçambique está crescendo, dando novas oportunidades aos empreendedores locais.</p>
+  </div>
     
-        <p class="cta-message">Em breve teremos aulas práticas! Mas veja alguns dos nossos resultados:</p>
+  <div class="content">
+    <h2>Breve Histórico da Plataforma</h2>
+    <p>A Hotmart foi fundada em 2011, no Brasil, com o propósito de democratizar a venda de produtos digitais. Desde então, a plataforma passou por um crescimento exponencial, transformando-se em uma das maiores e mais influentes soluções de distribuição de conteúdo digital em todo o mundo. A Hotmart surgiu para suprir a necessidade de uma solução acessível e eficiente para a comercialização de e-books, cursos online, softwares e outros produtos digitais. Hoje, ela é utilizada por mais de 180 países, incluindo Moçambique, e tem ajudado milhões de empreendedores a alcançar sucesso no mercado digital.</p>
     
-      <!-- Botão para acessar o site das aulas -->
-<div id="access-button" class="button-container">
-    <h2>Acesse as Aulas Agora:</h2>
-    <a href="aulasonlineHTMRT.html" class="access-button">Ir para as Aulas</a>
+    <h2>Propósito e Alcance Global</h2>
+    <p>A missão da Hotmart é capacitar empreendedores digitais ao redor do mundo, oferecendo uma plataforma simples e eficaz para vender produtos digitais. Com suporte em diferentes idiomas e moedas, a plataforma é acessível não apenas para os brasileiros, mas também para empreendedores em países emergentes como Moçambique. Ao oferecer soluções locais, a Hotmart permite que qualquer pessoa, independentemente de sua localização, possa gerar uma renda online. No contexto moçambicano, muitos empreendedores estão começando a explorar o potencial da Hotmart para expandir seus negócios e alcançar clientes globalmente.</p>
+    
+    <h2>Principais Vantagens</h2>
+    <ul>
+        <li>✔️ <strong>Plataforma Intuitiva:</strong> A Hotmart é extremamente fácil de usar, o que a torna acessível até mesmo para iniciantes no mundo digital. A interface é amigável e foi desenvolvida para atender tanto produtores quanto afiliados, independentemente de seu nível de experiência.</li>
+        <li>🌍 <strong>Pagamentos Globais:</strong> A Hotmart oferece suporte para diversos métodos de pagamento e várias moedas. Com a possibilidade de receber pagamentos em diferentes países e usando diferentes moedas, empreendedores de Moçambique, por exemplo, podem vender seus produtos para um público global sem se preocupar com as limitações financeiras ou burocráticas.</li>
+        <li>📊 <strong>Relatórios Detalhados:</strong> A plataforma disponibiliza relatórios detalhados sobre as vendas e o desempenho das campanhas, permitindo que produtores e afiliados acompanhem o progresso de suas vendas e otimizem suas estratégias para obter resultados ainda melhores. Esses relatórios são fundamentais para maximizar as vendas e aprimorar as estratégias de marketing.</li>
+    </ul>
 </div>
+
+
+<div class="content">
+    <h2>Como Funciona?</h2>
+    <p>A Hotmart oferece uma ampla variedade de produtos digitais, como cursos online, e-books, assinaturas e muito mais. A operação da plataforma é baseada na interação de três participantes principais, cada um desempenhando um papel crucial no ecossistema digital:</p>
+    <ul>
+        <li>🛠️ <strong>Produtor:</strong> O Produtor é responsável por criar e disponibilizar o produto digital na Hotmart. Ele pode ser um criador de conteúdo, um educador ou um desenvolvedor que quer compartilhar seu conhecimento ou produto com o mundo. Por exemplo, um produtor de Moçambique pode criar um curso de marketing digital e colocá-lo à venda para compradores em todo o mundo.</li>
+        <li>📢 <strong>Afiliado:</strong> O Afiliado tem o papel de promover os produtos criados por produtores e ganhar comissões por cada venda realizada através de seus esforços de marketing. Os afiliados utilizam suas plataformas, como blogs, redes sociais ou e-mail marketing, para divulgar os produtos. Por exemplo, um afiliado moçambicano pode promover um curso de empreendedorismo digital e receber comissões por cada inscrição feita através de seu link de afiliado.</li>
+        <li>🛒 <strong>Comprador:</strong> O Comprador é a pessoa que adquire o produto digital. Ele pode ser alguém que está buscando aprender algo novo, como cursos de idiomas, ou pode adquirir ferramentas e recursos para uso pessoal ou profissional. Em Moçambique, um comprador pode, por exemplo, adquirir um e-book sobre estratégias de negócios para aplicar no seu próprio empreendimento.</li>
+    </ul>
+</div>
+<div class="content">
+    <h2>Criação de Conta</h2>
+    <h3>Passo a Passo</h3>
+    <ul>
+        <li>Acesse o <a href="https://www.hotmart.com" target="_blank">site oficial da Hotmart</a>.</li>
+        <li>Clique em “Cadastre-se” e escolha entre usar seu e-mail ou uma conta de redes sociais, como Facebook ou Google, para simplificar o processo.</li>
+        <li>Preencha as informações necessárias, como nome, e-mail, e crie uma senha segura. Certifique-se de aceitar os Termos de Uso antes de continuar.</li>
+    </ul>
+    <h3>Configuração do Perfil</h3>
+    <ul>
+        <li>Adicione seu nome completo, uma foto de perfil profissional e os dados bancários para facilitar o recebimento de pagamentos.</li>
+        <li>Verifique sua conta com documentos pessoais, como RG ou comprovante de residência, caso seja solicitado pela plataforma.</li>
+    </ul>
+    
+    <p class="cta-message">Veja alguns dos nossos resultados e comece a aprender hoje mesmo:</p>
+    
+    <!-- Botão para acessar o site das aulas -->
+    <div id="access-button" class="button-container">
+        <h2>Acesse as Aulas Agora:</h2>
+        <a href="aulasonlineHTMRT.html" class="access-button">Ir para as Aulas</a>
+    </div>
+</div>
+
 
 <style>
     .button-container {

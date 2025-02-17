@@ -1,401 +1,657 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habilidades Sociais - Curso Gratuito</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Habilidades Sociais - Curso Gratuito</title>
+  
+  <!-- Metadados -->
+  <meta name="description" content="Curso gratuito de Habilidades Sociais da Open Mind: desenvolva competências interpessoais essenciais para sucesso profissional e pessoal.">
+  <meta name="keywords" content="habilidades sociais, curso gratuito, Open Mind, competências interpessoais, comunicação, inteligência emocional">
+  <meta name="author" content="Tilo Machado">
+  <meta name="robots" content="index, follow">
+  
+  <!-- Favicon -->
+  <link rel="icon" href="icone.png" type="image/png">
+  
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-GDDY8TGYQV');
+  </script>
+  
+  <!-- Suporte a múltiplos idiomas -->
+  <link rel="alternate" hreflang="pt" href="https://tilomachado.github.io/OpenMindOficial/cursos/habilidades_sociais.html">
+  <link rel="alternate" hreflang="es" href="https://tilomachado.github.io/OpenMindOficial/cursos/habilidades_sociales.html">
+  <link rel="alternate" hreflang="en" href="https://tilomachado.github.io/OpenMindOficial/cursos/social_skills.html">
+  
+  <!-- CSS Futurista Dark -->
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <!-- Metadados -->
-    <meta name="description" content="Curso gratuito de Habilidades Sociais da Open Mind: desenvolva competências interpessoais essenciais para sucesso profissional e pessoal.">
-    <meta name="keywords" content="habilidades sociais, curso gratuito, Open Mind, competências interpessoais, comunicação, inteligência emocional">
-    <meta name="author" content="Tilo Machado">
-    <meta name="robots" content="index, follow">
-
-    <!-- Favicon -->
-    <link rel="icon" href="icone.png" type="image">
-
-    <!-- Código do Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-GDDY8TGYQV');
-    </script>
-
-    <!-- Suporte a múltiplos idiomas -->
-    <link rel="alternate" hreflang="pt" href="https://tilomachado.github.io/OpenMindOficial/cursos/habilidades_sociais.html">
-    <link rel="alternate" hreflang="es" href="https://tilomachado.github.io/OpenMindOficial/cursos/habilidades_sociales.html">
-    <link rel="alternate" hreflang="en" href="https://tilomachado.github.io/OpenMindOficial/cursos/social_skills.html">
-
-    <style>
-        /* Estilos Gerais */
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f0f8ff; /* Azul claro para um fundo mais suave */
-            color: #333;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-
-        /* Cabeçalho */
-        header {
-            background-color: #ff7f50; /* Cor laranja vibrante para o header */
-            color: white;
-            padding: 50px 20px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            border-bottom: 5px solid #ff6347; /* Cor de destaque mais intensa */
-        }
-
-        h1 {
-            font-size: 3.2em;
-            margin: 0;
-            letter-spacing: 3px;
-        }
-
-        p {
-            font-size: 1.4em;
-            max-width: 850px;
-            margin: 10px auto;
-        }
-
-        /* Seção do Conteúdo */
-        .course-content {
-            margin: 40px auto;
-            padding: 40px;
-            background-color: white;
-            border-radius: 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-            max-width: 960px;
-        }
-
-        h2 {
-            font-size: 2.2em;
-            color: #2d3e50; /* Azul escuro */
-            margin-bottom: 25px;
-            text-align: center;
-        }
-
-        /* Módulo */
-        .module {
-            margin-bottom: 40px;
-        }
-
-        .module h3 {
-            font-size: 1.8em;
-            color: #ff6347; /* Tom de laranja mais intenso para os títulos dos módulos */
-            margin-bottom: 12px;
-        }
-
-        .module p {
-            font-size: 1.2em;
-            margin: 12px 0;
-        }
-
-        .module ul {
-            list-style-type: none;
-            padding-left: 0;
-        }
-
-        .module li {
-            font-size: 1.2em;
-            margin-bottom: 12px;
-            padding-left: 18px;
-            position: relative;
-        }
-
-        .module li::before {
-            content: "✔";
-            position: absolute;
-            left: 0;
-            color: #ff6347; /* Laranja para os checkmarks */
-            font-weight: bold;
-        }
-
-        /* Seção de Destaque */
-        .section-highlight {
-            background-color: #ffebcd; /* Cor de fundo creme clara */
-            border-left: 6px solid #ff6347; /* Laranja */
-            padding: 18px;
-            margin: 25px 0;
-            font-size: 1.2em;
-            border-radius: 5px;
-        }
-
-        /* Botão de Chamada para Ação */
-        .cta-button {
-            display: inline-block;
-            background-color: #ff6347; /* Laranja brilhante */
-            color: white;
-            padding: 14px 22px;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 1.3em;
-            text-align: center;
-            margin: 25px 0;
-            transition: background-color 0.3s ease, transform 0.2s ease-in-out;
-        }
-
-        .cta-button:hover {
-            background-color: #ff4500; /* Laranja mais forte ao passar o mouse */
-            transform: scale(1.05); /* Efeito de aumento ao passar o mouse */
-        }
-
-        /* Estilos para o Rodapé */
-        footer {
-            background-color: #2d3e50; /* Azul escuro para o rodapé */
-            color: white;
-            text-align: center;
-            padding: 18px 0;
-            position: relative;
-            width: 100%;
-            margin-top: 30px;
-        }
-
-        footer p {
-            margin: 0;
-        }
-
-    </style>
-</head>
-<body>
-    <div id="loading">
-        <p id="loading-text">Criando Sala Virtual...</p>
-        <div class="progress-bar-container">
-          <div class="progress-bar"></div>
-        </div>
-      </div>
-      
-      <style>
-    
-    /* Estilos Gerais */
+    /* Corpo e fundo */
     body {
-        font-family: 'Roboto', sans-serif;
-        background-color: #f8f9fa; /* Cor neutra e suave para o fundo */
-        color: #495057; /* Cor de texto mais suave */
-        margin: 0;
-        padding: 0;
-        line-height: 1.6;
+      font-family: 'Roboto', sans-serif;
+      background: radial-gradient(circle at top left, #000 0%, #121212 100%);
+      color: #e0e0e0;
+      overflow-x: hidden;
+      line-height: 1.6;
     }
 
-    /* Cabeçalho */
+    /* Cabeçalho com efeito futurista */
     header {
-        background-color: #4e73df; /* Azul moderno */
-        color: white;
-        padding: 60px 20px;
-        text-align: center;
-        box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-        border-bottom: 5px solid #2e59d9; /* Azul mais intenso */
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+      padding: 60px 20px;
+      text-align: center;
+      position: relative;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
     }
 
-    h1 {
-        font-size: 3.5em;
-        margin: 0;
-        letter-spacing: 2px;
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 120px;
+      height: 4px;
+      background: linear-gradient(90deg, #00f, #0ff, #00f);
+      transform: translateX(-50%);
+      filter: blur(4px);
     }
 
+    header h1 {
+      font-size: 3.5em;
+      letter-spacing: 3px;
+      color: #ffffff;
+      text-shadow: 0 0 10px #00ffff;
+      /* Efeito glitch */
+      position: relative;
+      animation: glitch 2s infinite;
+    }
+
+    /* Efeito Glitch para o Título */
+    @keyframes glitch {
+      0% {
+        clip: rect(42px, 9999px, 44px, 0);
+        transform: skew(0.5deg);
+      }
+      5% {
+        clip: rect(12px, 9999px, 85px, 0);
+        transform: skew(0.5deg);
+      }
+      10% {
+        clip: rect(24px, 9999px, 48px, 0);
+        transform: skew(0.5deg);
+      }
+      15% {
+        clip: rect(40px, 9999px, 100px, 0);
+        transform: skew(0.5deg);
+      }
+      20% {
+        clip: rect(15px, 9999px, 70px, 0);
+        transform: skew(0.5deg);
+      }
+      25% {
+        clip: rect(30px, 9999px, 90px, 0);
+        transform: skew(0.5deg);
+      }
+      30% {
+        clip: rect(20px, 9999px, 80px, 0);
+        transform: skew(0.5deg);
+      }
+      35% {
+        clip: rect(10px, 9999px, 50px, 0);
+        transform: skew(0.5deg);
+      }
+      40% {
+        clip: rect(35px, 9999px, 75px, 0);
+        transform: skew(0.5deg);
+      }
+      45% {
+        clip: rect(20px, 9999px, 60px, 0);
+        transform: skew(0.5deg);
+      }
+      50% {
+        clip: rect(15px, 9999px, 55px, 0);
+        transform: skew(0.5deg);
+      }
+      55% {
+        clip: rect(40px, 9999px, 80px, 0);
+        transform: skew(0.5deg);
+      }
+      60% {
+        clip: rect(25px, 9999px, 70px, 0);
+        transform: skew(0.5deg);
+      }
+      65% {
+        clip: rect(30px, 9999px, 90px, 0);
+        transform: skew(0.5deg);
+      }
+      70% {
+        clip: rect(20px, 9999px, 60px, 0);
+        transform: skew(0.5deg);
+      }
+      75% {
+        clip: rect(35px, 9999px, 75px, 0);
+        transform: skew(0.5deg);
+      }
+      80% {
+        clip: rect(15px, 9999px, 55px, 0);
+        transform: skew(0.5deg);
+      }
+      85% {
+        clip: rect(20px, 9999px, 70px, 0);
+        transform: skew(0.5deg);
+      }
+      90% {
+        clip: rect(40px, 9999px, 80px, 0);
+        transform: skew(0.5deg);
+      }
+      95% {
+        clip: rect(15px, 9999px, 60px, 0);
+        transform: skew(0.5deg);
+      }
+      100% {
+        clip: rect(20px, 9999px, 70px, 0);
+        transform: skew(0.5deg);
+      }
+    }
+
+    /* Texto e parágrafos */
     p {
-        font-size: 1.2em;
-        max-width: 850px;
-        margin: 10px auto;
+      font-size: 1.2em;
+      max-width: 850px;
+      margin: 10px auto;
+      color: #cccccc;
     }
 
     /* Seção do Conteúdo */
     .course-content {
-        margin: 40px auto;
-        padding: 40px;
-        background-color: white;
-        border-radius: 10px;
-        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-        max-width: 960px;
+      background: #1e1e1e;
+      border-radius: 10px;
+      padding: 40px;
+      margin: 40px auto;
+      max-width: 960px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7);
     }
 
-    h2 {
-        font-size: 2.5em;
-        color: #343a40; /* Cor de texto escuro */
-        margin-bottom: 25px;
-        text-align: center;
+    .course-content h2 {
+      font-size: 2.5em;
+      color: #ffffff;
+      margin-bottom: 25px;
+      text-align: center;
+      text-shadow: 0 0 10px #ff00ff;
     }
 
-    /* Módulo */
-    .module {
-        margin-bottom: 40px;
+    /* Accordion para Módulos */
+    details.module {
+      border: 1px solid #444;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
     }
 
-    .module h3 {
-        font-size: 1.9em;
-        color: #4e73df; /* Azul mais forte para os títulos */
-        margin-bottom: 12px;
+    details.module summary {
+      background-color: #4e73df;
+      color: white;
+      padding: 15px 20px;
+      font-size: 1.9em;
+      cursor: pointer;
+      list-style: none;
+      outline: none;
     }
 
-    .module p {
-        font-size: 1.1em;
-        margin: 12px 0;
+    details.module[open] summary {
+      background-color: #2e59d9;
     }
 
-    .module ul {
-        list-style-type: none;
-        padding-left: 0;
+    details.module summary::-webkit-details-marker {
+      display: none;
     }
 
-    .module li {
-        font-size: 1.2em;
-        margin-bottom: 12px;
-        padding-left: 18px;
-        position: relative;
+    .module-content {
+      padding: 20px;
+      background-color: #1e1e1e;
+      animation: fadeIn 0.3s ease;
     }
 
-    .module li::before {
-        content: "✔";
-        position: absolute;
-        left: 0;
-        color: #4e73df; /* Azul para os checkmarks */
-        font-weight: bold;
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    .module-content p {
+      font-size: 1.2em;
+      margin: 12px 0;
+    }
+
+    .module-content ul {
+      list-style: none;
+      padding-left: 18px;
+    }
+
+    .module-content ul li {
+      font-size: 1.2em;
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 20px;
+    }
+
+    .module-content ul li::before {
+      content: "✔";
+      position: absolute;
+      left: 0;
+      color: #4e73df;
+      font-weight: bold;
     }
 
     /* Seção de Destaque */
     .section-highlight {
-        background-color: #e9ecef; /* Cor de fundo suave */
-        border-left: 6px solid #4e73df; /* Azul para destaque */
-        padding: 18px;
-        margin: 25px 0;
-        font-size: 1.2em;
-        border-radius: 5px;
+      background-color: #1a1a1a;
+      border-left: 6px solid #ff00ff;
+      padding: 18px;
+      margin: 25px 0;
+      font-size: 1.2em;
+      border-radius: 5px;
+      color: #eeeeee;
     }
 
     /* Botão de Chamada para Ação */
     .cta-button {
-        display: inline-block;
-        background-color: #4e73df; /* Azul moderno */
-        color: white;
-        padding: 14px 22px;
-        text-decoration: none;
-        border-radius: 6px;
-        font-size: 1.3em;
-        text-align: center;
-        margin: 25px 0;
-        transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+      display: inline-block;
+      background: linear-gradient(45deg, #00f, #0ff, #00f);
+      padding: 14px 22px;
+      border-radius: 6px;
+      color: #ffffff;
+      font-size: 1.3em;
+      text-decoration: none;
+      text-align: center;
+      margin: 25px 0;
+      box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+      transition: background 0.3s ease, transform 0.2s ease-in-out;
     }
 
     .cta-button:hover {
-        background-color: #2e59d9; /* Azul mais intenso ao passar o mouse */
-        transform: scale(1.05); /* Efeito de aumento suave */
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.7);
     }
 
-    /* Estilos para o Rodapé */
+    /* Rodapé */
     footer {
-        background-color: #343a40; /* Escuro para contraste */
-        color: white;
-        text-align: center;
-        padding: 18px 0;
-        position: relative;
-        width: 100%;
-        margin-top: 30px;
+      background: #0d0d0d;
+      color: #aaaaaa;
+      text-align: center;
+      padding: 18px 0;
+      margin-top: 30px;
+      border-top: 1px solid #333;
     }
 
     footer p {
-        margin: 0;
+      margin: 0;
     }
-</style>
 
-    </style>
-    
-    <script>
-        // Função de carregamento de 10 segundos
-        setTimeout(function() {
-            document.getElementById('loading').style.display = 'none'; // Oculta o carregamento
-            document.getElementById('content').style.display = 'block'; // Exibe o conteúdo
-        }, 10000);
-    </script>
-    
-    <div id="content" style="display: none;">
+    /* Tela de Carregamento */
+    #loading {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: radial-gradient(circle, #000 0%, #121212 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 9999;
+    }
+
+    #loading-text {
+      font-size: 2em;
+      color: #ffffff;
+      margin-bottom: 20px;
+      text-shadow: 0 0 10px #00ffff;
+    }
+
+    /* Barra de Carregamento */
+    .progress-bar-container {
+      width: 80%;
+      background: #333;
+      border-radius: 10px;
+      overflow: hidden;
+      margin-top: 20px;
+      box-shadow: inset 0 0 10px rgba(0, 255, 255, 0.5);
+    }
+
+    .progress-bar {
+      width: 0%;
+      height: 20px;
+      background: linear-gradient(90deg, #00ffff, #00f);
+      animation: loadingAnimation 10s linear forwards;
+    }
+
+    @keyframes loadingAnimation {
+      from { width: 0%; }
+      to { width: 100%; }
+    }
+  </style>
+  
+  <!-- Script da Tela de Carregamento -->
+  <script>
+    // Oculta a tela de carregamento após 10 segundos
+    setTimeout(function() {
+      document.getElementById('loading').style.display = 'none';
+      document.getElementById('content').style.display = 'block';
+    }, 10000);
+  </script>
+</head>
+<body>
+  <!-- Tela de Carregamento -->
+  <div id="loading">
+    <p id="loading-text">Criando Sala Virtual...</p>
+    <div class="progress-bar-container">
+      <div class="progress-bar"></div>
+    </div>
+  </div>
+  
+  <!-- Conteúdo Principal -->
+  <div id="content" style="display: none;">
     <header>
-        <h1>Habilidades Sociais - Curso Avançado</h1>
-        <p>Este curso oferece as habilidades essenciais para melhorar sua interação social e profissional, promovendo uma comunicação eficaz, liderança e empatia.</p>
+      <h1>Habilidades Sociais - Curso Avançado</h1>
+      <p>Este curso oferece as habilidades essenciais para melhorar sua interação social e profissional, promovendo uma comunicação eficaz, liderança e empatia.</p>
     </header>
-
+    
     <section class="course-content">
-        <h2>Conteúdo do Curso:</h2>
-        
-        <!-- Aula Introdutória -->
-        <div class="section-highlight">
-            <h3>Aula Introdutória</h3>
-            <p>Aprenda como identificar suas habilidades, agregar valor à vida das pessoas e se destacar no mercado. Vamos guiá-lo para entender as reais necessidades humanas, conectar-se profundamente com os outros e resolver problemas de forma impactante. Acreditamos que sua mentalidade e persistência são as chaves para criar oportunidades extraordinárias e atingir seus sonhos.</p>
-            <a href="https://typebot.co/aula-edpp1z9" class="cta-button">Assistir Aula Introdutória</a>
-        </div>
-
-        <!-- Módulo 1 -->
-        <div class="module">
-            <h3>Módulo 1: Comunicação Eficaz</h3>
-            <p>Aprenda a se expressar de forma clara e objetiva, além de compreender melhor as emoções e necessidades dos outros.</p>
-            <ul>
-                <li>Escuta ativa</li>
-                <li>Como ser mais persuasivo</li>
-                <li>Comunicação não-verbal</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 2 -->
-        <div class="module">
-            <h3>Módulo 2: Inteligência Emocional</h3>
-            <p>Entenda como controlar suas emoções e reconhecer as dos outros para melhorar as relações interpessoais e profissionais.</p>
-            <ul>
-                <li>Autoconsciência emocional</li>
-                <li>Empatia e relacionamento interpessoal</li>
-                <li>Gestão do estresse</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 3 -->
-        <div class="module">
-            <h3>Módulo 3: Liderança e Motivação</h3>
-            <p>Desenvolva habilidades de liderança para influenciar e inspirar sua equipe a alcançar grandes resultados.</p>
-            <ul>
-                <li>Características de um líder eficaz</li>
-                <li>Como motivar sua equipe</li>
-                <li>Gestão de conflitos</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 4 -->
-        <div class="module">
-            <h3>Módulo 4: Resolução de Conflitos</h3>
-            <p>Aprenda técnicas para resolver conflitos de maneira construtiva, promovendo harmonia e eficiência no ambiente de trabalho.</p>
-            <ul>
-                <li>Estratégias para negociação</li>
-                <li>Como mediar conflitos</li>
-                <li>Como evitar confrontos</li>
-            </ul>
-        </div>
-
-        <!-- Módulo 5 -->
-        <div class="module">
-            <h3>Módulo 5: Trabalho em Equipe</h3>
-            <p>Descubra como trabalhar de forma colaborativa, respeitando as diferenças e aproveitando os pontos fortes de cada membro da equipe.</p>
-            <ul>
-                <li>Como construir confiança mútua</li>
-                <li>Gestão de grupos diversos</li>
-                <li>Como aumentar a produtividade da equipe</li>
-            </ul>
-        </div>
-
-        <div class="section-highlight">
-            <h3>Estudos de Caso e Exemplos Práticos</h3>
-            <p>Ao longo do curso, você terá acesso a estudos de caso reais e exemplos práticos para aplicar as habilidades sociais em situações cotidianas.</p>
-        </div>
-
-        <div class="section-highlight">
-            <h3>Mais Conteúdos Sendo Adicionados!</h3>
-            <p>Estamos constantemente atualizando o curso com novos módulos e estratégias inovadoras. Fique atento para as novas atualizações!</p>
-        </div>
-
+      <h2>Conteúdo do Curso:</h2>
+      
+      <!-- Aula Introdutória -->
+      <div class="section-highlight">
+        <h3>Aula Introdutória</h3>
+        <p>Aprenda como identificar suas habilidades, agregar valor à vida das pessoas e se destacar no mercado. Vamos guiá-lo para entender as reais necessidades humanas, conectar-se profundamente com os outros e resolver problemas de forma impactante. Acreditamos que sua mentalidade e persistência são as chaves para criar oportunidades extraordinárias e atingir seus sonhos.</p>
+        <a href="https://typebot.co/aula-edpp1z9" class="cta-button">Assistir Aula Introdutória</a>
+      </div>
+      
+      <!-- Módulo 1: Comunicação Eficaz -->
+<details class="module">
+    <summary>Módulo 1: Comunicação Eficaz</summary>
+    <div class="module-content">
+      <p>A comunicação eficaz é uma habilidade essencial para o sucesso pessoal e profissional. Saber se expressar de forma clara, ouvir com atenção e interpretar sinais não-verbais pode abrir portas em qualquer área. Em Moçambique, onde a cultura oral é forte e as relações interpessoais são fundamentais nos negócios e no dia a dia, dominar a comunicação pode ser um grande diferencial.</p>
+      
+      <h3>Principais habilidades abordadas:</h3>
+      <ul>
+        <li><strong>Escuta ativa:</strong> Como realmente entender o que os outros dizem e demonstrar interesse genuíno.</li>
+        <li><strong>Como ser mais persuasivo:</strong> Técnicas para influenciar positivamente pessoas e negociações.</li>
+        <li><strong>Comunicação não-verbal:</strong> A importância da linguagem corporal na transmissão de mensagens.</li>
+      </ul>
+  
+      <h3>📌 Escuta Ativa</h3>
+      <p>A escuta ativa vai além de apenas ouvir. Envolve demonstrar interesse, evitar interrupções e confirmar o entendimento da mensagem.</p>
+      <ul>
+        <li>Use frases como: <em>“Se entendi bem, você quer dizer que...”</em> Isso mostra que você está realmente prestando atenção.</li>
+        <li>Mantenha contato visual e acene com a cabeça para demonstrar que está acompanhando a conversa.</li>
+        <li>Evite distrações, como mexer no telefone ou interromper a outra pessoa.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Em um mercado informal, um vendedor que ouve atentamente as necessidades do cliente pode oferecer o produto certo e aumentar suas chances de venda.</p>
+  
+      <h3>📌 Como Ser Mais Persuasivo</h3>
+      <p>Ser persuasivo não significa manipular, mas sim comunicar suas ideias de forma clara e convincente.</p>
+      <ul>
+        <li>Use histórias e exemplos locais para tornar seu argumento mais envolvente.</li>
+        <li>Fale com confiança e clareza. Em Moçambique, expressões como <em>“vamos juntos”</em> reforçam o espírito de colaboração.</li>
+        <li>Mostre benefícios práticos. Se vender um produto, destaque como ele resolve um problema específico.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Um jovem empreendedor que deseja convencer investidores pode usar exemplos de sucesso local para reforçar seu argumento.</p>
+  
+      <h3>📌 Comunicação Não-Verbal</h3>
+      <p>A linguagem corporal tem um impacto enorme na forma como sua mensagem é recebida.</p>
+      <ul>
+        <li>Mantenha uma postura aberta e evite cruzar os braços para não parecer defensivo.</li>
+        <li>O tom de voz importa! Em Moçambique, falar com calma e respeito fortalece relações interpessoais.</li>
+        <li>Expressões faciais transmitem emoções. Um sorriso pode tornar a conversa mais acolhedora.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Em uma entrevista de emprego, um candidato que mantém uma boa postura, olha nos olhos do entrevistador e sorri transmite mais confiança.</p>
+  
+      <h3>🎯 Exercício Prático</h3>
+      <p><strong>Desafio:</strong> Durante uma conversa do dia a dia, pratique a escuta ativa. No final, pergunte à pessoa se ela sentiu que foi bem compreendida. Isso ajudará a reforçar essa habilidade.</p>
+      
+      <p><em>Comunicação é mais do que falar, é criar conexões.</em> Pratique e se destaque em qualquer ambiente!</p>
+  
+      <hr>
+      <p><strong>📝 Aulas práticas em breve!</strong> Fique atento às atualizações para participar das nossas sessões ao vivo e aprimorar ainda mais suas habilidades de comunicação.</p>
+    </div>
+  </details>
+  
+      
+     <!-- Módulo 2: Inteligência Emocional -->
+<details class="module">
+    <summary>Módulo 2: Inteligência Emocional</summary>
+    <div class="module-content">
+      <p>A inteligência emocional é a capacidade de entender, gerenciar e expressar emoções de forma equilibrada. No contexto moçambicano, onde as relações interpessoais são fundamentais nos negócios e na comunidade, desenvolver essa habilidade pode melhorar sua comunicação, liderança e tomada de decisões.</p>
+      
+      <h3>Principais habilidades abordadas:</h3>
+      <ul>
+        <li><strong>Autoconsciência emocional:</strong> Reconhecer suas próprias emoções e como elas influenciam seu comportamento.</li>
+        <li><strong>Empatia e relacionamento interpessoal:</strong> Compreender e se conectar melhor com os sentimentos dos outros.</li>
+        <li><strong>Gestão do estresse:</strong> Controlar reações emocionais em momentos de pressão e desafios.</li>
+      </ul>
+  
+      <h3>📌 Autoconsciência Emocional</h3>
+      <p>Antes de controlar suas emoções, é preciso reconhecê-las. A autoconsciência permite identificar o que sentimos e como isso afeta nossas ações.</p>
+      <ul>
+        <li>Pratique a autorreflexão diária: Pergunte-se <em>“Por que estou sentindo isso agora?”</em></li>
+        <li>Observe seus gatilhos emocionais e como eles influenciam suas decisões.</li>
+        <li>Manter um diário emocional pode ajudar a mapear padrões de comportamento.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Se em uma reunião de trabalho você se sentir frustrado, antes de reagir impulsivamente, pare e reflita sobre a causa desse sentimento. Isso evita conflitos desnecessários.</p>
+  
+      <h3>📌 Empatia e Relacionamento Interpessoal</h3>
+      <p>A empatia é a habilidade de se colocar no lugar do outro, compreendendo suas emoções e perspectivas.</p>
+      <ul>
+        <li>Pratique ouvir sem interromper e valide os sentimentos da outra pessoa.</li>
+        <li>Use perguntas como: <em>“Como você está se sentindo em relação a isso?”</em></li>
+        <li>Evite julgamentos e tente entender o contexto antes de responder.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> No ambiente de trabalho, se um colega estiver tendo um dia difícil, em vez de criticá-lo por estar distraído, tente perguntar se precisa de ajuda.</p>
+  
+      <h3>📌 Gestão do Estresse</h3>
+      <p>O estresse é inevitável, mas sua resposta a ele faz toda a diferença. Saber gerenciar emoções em momentos difíceis pode evitar decisões impulsivas.</p>
+      <ul>
+        <li>Pratique técnicas de respiração para acalmar a mente.</li>
+        <li>Divida grandes tarefas em pequenas partes para reduzir a sobrecarga.</li>
+        <li>Desenvolva hábitos saudáveis, como exercícios físicos e momentos de lazer.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Se estiver enfrentando pressão financeira ou desafios no trabalho, em vez de agir por impulso, respire fundo, analise a situação e procure soluções racionais.</p>
+  
+      <h3>🎯 Exercício Prático</h3>
+      <p><strong>Desafio:</strong> Durante a próxima semana, pratique a autoconsciência emocional anotando seus sentimentos ao longo do dia. No final da semana, reflita sobre os padrões e como eles influenciam suas decisões.</p>
+      
+      <p><em>Dominar suas emoções permite que você tenha mais controle sobre sua vida e construa relações mais saudáveis!</em></p>
+  
+      <hr>
+      <p><strong>📝 Aulas práticas em breve!</strong> Fique atento às atualizações para participar das nossas sessões ao vivo e aprimorar ainda mais sua inteligência emocional.</p>
+    </div>
+  </details>
+  
+     <!-- Módulo 3: Liderança e Motivação -->
+<details class="module">
+    <summary>Módulo 3: Liderança e Motivação</summary>
+    <div class="module-content">
+      <p>A liderança eficaz vai além de dar ordens. Trata-se de inspirar, orientar e criar um ambiente onde todos possam crescer e contribuir para o sucesso da equipe. Em Moçambique, onde a cultura valoriza a coletividade, um bom líder precisa equilibrar autoridade com empatia e visão estratégica.</p>
+  
+      <h3>Principais habilidades abordadas:</h3>
+      <ul>
+        <li><strong>Características de um líder eficaz:</strong> Habilidades essenciais para inspirar e orientar uma equipe.</li>
+        <li><strong>Como motivar sua equipe:</strong> Estratégias para manter os membros engajados e produtivos.</li>
+        <li><strong>Gestão de conflitos:</strong> Como lidar com desafios e manter um ambiente harmonioso.</li>
+      </ul>
+  
+      <h3>📌 Características de um Líder Eficaz</h3>
+      <p>Um líder eficaz não é apenas alguém que ocupa um cargo de chefia, mas sim quem inspira e influencia positivamente seu grupo. Algumas qualidades essenciais são:</p>
+      <ul>
+        <li><strong>Visão:</strong> Definir metas claras e um caminho estratégico para atingi-las.</li>
+        <li><strong>Comunicação:</strong> Saber se expressar de forma clara e motivadora.</li>
+        <li><strong>Empatia:</strong> Compreender e valorizar as necessidades da equipe.</li>
+        <li><strong>Decisão:</strong> Tomar atitudes firmes e assertivas diante de desafios.</li>
+        <li><strong>Adaptabilidade:</strong> Lidar bem com mudanças e incertezas.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Em um projeto comunitário, um líder eficaz não apenas distribui tarefas, mas também orienta os membros, acompanha o progresso e motiva a equipe a superar desafios.</p>
+  
+      <h3>📌 Como Motivar Sua Equipe</h3>
+      <p>Manter uma equipe motivada é essencial para obter bons resultados. Algumas formas de incentivar os colaboradores incluem:</p>
+      <ul>
+        <li>Reconheça e celebre conquistas, mesmo pequenas.</li>
+        <li>Ofereça feedbacks construtivos e oportunidades de crescimento.</li>
+        <li>Crie um ambiente onde todos sintam que suas ideias são valorizadas.</li>
+        <li>Defina metas realistas e envolva a equipe no processo de tomada de decisão.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Se um membro da equipe concluir uma tarefa com excelência, reconhecer seu esforço publicamente pode aumentar sua motivação e inspirar os demais.</p>
+  
+      <h3>📌 Gestão de Conflitos</h3>
+      <p>Conflitos fazem parte do trabalho em equipe, mas um bom líder sabe como resolvê-los de forma positiva.</p>
+      <ul>
+        <li>Identifique a causa do conflito e ouça todos os lados.</li>
+        <li>Evite tomar decisões impulsivas ou baseadas em favoritismo.</li>
+        <li>Busque soluções que beneficiem o grupo como um todo.</li>
+        <li>Promova um ambiente de respeito e diálogo aberto.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Em uma empresa, se dois colegas discordam sobre um projeto, o líder pode organizar uma reunião para que ambos apresentem suas ideias e encontrar um meio-termo.</p>
+  
+      <h3>🎯 Exercício Prático</h3>
+      <p><strong>Desafio:</strong> Escolha um grupo do qual você faz parte e aplique uma técnica de motivação. Pode ser um elogio, um incentivo ou uma ideia para melhorar o desempenho da equipe. Observe as reações e os resultados!</p>
+  
+      <p><em>Um verdadeiro líder não apenas guia, mas também inspira. Seja essa pessoa no seu grupo!</em></p>
+  
+      <hr>
+      <p><strong>📝 Aulas práticas em breve!</strong> Fique atento às atualizações para participar das nossas sessões ao vivo e desenvolver ainda mais suas habilidades de liderança.</p>
+    </div>
+  </details>
+  
+      
+      <!-- Módulo 4: Resolução de Conflitos -->
+<details class="module">
+    <summary>Módulo 4: Resolução de Conflitos</summary>
+    <div class="module-content">
+      <p>Os conflitos fazem parte da vida, mas saber lidar com eles de forma construtiva pode transformar desafios em oportunidades de crescimento. No ambiente profissional e pessoal, a habilidade de resolver desentendimentos sem prejudicar relacionamentos é essencial, especialmente em contextos culturais como o moçambicano, onde o respeito e a diplomacia são valorizados.</p>
+      
+      <h3>Principais habilidades abordadas:</h3>
+      <ul>
+        <li><strong>Estratégias para negociação:</strong> Técnicas para chegar a acordos justos e vantajosos para todos.</li>
+        <li><strong>Como mediar conflitos:</strong> Maneiras de intervir para encontrar soluções pacíficas.</li>
+        <li><strong>Como evitar confrontos:</strong> Prevenção de situações de conflito antes que elas se agravem.</li>
+      </ul>
+  
+      <h3>📌 Estratégias para Negociação</h3>
+      <p>Negociar bem significa encontrar soluções que satisfaçam ambas as partes, sem precisar de confronto.</p>
+      <ul>
+        <li>Escute o outro lado antes de apresentar sua posição.</li>
+        <li>Busque um ponto de equilíbrio, em vez de insistir apenas no seu ponto de vista.</li>
+        <li>Seja claro e objetivo ao expor seus argumentos, evitando tons agressivos.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Se dois colegas de trabalho discordam sobre a divisão de tarefas, uma boa estratégia de negociação é listar as responsabilidades de cada um e redistribuí-las de forma equilibrada.</p>
+  
+      <h3>📌 Como Mediar Conflitos</h3>
+      <p>Ser um mediador eficaz significa ajudar as partes envolvidas a chegarem a um acordo sem favorecer ninguém.</p>
+      <ul>
+        <li>Mantenha a calma e aja como um facilitador neutro.</li>
+        <li>Peça para cada lado explicar sua perspectiva sem interrupções.</li>
+        <li>Proponha alternativas que atendam aos interesses de ambos.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Em uma reunião, se dois funcionários entrarem em desacordo sobre a melhor abordagem para um projeto, o mediador pode sugerir uma terceira opção que combine as ideias dos dois.</p>
+  
+      <h3>📌 Como Evitar Confrontos</h3>
+      <p>A melhor maneira de lidar com conflitos é preveni-los antes que aconteçam.</p>
+      <ul>
+        <li>Comunique-se com clareza para evitar mal-entendidos.</li>
+        <li>Evite alimentar fofocas ou comentários negativos.</li>
+        <li>Aprenda a controlar suas reações para não responder impulsivamente.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Se um supervisor perceber tensão entre funcionários, pode intervir antes que vire um problema maior, organizando um diálogo aberto sobre o assunto.</p>
+  
+      <h3>🎯 Exercício Prático</h3>
+      <p><strong>Desafio:</strong> Durante a próxima semana, sempre que surgir um pequeno desentendimento, tente aplicar técnicas de escuta ativa e negociação antes de reagir automaticamente. Depois, analise se o resultado foi melhor do que se tivesse respondido impulsivamente.</p>
+      
+      <p><em>Conflitos são inevitáveis, mas sua abordagem pode transformar tensão em cooperação.</em> Pratique e veja os resultados!</p>
+  
+      <hr>
+      <p><strong>📝 Aulas práticas em breve!</strong> Fique atento às atualizações para participar das nossas sessões ao vivo e aprimorar suas habilidades de resolução de conflitos.</p>
+    </div>
+  </details>
+  
+      
+     <!-- Módulo 5: Trabalho em Equipe -->
+<details class="module">
+    <summary>Módulo 5: Trabalho em Equipe</summary>
+    <div class="module-content">
+      <p>Trabalhar bem em equipe é essencial para alcançar grandes resultados, seja no ambiente profissional, acadêmico ou comunitário. Em Moçambique, onde a colaboração é valorizada nas relações sociais e empresariais, entender como trabalhar com pessoas de diferentes perfis pode tornar o grupo mais forte e produtivo.</p>
+      
+      <h3>Principais habilidades abordadas:</h3>
+      <ul>
+        <li><strong>Como construir confiança mútua:</strong> Estratégias para criar um ambiente de respeito e colaboração.</li>
+        <li><strong>Gestão de grupos diversos:</strong> Como lidar com diferentes personalidades e habilidades.</li>
+        <li><strong>Como aumentar a produtividade da equipe:</strong> Métodos para melhorar o desempenho coletivo.</li>
+      </ul>
+  
+      <h3>📌 Como Construir Confiança Mútua</h3>
+      <p>A confiança é a base de qualquer equipe de sucesso. Sem ela, os membros do grupo hesitam em compartilhar ideias ou assumir responsabilidades.</p>
+      <ul>
+        <li>Cumpra suas promessas e prazos para demonstrar compromisso.</li>
+        <li>Seja transparente na comunicação e evite fofocas.</li>
+        <li>Reconheça os esforços dos colegas e valorize suas contribuições.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Se um colega de equipe tem dificuldade em cumprir uma tarefa, ofereça apoio em vez de criticá-lo. Isso fortalece a confiança e incentiva a colaboração.</p>
+  
+      <h3>📌 Gestão de Grupos Diversos</h3>
+      <p>Equipes diversas trazem diferentes perspectivas e habilidades, mas também exigem uma gestão eficaz para evitar conflitos e garantir integração.</p>
+      <ul>
+        <li>Respeite as diferenças culturais, sociais e profissionais.</li>
+        <li>Delegue tarefas considerando as forças de cada membro.</li>
+        <li>Crie um ambiente onde todos se sintam à vontade para expressar ideias.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Em uma equipe composta por pessoas de diferentes províncias de Moçambique, reconhecer e respeitar as variações linguísticas e culturais pode fortalecer o espírito de equipe.</p>
+  
+      <h3>📌 Como Aumentar a Produtividade da Equipe</h3>
+      <p>Uma equipe produtiva é aquela que trabalha com eficiência e sinergia, aproveitando ao máximo o potencial de cada membro.</p>
+      <ul>
+        <li>Defina objetivos claros e divida as tarefas de forma equilibrada.</li>
+        <li>Use ferramentas digitais para organizar o trabalho e otimizar a comunicação.</li>
+        <li>Incentive momentos de feedback para ajustar estratégias e melhorar resultados.</li>
+      </ul>
+      <p><em>Exemplo prático:</em> Em uma empresa ou grupo de estudo, usar plataformas como WhatsApp ou Trello pode ajudar na organização das tarefas e prazos.</p>
+  
+      <h3>🎯 Exercício Prático</h3>
+      <p><strong>Desafio:</strong> Escolha um grupo do qual você faz parte (trabalho, estudo ou comunidade) e pratique o reconhecimento positivo. Durante uma semana, elogie colegas por seus esforços e veja como isso impacta a motivação do grupo.</p>
+  
+      <p><em>O sucesso de uma equipe depende do compromisso e respeito entre seus membros. Faça sua parte e veja o crescimento coletivo!</em></p>
+  
+      <hr>
+      <p><strong>📝 Aulas práticas em breve!</strong> Fique atento às atualizações para participar das nossas sessões ao vivo e aprimorar suas habilidades de trabalho em equipe.</p>
+    </div>
+  </details>
+  
+      
+      <div class="section-highlight">
+        <h3>Estudos de Caso e Exemplos Práticos</h3>
+        <p>Ao longo do curso, você terá acesso a estudos de caso reais e exemplos práticos para aplicar as habilidades sociais em situações cotidianas.</p>
+      </div>
+      
+      <div class="section-highlight">
+        <h3>Mais Conteúdos Sendo Adicionados!</h3>
+        <p>Estamos constantemente atualizando o curso com novos módulos e estratégias inovadoras. Fique atento para as novas atualizações!</p>
+      </div>
+      
     </section>
-
+    
     <footer>
-        <p>Open Mind - Todos os direitos reservados © 2025</p>
+      <p>Open Mind - Todos os direitos reservados © 2025</p>
     </footer>
-
+  </div>
 </body>
 </html>
