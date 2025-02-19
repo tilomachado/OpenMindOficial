@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    
+    <!-- Meta Tags para SEO -->
+    <meta name="description" content="Um Caminho para o Crescimento e a Compreensão">
+    <meta name="keywords" content="Renda Extra, dicas, vídeo, comunidade">
+    <meta name="author" content="Tilo Machado">
+    
+    <title>OPEN YOUR MIND</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+    
+    <style>
+     body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(270deg, #4f83ff, #00bcd4, #00ff85);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    color: white;
+    display: flex; /* Usar Flexbox para centralização */
+    justify-content: center; /* Centralizar horizontalmente */
+    align-items: center; /* Centralizar verticalmente */
+    height: 100vh; /* Altura total da viewport */
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.login-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 1s ease;
+    text-align: center; /* Centraliza o texto */
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input {
+    width: calc(100% - 20px); /* Subtrai o espaçamento das laterais */
+    padding: 10px;
+    margin: 0 auto 15px; /* Centraliza o input com margem automática */
+    border: none;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.9);
+    color: #333;
+}
+
+.btn {
+    width: 100%;
+    padding: 10px;
+    background: #ff4081;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #e91e63;
+}
+
+/* Estilo para os links de criar conta e recuperação de senha */
+.link-container {
+    margin-top: 15px;
+}
+
+.link-container a {
+    color: #ff4081; /* Cor dos links */
+    text-decoration: none; /* Remove sublinhado */
+    font-weight: bold; /* Negrito */
+    transition: color 0.3s;
+}
+
+.link-container a:hover {
+    color: #e91e63; /* Cor ao passar o mouse */
+}
+
+.loading-container {
+    display: none;
+    margin: 20px 0;
+    text-align: center;
+}
+
+.loading-bar {
+    width: 50px;
+    height: 50px;
+    border: 8px solid #fff;
+    border-top: 8px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.message {
+    margin: 10px 0;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+}
+
+.message.error {
+    color: #ff1744;
+}
+
+.message.success {
+    color: #76ff03;
+}
+
+.register-link a,
+.forgot-password a {
+    display: inline-block;
+    padding: 10px 15px;
+    margin-top: 10px;
+    border-radius: 5px;
+    background: #4CAF50; /* Cor verde */
+    color: white;
+    text-decoration: none;
+    transition: background 0.3s;
+}
+
+.register-link a:hover,
+.forgot-password a:hover {
+    background: #45a049; /* Cor verde escuro ao passar o mouse */
+}
+
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Conhecimento é o nosso Maior Investimento</h1>
+        <h2>Faça seu Login</h2>
+
+        <div class="message-container">
+            <div class="message error" id="error-message" style="display: none;">
+                <p>Por favor, verifique o e-mail/senha ou crie uma nova conta.</p>
+            </div>
+
+            <div class="forgot-password" id="forgot-password" style="display: none;">
+                <a href="esqueceu-senha-mia-pro-v3.html">Esqueceu a senha?</a>
+            </div>
+        </div>
+
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Digite seu email" required>
+
+            <label for="password">Senha:</label>
+            <input type="password" id="password" name="password" placeholder="Digite sua senha" required>
+
+            <button type="submit" class="btn">Entrar</button>
+        </form>
+
+        <div id="loadingContainer" class="loading-container">
+            <div class="loading-bar"></div>
+        </div>
+
+        <div class="message success" id="success-message">Login realizado com sucesso!</div>
+
+        <div class="register-link">
+            <a href="register_mia_pro_v3.html">Crie uma conta nova aqui</a>
+        </div>
+    </div>
+
+    <script type="module">
+        // Configuração completa do Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+        import { getFirestore, doc, setDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Configurações do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+    
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+    
+        // Elementos da DOM
+        const loginForm = document.getElementById("login-form");
+        const errorMessage = document.getElementById("error-message");
+        const successMessage = document.getElementById("success-message");
+        const loadingContainer = document.getElementById("loadingContainer");
+        const forgotPasswordLink = document.getElementById('forgot-password');
+    
+        let loginAttempts = 0;
+    
+        // Evento de Submit
+        loginForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const email = loginForm.email.value;
+            const password = loginForm.password.value;
+    
+            try {
+                loadingContainer.style.display = "block";
+                errorMessage.style.display = "none";
+    
+                // Autenticação
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const user = userCredential.user;
+    
+                // Atualizar Firestore
+                await setDoc(doc(db, "usuarios", user.uid), {
+                    ultima_entrada: new Date().toISOString()
+                }, { merge: true });
+    
+                // Feedback visual
+                loadingContainer.style.display = "none";
+                successMessage.style.display = "block";
+                
+                setTimeout(() => {
+                    window.location.href = "intro.html"; // Altere para sua página
+                }, 2000);
+    
+            } catch (error) {
+                loadingContainer.style.display = 'none';
+                errorMessage.textContent = getErrorMessage(error.code);
+                errorMessage.style.display = 'block';
+    
+                if (++loginAttempts >= 1) {
+                    forgotPasswordLink.style.display = 'block';
+                }
+            }
+        });
+    
+        // Gerenciamento de erros
+        function getErrorMessage(errorCode) {
+            const errors = {
+                'auth/user-not-found': 'Conta não encontrada.',
+                'auth/wrong-password': 'Senha incorreta.',
+                'auth/invalid-credential': 'Credenciais inválidas.',
+                'default': 'Erro ao realizar login. Tente novamente.'
+            };
+            return errors[errorCode] || errors['default'];
+        }
+    </script>
+    
+</body>
+</html>

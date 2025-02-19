@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="icone.png" type="image/png">
+    <title>Cadastro</title>
+
+    <!-- Código do Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-GDDY8TGYQV');
+    </script>
+
+<style>
+    :root {
+        --primary-gradient: linear-gradient(135deg, #1f1f1f, #2e2e2e);
+        --container-gradient: linear-gradient(135deg, #3a3a3a, #444 50%, #1f1f1f);
+        --neon-yellow: #ffcc00;
+        --neon-pink: #ff007f;
+        --success-green: #28a745;
+        --dark-bg: rgba(0, 0, 0, 0.9);
+    }
+
+    /* Estilos Globais Aprimorados */
+    body {
+        font-family: 'Roboto', sans-serif;
+        background: var(--primary-gradient);
+        color: #ffffff;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 20px;
+    }
+
+    /* Container com Efeito de Profundidade */
+    .container {
+        background: var(--container-gradient);
+        padding: 2.5rem;
+        border-radius: 15px;
+        box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6),
+                    inset 0 0 15px rgba(255, 255, 255, 0.1);
+        width: min(90%, 400px);
+        position: relative;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+    }
+
+    .container::before {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg,
+            transparent 45%,
+            rgba(255, 204, 0, 0.1) 50%,
+            transparent 55%
+        );
+        animation: hologram 6s linear infinite;
+        z-index: -1;
+    }
+
+    /* Títulos Dinâmicos */
+    h2 {
+        color: var(--neon-yellow);
+        margin-bottom: 2rem;
+        text-shadow: 0 0 15px var(--neon-yellow);
+        font-size: 2.2em;
+        position: relative;
+        letter-spacing: 1px;
+    }
+
+    /* Campos de Entrada com Efeito Neon */
+    .input-field {
+        width: 100%;
+        padding: 12px 15px;
+        margin-bottom: 1.5rem;
+        border: 2px solid transparent;
+        border-radius: 8px;
+        background: rgba(68, 68, 68, 0.8);
+        color: white;
+        font-size: 1.1em;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .input-field:focus {
+        background: rgba(85, 85, 85, 0.8);
+        border-color: var(--neon-pink);
+        box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    }
+
+    /* Botões Tradicionais */
+    .btn {
+        background: linear-gradient(135deg, var(--success-green), #1d7a32);
+        color: white;
+        padding: 14px 24px;
+        border-radius: 30px;
+        font-size: 1.2em;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    }
+
+    .btn::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+            45deg,
+            transparent,
+            rgba(255, 255, 255, 0.2),
+            transparent
+        );
+        animation: btn-shine 3s infinite;
+    }
+
+    .btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+    }
+
+    /* Botões de Link (Elementos <a>) */
+    a.btn,
+    a.link-btn {
+        text-decoration: none;
+        display: inline-block;
+        background: linear-gradient(135deg, var(--success-green), #1d7a32);
+        color: white;
+        padding: 14px 24px;
+        border-radius: 30px;
+        font-size: 1.2em;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
+    }
+
+    a.btn::after,
+    a.link-btn::after {
+        content: '';
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+        animation: btn-shine 3s infinite;
+    }
+
+    a.btn:hover,
+    a.link-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(40, 167, 69, 0.5);
+    }
+
+    a.btn:focus,
+    a.link-btn:focus {
+        outline: none;
+        border-color: var(--neon-pink);
+        box-shadow: 0 0 15px rgba(255, 0, 127, 0.4);
+    }
+
+    /* Modal Futurista */
+    .modal, .error-modal, .success-modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.85);
+        backdrop-filter: blur(8px);
+        z-index: 1000;
+    }
+
+    .modal-content {
+        background: var(--dark-bg);
+        border: 2px solid var(--neon-yellow);
+        box-shadow: 0 0 30px rgba(255, 204, 0, 0.4);
+        padding: 2rem;
+        border-radius: 15px;
+        width: min(90%, 500px);
+        position: relative;
+        animation: modalEntry 0.4s ease-out;
+    }
+
+    /* Spinner Holográfico */
+    .spinner {
+        width: 50px;
+        height: 50px;
+        border: 4px solid var(--neon-yellow);
+        border-top-color: transparent;
+        border-radius: 50%;
+        animation: spin 1.2s cubic-bezier(0.5, 0.1, 0.4, 0.9) infinite;
+        box-shadow: 0 0 20px var(--neon-yellow),
+                   inset 0 0 15px var(--neon-yellow);
+        position: relative;
+    }
+
+    .spinner::after {
+        content: '';
+        position: absolute;
+        top: -4px;
+        left: -4px;
+        right: -4px;
+        bottom: -4px;
+        border: 4px solid rgba(255, 204, 0, 0.2);
+        border-radius: 50%;
+        animation: spin 2s linear infinite reverse;
+    }
+
+    /* Animações */
+    @keyframes spin {
+        100% { transform: rotate(360deg); }
+    }
+
+    @keyframes hologram {
+        100% { transform: translate(50%, 50%); }
+    }
+
+    @keyframes btn-shine {
+        100% { transform: translate(50%, 50%); }
+    }
+
+    @keyframes modalEntry {
+        from { transform: translateY(20px) scale(0.95); opacity: 0; }
+        to { transform: translateY(0) scale(1); opacity: 1; }
+    }
+
+    /* Responsividade Aprimorada */
+    @media (max-width: 768px) {
+        .container {
+            padding: 1.5rem;
+            border-radius: 12px;
+        }
+
+        h2 {
+            font-size: 1.8em;
+        }
+
+        .btn,
+        a.btn,
+        a.link-btn {
+            padding: 12px 20px;
+            font-size: 1.1em;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .input-field {
+            font-size: 1em;
+            padding: 10px 12px;
+        }
+
+        .spinner {
+            width: 40px;
+            height: 40px;
+        }
+    }
+
+    /* Estilos para os links com a classe "pink-btn" */
+.pink-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, #ff007f, #ff69b4);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 6px rgba(255, 0, 127, 0.3);
+}
+
+.pink-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #ff69b4, #ff007f);
+    box-shadow: 0 4px 12px rgba(255, 0, 127, 0.5);
+}
+
+.pink-btn:active {
+    transform: translateY(0);
+}
+
+.loading {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
+    backdrop-filter: blur(8px); /* Desfoque no fundo */
+    z-index: 10000; /* Fica à frente de todo o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 4px solid #ffcc00;
+    border-top: 4px solid transparent;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+.loading p {
+    color: #fff;
+    font-size: 1.2rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Estilos Gerais para os Modais */
+.error-modal,
+.success-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85); /* Fundo escuro semitransparente */
+    backdrop-filter: blur(8px); /* Efeito de desfoque no fundo */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+/* Conteúdo do Modal de Erro e Sucesso */
+.error-modal-content,
+.success-modal-content {
+    background: var(--dark-bg);
+    padding: 2rem;
+    border-radius: 15px;
+    width: min(90%, 500px);
+    text-align: center;
+    position: relative;
+    animation: modalEntry 0.4s ease-out;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.4);
+}
+
+/* Estilização Específica para Modal de Erro */
+.error-modal-content {
+    border: 2px solid #ff007f; /* Borda rosa neon para erro */
+}
+
+.error-icon {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+/* Estilização Específica para Modal de Sucesso */
+.success-modal-content {
+    border: 2px solid #28a745; /* Borda verde para sucesso */
+}
+
+.success-icon {
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+/* Estilos para os Botões de Fechar */
+.close-error-btn,
+.close-success-btn {
+    background: transparent;
+    color: #fff;
+    border: 2px solid currentColor;
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1.5rem;
+}
+
+.close-error-btn:hover,
+.close-success-btn:hover {
+    background: currentColor;
+    color: #000;
+}
+
+/* Animação de Entrada dos Modais */
+@keyframes modalEntry {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+
+</style>
+
+</head>
+<body>
+    <body>
+        <div class="container">
+            <h2>Cadastro M.I.A PRO V3</h2>
+            <form id="registerForm">
+                <label for="username">Nome de Usuário:</label>
+                <input type="text" id="username" class="input-field" placeholder="Digite seu nome de usuário" required>
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" class="input-field" placeholder="Digite seu email" required>
+        
+                <label for="phone">Telefone:</label>
+                <input type="tel" id="phone" class="input-field" placeholder="Digite seu telefone" required>
+        
+                <label for="password">Senha:</label>
+                <input type="password" id="password" class="input-field" placeholder="Digite sua senha" required>
+        
+                <label for="confirmPassword">Confirme sua Senha:</label>
+                <input type="password" id="confirmPassword" class="input-field" placeholder="Confirme sua senha" required>
+        
+                <label for="favoriteSubject">Qual é a sua disciplina favorita? (Resposta de Segurança)</label>
+                <input type="text" id="favoriteSubject" class="input-field" placeholder="Digite sua disciplina favorita" required>
+        
+                <label class="accept-terms">
+                    <input type="checkbox" id="acceptTerms" required>
+                    Aceito os <a href="termos-de-servico.html" target="_blank" class="pink-btn">Termos de Serviço</a> e a <a href="politica-privacidade.html" target="_blank" class="pink-btn">Política de Privacidade</a>
+                </label>
+        
+                <button type="submit" class="btn">Cadastrar</button>
+            </form>
+            
+            <button id="loginButton" class="btn" style="margin-top: 10px;">Já tem uma conta? Faça login aqui</button>
+        
+            <div class="loading" id="loadingIndicator" style="display: none;">
+                <div class="spinner"></div>
+                <p>Criando conta...</p>
+            </div>
+        
+            <!-- Modal de Erro -->
+            <div class="error-modal" id="errorModal" style="display: none;">
+                <div class="error-modal-content">
+                    <h1 class="error-icon">⚠️ Erro no Cadastro</h1>
+                    <p id="errorMessage">😢 Este email já está em uso nesta plataforma. Tente com outro email.</p>
+                    <button class="close-error-btn" id="closeErrorModal">Fechar</button>
+                </div>
+            </div>
+        
+            <!-- Modal de Sucesso -->
+            <div class="success-modal" id="successModal" style="display: none;">
+                <div class="success-modal-content">
+                    <h1 class="success-icon">🎉Parabêns!</h1>
+                    <p id="successMessage">Sua conta foi criada com sucesso!</p>
+                    <p>Junte-se ao nosso grupo no WhatsApp:</p>
+                    <a href="https://chat.whatsapp.com/BH1JgPT0yReL294UZxX9nR" target="_blank">
+                        <button class="btn">Clique aqui para participar</button>
+                    </a>
+                    <button class="close-success-btn" id="closeSuccessModal">Fechar</button>
+                </div>
+            </div>
+        </div>
+        
+            <script type="module">
+                import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+                import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-auth.js";
+                import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+            
+                const firebaseConfig = {
+                    apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+                    authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+                    projectId: "plataforma-do-mini-curso",
+                    storageBucket: "plataforma-do-mini-curso.appspot.com",
+                    messagingSenderId: "424655587612",
+                    appId: "1:424655587612:web:851858a379c334227056e4",
+                    measurementId: "G-6CE0E9R3J5"
+                };
+            
+                const app = initializeApp(firebaseConfig);
+                const auth = getAuth(app);
+                const db = getFirestore(app);
+        
+            const registerForm = document.getElementById('registerForm');
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const errorModal = document.getElementById('errorModal');
+            const successModal = document.getElementById('successModal');
+            const errorMessage = document.getElementById('errorMessage');
+            const closeErrorModal = document.getElementById('closeErrorModal');
+            const closeSuccessModal = document.getElementById('closeSuccessModal');
+        
+            registerForm.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                loadingIndicator.style.display = 'flex';
+        
+                const username = document.getElementById('username').value;
+                const email = document.getElementById('email').value;
+                const phone = document.getElementById('phone').value;
+                const password = document.getElementById('password').value;
+                const favoriteSubject = document.getElementById('favoriteSubject').value;
+        
+                // Captura a data atual
+                const creationDate = new Date().toISOString();
+        
+                try {
+                    const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+                    const user = userCredential.user;
+        
+                    // Armazenar informações do usuário no Firestore
+                    await setDoc(doc(db, "usuarios", user.uid), {
+                        username,
+                        email,
+                        phone,
+                        favoriteSubject,
+                        creationDate // Adiciona a data de criação aqui
+                    });
+        
+                    loadingIndicator.style.display = 'none';
+                    successModal.style.display = 'flex';
+        
+                    // Atualiza a mensagem de sucesso com o nome do usuário
+                    document.getElementById('successMessage').innerHTML = `Olá ${username}, seja bem vindo/a! a nossa Plataforma de Ensino e Aprendizagem Digital!`;
+        
+                } catch (error) {
+                    loadingIndicator.style.display = 'none';
+        
+                    if (error.code === 'auth/email-already-in-use') {
+                        errorMessage.textContent = "😢 Este email já está em uso nesta plataforma. Tente com outro email.";
+                        errorModal.style.display = 'flex';
+                    } else {
+                        errorMessage.textContent = "😢 Ocorreu um erro inesperado. Tente novamente.";
+                        errorModal.style.display = 'flex';
+                    }
+                }
+            });
+        
+            closeErrorModal.addEventListener('click', () => {
+                errorModal.style.display = 'none';
+            });
+        
+            closeSuccessModal.addEventListener('click', () => {
+                successModal.style.display = 'none';
+                window.location.href = "mia_pro_v3.html"; // Redireciona para index.html quando o modal de sucesso é fechado
+            });
+        
+            document.getElementById('loginButton').addEventListener('click', () => {
+                window.location.href = "mia_pro_v3.html";
+            });
+        </script>
+        
+                
+    </body>
+    </html>
+

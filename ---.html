@@ -1,181 +1,396 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OPEN MIND</title>
-    <link rel="stylesheet" href="styles.css">
-    <link rel="icon" href="icone.png" type="image/png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OPEN MIND</title>
 
-    <!-- Meta Tags para SEO -->
-    <meta name="description" content="Um Caminho para o Crescimento e a Compreensão">
-    <meta name="keywords" content="Renda Extra, dicas, vídeo, comunidade">
-    <meta name="author" content="Tilo Machado">
+  <link rel="icon" href="icone.png" type="image/png" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap"
+    rel="stylesheet"
+  />
 
-    <!-- Código do Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', 'G-GDDY8TGYQV');
-    </script>
+  <!-- Meta Tags para SEO -->
+  <meta name="description" content="Um Caminho para o Crescimento e a Compreensão" />
+  <meta name="keywords" content="Renda Extra, dicas, vídeo, comunidade" />
+  <meta name="author" content="Tilo Machado" />
+
+  <!-- Código do Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "G-GDDY8TGYQV");
+  </script>
+
+  <style>
+    /*********************************************/
+    /* MINI RESET / NORMALIZE                    */
+    /*********************************************/
+    *,
+    *::before,
+    *::after {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    em,
+    i,
+    strong,
+    b {
+      font-style: normal;
+      font-weight: normal;
+    }
+
+    html {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /*********************************************/
+    /* ESTILOS GERAIS DO PROJETO                */
+    /*********************************************/
+
+    body {
+      font-family: "Poppins", sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298);
+      color: #fff;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Container do “feed” */
+    .carousel-container {
+      max-width: 1200px;
+      margin: 50px auto;
+      padding: 20px;
+      position: relative;
+
+      /* Scroll vertical */
+      overflow-y: auto;
+      overflow-x: hidden;
+      height: 80vh; /* Ajuste conforme desejar para limitar a altura do feed */
+
+      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      scroll-behavior: smooth; /* Rolagem suave, se necessário */
+    }
+
+    /* Organiza os itens em coluna */
+    .carousel {
+      display: flex;
+      flex-direction: column;
+      align-items: center; /* Centraliza os cards horizontalmente */
+    }
+
+    /* Cada curso como um “card” vertical */
+    .course {
+      width: 100%;
+      max-width: 600px; /* Largura máxima do card */
+      padding: 20px;
+      box-sizing: border-box;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 15px;
+      margin-bottom: 20px; /* Espaço entre um card e outro */
+      backdrop-filter: blur(5px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .course:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+    }
+
+    .course h2 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    }
+
+    .course p {
+      font-size: 14px;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    /* Ajuste de tamanho das imagens */
+    .course .kelcia-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Botões de Ação */
+    .btn-container {
+      margin-top: 20px;
+    }
+
+    .btn-principal {
+      background: linear-gradient(45deg, #00bcd4, #0097a7);
+      color: white;
+      padding: 12px 24px;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.3s ease, background 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-decoration: none;
+    }
+
+    .btn-principal:hover {
+      background: linear-gradient(45deg, #0097a7, #00bcd4);
+      transform: translateY(-5px);
+    }
+
+    /* Rodapé */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      margin-top: 20px;
+      font-size: 14px;
+      color: #e0e0e0;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .carousel-container {
+        padding: 10px;
+        height: auto; /* Se quiser permitir rolagem normal em telas menores */
+      }
+
+      .course {
+        margin: 0 5px 20px 5px; /* margens laterais e inferior */
+        width: 100%;
+        max-width: 500px; /* ajusta a largura no mobile */
+      }
+
+      .course h2 {
+        font-size: 18px;
+      }
+
+      .course p {
+        font-size: 14px;
+      }
+
+      .btn-principal {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 <body>
-  
 
-    <div class="carousel-container">
-        <div class="carousel">
-            <div class="course">
-                
-                <h2>Minicurso de Preparação Mental: Rumo ao Sucesso Pessoal e Profissional</h2>
-        <img src="metalidade.webp" alt="Preparação Mental" class="kelcia-img">
-        <p>Prepare sua mente para os desafios da vida! Aprenda técnicas de autoconfiança, foco e superação para alcançar seus objetivos com uma mentalidade vencedora.</p>
+  <div class="carousel-container">
+    <div class="carousel">
+      <!-- Slide 1 -->
+      <div class="course">
+        <h2>Preparação Mental PRO V3</h2>
+        <img src="nle15.webp" alt="Preparação Mental" class="kelcia-img" />
+        <p>
+          Prepare sua mente para os desafios da vida! Aprenda técnicas de autoconfiança, foco e superação para alcançar
+          seus objetivos com uma mentalidade vencedora.
+        </p>
         <div class="btn-container">
-                    <a href="VLS.html" class="btn-principal">Saiba Mais</a>
-                </div>
-            </div>
-
-            <div class="course">
-                <h2>Guia Completo para Criar Contas no Facebook: Estratégias de Sucesso</h2>
-                <img src="facebook.webp" alt="Criação de Contas no Facebook" class="kelcia-img">
-                <p>Aprenda a criar contas no Facebook e utilizá-las para construir um negócio de sucesso. Descubra táticas avançadas para aumentar suas vendas e alcançar seu público-alvo com eficiência.</p>
-                <div class="btn-container">
-                    <a href="maquinadevendas.html" class="btn-principal">Saiba Mais</a>
-                </div>
-            </div>
-            
-
-            <div class="course">
-                <h2>Mestre dos Trabalhos Científicos: Da Ideia à Perfeição</h2>
-                <img src="mestredoso.webp" alt="Mestre dos Trabalhos Científicos" class="kelcia-img">
-                <p>Domine as técnicas essenciais para criar trabalhos científicos de alta qualidade. Desde a estruturação até a apresentação, aprenda passo a passo como alcançar excelência acadêmica.</p>
-                <div class="btn-container">
-                    <a href="cursodeinformatica.html" class="btn-principal">Saiba Mais</a>
-                </div>
-            </div>
-            
-
-            
-            <div class="course">
-                <h2>Mestre do Software: Transforme Seu Potencial</h2>
-                <img src="mestredos.webp" alt="Mestre do Software" class="kelcia-img">
-                <p>Desbloqueie o seu verdadeiro potencial no universo do desenvolvimento de software. Aprenda as habilidades fundamentais para conquistar destaque em um mercado altamente competitivo.</p>
-                <div class="btn-container">
-                    <a href="mestredosoftware.html" class="btn-principal">Saiba Mais</a>
-                </div>
-            </div>
-            
-
-            
-
-            <div class="course">
-                <h2>Introdução à Hotmart: Sua Porta para o Mercado Digital</h2>
-                <img src="cc" alt="Mestre do Software" class="kelcia-img">
-                <p>Descubra como a Hotmart está transformando ideias em negócios de sucesso. Aprenda a utilizar essa plataforma líder para criar, vender e escalar produtos digitais no mercado global.</p>
-                <div class="btn-container">
-                    <a href="hotmartintro.html" class="btn-principal">Saiba Mais</a>
-                </div>
-            </div>
-            
-
-            <div class="course">
-                <h2>Curso Mestre da Edição Pro V3</h2>
-                <img src="ed.webp" alt="Mestre da Edição" class="kelcia-img">
-                <p>Aprenda a criar vídeos de alta qualidade e monetizar no YouTube e TikTok com nosso curso especializado. Desenvolva suas habilidades e comece a gerar renda extra criando vídeos incríveis!</p>
-                <div class="btn-container">
-                    <a href="++.html" class="btn-principal">Saiba Mais</a>
-                </div>
-            </div>
-
-            
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/mentalidade_certa.html"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
         </div>
+      </div>
+
+      <!-- Slide 2 -->
+      <div class="course">
+        <h2>Máquina de Vendas PRO V3</h2>
+        <img src="latam7.jpg" alt="Criação de Contas no Facebook" class="kelcia-img" />
+        <p>
+          Aprenda a criar contas no Facebook e utilizá-las para construir um negócio de sucesso. Descubra táticas avançadas
+          para aumentar suas vendas e alcançar seu público-alvo com eficiência.
+        </p>
+        <div class="btn-container">
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/maquina_de_vendas.html"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 3 -->
+      <div class="course">
+        <h2>Desenvolvimento de Sites PRO V3</h2>
+        <img src="latam2.webp" alt="Mestre da Edição" class="kelcia-img" />
+        <p>
+          Transforme suas ideias em sites incríveis de maneira fácil e rápida, sem precisar programar. Construa páginas
+          modernas, eficientes e prontas para converter!
+        </p>
+        <div class="btn-container">
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/site_dev"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 4 -->
+      <div class="course">
+        <h2>Mestre dos Trabalhos Científicos PRO V3</h2>
+        <img src="mestredoso.webp" alt="Mestre dos Trabalhos Científicos" class="kelcia-img" />
+        <p>
+          Domine as técnicas essenciais para criar trabalhos científicos de alta qualidade. Desde a estruturação até a
+          apresentação, aprenda passo a passo como alcançar excelência acadêmica.
+        </p>
+        <div class="btn-container">
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/mestre_dos_w.html"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 5 -->
+      <div class="course">
+        <h2>Mestre do Software PRO V3</h2>
+        <img src="mestredos.webp" alt="Mestre do Software" class="kelcia-img" />
+        <p>
+          Desbloqueie o seu verdadeiro potencial no universo do desenvolvimento de software. Aprenda as habilidades
+          fundamentais para conquistar destaque em um mercado altamente competitivo.
+        </p>
+        <div class="btn-container">
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/mestre_do_software.html"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 6 -->
+      <div class="course">
+        <h2>Introdução à Hotmart PRO V3</h2>
+        <img src="ho.webp" alt="Introdução à Hotmart" class="kelcia-img" />
+        <p>
+          Descubra como a Hotmart está transformando ideias em negócios de sucesso. Aprenda a utilizar essa plataforma
+          líder para criar, vender e escalar produtos digitais no mercado global.
+        </p>
+        <div class="btn-container">
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/hotmart_intro.html"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 7 -->
+      <div class="course">
+        <h2>Gestão de Negócios PRO V3</h2>
+        <img src="job.jpg" alt="Gestão de Negócios PRO V3" class="kelcia-img" />
+        <p>
+          Domine as técnicas essenciais de gestão de negócios para impulsionar sua carreira. Aprenda a administrar
+          recursos, liderar equipes e implementar estratégias eficazes para o sucesso empresarial.
+        </p>
+        <div class="btn-container">
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/gestao_negocios.html"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 8 -->
+      <div class="course">
+        <h2>Habilidades Sociais Pro V3</h2>
+        <img src="job1.jpg" alt="Habilidades Sociais Pro V3" class="kelcia-img" />
+        <p>
+          Desenvolva suas habilidades interpessoais e melhore sua comunicação. Aprenda a se relacionar melhor com os
+          outros, construir redes de contatos e aumentar sua influência no mercado de trabalho.
+        </p>
+        <div class="btn-container">
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/habilidades_sociais.html"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 9 -->
+      <div class="course">
+        <h2>Mercado de Trabalho Pro V3</h2>
+        <img src="job2.jpg" alt="Mercado de Trabalho Pro V3" class="kelcia-img" />
+        <p>
+          Prepare-se para o mercado de trabalho com este curso abrangente. Aprenda a criar currículos impactantes, se
+          preparar para entrevistas e se destacar nas oportunidades de emprego.
+        </p>
+        <div class="btn-container">
+          <a
+            href="https://tilomachado.github.io/OpenMindOficial/cursos/mercado_trabalho.html"
+            class="btn-principal"
+          >
+            Saiba Mais
+          </a>
+        </div>
+      </div>
+
+      <!-- Slide 10 -->
+      <div class="course">
+        <h2>Curso Mestre da Edição Pro V3</h2>
+        <img src="ed.webp" alt="Curso Mestre da Edição Pro V3" class="kelcia-img" />
+        <p>
+          Aprenda a editar vídeos como um profissional! Domine as ferramentas e técnicas necessárias para criar conteúdo
+          envolvente e de alta qualidade, ideal para plataformas como YouTube e TikTok.
+        </p>
+        <div class="btn-container">
+          <a href="https://tilomachado.github.io/OpenMindOficial/cursos/video_editor.html" class="btn-principal">Saiba Mais</a>
+        </div>
+      </div>
+
+      <!-- Slide 11 -->
+      <div class="course">
+        <h2>Bônus Especial💥</h2>
+        <img src="latam12.webp" alt="Bônus Especial" class="kelcia-img" />
+        <p>
+          Receba conteúdo exclusivo como bônus ao se inscrever em nossos cursos. Aproveite dicas, truques e recursos que
+          irão acelerar seu aprendizado e maximizar seus resultados!
+        </p>
+        <div class="btn-container">
+          <a href="" class="btn-principal">ESTAMOS COZINHANDO AINDA</a>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <div class="carousel-buttons">
-        <button id="prev" class="nav-button">⬅️</button>
-        <button id="next" class="nav-button">➡️</button>
-    </div>
-    
-    <style>
-       
-    
-       .slide-number {
-    font-size: 18px;
-    font-weight: bold;
-    color: rgb(255, 255, 255);
-    background: linear-gradient(45deg, #ff6f61, #ffa000);
-    padding: 8px 16px; /* Tamanho igual para cima/baixo e esquerda/direita */
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    display: flex;
-    align-items: center; /* Centraliza verticalmente */
-    justify-content: center; /* Centraliza horizontalmente */
-    line-height: 1; /* Ajusta o espaçamento vertical do texto */
-    height: 40px; /* Altura fixa para manter proporção */
-    width: auto; /* Ajusta automaticamente com base no texto */
-    animation: pulse 2s infinite; /* Animação opcional */
-}
+  <footer>
+    <p>© 2024 - OpenMind. Todos os direitos reservados.</p>
+  </footer>
 
-/* Animação para efeito pulsante */
-@keyframes pulse {
-    0%, 100% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-}
-
-
-    </style>
-    
-    <script>
-        // Configuração inicial
-        const totalSlides = 6; // Total de slides
-        let currentSlide = 1; // Slide atual
-    
-        // Elementos do carrossel
-        const prevButton = document.getElementById('prev');
-        const nextButton = document.getElementById('next');
-    
-        // Criar elemento para o contador e adicioná-lo no meio dos botões
-        const slideCounter = document.createElement('span');
-        slideCounter.className = 'slide-number';
-        slideCounter.textContent = `${currentSlide}/${totalSlides}`;
-    
-        // Inserir o contador entre os botões
-        const buttonsContainer = document.querySelector('.carousel-buttons');
-        buttonsContainer.insertBefore(slideCounter, nextButton);
-    
-        // Função para atualizar o contador
-        function updateSlideCounter() {
-            slideCounter.textContent = `${currentSlide}/${totalSlides}`;
-        }
-    
-        // Função para ir para o slide anterior
-        prevButton.addEventListener('click', () => {
-            if (currentSlide > 1) {
-                currentSlide--;
-                updateSlideCounter();
-            }
-        });
-    
-        // Função para ir para o próximo slide
-        nextButton.addEventListener('click', () => {
-            if (currentSlide < totalSlides) {
-                currentSlide++;
-                updateSlideCounter();
-            }
-        });
-    </script>
-    
-
-    <footer>
-        <p>© 2024 - OpenMind. Todos os direitos reservados.</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>

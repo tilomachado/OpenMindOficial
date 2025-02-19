@@ -343,7 +343,7 @@
         btn.disabled = true;
 
         var progressValue = 0;
-        var totalTime = 11000; // 3 minutos em milissegundos
+        var totalTime = 1900; // 3 minutos em milissegundos
         var interval = totalTime / 100; // Dividindo o tempo total por 100 para aumentar o progresso de 1% a cada intervalo
 
         var progressInterval = setInterval(function() {
@@ -358,7 +358,7 @@
                 btn.disabled = false;
                 progress.textContent = '';
                 // Redireciona para o dashboard após o progresso ser concluído
-                window.location.href = "dashboard.html"; // Redireciona para o dashboard
+                window.location.href = "register.html"; // Redireciona para o dashboard
             }
         }, interval); // Progresso de 0 a 100% em 3 minutos (180000ms)
     });
@@ -476,14 +476,14 @@
                         
                         // Armazenar o curso no localStorage
                         localStorage.setItem("Curso", curso);
-                        window.location.href = "dashboard.html"; // Redireciona para o dashboard
+                        window.location.href = "---.html"; // Redireciona para o dashboard
                     } else {
                         alert("Número de recibo inválido ou usuário não encontrado.");
                     }
                 } else {
                     // Caso contrário, atualiza o tempo e armazena
                     localStorage.setItem("lastReciboTime", currentTime);
-                    window.location.href = "dashboard.html"; // Redireciona para o dashboard
+                    window.location.href = "---.html"; // Redireciona para o dashboard
                 }
             } else {
                 alert("Por favor, insira seu nome de usuário e número do recibo.");
