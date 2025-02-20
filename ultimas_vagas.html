@@ -464,34 +464,28 @@
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
 
-    // Salva o lead com nome e número e, em seguida, abre o popup
-    async function saveLead(name, phone) {
+  // Salva o lead com nome e número e redireciona para a página do eBook
+  async function saveLead(name, phone) {
       try {
-        const docRef = await addDoc(collection(db, "cozinhando"), {
+        const docRef = await addDoc(collection(db, "cozinhando.1"), {
           name: name,
           phone: phone,
           timestamp: new Date()
         });
         console.log("Lead salvo com ID: ", docRef.id);
-        openPopup();
+        window.location.href = 'ebook-maquina-de-vendas.html'; // Redireciona para a página do eBook
       } catch (error) {
         console.error("Erro ao salvar lead: ", error);
       }
     }
 
-    // Carrega o nome do criador (Tilo Machado)
-    async function loadCreatorName() {
-      try {
-        const querySnapshot = await getDocs(collection(db, "cozinhando"));
-        querySnapshot.forEach((doc) => {
-          if (doc.data().name === "Tilo Machado") {
-            document.getElementById("creatorName").textContent = doc.data().name;
-          }
-        });
-      } catch (error) {
-        console.error("Erro ao carregar nome do criador: ", error);
-      }
-    }
+    // Evento de envio do formulário
+    document.getElementById("leadForm").addEventListener("submit", async (event) => {
+      event.preventDefault(); // Evita o redirecionamento padrão
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      await saveLead(name, phone); // Salva os dados no Firestore e redireciona
+    });
 
     // Countdown para 1º de março às 00:00
     function startCountdown() {
@@ -518,50 +512,6 @@
       }, 1000);
     }
 
-    // Lista de 60 nomes variados para o popup
-    const names = [
-      "Ana", "Bruno", "Carlos", "Daniela", "Eduardo", "Fernanda", "Gabriel", "Helena", "Igor", "Juliana",
-      "Kleber", "Larissa", "Marcos", "Natália", "Otávio", "Patrícia", "Ricardo", "Sabrina", "Tiago", "Vanessa",
-      "Alexandre", "Bianca", "César", "Diana", "Ernesto", "Fabiana", "Gustavo", "Heloísa", "Ítalo", "Jéssica",
-      "Leonardo", "Michele", "Natan", "Olívia", "Paulo", "Quezia", "Rafael", "Simone", "Tomás", "Úrsula",
-      "Vitor", "Wagner", "Xênia", "Yuri", "Zuleica", "Amanda", "Bruna", "Caio", "Diego", "Elisa",
-      "Fábio", "Geovana", "Henrique", "Isabela", "Jorge", "Karina", "Luan", "Mariana", "Noah", "Pedro",
-      "Renata", "Samuel", "Tatiana", "Ulisses", "Victor", "William"
-    ];
-
-    function populateNameList() {
-      const nameListDiv = document.getElementById("nameList");
-      let ul = document.createElement("ul");
-      names.forEach(name => {
-        let li = document.createElement("li");
-        li.textContent = name;
-        ul.appendChild(li);
-      });
-      nameListDiv.innerHTML = "";
-      nameListDiv.appendChild(ul);
-    }
-
-    function openPopup() {
-      populateNameList();
-      document.getElementById("popup").style.display = "block";
-      document.getElementById("popupOverlay").style.display = "block";
-    }
-
-    function closePopup() {
-      document.getElementById("popup").style.display = "none";
-      document.getElementById("popupOverlay").style.display = "none";
-    }
-
-    // Evento de envio do formulário
-    document.getElementById("leadForm").addEventListener("submit", async (event) => {
-      event.preventDefault();
-      const name = document.getElementById("name").value;
-      const phone = document.getElementById("phone").value;
-      await saveLead(name, phone);
-    });
-
-    loadCreatorName();
-    startCountdown();
 
     // Inicia a animação da barra de progresso 3 segundos após o carregamento da página
     window.addEventListener("load", () => {
