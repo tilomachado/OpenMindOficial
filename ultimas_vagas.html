@@ -11,140 +11,183 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
       line-height: 1.6;
-      background-color: #f4f4f4;
-      color: #333;
+      background-color: #f5f5f7;
+      color: #1d1d1f;
     }
+
     /* Container principal */
     .container {
       max-width: 800px;
-      margin: 0 auto;
-      padding: 20px;
+      margin: 20px auto;
+      padding: 40px;
       background-color: #fff;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+
     /* Cabeçalho */
     header {
       text-align: center;
-      margin-bottom: 20px;
+      margin-bottom: 40px;
     }
+
     header h1 {
       font-size: 2.5em;
-      color: #007BFF;
+      color: #007AFF;
+      margin-bottom: 10px;
+      font-weight: 600;
     }
+
     header p {
       font-size: 1.2em;
       color: #666;
+      font-weight: 300;
     }
+
     /* Vídeo */
     .video-container {
-      margin: 20px 0;
+      margin: 40px 0;
       text-align: center;
       position: relative;
     }
+
     .video-container iframe {
       width: 100%;
       height: 400px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     }
+
     .video-message {
-      margin-top: 10px;
+      margin-top: 20px;
       font-size: 1.1em;
-      color: #007BFF;
+      color: #007AFF;
+      font-weight: 500;
     }
+
     /* Barra de Progresso */
     .progress-bar {
       width: 100%;
       height: 10px;
-      background-color: #ddd;
+      background-color: #e0e0e0;
       border-radius: 5px;
-      margin-top: 10px;
+      margin-top: 20px;
       overflow: hidden;
     }
+
     .progress-bar-inner {
       width: 0;
       height: 100%;
-      background: linear-gradient(to right, red, orange);
+      background: linear-gradient(to right, #FF2D55, #FF9500);
       transition: width 240s linear; /* 4 minutos */
     }
+
     /* Formulário */
     .form-container {
       text-align: center;
-      margin: 20px 0;
+      margin: 40px 0;
     }
+
     .form-container h2 {
       font-size: 1.8em;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #1d1d1f;
     }
+
     .form-container input {
-      width: 80%;
-      padding: 10px;
+      width: 100%;
+      max-width: 400px;
+      padding: 12px;
       margin: 10px 0;
       border: 1px solid #ccc;
-      border-radius: 5px;
+      border-radius: 8px;
+      font-size: 1em;
+      transition: border-color 0.3s ease;
     }
+
+    .form-container input:focus {
+      border-color: #007AFF;
+      outline: none;
+    }
+
     .form-container button {
-      padding: 10px 20px;
-      background-color: #007BFF;
+      padding: 12px 24px;
+      background-color: #007AFF;
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
+      font-size: 1em;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
     }
+
     .form-container button:hover {
-      background-color: #0056b3;
+      background-color: #005BB5;
     }
+
     /* Countdown */
     .countdown {
       text-align: center;
       font-size: 1.2em;
-      margin: 20px 0;
+      margin: 40px 0;
+      color: #666;
     }
+
+    .countdown #countdownTimer {
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
     /* Benefícios */
     .benefits {
-      margin: 20px 0;
+      margin: 40px 0;
     }
+
     .benefits h2 {
       font-size: 1.8em;
       text-align: center;
-      margin-bottom: 10px;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #1d1d1f;
     }
+
     .benefits ul {
       list-style-type: none;
       padding: 0;
     }
+
     .benefits ul li {
       background-color: #f9f9f9;
       margin: 10px 0;
-      padding: 10px;
-      border-left: 5px solid #007BFF;
-      border-radius: 5px;
+      padding: 15px;
+      border-left: 5px solid #007AFF;
+      border-radius: 8px;
+      font-size: 1.1em;
+      color: #666;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
+
+    .benefits ul li:hover {
+      transform: translateX(10px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
     /* Rodapé */
     footer {
       text-align: center;
-      margin-top: 20px;
+      margin-top: 40px;
       font-size: 0.9em;
-      color: #666;
+      color: #888;
     }
+
     /* Popup */
-    .popup {
-      display: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      z-index: 1000;
-      text-align: center;
-    }
     .popup-overlay {
       display: none;
       position: fixed;
@@ -155,31 +198,95 @@
       background-color: rgba(0, 0, 0, 0.5);
       z-index: 999;
     }
+
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      text-align: center;
+      max-width: 400px;
+      width: 90%;
+    }
+
+    .popup h2 {
+      font-size: 1.8em;
+      margin-bottom: 20px;
+      font-weight: 600;
+      color: #1d1d1f;
+    }
+
+    .popup p {
+      font-size: 1.1em;
+      color: #666;
+      margin-bottom: 20px;
+    }
+
     .popup button {
-      padding: 10px 20px;
-      background-color: #007BFF;
+      padding: 12px 24px;
+      background-color: #007AFF;
       color: #fff;
       border: none;
-      border-radius: 5px;
+      border-radius: 8px;
       cursor: pointer;
-      margin-top: 10px;
+      font-size: 1em;
+      font-weight: 500;
+      transition: background-color 0.3s ease;
     }
+
     .popup button:hover {
-      background-color: #0056b3;
+      background-color: #005BB5;
     }
-    /* Lista de nomes no popup */
+
     .name-list {
       max-height: 200px;
       overflow-y: scroll;
-      margin: 10px 0;
+      margin: 20px 0;
       text-align: left;
       padding: 0 10px;
     }
+
     .name-list ul {
       list-style: none;
     }
+
     .name-list li {
-      margin: 5px 0;
+      margin: 10px 0;
+      font-size: 1em;
+      color: #666;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2em;
+      }
+
+      header p {
+        font-size: 1em;
+      }
+
+      .video-container iframe {
+        height: 250px;
+      }
+
+      .form-container h2 {
+        font-size: 1.5em;
+      }
+
+      .benefits h2 {
+        font-size: 1.5em;
+      }
+
+      .popup {
+        padding: 20px;
+      }
     }
   </style>
 </head>
@@ -240,13 +347,13 @@
   <div class="popup" id="popup">
     <h2>Entre no Grupo Exclusivo!</h2>
     <p>Junte-se ao nosso grupo do WhatsApp para mais conteúdos exclusivos:</p>
-    <!-- Lista de 60 nomes variados -->
     <div class="name-list" id="nameList">
-     
+      <!-- Lista de nomes será preenchida via JavaScript -->
+    </div>
     <button onclick="closePopup()">Fechar</button>
   </div>
 
-  <!-- Firebase e Scripts -->
+  <!-- Scripts -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
     import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
@@ -353,17 +460,13 @@
       document.getElementById("popupOverlay").style.display = "none";
     }
 
-    // Evento de envio do formulário – o popup é aberto somente após o clique no botão "Quero Receber o Ebook!"
-document.getElementById("leadForm").addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const name = document.getElementById("name").value;
-    const phone = document.getElementById("phone").value;
-    await saveLead(name, phone);
-    
-    // Redireciona para a página do ebook em HTML
-    window.location.href = "ebook-maquina-de-vendas.html";
-});
-
+    // Evento de envio do formulário
+    document.getElementById("leadForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      await saveLead(name, phone);
+    });
 
     loadCreatorName();
     startCountdown();
