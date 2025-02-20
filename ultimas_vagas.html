@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Máquina de Vendas - Domine as Vendas!</title>
+  <style>
+    /* Reset básico */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    /* Container principal */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    /* Cabeçalho */
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    header h1 {
+      font-size: 2.5em;
+      color: #007BFF;
+    }
+    header p {
+      font-size: 1.2em;
+      color: #666;
+    }
+    /* Vídeo */
+    .video-container {
+      margin: 20px 0;
+      text-align: center;
+      position: relative;
+    }
+    .video-container iframe {
+      width: 100%;
+      height: 400px;
+      border: none;
+      border-radius: 10px;
+    }
+    .video-message {
+      margin-top: 10px;
+      font-size: 1.1em;
+      color: #007BFF;
+    }
+    /* Barra de Progresso */
+    .progress-bar {
+      width: 100%;
+      height: 10px;
+      background-color: #ddd;
+      border-radius: 5px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+    .progress-bar-inner {
+      width: 0;
+      height: 100%;
+      background: linear-gradient(to right, red, orange);
+      transition: width 240s linear; /* 4 minutos */
+    }
+    /* Formulário */
+    .form-container {
+      text-align: center;
+      margin: 20px 0;
+    }
+    .form-container h2 {
+      font-size: 1.8em;
+      margin-bottom: 10px;
+    }
+    .form-container input {
+      width: 80%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    .form-container button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .form-container button:hover {
+      background-color: #0056b3;
+    }
+    /* Countdown */
+    .countdown {
+      text-align: center;
+      font-size: 1.2em;
+      margin: 20px 0;
+    }
+    /* Benefícios */
+    .benefits {
+      margin: 20px 0;
+    }
+    .benefits h2 {
+      font-size: 1.8em;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    .benefits ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    .benefits ul li {
+      background-color: #f9f9f9;
+      margin: 10px 0;
+      padding: 10px;
+      border-left: 5px solid #007BFF;
+      border-radius: 5px;
+    }
+    /* Rodapé */
+    footer {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 0.9em;
+      color: #666;
+    }
+    /* Popup */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      z-index: 1000;
+      text-align: center;
+    }
+    .popup-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 999;
+    }
+    .popup button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+    .popup button:hover {
+      background-color: #0056b3;
+    }
+    /* Lista de nomes no popup */
+    .name-list {
+      max-height: 200px;
+      overflow-y: scroll;
+      margin: 10px 0;
+      text-align: left;
+      padding: 0 10px;
+    }
+    .name-list ul {
+      list-style: none;
+    }
+    .name-list li {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Cabeçalho -->
+    <header>
+      <h1>Domine as Vendas com a Máquina de Vendas!</h1>
+      <p>Aprenda estratégias comprovadas para aumentar suas vendas e transformar seu negócio!</p>
+    </header>
+
+    <!-- Vídeo -->
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/eiitChHK6fI" allowfullscreen></iframe>
+      <p class="video-message">
+        Seja como os nossos membros que já fazem parte desta comunidade e estão expandindo por você, seja mais um nessa lista de vencedores digitais.
+      </p>
+      <div class="progress-bar">
+        <div class="progress-bar-inner"></div>
+      </div>
+    </div>
+
+    <!-- Formulário (Nome e Número) -->
+    <div class="form-container">
+      <h2>Receba um Ebook Gratuito!</h2>
+      <form id="leadForm">
+        <input type="text" id="name" placeholder="Seu nome" required>
+        <input type="tel" id="phone" placeholder="Seu número" required>
+        <button type="submit">Quero Receber o Ebook!</button>
+      </form>
+    </div>
+
+    <!-- Countdown para encerramento -->
+    <div class="countdown">
+      <p>Inscrições gratuitas encerram em:</p>
+      <div id="countdownTimer">Carregando...</div>
+    </div>
+
+    <!-- Benefícios -->
+    <div class="benefits">
+      <h2>Benefícios do Curso</h2>
+      <ul>
+        <li>Aprenda com especialistas no mercado.</li>
+        <li>Métodos práticos e aplicáveis desde o primeiro dia.</li>
+        <li>Suporte completo para tirar dúvidas.</li>
+      </ul>
+    </div>
+
+    <!-- Rodapé -->
+    <footer>
+      <p>&copy; 2023 Máquina de Vendas. Todos os direitos reservados.</p>
+      <p>Criado por: <span id="creatorName">Tilo Machado</span></p>
+    </footer>
+  </div>
+
+  <!-- Popup -->
+  <div class="popup-overlay" id="popupOverlay"></div>
+  <div class="popup" id="popup">
+    <h2>Entre no Grupo Exclusivo!</h2>
+    <p>Junte-se ao nosso grupo do WhatsApp para mais conteúdos exclusivos:</p>
+    <!-- Lista de 60 nomes variados -->
+    <div class="name-list" id="nameList">
+     
+    <button onclick="closePopup()">Fechar</button>
+  </div>
+
+  <!-- Firebase e Scripts -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+    // Configuração do Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+      authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+      projectId: "plataforma-do-mini-curso",
+      storageBucket: "plataforma-do-mini-curso.appspot.com",
+      messagingSenderId: "424655587612",
+      appId: "1:424655587612:web:851858a379c334227056e4",
+      measurementId: "G-6CE0E9R3J5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Salva o lead com nome e número e, em seguida, abre o popup
+    async function saveLead(name, phone) {
+      try {
+        const docRef = await addDoc(collection(db, "cozinhando"), {
+          name: name,
+          phone: phone,
+          timestamp: new Date()
+        });
+        console.log("Lead salvo com ID: ", docRef.id);
+        openPopup();
+      } catch (error) {
+        console.error("Erro ao salvar lead: ", error);
+      }
+    }
+
+    // Carrega o nome do criador (Tilo Machado)
+    async function loadCreatorName() {
+      try {
+        const querySnapshot = await getDocs(collection(db, "cozinhando"));
+        querySnapshot.forEach((doc) => {
+          if (doc.data().name === "Tilo Machado") {
+            document.getElementById("creatorName").textContent = doc.data().name;
+          }
+        });
+      } catch (error) {
+        console.error("Erro ao carregar nome do criador: ", error);
+      }
+    }
+
+    // Countdown para 1º de março às 00:00
+    function startCountdown() {
+      let now = new Date();
+      let targetYear = now.getFullYear();
+      let targetDate = new Date(targetYear, 2, 1, 0, 0, 0);
+      if (now > targetDate) {
+        targetDate = new Date(targetYear + 1, 2, 1, 0, 0, 0);
+      }
+      const countdownElement = document.getElementById("countdownTimer");
+      const interval = setInterval(() => {
+        let nowTime = new Date().getTime();
+        let distance = targetDate.getTime() - nowTime;
+        if (distance < 0) {
+          clearInterval(interval);
+          countdownElement.innerHTML = "Inscrições encerradas!";
+          return;
+        }
+        let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        countdownElement.innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      }, 1000);
+    }
+
+    // Lista de 60 nomes variados para o popup
+    const names = [
+      "Ana", "Bruno", "Carlos", "Daniela", "Eduardo", "Fernanda", "Gabriel", "Helena", "Igor", "Juliana",
+      "Kleber", "Larissa", "Marcos", "Natália", "Otávio", "Patrícia", "Ricardo", "Sabrina", "Tiago", "Vanessa",
+      "Alexandre", "Bianca", "César", "Diana", "Ernesto", "Fabiana", "Gustavo", "Heloísa", "Ítalo", "Jéssica",
+      "Leonardo", "Michele", "Natan", "Olívia", "Paulo", "Quezia", "Rafael", "Simone", "Tomás", "Úrsula",
+      "Vitor", "Wagner", "Xênia", "Yuri", "Zuleica", "Amanda", "Bruna", "Caio", "Diego", "Elisa",
+      "Fábio", "Geovana", "Henrique", "Isabela", "Jorge", "Karina", "Luan", "Mariana", "Noah", "Pedro",
+      "Renata", "Samuel", "Tatiana", "Ulisses", "Victor", "William"
+    ];
+
+    function populateNameList() {
+      const nameListDiv = document.getElementById("nameList");
+      let ul = document.createElement("ul");
+      names.forEach(name => {
+        let li = document.createElement("li");
+        li.textContent = name;
+        ul.appendChild(li);
+      });
+      nameListDiv.innerHTML = "";
+      nameListDiv.appendChild(ul);
+    }
+
+    function openPopup() {
+      populateNameList();
+      document.getElementById("popup").style.display = "block";
+      document.getElementById("popupOverlay").style.display = "block";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+      document.getElementById("popupOverlay").style.display = "none";
+    }
+
+    // Evento de envio do formulário – o popup é aberto somente após o clique no botão "Quero Receber o Ebook!"
+document.getElementById("leadForm").addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const name = document.getElementById("name").value;
+    const phone = document.getElementById("phone").value;
+    await saveLead(name, phone);
+    
+    // Redireciona para a página do ebook em HTML
+    window.location.href = "ebook-maquina-de-vendas.html";
+});
+
+
+    loadCreatorName();
+    startCountdown();
+
+    // Inicia a animação da barra de progresso 3 segundos após o carregamento da página
+    window.addEventListener("load", () => {
+      setTimeout(() => {
+        document.querySelector('.progress-bar-inner').style.width = "100%";
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
