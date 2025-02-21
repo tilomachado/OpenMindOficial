@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Administração</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #333;
+        }
+        #leadList {
+            margin-top: 20px;
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        #leadForm {
+            background: white;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            background-color: #28a745;
+            color: white;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            width: 300px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Página de Administração</h1>
+
+<div id="leadForm">
+    <h2>Adicionar Lead</h2>
+    <form id="leadForm">
+        <input type="text" id="name" placeholder="Nome" required>
+        <input type="text" id="phone" placeholder="Número de Telefone" required>
+        <button type="submit">Salvar Lead</button>
+    </form>
+</div>
+
+<div id="leadList">
+    <h2>Leads Salvos</h2>
+    <div id="leadsContainer"></div>
+</div>
+
+<div class="popup" id="popup">
+    <div class="popup-content">
+        <h3>Leads Salvos com Sucesso!</h3>
+        <button onclick="closePopup()">Fechar</button>
+    </div>
+</div>
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+    // Configuração do Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+      authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+      projectId: "plataforma-do-mini-curso",
+      storageBucket: "plataforma-do-mini-curso.appspot.com",
+      messagingSenderId: "424655587612",
+      appId: "1:424655587612:web:851858a379c334227056e4",
+      measurementId: "G-6CE0E9R3J5"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    async function saveLead(name, phone) {
+      try {
+        const docRef = await addDoc(collection(db, "cozinhando"), {
+          name: name,
+          phone: phone,
+          timestamp: new Date()
+        });
+        console.log("Lead salvo com ID: ", docRef.id);
+        openPopup();
+        loadLeads(); // Atualiza a lista de leads
+      } catch (error) {
+        console.error("Erro ao salvar lead: ", error);
+      }
+    }
+
+    async function loadLeads() {
+      const leadsContainer = document.getElementById("leadsContainer");
+      leadsContainer.innerHTML = ""; // Limpa a lista antes de carregar
+      const querySnapshot = await getDocs(collection(db, "cozinhando.1"));
+      querySnapshot.forEach((doc) => {
+        const lead = document.createElement("div");
+        lead.textContent = `${doc.data().name} - ${doc.data().phone}`;
+        leadsContainer.appendChild(lead);
+      });
+    }
+
+    function openPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    document.getElementById("leadForm").addEventListener("submit", async (event) => {
+      event.preventDefault();
+      const name = document.getElementById("name").value;
+      const phone = document.getElementById("phone").value;
+      await saveLead(name, phone);
+      document.getElementById("leadForm").reset(); // Limpa o formulário
+    });
+
+    loadLeads(); // Carrega os leads ao iniciar a página
+</script>
+
+</body>
+</html>
