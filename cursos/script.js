@@ -1,4 +1,4 @@
-// Exemplo de interatividade com JavaScript
+// Redirecionamento para a página de pagamento
 document.getElementById('inscrevaBtn').addEventListener('click', function() {
-    alert('Obrigado por se inscrever! Em breve entraremos em contato.');
+    window.location.href = 'pagamento.html';
 });
