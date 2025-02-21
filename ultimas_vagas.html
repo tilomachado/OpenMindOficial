@@ -415,40 +415,109 @@ window.onload = iniciarCountdown;
   </style>
 
 
+    <!-- Swiper.js CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h3 {
+            margin-bottom: 20px;
+        }
+
+        .swiper {
+            width: 90%;
+            max-width: 800px;
+            margin: auto;
+        }
+
+        .swiper-slide {
+            text-align: center;
+            background: #fff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+
+        .swiper-slide img {
+            width: 100%;
+            max-width: 600px;
+            height: auto;
+            border-radius: 10px;
+            cursor: zoom-in;
+            transition: transform 0.3s ease;
+        }
+
+        .swiper-slide img:hover {
+            transform: scale(1.1);
+        }
+
+        .swiper-slide p {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #000; /* Cor dos botões de navegação */
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #000; /* Cor da bolinha ativa */
+        }
+    </style>
+</head>
+<body>
 
     <h3>Veja nossos resultados obtidos através do marketing digital:</h3>
-    <div class="results">
-      <div class="result-item">
-        <img src="hermen.jpg" alt="Resultado 1">
-        <p>Descrição do resultado 1: Aumento de vendas em 30% em três meses.</p>
-      </div>
-      <div class="result-item">
-        <img src="Imagem WhatsApp 2025-02-20 às 18.42.39_fa84b479.jpg" alt="Resultado 2">
-        <p>Descrição do resultado 2: Crescimento de seguidores nas redes sociais.</p>
-      </div>
-      <div class="result-item">
-        <img src="Imagem WhatsApp 2025-02-20 às 18.45.19_73c0725f.jpg" alt="Resultado 3">
-        <p>Descrição do resultado 3: Melhoria na taxa de conversão de leads.</p>
-      </div>
+
+    <!-- Swiper container -->
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide">
+                <img src="hermen.jpg" alt="Resultado 1">
+                <p>Descrição do resultado 1: Aumento de vendas em 30% em três meses.</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="Imagem WhatsApp 2025-02-20 às 18.42.39_fa84b479.jpg" alt="Resultado 2">
+                <p>Descrição do resultado 2: Crescimento de seguidores nas redes sociais.</p>
+            </div>
+            <div class="swiper-slide">
+                <img src="Imagem WhatsApp 2025-02-20 às 18.45.19_73c0725f.jpg" alt="Resultado 3">
+                <p>Descrição do resultado 3: Melhoria na taxa de conversão de leads.</p>
+            </div>
+        </div>
+        <!-- Botões de navegação -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <!-- Paginação -->
+        <div class="swiper-pagination"></div>
     </div>
-  </div>
-  
-  <style>
-    .results {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-    .result-item {
-      flex: 1 1 30%; /* Três colunas */
-      text-align: center;
-    }
-    .result-item img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-  </style>
+
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
+    <script>
+        const swiper = new Swiper('.swiper', {
+            loop: true, // Faz o loop infinito
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+            zoom: true, // Habilita zoom
+        });
+    </script>
+
+
+
 
   <!-- Formulário (Nome e Número) -->
   <div class="form-container">
