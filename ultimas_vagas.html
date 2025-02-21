@@ -320,10 +320,46 @@
     </div>
 
     <!-- Countdown para encerramento -->
+    
     <div class="countdown">
-      <p>Inscrições gratuitas encerram em:</p>
-      <div id="countdownTimer">Carregando...</div>
+        <p>Inscrições gratuitas encerram em:</p>
+        <div id="countdownTimer">Carregando...</div>
     </div>
+
+    <script>
+       function iniciarCountdown() {
+    const timerElement = document.getElementById("countdownTimer");
+
+    // Define a data de encerramento para 10 dias a partir de hoje
+    const agora = new Date();
+    const dataEncerramento = new Date(agora.getTime() + 10 * 24 * 60 * 60 * 1000);
+
+    function atualizarCountdown() {
+        const agora = new Date().getTime();
+        const diferenca = dataEncerramento - agora;
+
+        if (diferenca <= 0) {
+            timerElement.innerHTML = "Encerradas!";
+            clearInterval(intervalo);
+            return;
+        }
+
+        const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+        const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+        const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+        timerElement.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+    }
+
+    atualizarCountdown();
+    const intervalo = setInterval(atualizarCountdown, 1000);
+}
+
+// Chama a função quando a página carregar
+window.onload = iniciarCountdown;
+
+    </script>
 
   
 
