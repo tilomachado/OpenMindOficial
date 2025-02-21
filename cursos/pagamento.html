@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento - Curso de Marketing Digital</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <div class="container">
+            <h1>Curso de Marketing Digital e Tráfego Pago</h1>
+            <p>Transforme sua carreira e domine o marketing digital em 2023!</p>
+        </div>
+    </header>
+
+    <!-- Seção de Benefícios -->
+    <section class="benefits">
+        <div class="container">
+            <h2>O que você vai aprender?</h2>
+            <ul>
+                <li>📈 Estratégias de tráfego pago no Facebook e Google Ads.</li>
+                <li>🤝 Mentoria individual com especialistas.</li>
+                <li>👥 Acesso a uma comunidade exclusiva.</li>
+                <li>🎥 Aulas ao vivo nos finais de semana.</li>
+                <li>📦 Bônus: Curso de importação de baixo custo.</li>
+                <li>💡 Ideias de negócios práticas para começar hoje.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Seção de Conteúdo -->
+    <section class="content">
+        <div class="container">
+            <h2>Conteúdo Exclusivo</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Mentoria Individual</h3>
+                    <p>Sessões semanais para tirar dúvidas e receber feedback personalizado.</p>
+                </div>
+                <div class="card">
+                    <h3>Comunidade Exclusiva</h3>
+                    <p>Grupo no Telegram para networking e troca de experiências.</p>
+                </div>
+                <div class="card">
+                    <h3>Aulas ao Vivo</h3>
+                    <p>Aulas práticas nos finais de semana para aprofundar o conhecimento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Cursos Adicionais -->
+    <section class="bonus">
+        <div class="container">
+            <h2>Bônus Imperdíveis</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Ideias de Negócios</h3>
+                    <p>Descubra 2 ideias de negócios práticas para começar hoje mesmo.</p>
+                </div>
+                <div class="card">
+                    <h3>Curso de Importação</h3>
+                    <p>Aprenda a importar produtos de baixo custo usando plataformas como:</p>
+                    <ul>
+                        <li>AliExpress</li>
+                        <li>Alibaba</li>
+                        <li>Shein</li>
+                        <li>Shopify</li>
+                        <li>Amazon</li>
+                        <li>eBay</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Resultados -->
+    <section class="results">
+        <div class="container">
+            <h2>Resultados Alcançados pelos Nossos Membros</h2>
+            <p>Nossa comunidade já conta com <strong>600 membros</strong> que estão transformando suas vidas. Veja alguns exemplos:</p>
+            <div class="grid">
+                <div class="card">
+                    <h3>Pequenos Negócios</h3>
+                    <p>Membros que começaram do zero e hoje faturam mais de <strong>10.000 MT/mês</strong> com dropshipping e importação.</p>
+                </div>
+                <div class="card">
+                    <h3>Grandes Negócios</h3>
+                    <p>Empreendedores que escalaram seus negócios para mais de <strong>50.000 MT/mês</strong> com tráfego pago.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Formulário de Pagamento -->
+    <section class="payment">
+        <div class="container">
+            <h2>Garanta sua vaga agora!</h2>
+            <div class="payment-box">
+                <p class="price">De <s>1500 MT</s> por <strong>600 MT</strong> à vista ou 3x de 200 MT</p>
+                <p class="offer">⚠️ Oferta limitada! Termina em: <span id="countdown">10 dias</span></p>
+                <p class="guarantee">✅ 20 dias de garantia ou seu dinheiro de volta!</p>
+                <h3>Formas de Pagamento:</h3>
+                <div class="payment-buttons">
+                    <!-- Botão do Hotmart -->
+                    <a onclick="return false;" href="https://pay.hotmart.com/J98205952P?checkoutMode=2" class="hotmart-fb hotmart__button-checkout">
+                        <button class="payment-button bank-button">Pagar via Banco</button>
+                    </a>
+                    <!-- Botão do WhatsApp -->
+                    <a href="https://wa.me/258843343733?text=Quero+fazer+o+investimento+para+me+tornar+mestre+no+marketing+digital+e+tráfego+pago+mesmo+estando+em+Moçambique." target="_blank" class="whatsapp-button">
+                        <button class="payment-button whatsapp-button">Pagar via WhatsApp</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <div class="container">
+            <p>Dúvidas? Entre em contato: <a href="mailto:suporte@cursomarketing.com">suporte@cursomarketing.com</a></p>
+            <p>&copy; 2023 Curso de Marketing Digital. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Script do Hotmart -->
+    <script type="text/javascript">
+        function importHotmart(){ 
+            var imported = document.createElement('script'); 
+            imported.src = 'https://static.hotmart.com/checkout/widget.min.js'; 
+            document.head.appendChild(imported); 
+            var link = document.createElement('link'); 
+            link.rel = 'stylesheet'; 
+            link.type = 'text/css'; 
+            link.href = 'https://static.hotmart.com/css/hotmart-fb.min.css'; 
+            document.head.appendChild(link); 
+        } 
+        importHotmart(); 
+    </script>
+
+    <!-- Script do Contador Regressivo -->
+    <script src="scriptt.js"></script>
+</body>
+</html>
