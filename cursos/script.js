@@ -1,4 +1,4 @@
 // Redirecionamento para a página de pagamento
 document.getElementById('inscrevaBtn').addEventListener('click', function() {
-    window.location.href = 'entrar.html';
+    window.location.href = 'pagamento.html';
 });
