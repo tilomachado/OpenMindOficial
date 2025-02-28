@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minicurso: Blog com IA e Ads Terra</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1a1a1a, #333);
+      color: #fff;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      flex-direction: column;
+    }
+    .container {
+      text-align: center;
+      background: rgba(0, 0, 0, 0.7);
+      padding: 40px;
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 255, 150, 0.5);
+      max-width: 800px;
+      width: 100%;
+      margin: 20px;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #00ff96;
+      text-shadow: 0 0 10px #00ff96;
+    }
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 15px;
+      color: #00ff96;
+    }
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      line-height: 1.6;
+    }
+    ul {
+      text-align: left;
+      margin-bottom: 30px;
+    }
+    ul li {
+      margin-bottom: 10px;
+    }
+    .testimonial {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      text-align: left;
+    }
+    .testimonial strong {
+      color: #00ff96;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    input {
+      padding: 10px;
+      border: 2px solid #00ff96;
+      border-radius: 5px;
+      background: transparent;
+      color: #fff;
+      font-size: 1rem;
+      outline: none;
+    }
+    input::placeholder {
+      color: #ccc;
+    }
+    button {
+      padding: 10px;
+      background: #00ff96;
+      border: none;
+      border-radius: 5px;
+      color: #000;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #00cc77;
+    }
+    .whatsapp-link {
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #00ff96;
+      text-decoration: none;
+      display: inline-block;
+    }
+    .whatsapp-link:hover {
+      text-decoration: underline;
+    }
+    .termos {
+      font-size: 0.9rem;
+      margin-top: 20px;
+    }
+    .termos a {
+      color: #00ff96;
+      text-decoration: none;
+    }
+    .termos a:hover {
+      text-decoration: underline;
+    }
+    #loading {
+      display: none;
+      margin-top: 20px;
+      font-size: 1rem;
+      color: #00ff96;
+    }
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 2rem;
+      }
+      h2 {
+        font-size: 1.5rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+      .container {
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Minicurso: Blog com IA e Ads Terra</h1>
+    <p>Domine a criação de blogs com Inteligência Artificial e monetize com Ads Terra. Inscreva-se agora e garanta sua vaga!</p>
+
+    <!-- Seção: O que você vai aprender -->
+    <h2>O que você vai aprender:</h2>
+    <ul>
+      <li>Como criar um blog profissional do zero, mesmo sem experiência.</li>
+      <li>Usar ferramentas de IA para gerar conteúdo rápido e de qualidade.</li>
+      <li>Estratégias de SEO para aparecer no Google e atrair visitantes.</li>
+      <li>Monetizar seu blog com Ads Terra e outras fontes de renda.</li>
+      <li>Automatizar processos para ganhar tempo e escalar seu negócio.</li>
+    </ul>
+
+    <!-- Seção: Ganhos em Moçambique -->
+    <h2>Quanto você pode ganhar em Moçambique?</h2>
+    <p>
+      Com um blog bem estruturado e monetizado, é possível ganhar entre <strong>5.000 MZN</strong> a <strong>50.000 MZN</strong> por mês, dependendo do tráfego e do nicho escolhido. Muitos dos nossos alunos já estão colhendo esses resultados!
+    </p>
+
+    <!-- Seção: Depoimentos de Alunos -->
+    <h2>Resultados dos nossos alunos:</h2>
+    <div class="testimonial">
+      <p>
+        <strong>Carlos, de Maputo:</strong> "Em 3 meses, meu blog já está gerando mais de 10.000 MZN por mês. O minicurso mudou minha vida!"
+      </p>
+    </div>
+    <div class="testimonial">
+      <p>
+        <strong>Ana, de Beira:</strong> "Aprendi a usar IA para criar conteúdo e hoje tenho um blog com mais de 20.000 visitas mensais. Recomendo demais!"
+      </p>
+    </div>
+    <div class="testimonial">
+      <p>
+        <strong>João, de Nampula:</strong> "Com as estratégias de SEO, meu blog apareceu na primeira página do Google e agora estou faturando 15.000 MZN por mês."
+      </p>
+    </div>
+
+    <!-- Formulário de Inscrição -->
+    <h2>Inscreva-se agora!</h2>
+    <form id="inscricaoForm">
+      <input type="text" id="nome" placeholder="Seu nome completo" required>
+      <input type="tel" id="whatsapp" placeholder="Seu número do WhatsApp (ex: +258 XX XXX XXXX)" required>
+      <input type="text" name="honeypot" style="display:none;">
+      <button type="submit">Quero me inscrever!</button>
+    </form>
+    <div id="loading">Carregando...</div>
+    <a href="https://chat.whatsapp.com/JrWRl6dBPtJ0khShLBqXCW" class="whatsapp-link" target="_blank">Ou clique aqui para entrar diretamente no grupo do WhatsApp</a>
+    <p class="termos">
+      Ao se inscrever, você concorda com nossos <a href="#" target="_blank">Termos de Uso</a> e <a href="#" target="_blank">Política de Privacidade</a>.
+    </p>
+  </div>
+
+  <!-- Firebase e Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+    import { getFirestore, setDoc, doc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+    // Configuração do Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+      authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+      projectId: "plataforma-do-mini-curso",
+      storageBucket: "plataforma-do-mini-curso.appspot.com",
+      messagingSenderId: "424655587612",
+      appId: "1:424655587612:web:851858a379c334227056e4",
+      measurementId: "G-6CE0E9R3J5"
+    };
+
+    // Inicializa o Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
+
+    // Função para salvar os dados no Firestore
+    async function salvarDados(nome, whatsapp) {
+      try {
+        await setDoc(doc(db, "inscricoes", whatsapp), {
+          nome: nome,
+          whatsapp: whatsapp,
+          timestamp: new Date().toISOString()
+        });
+        console.log("Dados salvos com sucesso!");
+      } catch (error) {
+        console.error("Erro ao salvar os dados: ", error);
+      }
+    }
+
+    // Captura o formulário
+    document.getElementById('inscricaoForm').addEventListener('submit', async function(event) {
+      event.preventDefault(); // Evita o envio padrão do formulário
+
+      // Validação do honeypot
+      if (document.querySelector('input[name="honeypot"]').value) {
+        return; // Ignora envios de bots
+      }
+
+      // Captura os dados do formulário
+      const nome = document.getElementById('nome').value;
+      let whatsapp = document.getElementById('whatsapp').value;
+
+      // Remove espaços e caracteres especiais
+      whatsapp = whatsapp.replace(/\D/g, '');
+
+      // Validação do número de WhatsApp (Moçambique)
+      const telefoneRegex = /^258\d{9}$/; // Formato: +258 seguido de 9 dígitos
+      if (!telefoneRegex.test(whatsapp)) {
+        alert("Por favor, insira um número de WhatsApp válido de Moçambique (ex: +258 XX XXX XXXX).");
+        return;
+      }
+
+      // Adiciona o código do país se necessário
+      if (!whatsapp.startsWith('258')) {
+        whatsapp = '258' + whatsapp;
+      }
+
+      // Confirmação antes do redirecionamento
+      if (confirm("Você será redirecionado para o WhatsApp. Clique em OK para continuar.")) {
+        document.getElementById('loading').style.display = 'block';
+
+        // Salva os dados no Firestore
+        await salvarDados(nome, whatsapp);
+
+        // Redireciona para o WhatsApp
+        const mensagem = `Olá, me inscrevi no Minicurso: Blog com IA e Ads Terra! Meu nome é ${nome} e meu número é +${whatsapp}.`;
+        const linkWhatsApp = `https://api.whatsapp.com/send?phone=${whatsapp}&text=${encodeURIComponent(mensagem)}`;
+        setTimeout(() => {
+          window.location.href = linkWhatsApp;
+        }, 1000); // Tempo para exibir o feedback
+      }
+    });
+  </script>
+</body>
+</html>
