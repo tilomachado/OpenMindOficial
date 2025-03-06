@@ -1,0 +1,534 @@
+
+
+<!-- Configurações gerais da página -->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verificação - Open Mind Oficial</title>
+
+<!-- Metadados -->
+<meta name="description" content="Página de verificação da Open Mind Oficial, garantindo uma experiência segura e interativa.">
+<meta name="keywords" content="verificação, segurança, Open Mind, curso, Tilo Machado">
+<meta name="author" content="Tilo Machado">
+<meta name="robots" content="index, follow">
+
+<!-- Favicon -->
+<link rel="icon" href="icone.png" type="image">
+
+<!-- Código do Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-GDDY8TGYQV');
+</script>
+
+<!-- Suporte a múltiplos idiomas -->
+<link rel="alternate" hreflang="pt" href="https://tilomachado.github.io/OpenMindOficial/verificacao.html">
+<link rel="alternate" hreflang="es" href="https://tilomachado.github.io/OpenMindOficial/verificacion.html">
+<link rel="alternate" hreflang="en" href="https://tilomachado.github.io/OpenMindOficial/verification.html">
+
+
+    <style>
+        /* CSS embutido */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 12px;
+            text-align: center;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: #444;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #555;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            font-size: 16px;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #btnText {
+            margin-right: 10px;
+        }
+
+        .loader {
+            width: 16px;
+            height: 16px;
+            border: 2px solid #fff;
+            border-top: 2px solid #4caf50;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            display: none;
+        }
+
+        button.loading .loader {
+            display: inline-block;
+        }
+
+        button.loading #btnText {
+            display: none;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            animation: fadeIn 0.3s ease-in-out;
+            z-index: 10;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+            max-width: 400px;
+            width: 90%;
+        }
+
+        .modal-content h2 {
+            margin-bottom: 15px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .modal-content p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .modal-content button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .modal-content button:hover {
+            background-color: #0056b3;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333;
+        }
+
+
+        #btnText {
+  font-size: 16px;
+  color: white;
+  background-color: #4CAF50; /* Verde */
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: background-color 0.3s ease;
+}
+
+#btnText.loading {
+  background-color: #3e8e41; /* Cor mais escura ao carregar */
+}
+
+#btnText.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 24px;
+  height: 24px;
+  border: 4px solid #fff;
+  border-top: 4px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bem-vindo à Verificação!</h1>
+        <p>Por favor, digite seu nome completo abaixo para verificar sua identidade.</p>
+        <div id="nameForm">
+            <div class="input-group">
+                <label for="nomeUsuario">Nome Completo:</label>
+                <input type="text" id="nomeUsuario" placeholder="Digite seu nome" required>
+            </div>
+            <button id="verifyNameBtn">
+                <span id="btnText">Verificar Nome</span>
+                <div class="loader"></div>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modais -->
+    <div class="modal" id="successModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('successModal')">&times;</span>
+            <h2>Bem-vindo, <span id="userName"></span>!</h2>
+            <p>Que bom ver você novamente! Agora, insira o número do seu recibo para prosseguir.</p>
+            <div class="input-group">
+                <label for="recibo">Número do Recibo:</label>
+                <input type="text" id="recibo" placeholder="Digite o número do recibo" required>
+            </div>
+            <button id="goToDashboardBtn">Acessar Dashboard</button>
+
+<style>
+    #goToDashboardBtn {
+        background-color: #4caf50;
+        color: white;
+        font-size: 16px;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+
+    #goToDashboardBtn:hover {
+        background-color: #45a049;
+    }
+
+    #loadingProgress {
+        margin-left: 10px;
+        font-size: 14px;
+        color: white;
+    }
+
+    #progressBarContainer {
+        width: 100%;
+        background-color: #ddd;
+        height: 6px;
+        border-radius: 4px;
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        right: 0;
+    }
+
+    #progressBar {
+        height: 100%;
+        width: 0%;
+        background-color: #000000; /* Barra de progresso com outra cor */
+        border-radius: 4px;
+    }
+</style>
+
+<script>
+    document.getElementById('goToDashboardBtn').addEventListener('click', function() {
+        var btn = this;
+        
+        // Adiciona o indicador de progresso
+        var progress = document.createElement('span');
+        progress.id = 'loadingProgress';
+        progress.textContent = '0%';
+        btn.appendChild(progress);
+
+        // Adiciona a barra de progresso
+        var progressBarContainer = document.createElement('div');
+        progressBarContainer.id = 'progressBarContainer';
+        var progressBar = document.createElement('div');
+        progressBar.id = 'progressBar';
+        progressBarContainer.appendChild(progressBar);
+        btn.appendChild(progressBarContainer);
+
+        // Mostrar o botão como carregando
+        btn.disabled = true;
+
+        var progressValue = 0;
+        var totalTime = 1900; // 3 minutos em milissegundos
+        var interval = totalTime / 100; // Dividindo o tempo total por 100 para aumentar o progresso de 1% a cada intervalo
+
+        var progressInterval = setInterval(function() {
+            progressValue += 1;
+            progress.textContent = progressValue + '%';
+            progressBar.style.width = progressValue + '%';
+
+            if (progressValue === 100) {
+                clearInterval(progressInterval);
+                // Após 3 minutos, o carregamento termina
+                btn.textContent = 'Acessar Dashboard';
+                btn.disabled = false;
+                progress.textContent = '';
+                // Redireciona para o dashboard após o progresso ser concluído
+                window.location.href = "register_mia_pro_v3.html"; // Redireciona para o dashboard
+            }
+        }, interval); // Progresso de 0 a 100% em 3 minutos (180000ms)
+    });
+</script>
+
+
+        </div>
+    </div>
+
+    <div class="modal" id="errorModal">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeModal('errorModal')">&times;</span>
+            <h2>Usuário não encontrado</h2>
+            <p>Seu nome não consta em nossa plataforma. Clique abaixo para se juntar à nossa plataforma de ensino digital.</p>
+            <a href="https://tilomachado.github.io/OpenMindOficial/open_your_mind.html">
+                <button>Junte-se Agora</button>
+            </a>
+        </div>
+    </div>
+
+    <script type="module">
+        // Importando dependências do Firebase
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, collection, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+    
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+    
+        // Inicializando o Firebase
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+    
+        // Função para verificar se o usuário existe
+        async function verifyUser(nomeUsuario) {
+            if (!nomeUsuario || nomeUsuario.trim() === '') {
+                return null; // Retorna null se o nome não for válido
+            }
+    
+            try {
+                const inscritosRef = collection(db, "inscricoes_novas");
+                const snapshot = await getDocs(inscritosRef);
+                const inscritos = snapshot.docs.map(doc => doc.data());
+    
+                console.log("Dados retornados do Firestore:", inscritos); // Log para debug
+    
+                // Verifica se algum documento tem a propriedade `nome` e se ela é igual ao nome do usuário
+                return inscritos.find(usuario => usuario.nome && usuario.nome.toLowerCase() === nomeUsuario.toLowerCase());
+            } catch (error) {
+                console.error("Erro ao buscar usuários:", error);
+                return null; // Retorna null em caso de erro
+            }
+        }
+    
+        // Função para verificar o número do recibo
+        async function verifyRecibo(recibo) {
+            if (!recibo) {
+                return null;
+            }
+    
+            try {
+                const inscritosRef = collection(db, "inscricoes_novas");
+                const q = query(inscritosRef, where("recibo", "==", recibo));
+                const snapshot = await getDocs(q);
+    
+                if (snapshot.empty) {
+                    console.log("Recibo não encontrado.");
+                    return null; // Se o recibo não for encontrado
+                }
+    
+                // Se o recibo for encontrado, retorna o documento
+                const usuario = snapshot.docs[0].data();
+                console.log("Recibo encontrado:", usuario);
+                return usuario;
+            } catch (error) {
+                console.error("Erro ao buscar recibo:", error);
+                return null;
+            }
+        }
+    
+        // Função para exibir o modal
+        function showModal(modalId) {
+            document.getElementById(modalId).style.display = "flex";
+        }
+    
+        // Função para fechar o modal
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
+        }
+    
+        // Função de redirecionamento para o dashboard
+        async function goToDashboard() {
+            const nomeUsuario = document.getElementById("nome").textContent; // O nome do usuário é recuperado aqui
+            const recibo = document.getElementById("recibo").value; // O número de recibo inserido é recuperado aqui
+    
+            if (nomeUsuario && recibo) {
+                // Verifica o tempo da última inserção do recibo
+                const lastReciboTime = localStorage.getItem("lastReciboTime");
+                const currentTime = new Date().getTime();
+    
+                if (lastReciboTime && (currentTime - lastReciboTime) < 48 * 60 * 60 * 1000) {
+                    // Se passou menos de 48 horas, permite o acesso ao dashboard
+                    const usuario = await verifyUser(nomeUsuario);
+    
+                    if (usuario && usuario.recibo === recibo) {
+                        // Exibir apenas o curso específico do usuário
+                        const curso = usuario.curso; // Pegando o curso do documento retornado
+                        
+                        // Armazenar o curso no localStorage
+                        localStorage.setItem("Curso", curso);
+                        window.location.href = "https://tilomachado.github.io/OpenMindOficial/cursos/mestre_dos_w.html.html"; // Redireciona para o dashboard
+                    } else {
+                        alert("Número de recibo inválido ou usuário não encontrado.");
+                    }
+                } else {
+                    // Caso contrário, atualiza o tempo e armazena
+                    localStorage.setItem("lastReciboTime", currentTime);
+                    window.location.href = "https://tilomachado.github.io/OpenMindOficial/cursos/mestre_dos_w.html"; // Redireciona para o dashboard
+                }
+            } else {
+                alert("Por favor, insira seu nome de usuário e número do recibo.");
+            }
+        }
+    
+        // Evento de clique para verificar o nome do usuário
+        document.getElementById("verifyNameBtn").addEventListener("click", async () => {
+            const nomeUsuario = document.getElementById("nomeUsuario").value;
+            
+            // Verifica se o nome foi preenchido
+            if (!nomeUsuario.trim()) {
+                alert("Por favor, insira seu nome.");
+                return; // Retorna caso o campo esteja vazio
+            }
+    
+            const usuario = await verifyUser(nomeUsuario);
+    
+            if (usuario) {
+                // Se o usuário for encontrado, exibe o modal de sucesso
+                document.getElementById("userName").textContent = nomeUsuario;
+                showModal('successModal');
+            } else {
+                // Caso o usuário não seja encontrado, exibe o modal de erro com link para inscrição
+                showModal('errorModal');
+            }
+        });
+    
+        // Evento de clique para ir ao dashboard
+        document.getElementById('goToDashboardBtn').addEventListener('click', goToDashboard);
+    
+        // Evento de clique para adicionar uma classe de carregamento ao botão
+        document.getElementById('btnText').addEventListener('click', function() {
+            this.classList.add('loading');
+            
+            // Simulando um carregamento, que dura 3 segundos
+            setTimeout(() => {
+                this.classList.remove('loading');
+            }, 40000);
+        });
+    </script>
+    
+    
+</body>
+    
+</html>
+
