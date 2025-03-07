@@ -225,6 +225,252 @@
       25% { transform: rotate(-5deg); }
       75% { transform: rotate(5deg); }
     }
+
+    /* Estilo da seção "O que você vai aprender" */
+.learn {
+  margin: 40px 0;
+  text-align: center;
+  background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradiente moderno */
+  padding: 40px 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.learn h2 {
+  font-size: 2.5rem;
+  color: #ffdd57; /* Amarelo vibrante */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.learn-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.learn-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.learn-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.learn-card h3 {
+  font-size: 1.5rem;
+  color: #ffdd57; /* Amarelo vibrante */
+  margin-bottom: 10px;
+}
+
+.learn-card p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .learn-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .learn-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .learn-card p {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Estilo da seção de cursos */
+.courses {
+  margin: 40px 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.courses h2 {
+  font-size: 2.5rem;
+  color: #ffdd57; /* Amarelo vibrante */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  padding: 20px 0;
+}
+
+.course-card {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 12px;
+  text-align: center;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.course-card h3 {
+  font-size: 1.5rem;
+  color: #ffdd57; /* Amarelo vibrante */
+  margin-bottom: 10px;
+}
+
+.course-card p {
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.5;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .courses-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  }
+
+  .course-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .course-card p {
+    font-size: 0.9rem;
+  }
+}
+
+
+/* Estilo da seção "Veja o que os nossos alunos estão fazendo" */
+.alumni-results {
+  margin: 40px 0;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 20px;
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.alumni-results h2 {
+  font-size: 2.5rem;
+  color: #ffdd57; /* Amarelo vibrante */
+  margin-bottom: 20px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid de Fotos */
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 15px;
+  padding: 20px 0;
+}
+
+.photo-card img {
+  width: 100%;
+  height: 200px; /* Altura fixa para fotos verticais */
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-card img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Grid de Vídeos */
+.videos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 15px;
+  padding: 20px 0;
+}
+
+.video-card iframe {
+  width: 100%;
+  height: 350px; /* Altura fixa para vídeos verticais */
+  border-radius: 12px;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-card iframe:hover {
+  transform: scale(1.02);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Chamada Motivacional */
+.cta-motivacional {
+  margin-top: 30px;
+}
+
+.cta-motivacional p {
+  font-size: 1.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.cta-motivacional .cta-button {
+  display: inline-block;
+  background: #ff6b6b; /* Vermelho vibrante */
+  color: #fff;
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+}
+
+.cta-motivacional .cta-button:hover {
+  background: #ff4757; /* Vermelho mais escuro */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .photos-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  }
+
+  .photo-card img {
+    height: 150px; /* Altura menor para dispositivos móveis */
+  }
+
+  .videos-grid {
+    grid-template-columns: 1fr; /* Uma coluna em dispositivos móveis */
+  }
+
+  .video-card iframe {
+    height: 250px; /* Altura menor para dispositivos móveis */
+  }
+
+  .cta-motivacional p {
+    font-size: 1.2rem;
+  }
+}
   </style>
 </head>
 <body>
@@ -290,19 +536,145 @@
       <img class="zoom-image" src="" alt="Imagem Ampliada">
     </div>
 
-    <!-- Lista de Cursos -->
-    <section class="courses">
-      <div class="guarantee">
-      <h2>🎓 Mais de 15 Cursos Disponíveis + Bônus Exclusivos!</h2>
-      <ul>
-        <li>✅ Marketing Digital PRO V3</li>
-        <li>✅ Design Gráfico e Edição de Vídeos</li>
-        <li>✅ Inteligência Artificial para Negócios</li>
-        <li>✅ Dropshipping e Importação</li>
-        <li>✅ E muito mais!</li>
-      </ul>
+   <!-- Seção de Cursos -->
+<section class="courses">
+  <div class="guarantee">
+    <h2>🎓 Mais de 15 Cursos Disponíveis + Bônus Exclusivos!</h2>
+    <div class="courses-grid">
+      <div class="course-card">
+        <h3>✅ Mestre dos Trabalhos</h3>
+        <p>Aprenda a dominar ferramentas e técnicas para se destacar no mercado de trabalho.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Gestão de Negócios</h3>
+        <p>Domine estratégias de gestão para escalar seu negócio e aumentar sua lucratividade.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Habilidades Sociais</h3>
+        <p>Desenvolva habilidades de comunicação e relacionamento para conquistar oportunidades.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Introdução à Hotmart</h3>
+        <p>Aprenda a criar e vender infoprodutos na maior plataforma de cursos online.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Mentalidade Certa</h3>
+        <p>Adote a mentalidade vencedora para alcançar seus objetivos pessoais e profissionais.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Máquina de Vendas</h3>
+        <p>Crie sistemas de vendas automáticos e aumente suas conversões.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Mercado de Trabalho</h3>
+        <p>Entenda as tendências do mercado e prepare-se para as melhores oportunidades.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Mestre do Software</h3>
+        <p>Domine ferramentas de software essenciais para produtividade e criatividade.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Desenvolvimento de Sites</h3>
+        <p>Aprenda a criar sites profissionais do zero, mesmo sem experiência prévia.</p>
+      </div>
+      <div class="course-card">
+        <h3>✅ Edição de Vídeo</h3>
+        <p>Domine técnicas de edição de vídeo para criar conteúdos impactantes.</p>
+      </div>
     </div>
+  </div>
+</section>
+
+     
+    </section><!-- Sessão do que você vai aprender -->
+    <section class="learn">
+      <h2>🎯 O que você vai aprender:</h2>
+      <div class="learn-grid">
+        <div class="learn-card">
+          <h3>📈 Marketing Digital PRO</h3>
+          <p>Aprenda a criar campanhas que convertem, como as usadas pela <strong>Movitel</strong> ou <strong>Cerveja 2M</strong>, e atraia clientes ideais para o seu negócio.</p>
+        </div>
+        <div class="learn-card">
+          <h3>🎨 Design Gráfico e Edição</h3>
+          <p>Domine ferramentas como Canva e Photoshop para criar designs incríveis, como os usados em campanhas da <strong>TV Miramar</strong> ou <strong>Jornal @Verdade</strong>.</p>
+        </div>
+        <div class="learn-card">
+          <h3>🤖 Inteligência Artificial</h3>
+          <p>Descubra como usar IA para automatizar tarefas e gerar lucros, como fazem startups moçambicanas no setor de agricultura e finanças.</p>
+        </div>
+        <div class="learn-card">
+          <h3>🛒 Dropshipping e Importação</h3>
+          <p>Monte seu e-commerce sem estoque e com baixo investimento, como os sucessos de lojas online que vendem produtos da <strong>China</strong> e <strong>África do Sul</strong> para Moçambique.</p>
+        </div>
+        <div class="learn-card">
+          <h3>💼 Freelancer Online</h3>
+          <p>Aprenda a trabalhar de forma remota e conquistar clientes globais, como muitos jovens moçambicanos já fazem em plataformas como <strong>Upwork</strong> e <strong>Fiverr</strong>.</p>
+        </div>
+        <div class="learn-card">
+          <h3>📊 Gestão de Negócios</h3>
+          <p>Domine técnicas de gestão para escalar seu negócio online, como os casos de sucesso de empresas locais que cresceram com estratégias digitais.</p>
+        </div>
+      </div>
     </section>
+
+
+    <!-- Seção "Veja o que os nossos alunos estão fazendo" -->
+<section class="alumni-results">
+  <h2>🌟 Veja o que os nossos alunos estão fazendo:</h2>
+  
+  <!-- Fotos dos Alunos -->
+  <div class="photos-grid">
+    <div class="photo-card">
+      <img src="aluno1 (1).jpg" alt="Aluno 1">
+    </div>
+    <div class="photo-card">
+      <img src="aluno1 (2).jpg" alt="Aluno 2">
+    </div>
+    <div class="photo-card">
+      <img src="aluno1 (3).jpg" alt="Aluno 3">
+    </div>
+    <div class="photo-card">
+      <img src="aluno1 (4).jpg" alt="Aluno 4">
+    </div>
+  </div>
+
+  <div class="photos-grid">
+    <div class="photo-card">
+      <img src="aluno1 (5).jpg" alt="Aluno 1">
+    </div>
+    <div class="photo-card">
+      <img src="aluno1 (6).jpg" alt="Aluno 2">
+    </div>
+    <div class="photo-card">
+      <img src="aluno1 (7).jpg" alt="Aluno 3">
+    </div>
+    <div class="photo-card">
+      <img src="aluno1 (8).jpg" alt="Aluno 4">
+    </div>
+  </div>
+
+  <!-- Vídeos dos Alunos -->
+  <div class="videos-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Vídeo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Vídeo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Vídeo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Vídeo 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <!-- Chamada Motivacional -->
+  <div class="cta-motivacional">
+    <p>💡 <strong>Você pode ser o próximo!</strong> 🚀</p>
+    <a href="#cta" class="cta-button">Quero Garantir Minha Vaga!</a>
+  </div>
+</section>
 
     <!-- Vídeo de Acesso à Plataforma -->
     <div class="video-container">
