@@ -130,32 +130,83 @@
     }
 
     .testimonials {
-      margin: 40px 0;
-    }
+   /* Estilo da seção de depoimentos */
+.testimonials {
+  margin: 40px 0;
+  text-align: center;
+}
 
-    .testimonials h2 {
-      text-align: center;
-      font-size: 2rem;
-      color: #fff;
-      margin-bottom: 20px;
-    }
+.testimonials h2 {
+  font-size: 2rem;
+  color: #1d1d1f;
+  margin-bottom: 20px;
+}
 
-    .carousel {
-      display: flex;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      gap: 20px;
-      padding: 20px 0;
-    }
+/* Estilo do carrossel */
+.carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 20px 0;
+  scroll-snap-type: x mandatory;
+}
 
-    .carousel img {
-      scroll-snap-align: start;
-      width: 200px;
-      height: 200px;
-      border-radius: 12px;
-      object-fit: cover;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-    }
+.carousel img {
+  width: 200px; /* Tamanho das imagens no carrossel */
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.carousel img:hover {
+  transform: scale(1.05); /* Efeito de hover */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Overlay de Zoom */
+.zoom-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.zoom-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.zoom-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+  transform: scale(0.8);
+  transition: transform 0.3s ease;
+}
+
+.zoom-overlay.active .zoom-image {
+  transform: scale(1);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .carousel img {
+    width: 150px; /* Tamanho menor para dispositivos móveis */
+    height: 150px;
+  }
+}
 
     .courses {
       background: rgba(255, 255, 255, 0.1);
@@ -226,39 +277,7 @@
     }
 
 
-      /* Efeito de Zoom */
-      .zoom-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.3s ease, visibility 0.3s ease;
-    }
-
-    .zoom-overlay.active {
-      opacity: 1;
-      visibility: visible;
-    }
-
-    .zoom-image {
-      max-width: 90%;
-      max-height: 90%;
-      border-radius: 12px;
-      transform: scale(0.8);
-      transition: transform 0.3s ease;
-    }
-
-    .zoom-overlay.active .zoom-image {
-      transform: scale(1);
-    }
+     
   </style>
 </head>
 <body>
@@ -317,13 +336,11 @@
         <img src="dp (24).png" alt="Depoimento 3">
         <img src="dp (25).png" alt="Depoimento 1">
         <!-- Overlay de Zoom -->
+    <!-- Overlay de Zoom -->
   <div class="zoom-overlay">
     <img class="zoom-image" src="" alt="Imagem Ampliada">
-  </div>h
-       
-        <!-- Adicione mais imagens até dp (25).png -->
-      </div>
-    </section>
+  </div>
+</section>
 
     <!-- Lista de Cursos -->
     <section class="courses">
@@ -371,22 +388,22 @@
 
     let interval = setInterval(updateCountdown, 1000);
 
-     // JavaScript para o efeito de zoom
-     const images = document.querySelectorAll('.gallery img');
-    const zoomOverlay = document.querySelector('.zoom-overlay');
-    const zoomImage = document.querySelector('.zoom-image');
+ const images = document.querySelectorAll('.carousel img');
+const zoomOverlay = document.querySelector('.zoom-overlay');
+const zoomImage = document.querySelector('.zoom-image');
 
-    images.forEach((img) => {
-      img.addEventListener('click', () => {
-        zoomImage.src = img.src; // Define a imagem ampliada
-        zoomOverlay.classList.add('active'); // Ativa o overlay
-      });
-    });
+// Ativa o zoom ao clicar em uma imagem
+images.forEach((img) => {
+  img.addEventListener('click', () => {
+    zoomImage.src = img.src; // Define a imagem ampliada
+    zoomOverlay.classList.add('active'); // Ativa o overlay
+  });
+});
 
-    // Fechar o zoom ao clicar no overlay
-    zoomOverlay.addEventListener('click', () => {
-      zoomOverlay.classList.remove('active');
-    });
+// Fecha o zoom ao clicar no overlay
+zoomOverlay.addEventListener('click', () => {
+  zoomOverlay.classList.remove('active');
+});
   </script>
 </body>
 </html>
