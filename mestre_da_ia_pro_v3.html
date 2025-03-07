@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Oferta Relâmpago - Domine o Marketing Digital!</title>
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #1e3c72, #2a5298); /* Gradiente moderno */
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      padding: 50px 0;
+    }
+
+    header h1 {
+      font-size: 2.8rem;
+      font-weight: bold;
+      color: #fff;
+      animation: pulse 2s infinite;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-top: 10px;
+    }
+
+    .video-container {
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    .video-container iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border-radius: 12px;
+      border: none;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .offer {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 20px 0;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .offer h2 {
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      font-size: 3rem;
+      font-weight: bold;
+      color: #ffdd57; /* Amarelo vibrante */
+      margin: 20px 0;
+      animation: bounce 1.5s infinite;
+    }
+
+    .price small {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .timer {
+      font-size: 1.2rem;
+      color: #ff6b6b; /* Vermelho vibrante */
+      margin: 20px 0;
+    }
+
+    .cta-button {
+      display: inline-block;
+      background: #ff6b6b; /* Vermelho vibrante */
+      color: #fff;
+      padding: 15px 30px;
+      font-size: 1.2rem;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+      animation: shake 2s infinite;
+    }
+
+    .cta-button:hover {
+      background: #ff4757; /* Vermelho mais escuro */
+    }
+
+    .guarantee {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      text-align: center;
+      margin: 20px 0;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .guarantee h3 {
+      font-size: 1.5rem;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .guarantee p {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .testimonials {
+      margin: 40px 0;
+    }
+
+    .testimonials h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .carousel {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 20px;
+      padding: 20px 0;
+    }
+
+    .carousel img {
+      scroll-snap-align: start;
+      width: 200px;
+      height: 200px;
+      border-radius: 12px;
+      object-fit: cover;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+
+    .courses {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      margin: 40px 0;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .courses h2 {
+      text-align: center;
+      font-size: 2rem;
+      color: #fff;
+      margin-bottom: 20px;
+    }
+
+    .courses ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .courses ul li {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin: 10px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    /* Animations */
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    @keyframes shake {
+      0%, 100% { transform: rotate(0deg); }
+      25% { transform: rotate(-5deg); }
+      75% { transform: rotate(5deg); }
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+
+      .price {
+        font-size: 2.5rem;
+      }
+
+      .carousel img {
+        width: 150px;
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🚀 Oferta Relâmpago: Domine o Marketing Digital!</h1>
+      <p>Aprenda as habilidades mais demandadas do mercado e transforme sua carreira.</p>
+    </header>
+
+    <!-- Vídeo de Introdução -->
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/SEU_VIDEO_DE_INTRO" title="Introdução" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <!-- Oferta -->
+    <div class="offer">
+      <h2>De <s>3.500 MT</s> por apenas:</h2>
+      <div class="price">218 MT <small>(últimos dias!)</small></div>
+      <div class="timer">⏳ Oferta válida por: <span id="countdown">12:00:00</span></div>
+      <a href="https://wa.me/SEU_NUMERO_WHATSAPP?text=Olá Tilo Machado, quero ser um Mestre das IA PRO V3 pelo preço promocional!" class="cta-button">Quero Garantir Minha Vaga!</a>
+    </div>
+
+    <!-- Garantia -->
+    <div class="guarantee">
+      <h3>✅ Garantia de 7 Dias!</h3>
+      <p>Se você não aprender nada ou não gostar do curso, devolvemos 100% do seu dinheiro <strong>sem perguntas</strong>!</p>
+    </div>
+
+    <!-- Carrossel de Depoimentos -->
+    <section class="testimonials">
+      <h2>🌟 O que os alunos dizem:</h2>
+      <div class="carousel">
+        <img src="dp (1).png" alt="Depoimento 1">
+        <img src="dp (2).png" alt="Depoimento 2">
+        <img src="dp (3).png" alt="Depoimento 3">
+        <img src="dp (4).png" alt="Depoimento 1">
+        <img src="dp (5).png" alt="Depoimento 2">
+        <img src="dp (6).png" alt="Depoimento 3">
+        <img src="dp (7).png" alt="Depoimento 1">
+        <img src="dp (8).png" alt="Depoimento 2">
+        <img src="dp (9).png" alt="Depoimento 3">
+        <img src="dp (10).png" alt="Depoimento 1">
+        <img src="dp (11).png" alt="Depoimento 2">
+        <img src="dp (12).png" alt="Depoimento 3">
+        <img src="dp (13).png" alt="Depoimento 1">
+        <img src="dp (14).png" alt="Depoimento 2">
+        <img src="dp (15).png" alt="Depoimento 3">
+        <img src="dp (16).png" alt="Depoimento 1">
+        <img src="dp (17).png" alt="Depoimento 2">
+        <img src="dp (18).png" alt="Depoimento 3">
+        <img src="dp (19).png" alt="Depoimento 1">
+        <img src="dp (20).png" alt="Depoimento 2">
+        <img src="dp (21).png" alt="Depoimento 3">
+        <img src="dp (22).png" alt="Depoimento 1">
+        <img src="dp (23).png" alt="Depoimento 2">
+        <img src="dp (24).png" alt="Depoimento 3">
+        <img src="dp (25).png" alt="Depoimento 1">
+       
+        <!-- Adicione mais imagens até dp (25).png -->
+      </div>
+    </section>
+
+    <!-- Lista de Cursos -->
+    <section class="courses">
+      <h2>🎓 Mais de 15 Cursos Disponíveis + Bônus Exclusivos!</h2>
+      <ul>
+        <li>✅ Marketing Digital PRO V3</li>
+        <li>✅ Design Gráfico e Edição de Vídeos</li>
+        <li>✅ Inteligência Artificial para Negócios</li>
+        <li>✅ Dropshipping e Importação</li>
+        <li>✅ E muito mais!</li>
+      </ul>
+    </section>
+
+    <!-- Vídeo de Acesso à Plataforma -->
+    <div class="video-container">
+      <iframe src="https://www.youtube.com/embed/SEU_VIDEO_DE_ACESSO" title="Acesso à Plataforma" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+
+    <footer>
+      <p>© 2023 - Todos os direitos reservados. Não perca essa chance única!</p>
+    </footer>
+  </div>
+
+  <script>
+    // Contador regressivo
+    let countdown = document.getElementById('countdown');
+    let time = 12 * 60 * 60; // 12 horas em segundos
+
+    function updateCountdown() {
+      let hours = Math.floor(time / 3600);
+      let minutes = Math.floor((time % 3600) / 60);
+      let seconds = time % 60;
+
+      countdown.innerHTML = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+
+      if (time > 0) {
+        time--;
+      } else {
+        clearInterval(interval);
+        countdown.innerHTML = "Oferta encerrada!";
+      }
+    }
+
+    let interval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
