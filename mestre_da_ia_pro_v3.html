@@ -359,8 +359,6 @@
     font-size: 0.9rem;
   }
 }
-
-
 /* Estilo da seção "Veja o que os nossos alunos estão fazendo" */
 .alumni-results {
   margin: 40px 0;
@@ -382,15 +380,14 @@
 /* Grid de Fotos */
 .photos-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 15px;
   padding: 20px 0;
 }
 
 .photo-card img {
-  width: 100%;
-  height: 200px; /* Altura fixa para fotos verticais */
-  object-fit: cover;
+  width: 100%; /* Largura total do contêiner */
+  height: auto; /* Altura automática para manter a proporção */
   border-radius: 12px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -410,8 +407,8 @@
 }
 
 .video-card iframe {
-  width: 100%;
-  height: 350px; /* Altura fixa para vídeos verticais */
+  width: 100%; /* Largura total do contêiner */
+  aspect-ratio: 9 / 16; /* Proporção vertical (9:16) para vídeos verticais */
   border-radius: 12px;
   border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
@@ -452,19 +449,11 @@
 /* Responsividade */
 @media (max-width: 768px) {
   .photos-grid {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-  }
-
-  .photo-card img {
-    height: 150px; /* Altura menor para dispositivos móveis */
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   }
 
   .videos-grid {
     grid-template-columns: 1fr; /* Uma coluna em dispositivos móveis */
-  }
-
-  .video-card iframe {
-    height: 250px; /* Altura menor para dispositivos móveis */
   }
 
   .cta-motivacional p {
@@ -618,40 +607,61 @@
     </section>
 
 
-    <!-- Seção "Veja o que os nossos alunos estão fazendo" -->
+ <!-- Seção "Veja o que os nossos alunos estão fazendo" -->
 <section class="alumni-results">
   <h2>🌟 Veja o que os nossos alunos estão fazendo:</h2>
   
   <!-- Fotos dos Alunos -->
   <div class="photos-grid">
     <div class="photo-card">
-      <img src="aluno1 (1).jpg" alt="Aluno 1">
+      <img src="aluno1.jpg" alt="Aluno 1">
     </div>
     <div class="photo-card">
-      <img src="aluno1 (2).jpg" alt="Aluno 2">
+      <img src="aluno2.jpg" alt="Aluno 2">
     </div>
     <div class="photo-card">
-      <img src="aluno1 (3).jpg" alt="Aluno 3">
+      <img src="aluno3.jpg" alt="Aluno 3">
     </div>
     <div class="photo-card">
-      <img src="aluno1 (4).jpg" alt="Aluno 4">
+      <img src="aluno4.jpg" alt="Aluno 4">
+    </div>
+
+    <div class="photo-card">
+      <img src="aluno1.jpg" alt="Aluno 1">
+    </div>
+    <div class="photo-card">
+      <img src="aluno2.jpg" alt="Aluno 2">
+    </div>
+    <div class="photo-card">
+      <img src="aluno3.jpg" alt="Aluno 3">
+    </div>
+    <div class="photo-card">
+      <img src="aluno4.jpg" alt="Aluno 4">
     </div>
   </div>
 
-  <div class="photos-grid">
-    <div class="photo-card">
-      <img src="aluno1 (5).jpg" alt="Aluno 1">
+  <!-- Vídeos dos Alunos -->
+  <div class="videos-grid">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" title="Vídeo 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <div class="photo-card">
-      <img src="aluno1 (6).jpg" alt="Aluno 2">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" title="Vídeo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <div class="photo-card">
-      <img src="aluno1 (7).jpg" alt="Aluno 3">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" title="Vídeo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-    <div class="photo-card">
-      <img src="aluno1 (8).jpg" alt="Aluno 4">
+    <div class="video-card">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_4" title="Vídeo 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
   </div>
+
+  <!-- Chamada Motivacional -->
+  <div class="cta-motivacional">
+    <p>💡 <strong>Você pode ser o próximo!</strong> 🚀</p>
+    <a href="#cta" class="cta-button">Quero Garantir Minha Vaga!</a>
+  </div>
+</section>
 
   <!-- Vídeos dos Alunos -->
   <div class="videos-grid">
