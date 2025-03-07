@@ -1217,7 +1217,7 @@
 
       try {
         // Salvar dados no Firestore
-        await setDoc(doc(db, "inscricoes_novas", receiptNumber), {
+        await setDoc(doc(db, "inscricoes_cursos_pago", receiptNumber), {
           nome,
           sexo,
           idade,
@@ -1226,7 +1226,7 @@
           curso,
           recibo: receiptNumber,
           data_inscricao: new Date().toISOString(),
-          preco: "Gratuito" // Curso gratuito
+          preco: "PAGO" // Curso PAGO
         });
 
         loadingIndicator.style.display = 'none';
@@ -1251,7 +1251,7 @@
       doc.setFont("helvetica", "bold");
       doc.setFontSize(16);
       doc.setTextColor(255, 0, 0);
-      doc.text("RECIBO DE INSCRIÇÃO - CURSO GRATUITO", 105, 20, null, null, 'center');
+      doc.text("RECIBO DE INSCRIÇÃO - CURSO PAGO", 105, 20, null, null, 'center');
 
       // Informações do recibo
       doc.setFont("helvetica", "normal");
