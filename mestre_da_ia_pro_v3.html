@@ -129,117 +129,83 @@
       color: rgba(255, 255, 255, 0.8);
     }
 
+    /* Estilo da seção de depoimentos */
     .testimonials {
-   /* Estilo da seção de depoimentos */
-.testimonials {
-  margin: 40px 0;
-  text-align: center;
-}
-
-.testimonials h2 {
-  font-size: 2rem;
-  color: #1d1d1f;
-  margin-bottom: 20px;
-}
-
-/* Estilo do carrossel */
-.carousel {
-  display: flex;
-  overflow-x: auto;
-  gap: 10px;
-  padding: 20px 0;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel img {
-  width: 200px; /* Tamanho das imagens no carrossel */
-  height: 200px;
-  object-fit: cover;
-  border-radius: 12px;
-  cursor: pointer;
-  scroll-snap-align: start;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.carousel img:hover {
-  transform: scale(1.05); /* Efeito de hover */
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-/* Overlay de Zoom */
-.zoom-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 1000;
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
-}
-
-.zoom-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.zoom-image {
-  max-width: 90%;
-  max-height: 90%;
-  border-radius: 12px;
-  transform: scale(0.8);
-  transition: transform 0.3s ease;
-}
-
-.zoom-overlay.active .zoom-image {
-  transform: scale(1);
-}
-
-/* Responsividade */
-@media (max-width: 768px) {
-  .carousel img {
-    width: 150px; /* Tamanho menor para dispositivos móveis */
-    height: 150px;
-  }
-}
-
-    .courses {
-      background: rgba(255, 255, 255, 0.1);
-      padding: 30px;
-      border-radius: 12px;
       margin: 40px 0;
-      backdrop-filter: blur(10px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
     }
 
-    .courses h2 {
-      text-align: center;
+    .testimonials h2 {
       font-size: 2rem;
       color: #fff;
       margin-bottom: 20px;
     }
 
-    .courses ul {
-      list-style: none;
-      padding: 0;
-    }
-
-    .courses ul li {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.8);
-      margin: 10px 0;
-    }
-
-    footer {
-      text-align: center;
+    /* Grid de imagens */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
       padding: 20px 0;
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.8);
+    }
+
+    .grid img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .grid img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Overlay de Zoom */
+    .zoom-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .zoom-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .zoom-image {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 12px;
+      transform: scale(0.8);
+      transition: transform 0.3s ease;
+    }
+
+    .zoom-overlay.active .zoom-image {
+      transform: scale(1);
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      }
+
+      .grid img {
+        height: 150px;
+      }
     }
 
     /* Animations */
@@ -259,25 +225,6 @@
       25% { transform: rotate(-5deg); }
       75% { transform: rotate(5deg); }
     }
-
-    /* Responsividade */
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2rem;
-      }
-
-      .price {
-        font-size: 2.5rem;
-      }
-
-      .carousel img {
-        width: 150px;
-        height: 150px;
-      }
-    }
-
-
-     
   </style>
 </head>
 <body>
@@ -306,41 +253,42 @@
       <p>Se você não aprender nada ou não gostar do curso, devolvemos 100% do seu dinheiro <strong>sem perguntas</strong>!</p>
     </div>
 
-    <!-- Carrossel de Depoimentos -->
-<section class="testimonials">
+    <!-- Seção de Depoimentos -->
+    <section class="testimonials">
       <h2>🌟 O que os alunos dizem:</h2>
-      <div class="carousel">
+      <div class="grid">
         <img src="dp (1).png" alt="Depoimento 1">
         <img src="dp (2).png" alt="Depoimento 2">
         <img src="dp (3).png" alt="Depoimento 3">
-        <img src="dp (4).png" alt="Depoimento 1">
-        <img src="dp (5).png" alt="Depoimento 2">
-        <img src="dp (6).png" alt="Depoimento 3">
-        <img src="dp (7).png" alt="Depoimento 1">
-        <img src="dp (8).png" alt="Depoimento 2">
-        <img src="dp (9).png" alt="Depoimento 3">
-        <img src="dp (10).png" alt="Depoimento 1">
-        <img src="dp (11).png" alt="Depoimento 2">
-        <img src="dp (12).png" alt="Depoimento 3">
-        <img src="dp (13).png" alt="Depoimento 1">
-        <img src="dp (14).png" alt="Depoimento 2">
-        <img src="dp (15).png" alt="Depoimento 3">
-        <img src="dp (16).png" alt="Depoimento 1">
-        <img src="dp (17).png" alt="Depoimento 2">
-        <img src="dp (18).png" alt="Depoimento 3">
-        <img src="dp (19).png" alt="Depoimento 1">
-        <img src="dp (20).png" alt="Depoimento 2">
-        <img src="dp (21).png" alt="Depoimento 3">
-        <img src="dp (22).png" alt="Depoimento 1">
-        <img src="dp (23).png" alt="Depoimento 2">
-        <img src="dp (24).png" alt="Depoimento 3">
-        <img src="dp (25).png" alt="Depoimento 1">
-        <!-- Overlay de Zoom -->
+        <img src="dp (4).png" alt="Depoimento 4">
+        <img src="dp (5).png" alt="Depoimento 5">
+        <img src="dp (6).png" alt="Depoimento 6">
+        <img src="dp (7).png" alt="Depoimento 7">
+        <img src="dp (8).png" alt="Depoimento 8">
+        <img src="dp (9).png" alt="Depoimento 9">
+        <img src="dp (10).png" alt="Depoimento 10">
+        <img src="dp (11).png" alt="Depoimento 11">
+        <img src="dp (12).png" alt="Depoimento 12">
+        <img src="dp (13).png" alt="Depoimento 13">
+        <img src="dp (14).png" alt="Depoimento 14">
+        <img src="dp (15).png" alt="Depoimento 15">
+        <img src="dp (16).png" alt="Depoimento 16">
+        <img src="dp (17).png" alt="Depoimento 17">
+        <img src="dp (18).png" alt="Depoimento 18">
+        <img src="dp (19).png" alt="Depoimento 19">
+        <img src="dp (20).png" alt="Depoimento 20">
+        <img src="dp (21).png" alt="Depoimento 21">
+        <img src="dp (22).png" alt="Depoimento 22">
+        <img src="dp (23).png" alt="Depoimento 23">
+        <img src="dp (24).png" alt="Depoimento 24">
+        <img src="dp (25).png" alt="Depoimento 25">
+      </div>
+    </section>
+
     <!-- Overlay de Zoom -->
-  <div class="zoom-overlay">
-    <img class="zoom-image" src="" alt="Imagem Ampliada">
-  </div>
-</section>
+    <div class="zoom-overlay">
+      <img class="zoom-image" src="" alt="Imagem Ampliada">
+    </div>
 
     <!-- Lista de Cursos -->
     <section class="courses">
@@ -358,8 +306,6 @@
     <div class="video-container">
       <iframe src="https://www.youtube.com/embed/SEU_VIDEO_DE_ACESSO" title="Acesso à Plataforma" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
-
-    
 
     <footer>
       <p>© 2023 - Todos os direitos reservados. Não perca essa chance única!</p>
@@ -388,22 +334,23 @@
 
     let interval = setInterval(updateCountdown, 1000);
 
- const images = document.querySelectorAll('.carousel img');
-const zoomOverlay = document.querySelector('.zoom-overlay');
-const zoomImage = document.querySelector('.zoom-image');
+    // JavaScript para o efeito de zoom
+    const images = document.querySelectorAll('.grid img');
+    const zoomOverlay = document.querySelector('.zoom-overlay');
+    const zoomImage = document.querySelector('.zoom-image');
 
-// Ativa o zoom ao clicar em uma imagem
-images.forEach((img) => {
-  img.addEventListener('click', () => {
-    zoomImage.src = img.src; // Define a imagem ampliada
-    zoomOverlay.classList.add('active'); // Ativa o overlay
-  });
-});
+    // Ativa o zoom ao clicar em uma imagem
+    images.forEach((img) => {
+      img.addEventListener('click', () => {
+        zoomImage.src = img.src; // Define a imagem ampliada
+        zoomOverlay.classList.add('active'); // Ativa o overlay
+      });
+    });
 
-// Fecha o zoom ao clicar no overlay
-zoomOverlay.addEventListener('click', () => {
-  zoomOverlay.classList.remove('active');
-});
+    // Fecha o zoom ao clicar no overlay
+    zoomOverlay.addEventListener('click', () => {
+      zoomOverlay.classList.remove('active');
+    });
   </script>
 </body>
 </html>
