@@ -460,6 +460,11 @@
     font-size: 1.2rem;
   }
 }
+
+.timer {
+      font-size: 2rem;
+      color: #ff6b6b;
+    }
   </style>
 </head>
 <body>
@@ -477,8 +482,9 @@
     <!-- Oferta -->
     <div class="offer">
       <h2>De <s>1.290 MT</s> por apenas:</h2>
-      <div class="price">218 MT <small>(Até dia 7 de Abril!)</small></div>
-      <div class="timer">⏳ Oferta válida por: <span id="countdown">12:00:00</span></div>
+      <div class="price">290 MT + CERTIFICADO <small></small></div>
+      <div class="timer">⏳ Oferta válida até:(Até dia 7 de Abril!) </div>
+
       <a href="https://wa.me/843343733?text=Olá Tilo Machado, quero ser um Mestre das IA PRO V3 pelo preço promocional!" class="cta-button">Quero Garantir Minha Vaga!</a>
     </div>
 
@@ -660,7 +666,7 @@
       <iframe src="https://www.youtube.com/embed/_fEJnJijey0" title="Vídeo 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="video-card">
-      <iframe src="https://www.youtube.com/embed/VutTHFGFk48" title="Vídeo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="" title="Vídeo 3" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     <div class="video-card">
       <iframe src="https://www.youtube.com/embed/px8hXd8WuYo" title="Vídeo 4" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -674,47 +680,61 @@
   <!-- Chamada Motivacional -->
   <div class="cta-motivacional">
     <p>💡 <strong>Você pode ser o próximo!</strong> 🚀</p>
-     <!-- Oferta -->
-     <div class="offer">
+    <!-- Oferta -->
+    <div class="offer">
       <h2>De <s>1.290 MT</s> por apenas:</h2>
-      <div class="price">218 MT <small>(Até dia 7 de Abril!)</small></div>
-      <div class="timer">⏳ Oferta válida por: <span id="countdown">12:00:00</span></div>
+      <div class="price">290 MT + CERTIFICADO <small></small></div>
+      <div class="timer">⏳ Oferta válida até:(Até dia 7 de Abril!) </div>
+
       <a href="https://wa.me/843343733?text=Olá Tilo Machado, quero ser um Mestre das IA PRO V3 pelo preço promocional!" class="cta-button">Quero Garantir Minha Vaga!</a>
     </div>
-  </div>
+
+
+  <footer>
+    <p>© 2023 - Open Mind - Todos os direitos reservados.</p>
+    <p>Não perca essa chance única!</p>
+    <p>Criado por Tilo Machado</p>
+
+  </footer>
 </section>
 
-    <!-- Vídeo de Acesso à Plataforma -->
-    <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/SEU_VIDEO_DE_ACESSO" title="Acesso à Plataforma" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    </div>
-
-    <footer>
-      <p>© 2023 - Todos os direitos reservados. Não perca essa chance única!</p>
-    </footer>
-  </div>
+ 
+   
+  
 
   <script>
-    // Contador regressivo
-    let countdown = document.getElementById('countdown');
-    let time = 12 * 60 * 60; // 12 horas em segundos
+  // Contador regressivo que começa hoje e termina em 7 de abril
+let countdown = document.getElementById('countdown');
 
-    function updateCountdown() {
-      let hours = Math.floor(time / 3600);
-      let minutes = Math.floor((time % 3600) / 60);
-      let seconds = time % 60;
+// Define a data final (7 de abril à meia-noite)
+let targetDate = new Date('April 7, 2024 00:00:00').getTime();
 
-      countdown.innerHTML = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+function updateCountdown() {
+  // Obtém a data/hora atual
+  let now = new Date().getTime();
 
-      if (time > 0) {
-        time--;
-      } else {
-        clearInterval(interval);
-        countdown.innerHTML = "Oferta encerrada!";
-      }
-    }
+  // Calcula a diferença entre a data final e a atual
+  let timeRemaining = targetDate - now;
 
-    let interval = setInterval(updateCountdown, 1000);
+  // Verifica se o tempo acabou
+  if (timeRemaining <= 0) {
+    clearInterval(interval);
+    countdown.innerHTML = "Oferta encerrada!";
+    return;
+  }
+
+  // Calcula os dias restantes
+  let days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+
+  // Exibe o contador no formato "X dias"
+  countdown.innerHTML = `${days} ${days === 1 ? 'dia' : 'dias'}`;
+}
+
+// Atualiza o contador a cada segundo
+let interval = setInterval(updateCountdown, 1000);
+
+// Executa a função uma vez para evitar atraso inicial
+updateCountdown();
 
     // JavaScript para o efeito de zoom
     const images = document.querySelectorAll('.grid img');
