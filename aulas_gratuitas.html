@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mestre da IA Pro V3</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    /* Reset avançado */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #f4f4f9, #e0e0f5);
+  color: #333;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container principal */
+.container {
+  max-width: 1200px;
+  margin: 20px;
+  padding: 40px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+/* Título */
+h1 {
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+  color: #2c3e50;
+  font-weight: 700;
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Descrição */
+p {
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  color: #666;
+}
+
+/* Grid de vídeos */
+.video-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+/* Iframe dos vídeos */
+.video iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video iframe:hover {
+  transform: scale(1.05);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Botão CTA */
+.cta-button {
+  display: inline-block;
+  padding: 15px 40px;
+  font-size: 1.2rem;
+  color: #fff;
+  background: linear-gradient(135deg, #3498db, #8e44ad);
+  border-radius: 50px;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
+}
+
+.cta-button:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(52, 152, 219, 0.6);
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .video-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cta-button {
+    padding: 12px 30px;
+    font-size: 1rem;
+  }
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Mestre da IA Pro V3</h1>
+    <p>Descubra os melhores cursos para dominar as habilidades do futuro. Assista aos vídeos abaixo e comece sua jornada agora!</p>
+  
+    <!-- Grid de vídeos -->
+    <div class="video-grid">
+      <!-- Como Acessar os Cursos -->
+      <div class="video">
+        <h2>Passo a Passo para Acessar os Cursos</h2>
+        <iframe src="https://www.youtube.com/embed/CLHGwNpyAIQ" allowfullscreen></iframe>
+        <p>Veja como acessar todos os cursos disponíveis e começar a aprender hoje mesmo.</p>
+      </div>
+  
+      <!-- Curso de Trabalhos de Pesquisa -->
+      <div class="video">
+        <h2>Como Fazer Trabalhos de Pesquisa de Alto Impacto</h2>
+        <iframe src="https://www.youtube.com/embed/zJYAn2dPEwM" allowfullscreen></iframe>
+        <p>Aprenda a estruturar e desenvolver trabalhos científicos com qualidade e eficiência.</p>
+      </div>
+  
+      <!-- Curso de Blog -->
+      <div class="video">
+        <h2>Como Criar um Blog de Sucesso do Zero</h2>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/-rbxbAqyizg?si=ZqrRUBSdfw_kBhuR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <p>Aprenda a criar um blog profissional, desde a escolha do nicho até a monetização.</p>
+      </div>
+  
+      <!-- Curso de Edição de Imagens -->
+      <div class="video">
+        <h2>Edição de Imagens: Técnicas Profissionais</h2>
+        <iframe src="https://www.youtube.com/embed/zYTqMZeauGQ" allowfullscreen></iframe>
+        <p>Domine as ferramentas e técnicas para editar imagens como um profissional.</p>
+      </div>
+  
+      <!-- Curso de Automação de Vendas -->
+      <div class="video">
+        <h2>Automação de Vendas: Simplifique e Escalone Seu Processo</h2>
+        <iframe src="https://www.youtube.com/embed/eiitChHK6fI" allowfullscreen></iframe>
+        <p>Descubra como automatizar suas vendas para economizar tempo e aumentar a eficiência.</p>
+      </div>
+  
+      <!-- Curso de Edição de Vídeo -->
+      <div class="video">
+        <h2>Edição de Vídeo: Do Básico ao Avançado</h2>
+        <iframe src="https://www.youtube.com/embed/o7o-K_qyEIQ" allowfullscreen></iframe>
+        <p>Aprenda a editar vídeos como um profissional, desde cortes simples até efeitos avançados.</p>
+      </div>
+  
+      <!-- Curso de Edição de Sites -->
+      <div class="video">
+        <h2>Edição de Sites: Crie e Personalize Sua Presença Online</h2>
+        <iframe src="https://www.youtube.com/embed/uAEpVxXBCcU" allowfullscreen></iframe>
+        <p>Aprenda a editar e personalizar sites sem precisar de conhecimentos avançados em programação.</p>
+      </div>
+    </div>
+  
+    <!-- Botão CTA -->
+    <a href="https://tilomachado.github.io/OpenMindOficial/mestre_da_ia_pro_v3.html" class="cta-button">Quero ser o Mestre da IA Pro V3 Agora Mesmo!</a>
+  </div>
+</body>
+</html>
