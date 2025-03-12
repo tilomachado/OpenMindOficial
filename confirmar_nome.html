@@ -66,7 +66,7 @@
     <!-- Firebase e JavaScript -->
     <script type="module">
         import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-        import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+        import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
 
         // Configuração do Firebase
         const firebaseConfig = {
@@ -82,33 +82,86 @@
         const app = initializeApp(firebaseConfig);
         const db = getFirestore(app);
 
-        // Lista de beneficiários
+        // Lista de beneficiários com telefones
         const beneficiarios = [
-            "Dio Lucas", "Sabão", "Juni Arnaldo", "Sanito", "Seme Greg", 
-            "Niltone Estefano Samuel", "Eduardo", "Moi Sés Pedro 258", 
-            "Sérgio Amisse Ramalho", "Chelton Raimundo", "Azamate Tito", 
-            "Coutinho", "Egídio Artur", "Victor Nyengela Wilondja", 
-            "John Bernabé Rafael Baptista Tomás", "Joel das Neves Salvador", 
-            "Ângelo Marcos Armando", "Amadeu António Uassia", "Horacio Jacinto", 
-            "Anna Clady", "Domingos Joao Jose", "Mezzy", "Amade Isidro", 
-            "José Faustino", "João Edson Papelo", "Milena Maurício", 
-            "Frederico Acácio Pedro Rocha", "Junode", "Amade Matano Augusto", 
-            "Franque Fernando", "Sumail Jose", "Elias Cossa", "Nelson Bernardo", 
-            "Jesseh Duas", "Octavio Manuel Zeleca", "Nelson Fernando Mutarica", 
-            "ISSUFO ISMAEL", "Felicina Geovana Naide Chico", "Agencio Bernardo Mário", 
-            "Rui Frederico Gaspar", "DAMARCIO ASSANE", "Helder Muerufi Buana", 
-            "Moniz Leandro", "David Manuel Alexandre Ossufo", "Julieta Tiago", 
-            "ABACAR ANTÓNIO AMADE", "Nabila Victorino Rihane", "Jorge Paulo", 
-            "Saja Jacobe José", "Milton Nhantumbo", "Levi Artur Francisco Mussa", 
-            "Genido Rodrigues Saide", "Stélio Paulo Giragieque", "Keile Carlos Lopes Teixeira", 
-            "Ana Maria Luantino Jacinto Antônio", "Érica da Glória Victorino", 
-            "Vania Vasco Ussene", "Neque Alcino António João Francisco", "Joaquim Auali", 
-            "Jaimito Lourenço", "Rodolfo Cabral", "Orlando José Herculano", 
-            "Remildo Oreste Romão", "Dauda Francisco Massona", "Gabriel Miguel Gimo", 
-            "BELITO JAIME MUTELA", "Dulce Paulo", "Helena Silva Américo", 
-            "Alima Arune Amade", "Jordão Ernesto", "Samuel Valério", "Aninhas Bacar Hussene", 
-            "João Fonseca Junior", "Ivanilson Delo Machado", "Valdino Dinis Ernesto Cabral", 
-            "Júnior da Rosa", "Efigenio Feleciano", "Mércia Maria Vicente"
+            { nome: "Dio Lucas", telefone: "876116797" },
+            { nome: "Sabão", telefone: "849157920" },
+            { nome: "Juni Arnaldo", telefone: "851543244" },
+            { nome: "Sanito", telefone: "873337142" },
+            { nome: "Seme Greg", telefone: "870609618" },
+            { nome: "Niltone Estefano Samuel", telefone: "850686416" },
+            { nome: "Eduardo", telefone: "844592539" },
+            { nome: "Moi Sés Pedro 258", telefone: "871766589" },
+            { nome: "Sérgio Amisse Ramalho", telefone: "878343369" },
+            { nome: "Chelton Raimundo", telefone: "867786976" },
+            { nome: "Azamate Tito", telefone: "842399780" },
+            { nome: "Coutinho", telefone: "861696638" },
+            { nome: "Egídio Artur", telefone: "876004204" },
+            { nome: "Victor Nyengela Wilondja", telefone: "845978290" },
+            { nome: "John Bernabé Rafael Baptista Tomás", telefone: "874448644" },
+            { nome: "Joel das Neves Salvador", telefone: "+258848149175" },
+            { nome: "Ângelo Marcos Armando", telefone: "849347968" },
+            { nome: "Amadeu António Uassia", telefone: "861212799" },
+            { nome: "Horacio Jacinto", telefone: "+258850358965" },
+            { nome: "Anna Clady", telefone: "+258847787260" },
+            { nome: "Domingos Joao Jose", telefone: "862523481" },
+            { nome: "Mezzy", telefone: "875751510" },
+            { nome: "Amade Isidro", telefone: "842771265" },
+            { nome: "José Faustino", telefone: "848401895" },
+            { nome: "João Edson Papelo", telefone: "874435479" },
+            { nome: "Milena Maurício", telefone: "874608929" },
+            { nome: "Frederico Acácio Pedro Rocha", telefone: "872256546" },
+            { nome: "Junode", telefone: "847062404" },
+            { nome: "Amade Matano Augusto", telefone: "845547632" },
+            { nome: "Franque Fernando", telefone: "867574487" },
+            { nome: "Sumail Jose", telefone: "844689613" },
+            { nome: "Elias Cossa", telefone: "842352941" },
+            { nome: "Nelson Bernardo", telefone: "844791234" },
+            { nome: "Jesseh Duas", telefone: "876409686" },
+            { nome: "Octavio Manuel Zeleca", telefone: "840222872" },
+            { nome: "Nelson Fernando Mutarica", telefone: "843668483" },
+            { nome: "ISSUFO ISMAEL", telefone: "875706956" },
+            { nome: "Felicina Geovana Naide Chico", telefone: "862435546" },
+            { nome: "Agencio Bernardo Mário", telefone: "864470269" },
+            { nome: "Rui Frederico Gaspar", telefone: "875599029" },
+            { nome: "DAMARCIO ASSANE", telefone: "844923568" },
+            { nome: "Helder Muerufi Buana", telefone: "862581019" },
+            { nome: "Moniz Leandro", telefone: "873479853" },
+            { nome: "David Manuel Alexandre Ossufo", telefone: "847611953" },
+            { nome: "Julieta Tiago", telefone: "876423578" },
+            { nome: "ABACAR ANTÓNIO AMADE", telefone: "+258842588258" },
+            { nome: "Nabila Victorino Rihane", telefone: "864671265" },
+            { nome: "Jorge Paulo", telefone: "865991988" },
+            { nome: "Saja Jacobe José", telefone: "861146699" },
+            { nome: "Milton Nhantumbo", telefone: "843493621" },
+            { nome: "Levi Artur Francisco Mussa", telefone: "867666435" },
+            { nome: "Genido Rodrigues Saide", telefone: "852034814" },
+            { nome: "Stélio Paulo Giragieque", telefone: "845128994" },
+            { nome: "Keile Carlos Lopes Teixeira", telefone: "879393048" },
+            { nome: "Ana Maria Luantino Jacinto Antônio", telefone: "864951526" },
+            { nome: "Érica da Glória Victorino", telefone: "872436075" },
+            { nome: "Vania Vasco Ussene", telefone: "875218157" },
+            { nome: "Neque Alcino António João Francisco", telefone: "871567428" },
+            { nome: "Joaquim Auali", telefone: "861685594" },
+            { nome: "Jaimito Lourenço", telefone: "873643442" },
+            { nome: "Rodolfo Cabral", telefone: "844971715" },
+            { nome: "Orlando José Herculano", telefone: "860714578" },
+            { nome: "Remildo Oreste Romão", telefone: "842183216" },
+            { nome: "Dauda Francisco Massona", telefone: "862772231" },
+            { nome: "Gabriel Miguel Gimo", telefone: "864509859" },
+            { nome: "BELITO JAIME MUTELA", telefone: "873541157" },
+            { nome: "Dulce Paulo", telefone: "876293004" },
+            { nome: "Helena Silva Américo", telefone: "868674748" },
+            { nome: "Alima Arune Amade", telefone: "862299246" },
+            { nome: "Jordão Ernesto", telefone: "868505863" },
+            { nome: "Samuel Valério", telefone: "(86)1775-905" },
+            { nome: "Aninhas Bacar Hussene", telefone: "845244976" },
+            { nome: "João Fonseca Junior", telefone: "845509059" },
+            { nome: "Ivanilson Delo Machado", telefone: "879681679" },
+            { nome: "Valdino Dinis Ernesto Cabral", telefone: "871096727" },
+            { nome: "Júnior da Rosa", telefone: "865886772" },
+            { nome: "Efigenio Feleciano", telefone: "875290953" },
+            { nome: "Mércia Maria Vicente", telefone: "866033478" }
         ];
 
         // Referência à lista no HTML
@@ -120,7 +173,7 @@
                 const li = document.createElement('li');
                 li.innerHTML = `
                     <span>${beneficiario.nome}</span>
-                    <button class="confirm-button" data-nome="${beneficiario.nome}" data-telefone="${beneficiario.telefone}">✅</button>
+                    <button class="confirm-button" data-nome="${beneficiario.nome}" data-telefone="${beneficiario.telefone}">Confirmar</button>
                 `;
                 listaBeneficiarios.appendChild(li);
 
@@ -136,6 +189,7 @@
 
             if (docSnap.exists()) {
                 li.querySelector('button').disabled = true;
+                li.querySelector('button').textContent = "✅ Confirmado";
                 li.querySelector('span').classList.add('confirmed');
             }
         }
