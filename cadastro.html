@@ -1,107 +1,156 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="icone.png" type="image/png">
-    <meta name="description" content="Aprenda habilidades essenciais e amplie seu alcance digital.">
-    <meta name="keywords" content="presença digital, aprendizado, comunidade, cursos online">
-    <meta name="author" content="Tilo Machado">
-
-    <!-- Código do Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-GDDY8TGYQV');
-    </script>
-    
-    <title>Inscrição para os Cursos Gratuitos</title>
+    <title>Inscrição para Cursos Gratuitos</title>
     <style>
-        /* Estilos básicos */
-        body {
-            font-family: 'Roboto', sans-serif;
-            background: linear-gradient(135deg, #1f1f1f, #2e2e2e);
-            color: #ffffff;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        /* Reset básico */
+        * {
             margin: 0;
             padding: 0;
-            height: 100vh;
-            overflow-y: auto; /* Habilita a rolagem se necessário */
+            box-sizing: border-box;
         }
-    
-        /* Container do formulário */
+
+        /* Estilos gerais */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
         .container {
-            background: linear-gradient(135deg, #3a3a3a, #444, #1f1f1f);
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            max-width: 90%;
-            width: 400px;
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 500px;
+            padding: 30px;
             text-align: center;
-            margin: 20px;
-            max-height: 80vh; /* Limita a altura máxima do contêiner */
-            overflow-y: auto; /* Permite rolar dentro do contêiner */
         }
-    
+
         h2 {
-            color: #ffcc00;
+            font-size: 24px;
+            color: #333;
             margin-bottom: 20px;
-            text-shadow: 0 0 10px #ffcc00;
-            font-size: 2em;
-            word-wrap: break-word;
-            text-align: center;
-            padding: 0 10px;
-            margin-top: 10px; /* Garante que o título não fique colado no topo */
+            font-weight: 600;
         }
-    
-        /* Campos de entrada */
-        label {
-            display: block;
-            margin: 10px 0 5px;
-            color: #aaa;
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background-color: #e0e0e0;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            overflow: hidden;
         }
-    
+
+        .progress-bar-fill {
+            height: 100%;
+            background-color: #28a745;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
         .input-field {
             width: 100%;
-            padding: 10px;
-            margin-bottom: 20px;
-            border: 2px solid transparent;
-            border-radius: 5px;
-            background-color: #444;
-            color: white;
-            font-size: 1em;
-            transition: background-color 0.3s, border 0.3s;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 14px;
+            outline: none;
+            transition: border-color 0.3s ease;
         }
-    
+
         .input-field:focus {
-            background-color: #555;
-            border: 2px solid #ff007f;
+            border-color: #28a745;
         }
-    
+
         .btn {
-            background: linear-gradient(90deg, #28a745, #218838);
-            color: #ffffff;
+            background-color: #28a745;
+            color: #fff;
             padding: 12px 20px;
-            border-radius: 25px;
-            font-size: 1.2em;
             border: none;
+            border-radius: 8px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
-            margin-top: 20px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: background-color 0.3s ease;
             width: 100%;
+            margin-top: 10px;
         }
-    
+
         .btn:hover {
-            background: linear-gradient(90deg, #218838, #28a745);
-            transform: scale(1.05);
+            background-color: #218838;
         }
-    
-        /* Modal */
+
+        .upload-section {
+            margin: 20px 0;
+        }
+
+        .upload-label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 500;
+            color: #333;
+        }
+
+        .upload-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+
+        .upload-button:hover {
+            background-color: #0056b3;
+        }
+
+        .upload-preview {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        .upload-preview img {
+            max-width: 100px;
+            max-height: 100px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin: 5px;
+        }
+
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 20px;
+        }
+
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #28a745;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
         .modal {
             display: none;
             position: fixed;
@@ -109,135 +158,45 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1000;
+            background-color: rgba(0, 0, 0, 0.5);
             justify-content: center;
             align-items: center;
-            text-align: center;
         }
-    
+
         .modal-content {
-            background-color: #000;
-            color: #ffcc00;
+            background-color: #fff;
             padding: 20px;
-            border-radius: 10px;
-            width: 80%;
-            max-width: 500px;
-            position: relative;
-            box-shadow: 0 0 15px rgba(255, 204, 0, 0.5);
+            border-radius: 12px;
+            text-align: center;
+            width: 90%;
+            max-width: 400px;
         }
-    
+
         .close-modal {
-            position: absolute;
-            top: 10px;
-            right: 10px;
+            background-color: #dc3545;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
             cursor: pointer;
-            color: #ff0000;
-        }
-    
-        /* Ajustes para telas menores */
-        @media (max-width: 768px) {
-            .container {
-                width: 90%;
-                padding: 20px;
-            }
-    
-            h2 {
-                font-size: 1.8em;
-                margin-bottom: 10px;
-                text-align: center;
-            }
-    
-            .btn {
-                font-size: 1em;
-                padding: 10px;
-            }
-    
-            /* Ajuste do modal */
-            .modal-content {
-                width: 90%;
-                padding: 15px;
-            }
-    
-            .input-field {
-                font-size: 0.9em;
-            }
-        }
-        
-        /* Ajuste para telas muito pequenas (ex: celular em modo retrato) */
-        @media (max-width: 480px) {
-            .container {
-                width: 95%;
-            }
-    
-            .btn {
-                padding: 10px;
-                font-size: 1em;
-            }
-    
-            h2 {
-                font-size: 1.6em;
-                text-align: center;;
-
-            }
-    
-            .modal-content {
-                width: 90%;
-                padding: 10px;
-            }
-    
-            .input-field {
-                font-size: 0.85em;
-            }
+            margin-top: 10px;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
         }
 
-        /* Indicador de carregamento */
-.loading {
-    display: none;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
-    z-index: 999;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-/* Estilos do spinner */
-.spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid #fff;
-    border-top: 5px solid #ffcc00; /* Cor do topo */
-    border-radius: 50%;
-    animation: spin 1s linear infinite; /* Animação do spinner */
-}
-
-/* Animação de rotação do spinner */
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-.loading p {
-    color: #ffcc00;
-    font-size: 1.2em;
-    font-weight: bold;
-    margin-top: 10px;
-    color: #fff;
-}
-
+        .close-modal:hover {
+            background-color: #c82333;
+        }
     </style>
-    
 </head>
 <body>
     <div class="container">
         <h2>Inscrição para os Cursos Gratuitos</h2>
-        <!-- Formulário de inscrição -->
+        <div class="progress-bar">
+            <div class="progress-bar-fill" id="progressBar"></div>
+        </div>
         <form id="registrationForm">
+            <!-- Campos do formulário -->
             <label for="nome">Nome Completo:</label>
             <input type="text" id="nome" class="input-field" required><br><br>
 
@@ -260,50 +219,23 @@
             <input type="text" id="telefone" class="input-field" required><br><br>
 
             <label for="curso">Escolha o curso:</label>
-<select id="curso" class="input-field" onchange="mostrarDetalhes()" required>
-    <option value="">Selecione um curso</option>
-    <option value="gestao_negocios">Gestão e Desenvolvimento de Negócios</option>
-    <option value="habilidades_sociais">Habilidades Socioemocionais</option>
-    <option value="mercado_trabalho">Preparação para o Mercado de Trabalho</option>
-</select><br><br>
+            <select id="curso" class="input-field" onchange="mostrarDetalhes()" required>
+                <option value="">Selecione um curso</option>
+                <option value="gestao_negocios">Gestão e Desenvolvimento de Negócios</option>
+            </select><br><br>
 
-<div id="detalhesCurso" style="display:none;">
-    <p id="descricaoCurso"></p>
-    <p id="precoCurso"></p>
-</div><br><br>
+            <!-- Upload de fotos do B.I. -->
+            <div class="upload-section">
+                <label class="upload-label">Foto da Frente do B.I.:</label>
+                <input type="file" id="frenteBi" class="input-field" accept="image/*" required>
+                <div class="upload-preview" id="frentePreview"></div>
+            </div>
 
-<script>
-    function mostrarDetalhes() {
-        const cursoSelecionado = document.getElementById('curso').value;
-        const detalhesCurso = document.getElementById('detalhesCurso');
-        const descricaoCurso = document.getElementById('descricaoCurso');
-        const precoCurso = document.getElementById('precoCurso');
-
-        switch (cursoSelecionado) {
-            case 'gestao_negocios':
-                descricaoCurso.textContent = 'Aprenda técnicas de gestão e estratégias para desenvolver negócios lucrativos e sustentáveis.';
-                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
-                break;
-            case 'habilidades_sociais':
-                descricaoCurso.textContent = 'Desenvolva habilidades socioemocionais para se destacar no ambiente profissional e melhorar relacionamentos interpessoais.';
-                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
-                break;
-            case 'mercado_trabalho':
-                descricaoCurso.textContent = 'Prepare-se para o mercado de trabalho com técnicas de elaboração de currículos, simulação de entrevistas e muito mais.';
-                precoCurso.innerHTML = 'Preço: <span style="color: green;">Gratuito</span>';
-                break;
-            default:
-                descricaoCurso.textContent = '';
-                precoCurso.textContent = '';
-                detalhesCurso.style.display = 'none';
-                return;
-        }
-
-        // Exibe os detalhes do curso
-        detalhesCurso.style.display = 'block';
-    }
-</script>
-
+            <div class="upload-section">
+                <label class="upload-label">Foto do Verso do B.I.:</label>
+                <input type="file" id="versoBi" class="input-field" accept="image/*" required>
+                <div class="upload-preview" id="versoPreview"></div>
+            </div>
 
             <button type="submit" class="btn">Enviar</button>
         </form>
@@ -354,99 +286,143 @@
         const loadingIndicator = document.getElementById('loadingIndicator');
         const successModal = document.getElementById('successModal');
         const downloadReceiptButton = document.getElementById('downloadReceipt');
+        const progressBarFill = document.getElementById('progressBar');
+        const frenteBiInput = document.getElementById('frenteBi');
+        const versoBiInput = document.getElementById('versoBi');
+        const frentePreview = document.getElementById('frentePreview');
+        const versoPreview = document.getElementById('versoPreview');
+    
+        // Função para exibir pré-visualização das fotos
+        frenteBiInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    frentePreview.innerHTML = `<img src="${e.target.result}" alt="Frente do B.I.">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    
+        versoBiInput.addEventListener('change', function (e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    versoPreview.innerHTML = `<img src="${e.target.result}" alt="Verso do B.I.">`;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    
+        // Função para atualizar a barra de progresso
+        function atualizarBarraProgresso() {
+            const campos = registrationForm.querySelectorAll('input, select');
+            let preenchidos = 0;
+    
+            campos.forEach(campo => {
+                if (campo.value.trim() !== '') preenchidos++;
+            });
+    
+            const progresso = (preenchidos / campos.length) * 100;
+            progressBarFill.style.width = `${progresso}%`;
+        }
+    
+        // Atualizar a barra de progresso ao preencher os campos
+        registrationForm.querySelectorAll('input, select').forEach(campo => {
+            campo.addEventListener('input', atualizarBarraProgresso);
+        });
     
         // Evento de envio do formulário
-registrationForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
-    loadingIndicator.style.display = 'flex';
-
-    const nome = document.getElementById('nome').value;
-    const sexo = document.getElementById('sexo').value;
-    const idade = document.getElementById('idade').value;
-    const localizacao = document.getElementById('localizacao').value;
-    const telefone = document.getElementById('telefone').value;
-    const curso = document.getElementById('curso').value;
-
-    const receiptNumber = `REC-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
-
-    try {
-        // Salvar dados no Firestore
-        await setDoc(doc(db, "inscricoes_novas", receiptNumber), {
-            nome,
-            sexo,
-            idade,
-            localizacao,
-            telefone,
-            curso,
-            recibo: receiptNumber,
-            data_inscricao: new Date().toISOString(),
-            preco: "Gratuito" // Adiciona a informação de que o curso é gratuito
-        });
-
-        loadingIndicator.style.display = 'none';
-
-        // Exibir modal de sucesso
-        document.getElementById('reciboNumber').textContent = receiptNumber;
-        successModal.style.display = 'flex';
-    } catch (error) {
-        loadingIndicator.style.display = 'none';
-        alert("Ocorreu um erro ao salvar os dados. Tente novamente.");
-    }
-});
-
-// Evento de download do recibo
-downloadReceiptButton.addEventListener('click', () => {
-    const receiptNumber = document.getElementById('reciboNumber').textContent;
-    const nome = document.getElementById('nome').value;
-    const curso = document.getElementById('curso').value;
-
-    // Criar o PDF com jsPDF
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF();
-
-    // Cabeçalho
-    doc.setFont("helvetica", "bold");
-    doc.setFontSize(16);
-    doc.setTextColor(255, 0, 0); // Cor vermelha para destacar
-    doc.text("RECIBO DE INSCRIÇÃO - CURSO GRATUITO", 105, 20, null, null, 'center');
-
+        registrationForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            loadingIndicator.style.display = 'flex';
     
-
-    // Informações do recibo
-    doc.setFont("helvetica", "normal");
-    doc.setFontSize(12);
-    doc.setTextColor(0, 0, 0); // Texto em preto
-    doc.text(`Nome: ${nome}`, 20, 50);
-    doc.text(`Curso: ${curso}`, 20, 60);
-    doc.text(`Número do Recibo: ${receiptNumber}`, 20, 70);
-    doc.text(`Data: ${new Date().toLocaleDateString()}`, 20, 80);
-    doc.text(`Preço: Gratuito`, 20, 90);
-
-    // Mensagem de agradecimento estilizada
-    doc.setFont("helvetica", "italic");
-    doc.setFontSize(12);
-    doc.setTextColor(128, 0, 0); // Cor vinho para diferenciar
-    doc.text("Obrigado por se inscrever no curso gratuito!", 20, 110);
-    doc.text("Estamos ansiosos para vê-lo nas aulas. Guarde bem este recibo.", 20, 120);
-
-    // Adicionar logotipo no rodapé
-    const imagePath = 'icone.png'; // Caminho da imagem do logotipo
-    const imgWidth = 30; // Largura da imagem
-    const imgHeight = 30; // Altura da imagem
-    const imgX = (doc.internal.pageSize.width - imgWidth) / 2; // Centralizar a imagem
-    const imgY = doc.internal.pageSize.height - 40; // Posicionar no rodapé
-    doc.addImage(imagePath, 'PNG', imgX, imgY, imgWidth, imgHeight);
-
-    // Salvando o PDF
-    doc.save(`Recibo_${receiptNumber}.pdf`);
-});
-
+            const nome = document.getElementById('nome').value;
+            const sexo = document.getElementById('sexo').value;
+            const idade = document.getElementById('idade').value;
+            const localizacao = document.getElementById('localizacao').value;
+            const telefone = document.getElementById('telefone').value;
+            const curso = document.getElementById('curso').value;
+            const frenteBiFile = frenteBiInput.files[0];
+            const versoBiFile = versoBiInput.files[0];
+    
+            const receiptNumber = `REC-${Date.now()}-${Math.floor(Math.random() * 1000)}`;
+    
+            try {
+                // Salvar dados no Firestore
+                await setDoc(doc(db, "inscricoes_novas", receiptNumber), {
+                    nome,
+                    sexo,
+                    idade,
+                    localizacao,
+                    telefone,
+                    curso,
+                    recibo: receiptNumber,
+                    data_inscricao: new Date().toISOString(),
+                    preco: "Gratuito"
+                });
+    
+                loadingIndicator.style.display = 'none';
+    
+                // Exibir modal de sucesso
+                document.getElementById('reciboNumber').textContent = receiptNumber;
+                successModal.style.display = 'flex';
+            } catch (error) {
+                loadingIndicator.style.display = 'none';
+                alert("Ocorreu um erro ao salvar os dados. Tente novamente.");
+            }
+        });
+    
+        // Evento de download do recibo
+        downloadReceiptButton.addEventListener('click', () => {
+            const receiptNumber = document.getElementById('reciboNumber').textContent;
+            const nome = document.getElementById('nome').value;
+            const curso = document.getElementById('curso').value;
+    
+            // Criar o PDF com jsPDF
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF();
+    
+            // Cabeçalho
+            doc.setFont("helvetica", "bold");
+            doc.setFontSize(16);
+            doc.setTextColor(255, 0, 0); // Cor vermelha para destacar
+            doc.text("RECIBO DE INSCRIÇÃO - CURSO GRATUITO", 105, 20, null, null, 'center');
+    
+            // Informações do recibo
+            doc.setFont("helvetica", "normal");
+            doc.setFontSize(12);
+            doc.setTextColor(0, 0, 0); // Texto em preto
+            doc.text(`Nome: ${nome}`, 20, 50);
+            doc.text(`Curso: ${curso}`, 20, 60);
+            doc.text(`Número do Recibo: ${receiptNumber}`, 20, 70);
+            doc.text(`Data: ${new Date().toLocaleDateString()}`, 20, 80);
+            doc.text(`Preço: Gratuito`, 20, 90);
+    
+            // Mensagem de agradecimento estilizada
+            doc.setFont("helvetica", "italic");
+            doc.setFontSize(12);
+            doc.setTextColor(128, 0, 0); // Cor vinho para diferenciar
+            doc.text("Obrigado por se inscrever no curso gratuito!", 20, 110);
+            doc.text("Estamos ansiosos para vê-lo nas aulas. Guarde bem este recibo.", 20, 120);
+    
+            // Adicionar logotipo no rodapé
+            const imagePath = 'icone.png'; // Caminho da imagem do logotipo
+            const imgWidth = 30; // Largura da imagem
+            const imgHeight = 30; // Altura da imagem
+            const imgX = (doc.internal.pageSize.width - imgWidth) / 2; // Centralizar a imagem
+            const imgY = doc.internal.pageSize.height - 40; // Posicionar no rodapé
+            doc.addImage(imagePath, 'PNG', imgX, imgY, imgWidth, imgHeight);
+    
+            // Salvando o PDF
+            doc.save(`Recibo_${receiptNumber}.pdf`);
+        });
     
         // Evento para fechar o modal
         document.getElementById('closeModal').addEventListener('click', () => {
             successModal.style.display = 'none';
         });
     </script>
-    
 </body>
 </html>
