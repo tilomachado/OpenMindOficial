@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Beneficiários</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+        li:last-child {
+            border-bottom: none;
+        }
+        .confirm-button {
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .confirm-button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        .confirmed {
+            color: #28a745;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Lista de Beneficiários</h1>
+        <ul id="listaBeneficiarios">
+            <!-- Lista será preenchida dinamicamente pelo JavaScript -->
+        </ul>
+    </div>
+
+    <!-- Firebase e JavaScript -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
+        import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
+
+        // Configuração do Firebase
+        const firebaseConfig = {
+            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
+            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
+            projectId: "plataforma-do-mini-curso",
+            storageBucket: "plataforma-do-mini-curso.appspot.com",
+            messagingSenderId: "424655587612",
+            appId: "1:424655587612:web:851858a379c334227056e4",
+            measurementId: "G-6CE0E9R3J5"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Lista de beneficiários
+        const beneficiarios = [
+            "Dio Lucas", "Sabão", "Juni Arnaldo", "Sanito", "Seme Greg", 
+            "Niltone Estefano Samuel", "Eduardo", "Moi Sés Pedro 258", 
+            "Sérgio Amisse Ramalho", "Chelton Raimundo", "Azamate Tito", 
+            "Coutinho", "Egídio Artur", "Victor Nyengela Wilondja", 
+            "John Bernabé Rafael Baptista Tomás", "Joel das Neves Salvador", 
+            "Ângelo Marcos Armando", "Amadeu António Uassia", "Horacio Jacinto", 
+            "Anna Clady", "Domingos Joao Jose", "Mezzy", "Amade Isidro", 
+            "José Faustino", "João Edson Papelo", "Milena Maurício", 
+            "Frederico Acácio Pedro Rocha", "Junode", "Amade Matano Augusto", 
+            "Franque Fernando", "Sumail Jose", "Elias Cossa", "Nelson Bernardo", 
+            "Jesseh Duas", "Octavio Manuel Zeleca", "Nelson Fernando Mutarica", 
+            "ISSUFO ISMAEL", "Felicina Geovana Naide Chico", "Agencio Bernardo Mário", 
+            "Rui Frederico Gaspar", "DAMARCIO ASSANE", "Helder Muerufi Buana", 
+            "Moniz Leandro", "David Manuel Alexandre Ossufo", "Julieta Tiago", 
+            "ABACAR ANTÓNIO AMADE", "Nabila Victorino Rihane", "Jorge Paulo", 
+            "Saja Jacobe José", "Milton Nhantumbo", "Levi Artur Francisco Mussa", 
+            "Genido Rodrigues Saide", "Stélio Paulo Giragieque", "Keile Carlos Lopes Teixeira", 
+            "Ana Maria Luantino Jacinto Antônio", "Érica da Glória Victorino", 
+            "Vania Vasco Ussene", "Neque Alcino António João Francisco", "Joaquim Auali", 
+            "Jaimito Lourenço", "Rodolfo Cabral", "Orlando José Herculano", 
+            "Remildo Oreste Romão", "Dauda Francisco Massona", "Gabriel Miguel Gimo", 
+            "BELITO JAIME MUTELA", "Dulce Paulo", "Helena Silva Américo", 
+            "Alima Arune Amade", "Jordão Ernesto", "Samuel Valério", "Aninhas Bacar Hussene", 
+            "João Fonseca Junior", "Ivanilson Delo Machado", "Valdino Dinis Ernesto Cabral", 
+            "Júnior da Rosa", "Efigenio Feleciano", "Mércia Maria Vicente"
+        ];
+
+        // Referência à lista no HTML
+        const listaBeneficiarios = document.getElementById('listaBeneficiarios');
+
+        // Função para carregar a lista de beneficiários
+        function carregarLista() {
+            beneficiarios.forEach(beneficiario => {
+                const li = document.createElement('li');
+                li.innerHTML = `
+                    <span>${beneficiario.nome}</span>
+                    <button class="confirm-button" data-nome="${beneficiario.nome}" data-telefone="${beneficiario.telefone}">✅</button>
+                `;
+                listaBeneficiarios.appendChild(li);
+
+                // Verificar se o beneficiário já confirmou
+                verificarConfirmacao(beneficiario.nome, li);
+            });
+        }
+
+        // Função para verificar se o beneficiário já confirmou
+        async function verificarConfirmacao(nome, li) {
+            const docRef = doc(db, "confirmacoes", nome);
+            const docSnap = await getDoc(docRef);
+
+            if (docSnap.exists()) {
+                li.querySelector('button').disabled = true;
+                li.querySelector('span').classList.add('confirmed');
+            }
+        }
+
+        // Função para confirmar presença
+        async function confirmarPresenca(nome, telefone) {
+            const telefoneUsuario = prompt("Digite seu número de telefone para confirmar:");
+
+            if (telefoneUsuario === telefone) {
+                const docRef = doc(db, "confirmacoes", nome);
+                await setDoc(docRef, { confirmado: true });
+                alert(`${nome} confirmado com sucesso!`);
+                location.reload(); // Recarregar a página para atualizar a lista
+            } else {
+                alert("Número de telefone incorreto. Confira e tente novamente.");
+            }
+        }
+
+        // Evento de clique nos botões de confirmação
+        listaBeneficiarios.addEventListener('click', (e) => {
+            if (e.target.classList.contains('confirm-button')) {
+                const nome = e.target.getAttribute('data-nome');
+                const telefone = e.target.getAttribute('data-telefone');
+                confirmarPresenca(nome, telefone);
+            }
+        });
+
+        // Carregar a lista ao iniciar
+        carregarLista();
+    </script>
+</body>
+</html>
