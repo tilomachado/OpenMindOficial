@@ -20,8 +20,8 @@
       color: #333;
     }
 
-     /* Header */
-     header {
+    /* Header */
+    header {
       background: url('') no-repeat center center/cover;
       background-color: #333; /* Fallback caso a imagem não carregue */
       color: #fff;
@@ -39,19 +39,39 @@
       margin-bottom: 30px;
     }
 
+    /* Botões */
     .cta-button {
-      background: #ff6f61;
-      color: #fff;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
+      display: inline-block;
+      padding: 15px 30px;
       font-size: 1rem;
-      cursor: pointer;
+      font-weight: 600;
+      text-align: center;
       text-decoration: none;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
-    .cta-button:hover {
-      background: #ff4a3d;
+    /* Botão de Inscrição (Laranja Neon) */
+    .cta-button.inscricao {
+      background: linear-gradient(45deg, #ff8a00, #e52e71);
+      color: #fff;
+    }
+
+    .cta-button.inscricao:hover {
+      background: linear-gradient(45deg, #e52e71, #ff8a00);
+      transform: scale(1.05);
+    }
+
+    /* Botão do WhatsApp (Verde Neon) */
+    .cta-button.whatsapp {
+      background: linear-gradient(45deg, #00e676, #00b248);
+      color: #fff;
+    }
+
+    .cta-button.whatsapp:hover {
+      background: linear-gradient(45deg, #00b248, #00e676);
+      transform: scale(1.05);
     }
 
     /* Sobre o Curso */
@@ -116,6 +136,97 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
+    /* Seção "O que você vai aprender?" */
+    .what-you-will-learn {
+      padding: 40px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .what-you-will-learn h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .animated-list {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .animated-item {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+    }
+
+    /* Seção de Depoimentos */
+    .cta {
+      padding: 40px 20px;
+      background: #f4f4f4;
+      text-align: center;
+    }
+
+    .cta h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .depoimentos {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .depoimento img {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+
+    .btn-container {
+      margin-top: 20px;
+    }
+
+    /* Seção do Administrador */
+    .admin-section {
+      padding: 40px 20px;
+      background: #fff;
+      text-align: center;
+    }
+
+    .admin-profile {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .admin-profile img {
+      max-width: 200px;
+      border-radius: 10px;
+    }
+
+    .admin-info {
+      max-width: 600px;
+      text-align: left;
+    }
+
+    .admin-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+
+    .admin-info p {
+      font-size: 1rem;
+      margin-bottom: 10px;
+    }
+
     /* Footer */
     footer {
       background: #333;
@@ -132,6 +243,11 @@
     footer a:hover {
       text-decoration: underline;
     }
+
+    /* Classes utilitárias */
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -139,28 +255,24 @@
   <header>
     <h1>Transforme sua carreira com o Curso de Gestão de Negócios para Avicultura</h1>
     <p>Gratuito, prático e com certificado! Inscreva-se agora e garanta seu futuro.</p>
-    <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="cta-button" target="_blank">Quero me inscrever!</a>
- 
-   </header>
-   <!-- VSL (Video Sales Letter) -->
-   <section class="vsl">
+    <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="cta-button inscricao" target="_blank">Quero me inscrever!</a>
+  </header>
+
+  <!-- VSL (Video Sales Letter) -->
+  <section class="vsl">
     <h2>Assista ao vídeo e saiba mais sobre o curso:</h2>
     <iframe src="https://www.youtube.com/embed/A4gDb0FNiFQ?si=10B0yXcguj1wS4Hr" title="VSL Curso de Avicultura" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    
   </section>
-  
 
   <!-- Sobre o Curso -->
   <section class="about">
     <h2>Por que fazer este curso?</h2>
-   
     <ul>
       <li>✅ 100% Gratuito</li>
       <li>✅ Foco prático</li>
       <li>✅ Certificado incluso</li>
       <li>✅ Modalidade presencial e online</li>
     </ul>
-    
   </section>
 
   <!-- Detalhes do Curso -->
@@ -169,16 +281,61 @@
     <p>Duração: 2 meses de teoria + 1 mês de prática.</p>
     <p>Início: Este mês! Vagas limitadas.</p>
     <p>Ministrado por: <strong>ADC e UATAF Nampula</strong>.</p>
-    <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="cta-button" target="_blank">Quero me inscrever!</a>
- 
+    <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="cta-button inscricao" target="_blank">Quero me inscrever!</a>
   </section>
 
- 
+  <!-- Seção "O que você vai aprender?" -->
+  <div class="what-you-will-learn">
+    <h2>O que você vai aprender?</h2>
+    <ul class="animated-list">
+      <li class="animated-item">✅ Gestão eficiente de granjas avícolas.</li>
+      <li class="animated-item">✅ Técnicas modernas de produção de frangos e ovos.</li>
+      <li class="animated-item">✅ Como maximizar a rentabilidade na avicultura.</li>
+      <li class="animated-item">✅ Estratégias de marketing para produtos avícolas.</li>
+      <li class="animated-item">✅ Gestão financeira para pequenos e médios produtores.</li>
+      <li class="animated-item">✅ Como expandir seu negócio para mercados internacionais.</li>
+      <li class="animated-item">✅ Sustentabilidade e boas práticas na avicultura.</li>
+      <li class="animated-item">✅ Preparação para investimentos e financiamentos.</li>
+    </ul>
+    <h2>Vagas Limitadas!</h2>
+  </div>
+
+  <!-- Seção de Depoimentos -->
+  <div class="cta">
+    <h2>Veja o que estão falando sobre os Cursos Gratuitos no Facebook</h2>
+    <div class="depoimentos">
+      <div class="depoimento">
+        <img src="Captura de ecrã 2024-12-10 154537.png" alt="Depoimento 1">
+      </div>
+      <div class="depoimento">
+        <img src="Captura de ecrã 2024-12-10 154619.png" alt="Depoimento 2">
+      </div>
+    </div>
+    <div class="btn-container">
+      <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="cta-button inscricao">Inscreva-se Agora</a>
+    </div>
+  </div>
+
+  <!-- Seção do Administrador do Grupo da Open Mind -->
+  <div class="admin-section">
+    <h2>Conheça o Criador da Open Mind</h2>
+    <div class="admin-profile">
+        <img src="2024_05_06_09_16_IMG_3703.JPG" alt="Tilo Manuel Estaupe Machado - Criador da Open Mind">
+        
+      <div class="admin-info">
+        <h3>Tilo Machado</h3>
+        <p>Mentor e criador da Open Mind, dedicado ao crescimento profissional de jovens tecnólogos, estudantes e aspirantes na área da tecnologia em Moçambique.</p>
+        <p>Com mais de 15 cursos oferecidos, Tilo desenvolveu um ecossistema educacional focado em capacitar pessoas com habilidades essenciais para o mercado digital e tecnológico.</p>
+        <p>Além dos cursos, os participantes têm acesso a bônus exclusivos, como e-books, mentoria privada, ideias de negócios online e muito mais.</p>
+        <p>Para mais informações, entre em contato pelo WhatsApp: <a href="https://wa.me/258843343733" class="cta-button whatsapp" target="_blank">+258 84 334 3733</a>.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer>
     <p>© 2023 Curso de Gestão de Negócios para Avicultura. Todos os direitos reservados.</p>
-    <p>Dúvidas? <a href="https://wa.me/SEUNUMERO" target="_blank">Fale conosco no WhatsApp</a>.</p>
+    <p>Dúvidas? <a href="https://wa.me/258843343733" class="cta-button whatsapp" target="_blank">Fale conosco no WhatsApp</a>.</p>
   </footer>
 </body>
 </html>
