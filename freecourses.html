@@ -1,689 +1,184 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Open Your Mind</title>
-    <link rel="icon" href="icone.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
-    <meta name="description" content="Aprenda habilidades essenciais e amplie seu alcance digital.">
-    <meta name="keywords" content="presença digital, aprendizado, comunidade, cursos online">
-    <meta name="author" content="Tilo Machado">´
-
-    <!-- Meta Pixel Code -->
-<script>
-    !function(f,b,e,v,n,t,s)
-    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-    n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];
-    s.parentNode.insertBefore(t,s)}(window, document,'script',
-    'https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', '1092089652303535');
-    fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-    src="https://www.facebook.com/tr?id=1092089652303535&ev=PageView&noscript=1"
-    /></noscript>
-    <!-- End Meta Pixel Code -->
-
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-55BPZ9S2');</script>
-    <!-- End Google Tag Manager -->
-    
-
-    <!-- Suporte a múltiplos idiomas -->
-    <link rel="alternate" hreflang="es" href="pagina_espanhol.html">
-    <link rel="alternate" hreflang="en" href="pagina_ingles.html">
-
-    <!-- Código do Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-GDDY8TGYQV');
-    </script>
-    
-    <style>
-        /* Estilo do pop-up */
-        .popup {
-            position: fixed;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #28a745;
-            color: white;
-            font-style: italic;
-            padding: 10px 20px;
-            border-radius: 5px;
-            z-index: 1000;
-            animation: fadeIn 0.5s, fadeOut 0.5s 2.5s;
-        }
-    
-        /* Animações do pop-up */
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-    
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
-    
-        /* Estilo da imagem centralizada */
-        .image-container {
-            overflow: hidden;
-            width: 100%;
-            box-sizing: border-box;
-            text-align: center;
-        }
-    
-        img.kelcia-img {
-            max-width: 100%;
-            height: auto;
-            display: inline-block;
-            padding: 0;
-            box-sizing: border-box;
-        }
-    
-        /* Estilo da seção de vídeos */
-        .video-vsl {
-            text-align: center;
-        }
-    
-        /* Estilo do contêiner de vídeo */
-        .video-container {
-            width: 100%;
-            max-width: 500px;
-            position: relative;
-            aspect-ratio: 16 / 9; /* Ajuste para a proporção desejada, como 16:9 */
-            overflow: hidden;
-            margin: 0 auto; /* Centraliza o contêiner */
-        }
-    
-        /* Estilo para o vídeo */
-        .square-video {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 8px;
-        }
-
-        .video-vsl {
-    text-align: center; /* Centraliza o conteúdo */
-    position: relative; /* Necessário para o posicionamento do vídeo */
-    width: 100%; /* Largura total do contêiner */
-    max-width: 720px; /* Largura máxima do contêiner */
-    margin: 0 auto; /* Centraliza o contêiner na página */
-}
-
-video {
-    width: 100%; /* O vídeo ocupa toda a largura do contêiner */
-    height: auto; /* Mantém a proporção do vídeo */
-    aspect-ratio: 1; /* Força o vídeo a ter uma proporção de 1:1 (quadrado) */
-    object-fit: cover; /* Cobre todo o contêiner mantendo o centro do vídeo */
-    display: none; /* Oculta o vídeo inicialmente */
-}
-
-.play-button {
-    position: absolute; /* Posiciona o botão sobre o vídeo */
-    top: 50%; /* Centraliza verticalmente */
-    left: 50%; /* Centraliza horizontalmente */
-    transform: translate(-50%, -50%); /* Ajusta a posição para o centro exato */
-    font-size: 50px; /* Tamanho do botão */
-    background: rgba(0, 0, 0, 0.5); /* Fundo semi-transparente */
-    color: white; /* Cor do texto */
-    border: none; /* Remove a borda do botão */
-    border-radius: 50%; /* Botão circular */
-    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
-    padding: 15px; /* Espaçamento interno */
-    z-index: 10; /* Mantém o botão acima do vídeo */
-}
-
-.play-button:hover {
-    background: rgba(0, 0, 0, 0.7); /* Escurece o fundo ao passar o mouse */
-}
-
-/* Estilos para a barra de progresso */
-.progress-container {
-    width: 100%; /* Largura total da barra de progresso */
-    background: rgba(0, 0, 0, 0.5); /* Fundo da barra */
-    border-radius: 5px; /* Bordas arredondadas */
-    height: 10px; /* Altura da barra */
-    margin-top: 10px; /* Espaço acima da barra */
-}
-
-.progress-bar {
-    width: 0%; /* Inicia com largura 0% */
-    height: 100%; /* Altura igual à do contêiner */
-    background: #39ff14; /* Cor da barra de progresso */
-    border-radius: 5px; /* Bordas arredondadas */
-}
-
-
-header {
-    text-align: center; /* Centraliza o conteúdo do cabeçalho */
-    margin-bottom: 20px; /* Espaço abaixo do cabeçalho */
-}
-
-h1 {
-    font-size: 36px; /* Tamanho do título */
-    color: #fff; /* Cor do título */
-}
-
-p {
-    color: #fff; /* Cor do texto */
-    text-align: center;       /* Centraliza o texto horizontalmente */
-}
-
-/* Mantenha o estilo da mensagem do botão */
-.button-text {
-    position: relative; /* Ajusta a posição da mensagem */
-    font-size: 24px; /* Tamanho da fonte */
-    color: #fff; /* Cor do texto */
-    background: rgba(0, 0, 0, 0.7); /* Fundo semi-transparente */
-    padding: 10px 20px; /* Espaçamento interno */
-    border-radius: 5px; /* Bordas arredondadas */
-    margin-top: 10px; /* Espaço acima da mensagem */
-}
-.facebook-feedback {
-    text-align: center;       /* Centraliza o texto horizontalmente */
-    font-size: 24px;          /* Tamanho da fonte para destaque */
-    font-weight: bold;        /* Deixa o texto em negrito */
-    color: #333333;           /* Cor do texto */
-    padding: 20px;            /* Espaço ao redor do texto */
-    margin: 20px auto;        /* Centraliza o bloco horizontalmente e cria espaço em cima e embaixo */
-    max-width: 600px;         /* Define uma largura máxima para a seção */
-    background-color: #f9f9f9;/* Cor de fundo suave */
-    border-radius: 10px;      /* Borda arredondada para destaque */
-}
-
-/* Estilo dos títulos */
-h2 {
-        color: #39ff14; /* Verde claro */
-        font-size: 30px;
-        margin: 10px 0;
-        text-align: center;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de Gestão de Negócios para Avicultura</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    /* Reset CSS */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    /* Estilo para parágrafos */
-    p {
-        color: #ffffff;
-        font-size: 18px;
-        margin-bottom: 15px;
-        line-height: 1.6;
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f4f4;
+      color: #333;
     }
 
-
-    .animated-list {
-    width: 100%; /* Mantém a lista ocupando a largura total do contêiner */
-    max-width: 600px; /* Largura máxima da lista */
-    margin: 0 auto; /* Centraliza a lista */
-    padding: 0; /* Remove o padding padrão da lista */
-}
-
-.animated-item {
-    opacity: 0; /* Inicialmente invisível */
-    transform: translateX(-20px); /* Move para a esquerda */
-    animation: fadeInFromLeft 0.8s forwards, pulse 1.5s infinite; /* Animações de aparecer e pulsar */
-    margin: 10px 0; /* Espaçamento entre os itens */
-    border-radius: 5px; /* Bordas arredondadas */
-    padding: 20px 25px; /* Diminui o espaçamento interno */
-    color: white; /* Cor do texto */
-    font-weight: bold; /* Texto em negrito */
-    text-align: left; /* Alinha o texto à esquerda */
-}
-
-/* Animação de aparecer da esquerda */
-@keyframes fadeInFromLeft {
-    0% {
-        opacity: 0; /* Inicialmente invisível */
-        transform: translateX(-20px); /* Move para a esquerda */
+     /* Header */
+     header {
+      background: url('') no-repeat center center/cover;
+      background-color: #333; /* Fallback caso a imagem não carregue */
+      color: #fff;
+      padding: 60px 20px;
+      text-align: center;
     }
-    100% {
-        opacity: 1; /* Torna visível */
-        transform: translateX(0); /* Retorna à posição original */
+
+    header h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
     }
-}
 
-/* Animação pulsante */
-@keyframes pulse {
-    0% {
-        transform: scale(1); /* Escala normal */
+    header p {
+      font-size: 1.2rem;
+      margin-bottom: 30px;
     }
-    50% {
-        transform: scale(1.05); /* Aumenta um pouco */
+
+    .cta-button {
+      background: #ff6f61;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      text-decoration: none;
     }
-    100% {
-        transform: scale(1); /* Retorna ao normal */
+
+    .cta-button:hover {
+      background: #ff4a3d;
     }
-}
 
-/* Efeito de cor gradiente verde */
-.animated-item:nth-child(odd) {
-    background: linear-gradient(90deg, #162017, #7f012b); /* Gradiente verde claro */
-}
+    /* Sobre o Curso */
+    .about {
+      padding: 40px 20px;
+      text-align: center;
+      background: #fff;
+    }
 
-.animated-item:nth-child(even) {
-    background: linear-gradient(90deg, #7f012b, #162017); /* Gradiente verde escuro */
-}
+    .about h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
 
-/* Adiciona um atraso à animação para cada item */
-.animated-item:nth-child(1) { animation-delay: 0.1s; }
-.animated-item:nth-child(2) { animation-delay: 0.2s; }
-.animated-item:nth-child(3) { animation-delay: 0.3s; }
-.animated-item:nth-child(4) { animation-delay: 0.4s; }
-.animated-item:nth-child(5) { animation-delay: 0.5s; }
-.animated-item:nth-child(6) { animation-delay: 0.6s; }
-.animated-item:nth-child(7) { animation-delay: 0.7s; }
-.animated-item:nth-child(8) { animation-delay: 0.8s; }
-.animated-item:nth-child(9) { animation-delay: 0.9s; }
-.animated-item:nth-child(10) { animation-delay: 1.0s; }
-.animated-item:nth-child(11) { animation-delay: 1.1s; }
-.animated-item:nth-child(12) { animation-delay: 1.2s; }
-.animated-item:nth-child(13) { animation-delay: 1.3s; }
+    .about ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 20px;
+    }
 
+    .about ul li {
+      background: #f4f4f4;
+      padding: 20px;
+      border-radius: 10px;
+      width: 200px;
+      text-align: center;
+    }
 
-/* Centralizar e estilizar o container do vídeo */
-.video-container {
-    max-width: 600px; /* Largura máxima para o vídeo */
-    margin: 0 auto; /* Centralizar o vídeo */
-    padding: 10px;
-    border: 2px solid #39ff14;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
-}
+    /* Detalhes do Curso */
+    .details {
+      padding: 40px 20px;
+      background: #f4f4f4;
+      text-align: center;
+    }
 
-/* Estilizar o contador de visualizações */
-.view-counter {
-    color: #39ff14;
-    font-size: 1.2em;
-    text-align: center;
-    margin-top: 10px;
-    font-weight: bold;
-}
+    .details h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
 
+    .details p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+    }
 
-/* Estilo geral da seção de vídeo */
-.video-vsl {
-    margin: 20px auto;
-    text-align: center;
-    max-width: 800px; /* Limite de largura da seção */
-}
+    /* VSL (Video Sales Letter) */
+    .vsl {
+      padding: 40px 20px;
+      background: #fff;
+      text-align: center;
+    }
 
+    .vsl iframe {
+      width: 100%;
+      max-width: 800px;
+      height: 450px;
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
 
+    /* Footer */
+    footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+    }
 
+    footer a {
+      color: #ff6f61;
+      text-decoration: none;
+    }
 
-
-/* Estilo do botão de play */
-.play-button {
-    margin-top: 10px; /* Espaçamento acima do botão */
-    padding: 10px 15px; /* Espaçamento interno do botão */
-    font-size: 16px; /* Tamanho da fonte */
-    background-color: #ff0000; /* Cor de fundo do botão */
-    color: white; /* Cor do texto */
-    border: none; /* Sem borda */
-    border-radius: 5px; /* Arredondar os cantos do botão */
-    cursor: pointer; /* Mudar o cursor ao passar o mouse */
-    transition: background-color 0.3s; /* Transição suave para a cor de fundo */
-}
-
-/* Efeito hover para o botão de play */
-.play-button:hover {
-    background-color: #eeff00; /* Cor de fundo quando o mouse está sobre o botão */
-}
-
-/* Estilo do contador de visualizações */
-.view-counter {
-    margin-top: 20px; /* Espaçamento acima do contador */
-    font-size: 16px; /* Tamanho da fonte */
-    color: #ff0000; /* Cor do texto */
-}
-
-        
-
-    </style>
+    footer a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Transforme seu Futuro Profissional com Cursos Gratuitos!</h1>
-       
-        <p id="buttonText" class="button-text">Aperte no Botão ▶</p>
-
-<script>
-    // Configura um temporizador para ocultar o elemento após 6 segundos
-    setTimeout(function() {
-        document.getElementById("buttonText").style.display = "none";
-    }, 6000); // 6000 milissegundos = 6 segundos
-</script>
-
-    </header>
-
-    <div class="container">
-        <section class="video-vsl" id="videoSection" style="position: relative; width: 100%; padding-bottom: 100%; height: 0; overflow: hidden;">
-            <!-- Vídeo do YouTube em formato quadrado e sem controles -->
-            <iframe id="videoIframe" src="https://www.youtube.com/embed/B2AkP2ofDB8?controls=0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-        </section>
-        
-        <script>
-            // Função para esconder o vídeo após 1 minuto e 30 segundos
-            setTimeout(function() {
-                document.getElementById('videoSection').style.display = 'none';
-            }, 90000); // 90,000 milissegundos = 1 minuto e 30 segundos
-        </script>
-        
-        
-        
-
+  <!-- Header -->
+  <header>
+    <h1>Transforme sua carreira com o Curso de Gestão de Negócios para Avicultura</h1>
+    <p>Gratuito, prático e com certificado! Inscreva-se agora e garanta seu futuro.</p>
+    <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="cta-button" target="_blank">Quero me inscrever!</a>
+ 
+   </header>
+   <!-- VSL (Video Sales Letter) -->
+   <section class="vsl">
+    <h2>Assista ao vídeo e saiba mais sobre o curso:</h2>
+    <iframe src="https://www.youtube.com/embed/A4gDb0FNiFQ?si=10B0yXcguj1wS4Hr" title="VSL Curso de Avicultura" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     
-            
+  </section>
+  
 
-            <!-- Barra de progresso -->
-        <div class="progress-container">
-            <div class="progress-bar" id="progressBar"></div>
-        </div>
+  <!-- Sobre o Curso -->
+  <section class="about">
+    <h2>Por que fazer este curso?</h2>
+   
+    <ul>
+      <li>✅ 100% Gratuito</li>
+      <li>✅ Foco prático</li>
+      <li>✅ Certificado incluso</li>
+      <li>✅ Modalidade presencial e online</li>
+    </ul>
     
-            <!-- Contador de visualizações -->
-            <div class="view-counter" style="color: #39ff14;">
-                <span id="view-count">0</span> pessoas estão assistindo este vídeo agora.
-            </div>
-        </section>
-    </div>
+  </section>
 
-    <div class="container">
-        <section class="hidden">
-            
-            <h2>Parabéns por assistir ao vídeo até o final! Agora, você está a um passo de transformar sua carreira!</h2>
-            <img src="3.webp" alt="Benefícios da Open Mind" class="kelcia-img hidden">
-            <p>Gostaria de garantir sua vaga nos cursos gratuitos?
-                <div class="btn-container hidden">
-                    <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="btn-principal">Inscreva-se Agora</a>
-                </div>
-            </section>
+  <!-- Detalhes do Curso -->
+  <section class="details">
+    <h2>Detalhes do Curso</h2>
+    <p>Duração: 2 meses de teoria + 1 mês de prática.</p>
+    <p>Início: Este mês! Vagas limitadas.</p>
+    <p>Ministrado por: <strong>ADC e UATAF Nampula</strong>.</p>
+    <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="cta-button" target="_blank">Quero me inscrever!</a>
+ 
+  </section>
 
-        <section class="what-you-will-learn hidden">
-            
-            <h2>O que você vai aprender?</h2>
-         
-            <ul class="animated-list">
-                <li class="animated-item">✅ Como criar e gerenciar um negócio digital de sucesso.</li>
-                <li class="animated-item">✅ Habilidades essenciais para se destacar no mercado de trabalho.</li>
-                <li class="animated-item">✅ Como melhorar sua comunicação e inteligência emocional.</li>
-                <li class="animated-item">✅ Preparação para entrevistas de emprego e elaboração de currículo.</li>
-                
-            </ul>
-        </section>
+ 
 
-        <section class="hidden">
-            
-         
-            <ul class="animated-list">
-                
-                <li class="animated-item">✅ Aumentar a conversão de vendas através de textos persuasivos.</li>
-                <li class="animated-item">✅ Melhorar a comunicação com seu público-alvo.</li>
-                <li class="animated-item">✅ Maximizar os resultados das campanhas de marketing e publicidade.</li>
-                <li class="animated-item">✅ Desenvolver habilidades  que podem ser aplicadas em diversos tipos de conteúdo digital.</li>
-                <h2>Vagas Limitadas!</h2>
-            </ul>
-        </section>
-
-       
-
-           
-
-        </section>
-        
-        <section class="cta hidden">
-        
-           
-            <ul class="animated-list hidden">
-                <li class="animated-item" style="text-align: center; margin: 20px 0;">
-                    <span style="font-size: 1.2em; color: red; text-decoration: line-through;"><strong>Grátis!</strong> Não perca a chance de se inscrever!</span>
-                    
-                    <br>
-                    
-                </li>
-                
-                
-                
-            
-            
-            
-             
-            
-        </section>
-        
-        <div class="btn-container hidden">
-            
-            <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="btn-principal">Inscreva-se Agora</a>
-        </div>
-        
-
-        <section class="cta hidden">
-            <h2>Veja o que estão falando sobre os Cursos Gratuitos no Facebook</h2>
-            
-            
-        
-            <div class="depoimentos">
-                
-
-                <div class="depoimento">
-                    <img src="Captura de ecrã 2024-12-10 154537.png" alt="Imagem representando benefícios da Open Mind" class="kelcia-img hidden">
-                    
-                </div>
-                
-                <div class="depoimento">
-                    <img src="Captura de ecrã 2024-12-10 154619.png" alt="Imagem representando benefícios da Open Mind" class="kelcia-img hidden">
-                    
-                </div>
-            </div>
-            <div class="btn-container hidden">
-            
-                <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="btn-principal">Inscreva-se Agora</a>
-            </div>
-        </section>
-        
-
-        <section class="cta hidden">
-            
-            <p>Não perca a oportunidade de transformar sua presença digital. Entre agora na comunidade e comece a aprender com outros profissionais.</p>
-           
-            
-
-            <section class="description hidden">
-                <h2>Conheça o Criador por Trás da Open Mind</h2>
-                <img src="2024_05_06_09_16_IMG_3703.JPG" alt="Tilo Manuel Estaupe Machado - Criador da Open Mind" class="kelcia-img hidden">
-                
-                <p>
-                    Olá, meu nome é <strong>Tilo Manuel Estaupe Machado</strong>. Desde o primeiro momento em que vi um computador, descobri uma paixão insaciável pela tecnologia. Minha jornada no mundo digital começou de forma humilde, mas com uma grande vontade de aprender e, acima de tudo, ensinar.
-                </p>
-                <p>
-                    Ao longo dos anos, tive o privilégio de trabalhar na <strong>Semia LDA</strong>, onde assumi a área de Tecnologia e Informática, colaborando com Arcanjo Graciano. Fui responsável por diversos projetos, desde a criação de sites até estratégias digitais que impactaram positivamente muitas pessoas e negócios. Meu trabalho sempre foi guiado pela simplicidade e pela humildade, com o objetivo de transformar vidas através da tecnologia.
-                </p>
-                <p>
-                    A <strong>Open Mind</strong> nasceu como a realização de um sonho: ajudar outros a conquistarem seu espaço no mundo digital. Não se trata apenas de aprendizado, mas de capacitar pessoas a transformarem conhecimento em poder e oportunidades reais.
-                </p>
-                <p>
-                    Acredito profundamente que o futuro pertence àqueles que estão preparados para aprender, se adaptar e liderar. Quero que você saiba: essa jornada não é só minha, ela também pode ser sua. Vamos construir juntos um futuro de conquistas e transformação.
-                </p>
-            </section>
-            
-                
-              
-            
-             
-            <div class="btn-container hidden">
-                <a href="https://tilomachado.github.io/OpenMindOficial/cadastro" class="btn-principal">Venha Comigo </a>
-            </div>
-        </section>
-    </div>
-
-         
-
-        
-        
-        
-        
-        
-
-       
-        
-
-        
-                              
-       
-       
-        
-        
-        
-        
-    </div>
-
-    <footer>
-        <p>&copy; 2024 - Open Mind. Todos os direitos reservados.</p>
-    </footer>
-
-    <script type="module">
-        // Importação e Configuração do Firebase
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-app.js";
-        import { getFirestore, doc, setDoc, updateDoc, increment, getDoc } from "https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore.js";
-    
-        const firebaseConfig = {
-            apiKey: "AIzaSyAyXntXghf4pFK77myaIx8CJvfW6mHGWKI",
-            authDomain: "plataforma-do-mini-curso.firebaseapp.com",
-            projectId: "plataforma-do-mini-curso",
-            storageBucket: "plataforma-do-mini-curso.appspot.com",
-            messagingSenderId: "424655587612",
-            appId: "1:424655587612:web:851858a379c334227056e4",
-            measurementId: "G-6CE0E9R3J5"
-        };
-    
-        const app = initializeApp(firebaseConfig);
-        const db = getFirestore(app);
-    
-        // Variável e Atualização de Contagem de Visualizações Simulada
-        let viewCount = Math.floor(Math.random() * (16 - 8 + 1)) + 8; // Gera entre 8 e 16 visualizações inicialmente
-        const viewCountElement = document.getElementById('view-count');
-        
-        setInterval(() => {
-            if (viewCount <= 52) {
-                viewCount++;
-                viewCountElement.textContent = viewCount;
-            }
-        }, 10000); // Atualiza a cada 10 segundos
-    
-        // Função para inicializar visualizações no Firestore
-        async function initializeViewCount() {
-            const videoDocRef = doc(db, "videoViews", "statistics");
-    
-            const docSnapshot = await getDoc(videoDocRef);
-            if (!docSnapshot.exists()) {
-                // Se o documento não existe, cria um com 0 visualizações
-                await setDoc(videoDocRef, { views: 0 });
-            }
-        }
-    
-        // Função para registrar visualização no Firestore
-        async function registerVideoView() {
-            const videoDocRef = doc(db, "videoViews", "statistics");
-            await updateDoc(videoDocRef, { views: increment(1) }); // Incrementa o contador de visualizações
-        }
-    
-        // Exibir elementos ocultos após um tempo (ajustado para 7,5 segundos)
-        setTimeout(() => {
-            document.querySelectorAll('.hidden').forEach(element => element.classList.remove('hidden'));
-        }, 50000);
-    
-        // Dados e exibição de pop-ups de inscrições simuladas
-        const names = [
-            "Ana", "Carlos", "Mariana", "José", "Patrícia", "Fernando", "Luciana", "Rafael", "Fernanda", "Roberto",
-            "Juliana", "Eduardo", "Amanda", "Thiago", "Bruna", "Marcos", "Simone", "Gustavo", "Tatiane", "Diego",
-            "Letícia", "Sérgio", "Aline", "Renato", "Lívia", "Isabella", "Felipe", "Danielle", "Jéssica", "Gabriel",
-            "Flávia", "Samuel", "Juliano", "Nathalia", "Vinícius", "Cláudia", "Núbia", "Paulo", "Kátia", "Juliana",
-            "Ronaldo", "Camila", "Eduarda", "Luan", "Fernando", "Victor", "Yasmin", "Gisele", "Luiz", "Aline",
-            "Paula", "Thais", "Rodrigo", "Priscila", "Cecília", "Luan", "Letícia", "Murilo", "Luana", "Tânia",
-            "Marcel", "Daniela", "Fábio", "Roberta", "Sofia", "André", "Cristiane", "Catarina", "Milena", "Leonardo",
-            "Luciane", "Jorge", "Elaine", "Patrícia", "Gabriela", "Sérgio", "Karla", "Marcelo", "Raquel", "Tássia", 
-            "Felipe", "Henrique", "Vera", "Isabel", "Joana", "Pedro", "Antônio", "Cássia", "Miguel", "Elisabete"
-        ];
-        
-        const messages = [
-            "inscreveu-se em Gestão e Desenvolvimento de Negócios!",
-            "se registrou no curso de Habilidades Socioemocionais!",
-            "inscreveu-se em Preparação para o Mercado de Trabalho!",
-            "aderiu ao Desenvolvimento de Negócios!",
-            "entrou no curso Preparação Mental!"
-        ];
-    
-        setInterval(() => {
-            const randomName = names[Math.floor(Math.random() * names.length)];
-            const randomMessage = messages[Math.floor(Math.random() * messages.length)];
-            showPopup(`${randomName} ${randomMessage}`);
-        }, 15000); // Cada 15 segundos
-    
-        // Função para exibir e ocultar pop-ups de mensagens
-        function showPopup(message) {
-            const popup = document.createElement('div');
-            popup.classList.add('popup');
-            popup.textContent = message;
-            document.body.appendChild(popup);
-    
-            setTimeout(() => {
-                popup.style.opacity = '0'; // Inicia a transição de opacidade
-                setTimeout(() => document.body.removeChild(popup), 500); // Remove o pop-up após a animação
-            }, 3000); // O pop-up desaparece após 3 segundos
-        }
-    
-        // Controles de vídeo e barra de progresso
-        const video = document.getElementById('myVideo');
-        const playButton = document.getElementById('playButton');
-        const progressBar = document.getElementById('progressBar');
-    
-        playButton.addEventListener('click', async function() {
-            video.style.display = 'block';
-            video.play();
-            playButton.style.display = 'none';
-            await registerVideoView(); // Registra a visualização no Firestore
-    
-            video.addEventListener('timeupdate', function() {
-                const percent = (video.currentTime / video.duration) * 100;
-                progressBar.style.width = `${percent}%`;
-            });
-        });
-    
-        video.addEventListener('ended', function() {
-            progressBar.style.width = '0%';
-            playButton.style.display = 'block';
-            video.style.display = 'none';
-        });
-    
-        // Oculta o texto do botão após 5 segundos
-        setTimeout(() => {
-            document.getElementById('buttonText').style.display = 'none';
-        }, 5000);
-    
-        // Inicializa o contador de visualizações no Firestore
-        initializeViewCount();
-        
-    </script>
-    
-    
-    </script>
+  <!-- Footer -->
+  <footer>
+    <p>© 2023 Curso de Gestão de Negócios para Avicultura. Todos os direitos reservados.</p>
+    <p>Dúvidas? <a href="https://wa.me/SEUNUMERO" target="_blank">Fale conosco no WhatsApp</a>.</p>
+  </footer>
 </body>
-<!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-55BPZ9S2"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-    
 </html>
