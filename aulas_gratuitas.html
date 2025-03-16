@@ -4,176 +4,403 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mestre da IA Pro V3</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
   <style>
     /* Reset avançado */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: linear-gradient(135deg, #f4f4f9, #e0e0f5);
-  color: #333;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
+      color: #fff;
+      line-height: 1.6;
+      min-height: 100vh;
+    }
 
-/* Container principal */
-.container {
-  max-width: 1200px;
-  margin: 20px;
-  padding: 40px;
-  background: #fff;
-  border-radius: 20px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  text-align: center;
-}
+    /* Header Sci-Fi */
+    header {
+      background: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
+      background-size: 400% 400%;
+      padding: 40px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      animation: gradientAnimation 10s ease infinite;
+      overflow: hidden;
+    }
 
-/* Título */
-h1 {
-  font-size: 2.8rem;
-  margin-bottom: 20px;
-  color: #2c3e50;
-  font-weight: 700;
-  background: linear-gradient(135deg, #3498db, #8e44ad);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    @keyframes gradientAnimation {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
 
-/* Descrição */
-p {
-  font-size: 1.2rem;
-  margin-bottom: 40px;
-  color: #666;
-}
+    /* Linhas Animadas */
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(transparent, rgba(255, 255, 255, 0.1), transparent);
+      animation: linesAnimation 5s linear infinite;
+    }
 
-/* Grid de vídeos */
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  margin-bottom: 40px;
-}
+    @keyframes linesAnimation {
+      0% { transform: translateY(-100%); }
+      100% { transform: translateY(100%); }
+    }
 
-/* Iframe dos vídeos */
-.video iframe {
-  width: 100%;
-  height: 200px;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+    /* Título Brilhante */
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3rem;
+      text-align: center;
+      background: linear-gradient(90deg, #00ffff, #00ffaa, #00ff00);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
 
-.video iframe:hover {
-  transform: scale(1.05);
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.3);
-}
+    @keyframes glow {
+      0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffaa, 0 0 20px #00ff00; }
+      100% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffaa, 0 0 40px #00ff00; }
+    }
 
-/* Botão CTA */
-.cta-button {
-  display: inline-block;
-  padding: 15px 40px;
-  font-size: 1.2rem;
-  color: #fff;
-  background: linear-gradient(135deg, #3498db, #8e44ad);
-  border-radius: 50px;
-  text-decoration: none;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 5px 15px rgba(52, 152, 219, 0.4);
-}
+    /* Navegação */
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
 
-.cta-button:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 25px rgba(52, 152, 219, 0.6);
-}
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1rem;
+      padding: 10px 20px;
+      border-radius: 50px;
+      background: rgba(255, 255, 255, 0.1);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
 
-/* Responsividade */
-@media (max-width: 768px) {
-  h1 {
-    font-size: 2.2rem;
-  }
+    nav a:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: translateY(-3px);
+    }
 
-  p {
-    font-size: 1rem;
-  }
+    /* Container principal */
+    .container {
+      max-width: 1200px;
+      margin: 20px auto;
+      padding: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      text-align: center;
+    }
 
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
+    /* Descrição */
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      color: #ddd;
+    }
 
-  .cta-button {
-    padding: 12px 30px;
-    font-size: 1rem;
-  }
-}
+    /* Layout dividido */
+    .content-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* Seção de Copy */
+    .copy-section {
+      background: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      text-align: left;
+    }
+
+    .copy-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+      color: #00ffaa;
+    }
+
+    .copy-section ul {
+      list-style: none;
+    }
+
+    .copy-section ul li {
+      margin-bottom: 15px;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    .copy-section ul li strong {
+      color: #00ffff;
+    }
+
+    /* Grid de vídeos */
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin-bottom: 40px;
+    }
+
+    /* Iframe dos vídeos */
+    .video iframe {
+      width: 100%;
+      height: 200px;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .video iframe:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
+    }
+
+    /* Botão CTA */
+    .cta-button {
+      display: inline-block;
+      padding: 15px 40px;
+      font-size: 1.2rem;
+      color: #fff;
+      background: linear-gradient(135deg, #00ffff, #00ffaa);
+      border-radius: 50px;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.6);
+    }
+
+    /* Pergunta acima do botão */
+    .cta-question {
+      font-size: 1.4rem;
+      margin-bottom: 20px;
+      color: #00ffaa;
+    }
+
+    /* Área de Curiosidade */
+    .curiosity-section {
+      margin-top: 60px;
+      padding: 40px;
+      background: rgba(0, 0, 0, 0.5);
+      border-radius: 20px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .curiosity-section h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      color: #00ffaa;
+    }
+
+    /* Estilo da barra de progresso */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px; /* Altura da barra */
+      width: 0;
+      background-color: #00ff00; /* Cor inicial (verde) */
+      z-index: 1001; /* Garante que fique acima do header */
+      transition: width 0.2s ease, background-color 0.2s ease;
+    }
+
+    /* Responsividade */
+    @media (max-width: 768px) {
+      .content-wrapper {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: 2.2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+
+      .video-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-button {
+        padding: 12px 30px;
+        font-size: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
+  <!-- Header Sci-Fi -->
+  <header>
+    <div class="progress-bar"></div>
+    <nav>
+      <a href="https://tilomachado.github.io/OpenMindOficial/mestre_da_ia_pro_v3.html">Área de Registo</a>
+      <a href="https://tilomachado.github.io/OpenMindOficial/mestre_da_ia_pro_v3.html">Ver Testemunhos</a>
+      <a href="https://tilomachado.github.io/OpenMindOficial/mestre_da_ia_pro_v3.html">Vídeos para Aprender</a>
+    </nav>
+  </header>
+
   <div class="container">
     <h1>Mestre da IA Pro V3</h1>
     <p>Descubra os melhores cursos para dominar as habilidades do futuro. Assista aos vídeos abaixo e comece sua jornada agora!</p>
-  
-    <!-- Grid de vídeos -->
-    <div class="video-grid">
-      <!-- Como Acessar os Cursos -->
-      <div class="video">
-        <h2>Passo a Passo para Acessar os Cursos</h2>
-        <iframe src="https://www.youtube.com/embed/CLHGwNpyAIQ" allowfullscreen></iframe>
-        <p>Veja como acessar todos os cursos disponíveis e começar a aprender hoje mesmo.</p>
+
+    <!-- Layout Dividido: Copy + Vídeos -->
+    <div class="content-wrapper">
+      <!-- Seção de Copy -->
+      <div class="copy-section">
+        <h2>📌 Plano de Formação Open Mind – Tilo Machado</h2>
+        <ul>
+          <li><strong>✅ Duração:</strong> 12 semanas (3 meses).</li>
+          <li><strong>✅ Carga Horária:</strong> 160 horas (teoria + prática + projeto final).</li>
+          <li><strong>✅ Mais de 15 cursos:</strong> Focados no mercado digital e tecnológico.</li>
+          <li><strong>✅ Bônus exclusivos:</strong> E-books, curso de importação, mentoria e mais!</li>
+        </ul>
+        <h3>🔹 Módulos Principais:</h3>
+        <ul>
+          <li><strong>Fundamentos da Tecnologia e Empreendedorismo Digital</strong></li>
+          <ul>
+            <li>Exemplo 1: Como criar um plano de negócios digital.</li>
+            <li>Exemplo 2: Estratégias para vender produtos locais online.</li>
+            <li>Exemplo 3: Uso de ferramentas digitais para gestão de tempo.</li>
+          </ul>
+          <li><strong>Negócios Online e Fontes de Renda Digital</strong></li>
+          <ul>
+            <li>Exemplo 1: Como ganhar dinheiro trabalhando remotamente.</li>
+            <li>Exemplo 2: Estratégias de importação de produtos.</li>
+            <li>Exemplo 3: Monetização de redes sociais.</li>
+          </ul>
+          <li><strong>Redes Sociais e Criação de Conteúdo</strong></li>
+          <ul>
+            <li>Exemplo 1: Crescimento no Instagram com conteúdo local.</li>
+            <li>Exemplo 2: Vendas pelo WhatsApp.</li>
+            <li>Exemplo 3: Criação de blogs para nichos moçambicanos.</li>
+          </ul>
+          <li><strong>Vendas Online e Automação</strong></li>
+          <li><strong>Inteligência Artificial Aplicada ao Digital</strong></li>
+          <li><strong>Desenvolvimento Profissional e Empreendedorismo</strong></li>
+          <li><strong>Mestre do Software PRO V3</strong></li>
+          <li><strong>Aplicação Prática e Suporte</strong></li>
+        </ul>
       </div>
-  
-      <!-- Curso de Trabalhos de Pesquisa -->
-      <div class="video">
-        <h2>Como Fazer Trabalhos de Pesquisa de Alto Impacto</h2>
-        <iframe src="https://www.youtube.com/embed/zJYAn2dPEwM" allowfullscreen></iframe>
-        <p>Aprenda a estruturar e desenvolver trabalhos científicos com qualidade e eficiência.</p>
-      </div>
-  
-      <!-- Curso de Blog -->
-      <div class="video">
-        <h2>Como Criar um Blog de Sucesso do Zero</h2>
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/-rbxbAqyizg?si=ZqrRUBSdfw_kBhuR" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        <p>Aprenda a criar um blog profissional, desde a escolha do nicho até a monetização.</p>
-      </div>
-  
-      <!-- Curso de Edição de Imagens -->
-      <div class="video">
-        <h2>Edição de Imagens: Técnicas Profissionais</h2>
-        <iframe src="https://www.youtube.com/embed/zYTqMZeauGQ" allowfullscreen></iframe>
-        <p>Domine as ferramentas e técnicas para editar imagens como um profissional.</p>
-      </div>
-  
-      <!-- Curso de Automação de Vendas -->
-      <div class="video">
-        <h2>Automação de Vendas: Simplifique e Escalone Seu Processo</h2>
-        <iframe src="https://www.youtube.com/embed/eiitChHK6fI" allowfullscreen></iframe>
-        <p>Descubra como automatizar suas vendas para economizar tempo e aumentar a eficiência.</p>
-      </div>
-  
-      <!-- Curso de Edição de Vídeo -->
-      <div class="video">
-        <h2>Edição de Vídeo: Do Básico ao Avançado</h2>
-        <iframe src="https://www.youtube.com/embed/o7o-K_qyEIQ" allowfullscreen></iframe>
-        <p>Aprenda a editar vídeos como um profissional, desde cortes simples até efeitos avançados.</p>
-      </div>
-  
-      <!-- Curso de Edição de Sites -->
-      <div class="video">
-        <h2>Edição de Sites: Crie e Personalize Sua Presença Online</h2>
-        <iframe src="https://www.youtube.com/embed/uAEpVxXBCcU" allowfullscreen></iframe>
-        <p>Aprenda a editar e personalizar sites sem precisar de conhecimentos avançados em programação.</p>
+
+      <!-- Grid de Vídeos -->
+      <div class="video-grid">
+        <!-- Curso de Trabalhos de Pesquisa -->
+        <div class="video">
+          <h2>Como Fazer Trabalhos de Pesquisa de Alto Impacto</h2>
+          <iframe src="https://www.youtube.com/embed/zJYAn2dPEwM" allowfullscreen></iframe>
+          <p>Aprenda a estruturar e desenvolver trabalhos científicos com qualidade e eficiência.</p>
+        </div>
+
+        <!-- Curso de Blog -->
+        <div class="video">
+          <h2>Como Criar um Blog de Sucesso do Zero</h2>
+          <iframe src="https://www.youtube.com/embed/-rbxbAqyizg" allowfullscreen></iframe>
+          <p>Aprenda a criar um blog profissional, desde a escolha do nicho até a monetização.</p>
+        </div>
+
+        <!-- Curso de Edição de Imagens -->
+        <div class="video">
+          <h2>Edição de Imagens: Técnicas Profissionais</h2>
+          <iframe src="https://www.youtube.com/embed/zYTqMZeauGQ" allowfullscreen></iframe>
+          <p>Domine as ferramentas e técnicas para editar imagens como um profissional.</p>
+        </div>
+
+        <!-- Curso de Automação de Vendas -->
+        <div class="video">
+          <h2>Automação de Vendas: Simplifique e Escalone Seu Processo</h2>
+          <iframe src="https://www.youtube.com/embed/eiitChHK6fI" allowfullscreen></iframe>
+          <p>Descubra como automatizar suas vendas para economizar tempo e aumentar a eficiência.</p>
+        </div>
+
+        <!-- Curso de Edição de Vídeo -->
+        <div class="video">
+          <h2>Edição de Vídeo: Do Básico ao Avançado</h2>
+          <iframe src="https://www.youtube.com/embed/o7o-K_qyEIQ" allowfullscreen></iframe>
+          <p>Aprenda a editar vídeos como um profissional, desde cortes simples até efeitos avançados.</p>
+        </div>
+
+        <!-- Curso de Edição de Sites -->
+        <div class="video">
+          <h2>Edição de Sites: Crie e Personalize Sua Presença Online</h2>
+          <iframe src="https://www.youtube.com/embed/uAEpVxXBCcU" allowfullscreen></iframe>
+          <p>Aprenda a editar e personalizar sites sem precisar de conhecimentos avançados em programação.</p>
+        </div>
       </div>
     </div>
-  
-    <!-- Botão CTA -->
+
+    <!-- Como Acessar os Cursos -->
+    <div class="video">
+      <h2>Passo a Passo para Acessar os Cursos</h2>
+      <iframe src="https://www.youtube.com/embed/CLHGwNpyAIQ" allowfullscreen></iframe>
+      <p>Veja como acessar todos os cursos disponíveis e começar a aprender hoje mesmo.</p>
+    </div>
+
+    <!-- Pergunta e Botão CTA -->
+    <div class="cta-question">Você está pronto para se transformar em um Mestre da IA Pro V3?</div>
     <a href="https://tilomachado.github.io/OpenMindOficial/mestre_da_ia_pro_v3.html" class="cta-button">Quero ser o Mestre da IA Pro V3 Agora Mesmo!</a>
+
+    <!-- Área de Curiosidade -->
+    <div class="curiosity-section">
+      <h2>🧠 Área de Curiosidade</h2>
+      <p>Assista a estes vídeos curtos e descubra como você pode começar a aprender hoje mesmo:</p>
+      <div class="video-grid">
+        <div class="video">
+          <h2>Como Criar um Site em 10 Minutos</h2>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <h2>5 Ferramentas de IA que Você Precisa Conhecer</h2>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+        </div>
+        <div class="video">
+          <h2>Como Ganhar Dinheiro Trabalhando Remotamente</h2>
+          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <script>
+    document.addEventListener("scroll", function() {
+      const progressBar = document.querySelector('.progress-bar');
+      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercentage = (scrollTop / scrollHeight) * 100;
+
+      // Atualiza a largura da barra de progresso
+      progressBar.style.width = scrollPercentage + '%';
+
+      // Muda a cor da barra de progresso ao passar da metade da página
+      if (scrollPercentage <= 50) {
+        progressBar.style.backgroundColor = '#00ff00'; // Verde
+      } else {
+        progressBar.style.backgroundColor = '#ff0000'; // Vermelho
+      }
+    });
+  </script>
 </body>
 </html>
