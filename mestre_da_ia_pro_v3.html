@@ -129,17 +129,74 @@
       color: rgba(255, 255, 255, 0.8);
     }
 
-    /* Estilo da seção de depoimentos */
-    .testimonials {
-      margin: 40px 0;
-      text-align: center;
-    }
+   /* Estilos para a seção de depoimentos */
+.testimonials {
+  padding: 40px 0;
+  background: #f9f9f9;
+}
 
-    .testimonials h2 {
-      font-size: 2rem;
-      color: #fff;
-      margin-bottom: 20px;
-    }
+.testimonials h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 2rem;
+  color: #333;
+}
+
+.testimonials-scroll {
+  overflow-x: auto;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+
+.testimonials-grid {
+  display: inline-flex;
+  gap: 15px;
+}
+
+.testimonial-img {
+  width: 200px;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.testimonial-img:hover {
+  transform: scale(1.05);
+}
+
+/* Estilos para o overlay de zoom */
+.zoom-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.zoom-overlay.active {
+  display: flex;
+}
+
+.zoom-image {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 10px;
+}
+
+.close-zoom {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: #fff;
+  font-size: 30px;
+  cursor: pointer;
+}
 
     /* Grid de imagens */
     .grid {
@@ -476,7 +533,7 @@
 
     <!-- Vídeo de Introdução -->
     <div class="video-container">
-      <iframe src="https://www.youtube.com/embed/IPpK9MKpfog" title="Introdução" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/SEU_VIDEO_DE_INTRO" title="Introdução" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 
     <!-- Oferta -->
@@ -495,9 +552,9 @@
     </div>
 
     <!-- Seção de Depoimentos -->
-    <section class="testimonials">
+    <section class="photos-grid">
       <h2>🌟 O que os alunos dizem:</h2>
-      <div class="grid">
+      <div class="photo-card">
         <img src="dp (1).png" alt="Depoimento 1">
         <img src="dp (2).png" alt="Depoimento 2">
         <img src="dp (3).png" alt="Depoimento 3">
@@ -531,86 +588,185 @@
       <img class="zoom-image" src="" alt="Imagem Ampliada">
     </div>
 
-   <!-- Seção de Cursos -->
+ <!-- Seção de Cursos -->
 <section class="courses">
-  
+  <div class="container">
     <h2>🎓 Mais de 15 Cursos Disponíveis + Bônus Exclusivos!</h2>
     <div class="courses-grid">
+      <!-- Curso 1: Mestre dos Trabalhos -->
       <div class="course-card">
         <h3>✅ Mestre dos Trabalhos</h3>
         <p>Aprenda a dominar ferramentas e técnicas para se destacar no mercado de trabalho.</p>
       </div>
+      <!-- Curso 2: Gestão de Negócios -->
       <div class="course-card">
         <h3>✅ Gestão de Negócios</h3>
         <p>Domine estratégias de gestão para escalar seu negócio e aumentar sua lucratividade.</p>
       </div>
+      <!-- Curso 3: Habilidades Sociais -->
       <div class="course-card">
         <h3>✅ Habilidades Sociais</h3>
         <p>Desenvolva habilidades de comunicação e relacionamento para conquistar oportunidades.</p>
       </div>
+      <!-- Curso 4: Introdução à Hotmart -->
       <div class="course-card">
         <h3>✅ Introdução à Hotmart</h3>
         <p>Aprenda a criar e vender infoprodutos na maior plataforma de cursos online.</p>
       </div>
+      <!-- Curso 5: Mentalidade Certa -->
       <div class="course-card">
         <h3>✅ Mentalidade Certa</h3>
         <p>Adote a mentalidade vencedora para alcançar seus objetivos pessoais e profissionais.</p>
       </div>
+      <!-- Curso 6: Máquina de Vendas -->
       <div class="course-card">
         <h3>✅ Máquina de Vendas</h3>
         <p>Crie sistemas de vendas automáticos e aumente suas conversões.</p>
       </div>
+      <!-- Curso 7: Mercado de Trabalho -->
       <div class="course-card">
         <h3>✅ Mercado de Trabalho</h3>
         <p>Entenda as tendências do mercado e prepare-se para as melhores oportunidades.</p>
       </div>
+      <!-- Curso 8: Mestre do Software -->
       <div class="course-card">
         <h3>✅ Mestre do Software</h3>
         <p>Domine ferramentas de software essenciais para produtividade e criatividade.</p>
       </div>
+      <!-- Curso 9: Desenvolvimento de Sites -->
       <div class="course-card">
         <h3>✅ Desenvolvimento de Sites</h3>
         <p>Aprenda a criar sites profissionais do zero, mesmo sem experiência prévia.</p>
       </div>
+      <!-- Curso 10: Edição de Vídeo -->
       <div class="course-card">
         <h3>✅ Edição de Vídeo</h3>
         <p>Domine técnicas de edição de vídeo para criar conteúdos impactantes.</p>
       </div>
-  
+      <!-- Curso 11: Marketing de Conteúdo -->
+      <div class="course-card">
+        <h3>✅ Marketing de Conteúdo</h3>
+        <p>Aprenda a criar estratégias de conteúdo que engajam e convertem.</p>
+      </div>
+      <!-- Curso 12: SEO Avançado -->
+      <div class="course-card">
+        <h3>✅ SEO Avançado</h3>
+        <p>Domine técnicas de otimização para motores de busca e aumente o tráfego orgânico.</p>
+      </div>
+      <!-- Curso 13: Automação de Marketing -->
+      <div class="course-card">
+        <h3>✅ Automação de Marketing</h3>
+        <p>Automatize tarefas repetitivas e aumente a eficiência das suas campanhas.</p>
+      </div>
+      <!-- Curso 14: Design Gráfico para Redes Sociais -->
+      <div class="course-card">
+        <h3>✅ Design Gráfico para Redes Sociais</h3>
+        <p>Crie artes profissionais para Instagram, Facebook e outras plataformas.</p>
+      </div>
+      <!-- Curso 15: Gestão de Tráfego Pago -->
+      <div class="course-card">
+        <h3>✅ Gestão de Tráfego Pago</h3>
+        <p>Aprenda a criar e gerenciar campanhas de anúncios no Facebook, Instagram e Google.</p>
+      </div>
+      <!-- Curso 16: Inteligência Artificial Aplicada -->
+      <div class="course-card">
+        <h3>✅ Inteligência Artificial Aplicada</h3>
+        <p>Descubra como usar IA para otimizar processos e aumentar a produtividade.</p>
+      </div>
+      <!-- Curso 17: Copywriting Persuasivo -->
+      <div class="course-card">
+        <h3>✅ Copywriting Persuasivo</h3>
+        <p>Aprenda a escrever textos que vendem e engajam seu público.</p>
+      </div>
+      <!-- Curso 18: E-commerce e Dropshipping -->
+      <div class="course-card">
+        <h3>✅ E-commerce e Dropshipping</h3>
+        <p>Monte sua loja online e venda produtos sem estoque físico.</p>
+      </div>
+    </div>
   </div>
 </section>
-
      
-    </section><!-- Sessão do que você vai aprender -->
-    <section class="learn">
-      <h2>🎯 O que você vai aprender:</h2>
-      <div class="learn-grid">
-        <div class="learn-card">
-          <h3>📈 Marketing Digital PRO</h3>
-          <p>Aprenda a criar campanhas que convertem, como as usadas pela <strong>Movitel</strong> ou <strong>Cerveja 2M</strong>, e atraia clientes ideais para o seu negócio.</p>
-        </div>
-        <div class="learn-card">
-          <h3>🎨 Design Gráfico e Edição</h3>
-          <p>Domine ferramentas como Canva e Photoshop para criar designs incríveis, como os usados em campanhas da <strong>TV Miramar</strong> ou <strong>Jornal @Verdade</strong>.</p>
-        </div>
-        <div class="learn-card">
-          <h3>🤖 Inteligência Artificial</h3>
-          <p>Descubra como usar IA para automatizar tarefas e gerar lucros, como fazem startups moçambicanas no setor de agricultura e finanças.</p>
-        </div>
-        <div class="learn-card">
-          <h3>🛒 Dropshipping e Importação</h3>
-          <p>Monte seu e-commerce sem estoque e com baixo investimento, como os sucessos de lojas online que vendem produtos da <strong>China</strong> e <strong>África do Sul</strong> para Moçambique.</p>
-        </div>
-        <div class="learn-card">
-          <h3>💼 Freelancer Online</h3>
-          <p>Aprenda a trabalhar de forma remota e conquistar clientes globais, como muitos jovens moçambicanos já fazem em plataformas como <strong>Upwork</strong> e <strong>Fiverr</strong>.</p>
-        </div>
-        <div class="learn-card">
-          <h3>📊 Gestão de Negócios</h3>
-          <p>Domine técnicas de gestão para escalar seu negócio online, como os casos de sucesso de empresas locais que cresceram com estratégias digitais.</p>
-        </div>
+ <!-- Sessão do que você vai aprender -->
+<section class="learn">
+  <div class="container">
+    <h2>🎯 O que você vai aprender:</h2>
+    <div class="learn-grid">
+      <!-- Card 1: Marketing Digital PRO -->
+      <div class="learn-card">
+        <h3>📈 Marketing Digital PRO</h3>
+        <p>
+          Aprenda a criar campanhas que convertem, como as usadas pela <strong>Movitel</strong> ou <strong>Cerveja 2M</strong>, e atraia clientes ideais para o seu negócio. 
+          Descubra estratégias de tráfego pago e orgânico, além de técnicas avançadas de copywriting e análise de dados.
+        </p>
       </div>
-    </section>
+      <!-- Card 2: Design Gráfico e Edição -->
+      <div class="learn-card">
+        <h3>🎨 Design Gráfico e Edição</h3>
+        <p>
+          Domine ferramentas como <strong>Canva</strong> e <strong>Photoshop</strong> para criar designs incríveis, como os usados em campanhas da <strong>TV Miramar</strong> ou <strong>Jornal @Verdade</strong>. 
+          Aprenda a criar posts, banners, logos e materiais profissionais que chamam a atenção.
+        </p>
+      </div>
+      <!-- Card 3: Inteligência Artificial -->
+      <div class="learn-card">
+        <h3>🤖 Inteligência Artificial</h3>
+        <p>
+          Descubra como usar IA para automatizar tarefas e gerar lucros, como fazem startups moçambicanas no setor de agricultura e finanças. 
+          Aprenda a usar ferramentas como <strong>ChatGPT</strong> e <strong>Midjourney</strong> para criar conteúdos, designs e estratégias de marketing.
+        </p>
+      </div>
+      <!-- Card 4: Dropshipping e Importação -->
+      <div class="learn-card">
+        <h3>🛒 Dropshipping e Importação</h3>
+        <p>
+          Monte seu e-commerce sem estoque e com baixo investimento, como os sucessos de lojas online que vendem produtos da <strong>China</strong> e <strong>África do Sul</strong> para Moçambique. 
+          Aprenda a escolher produtos, configurar lojas e gerenciar entregas.
+        </p>
+      </div>
+      <!-- Card 5: Freelancer Online -->
+      <div class="learn-card">
+        <h3>💼 Freelancer Online</h3>
+        <p>
+          Aprenda a trabalhar de forma remota e conquistar clientes globais, como muitos jovens moçambicanos já fazem em plataformas como <strong>Upwork</strong> e <strong>Fiverr</strong>. 
+          Descubra como oferecer serviços de marketing, design, redação e muito mais.
+        </p>
+      </div>
+      <!-- Card 6: Gestão de Negócios -->
+      <div class="learn-card">
+        <h3>📊 Gestão de Negócios</h3>
+        <p>
+          Domine técnicas de gestão para escalar seu negócio online, como os casos de sucesso de empresas locais que cresceram com estratégias digitais. 
+          Aprenda a gerenciar equipes, finanças e operações de forma eficiente.
+        </p>
+      </div>
+      <!-- Card 7: Criação de Conteúdo Digital -->
+      <div class="learn-card">
+        <h3>📝 Criação de Conteúdo Digital</h3>
+        <p>
+          Aprenda a produzir conteúdos envolventes para blogs, redes sociais e vídeos, como os usados por influenciadores moçambicanos. 
+          Domine técnicas de storytelling, SEO e edição de vídeo para engajar seu público.
+        </p>
+      </div>
+      <!-- Card 8: Estratégias de Vendas Online -->
+      <div class="learn-card">
+        <h3>💰 Estratégias de Vendas Online</h3>
+        <p>
+          Descubra como vender mais na internet usando técnicas de persuasão, funis de vendas e automação. 
+          Aprenda a converter visitantes em clientes, como fazem lojas online de sucesso.
+        </p>
+      </div>
+      <!-- Card 9: Análise de Dados e Métricas -->
+      <div class="learn-card">
+        <h3>📊 Análise de Dados e Métricas</h3>
+        <p>
+          Aprenda a usar ferramentas como <strong>Google Analytics</strong> e <strong>Meta Business Suite</strong> para medir o desempenho das suas campanhas. 
+          Domine a análise de dados para tomar decisões mais inteligentes.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 
  <!-- Seção "Veja o que os nossos alunos estão fazendo" -->
