@@ -1,38 +1,11 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Mestre da IA Pro V3</title>
-  <meta name="description" content="Curso Mestre da IA Pro V3: Aprenda a criar e implementar soluções com Inteligência Artificial, com acompanhamento e práticas exclusivas.">
-  <meta name="keywords" content="curso de IA, inteligência artificial, mestre da IA, curso online, aprendizado de IA, técnicas de IA, aprendizado de máquina, curso de tecnologia, Open Mind, Tilo Machado">
-  <meta name="author" content="Tilo Machado">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Mestre da IA Pro V3">
-  <meta property="og:description" content="Curso Mestre da IA Pro V3: Aprenda a criar e implementar soluções com Inteligência Artificial, com acompanhamento e práticas exclusivas.">
-  <meta property="og:image" content="link-para-imagem-de-capa.jpg">
-  <meta property="og:url" content="https://tilomachado.github.io/OpenMindOficial/aulas_gratuitas.html">
-  <meta property="og:site_name" content="Open Mind - Tilo Machado">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Mestre da IA Pro V3">
-  <meta name="twitter:description" content="Curso Mestre da IA Pro V3: Aprenda a criar e implementar soluções com Inteligência Artificial, com acompanhamento e práticas exclusivas.">
-  <meta name="twitter:image" content="link-para-imagem-de-capa.jpg">
-  
-  <!-- Favicon -->
-  <link rel="icon" href="icone.png" type="image/x-icon">
-  
-  <!-- Código do Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-GDDY8TGYQV"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-GDDY8TGYQV');
-  </script>
-
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  
-  
-</head>
-<style>
+  <style>
     /* Reset avançado */
     * {
       margin: 0;
@@ -416,7 +389,7 @@
    <!-- Vídeo 11: Como Fazer Trabalhos de Pesquisa de Alto Impacto -->
    <div class="video">
     <h2>Elaboração de Trabalhos de Matemática sem Saber Matemática</h2>
-    <iframe src="https://www.youtube.com/embed/cd1z8RfZ1No" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/zJYAn2dPEwM" allowfullscreen></iframe>
     <p>Aprenda a estruturar e desenvolver trabalhos científicos com qualidade e eficiência.</p>
   </div>
 
@@ -532,7 +505,7 @@
    <!-- Pergunta e Botão CTA -->
 <div class="cta-question">Você está preparado para dominar as melhores oportunidades de negócios em 2025 e se tornar um empreendedor de sucesso?</div>
 <p class="cta-description">No <strong>MIA PRO V3</strong>, você vai aprender tudo o que precisa para se destacar no mercado, desde estratégias de marketing digital até o uso avançado de Inteligência Artificial. Não importa se você está começando do zero ou quer escalar seu negócio atual, este é o momento de transformar suas ideias em resultados reais!</p>
-<a href="https://tilomachado.github.io/OpenMindOficial/ultimas_vagas.html" class="cta-button">Quero Transformar Meu Futuro Agora Mesmo!</a>
+<a href="https://tilomachado.github.io/bot/quiz" class="cta-button">Quero Transformar Meu Futuro Agora Mesmo!</a>
     <!-- Área de Curiosidade -->
     <div class="curiosity-section">
       <h2>🧠 Área de Curiosidade</h2>
@@ -554,25 +527,71 @@
     </div>
   </div>
 
+  <script type="module">
+    import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js'
+  
+    Typebot.initBubble({
+      typebot: "quiz-open-mind",
+      previewMessage: {
+        message: "Click aqui para testar suas habilidades!",
+        autoShowDelay: 10000,
+        avatarUrl:
+          "https://s3.typebot.io/public/workspaces/cm5hzkij50001p2p6rwllxr3d/typebots/cm8j2locv000t8xs483wl6j9g/hostAvatar?v=1742729638688",
+      },
+      theme: {
+        button: { backgroundColor: "#0042DA" },
+        chatWindow: {
+          backgroundColor:
+            "https://s3.typebot.io/public/workspaces/cm5hzkij50001p2p6rwllxr3d/typebots/cm8j2locv000t8xs483wl6j9g/background?v=1742729762245",
+        },
+      },
+    });
+  </script>
+
   <script>
     document.addEventListener("scroll", function() {
-      const progressBar = document.querySelector('.progress-bar');
+      // Criação da barra de progresso
+      let progressBar = document.querySelector('.progress-bar');
+  
+      // Caso a barra não exista, cria uma nova
+      if (!progressBar) {
+        progressBar = document.createElement('div');
+        progressBar.classList.add('progress-bar');
+        document.body.appendChild(progressBar);
+  
+        // Estilo básico para a barra de progresso
+        progressBar.style.position = 'fixed';
+        progressBar.style.top = '0';
+        progressBar.style.left = '0';
+        progressBar.style.height = '5px';
+        progressBar.style.zIndex = '9999';
+        progressBar.style.transition = 'width 0.2s ease, background-color 0.2s ease';
+      }
+  
       const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
       const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
       const scrollPercentage = (scrollTop / scrollHeight) * 100;
-
+  
       // Atualiza a largura da barra de progresso
       progressBar.style.width = scrollPercentage + '%';
-
-      // Muda a cor da barra de progresso ao passar da metade da página
+  
+      // Muda a cor da barra de progresso
       if (scrollPercentage <= 50) {
         progressBar.style.backgroundColor = '#00ff00'; // Verde
       } else {
         progressBar.style.backgroundColor = '#ff0000'; // Vermelho
       }
     });
-
-    
   </script>
+  
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
+    l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],
+    n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1394189');
+  </script>
+  <!-- End MailerLite Universal -->
+  
 </body>
 </html>
