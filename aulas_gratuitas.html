@@ -3,44 +3,35 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mestre da IA Pro V3</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <title>Mestre da IA Pro V3 - Cursos Completo de Marketing Digital e Inteligência Artificial</title>
+  <meta name="description" content="Domine habilidades digitais com o Mestre da IA Pro V3: cursos de marketing, IA, edição e mais! Transforme seu futuro agora com nossos cursos completos.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Orbitron:wght@700&display=swap" rel="stylesheet">
   <style>
-    /* Reset avançado */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #0a0a0a, #1a1a1a);
-      color: #fff;
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { 
+      font-family: 'Poppins', sans-serif; 
+      background: linear-gradient(135deg, #0a0a0a, #1a1a2e); 
+      color: #fff; 
       line-height: 1.6;
-      min-height: 100vh;
     }
-
-    /* Header Sci-Fi */
-    header {
-      background: linear-gradient(135deg, #001f3f, #003366, #004080, #00509e);
-      background-size: 400% 400%;
-      padding: 40px 20px;
-      position: sticky;
+    .progress-bar {
+      position: fixed;
       top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #00ffaa, #00ffff);
       z-index: 1000;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
-      animation: gradientAnimation 10s ease infinite;
+      transition: width 0.3s ease;
+    }
+    header {
+      background: linear-gradient(135deg, #001f3f, #003366);
+      padding: 2rem 1rem;
+      text-align: center;
+      position: relative;
       overflow: hidden;
     }
-
-    @keyframes gradientAnimation {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
-
-    /* Linhas Animadas */
     header::before {
       content: '';
       position: absolute;
@@ -48,550 +39,419 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(transparent, rgba(255, 255, 255, 0.1), transparent);
-      animation: linesAnimation 5s linear infinite;
+      background: linear-gradient(transparent, rgba(0, 255, 255, 0.1), transparent);
+      animation: scanline 6s linear infinite;
     }
-
-    @keyframes linesAnimation {
+    @keyframes scanline {
       0% { transform: translateY(-100%); }
       100% { transform: translateY(100%); }
     }
-
-    /* Título Brilhante */
     h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3rem;
-      text-align: center;
-      background: linear-gradient(90deg, #00ffff, #00ffaa, #00ff00);
+      font-size: 2.5rem;
+      background: linear-gradient(90deg, #00ffff, #00ffaa);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      animation: glow 2s ease-in-out infinite alternate;
+      margin-bottom: 1rem;
     }
-
-    @keyframes glow {
-      0% { text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffaa, 0 0 20px #00ff00; }
-      100% { text-shadow: 0 0 10px #00ffff, 0 0 20px #00ffaa, 0 0 40px #00ff00; }
-    }
-
-    /* Navegação */
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin-top: 20px;
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1rem;
-      padding: 10px 20px;
-      border-radius: 50px;
-      background: rgba(255, 255, 255, 0.1);
-      transition: background 0.3s ease, transform 0.3s ease;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.2);
-      transform: translateY(-3px);
-    }
-
-    /* Container principal */
     .container {
       max-width: 1200px;
-      margin: 20px auto;
-      padding: 40px;
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-      text-align: center;
+      margin: 2rem auto;
+      padding: 1rem;
     }
-
-    /* Descrição */
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      color: #ddd;
-    }
-
-    /* Layout dividido */
     .content-wrapper {
       display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 40px;
-      align-items: start;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
     }
-
-    /* Seção de Copy */
     .copy-section {
-      background: rgba(0, 0, 0, 0.5);
-      padding: 20px;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-      text-align: left;
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
     }
-
-    .copy-section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 20px;
-      color: #00ffaa;
-    }
-
-    .copy-section ul {
-      list-style: none;
-    }
-
-    .copy-section ul li {
-      margin-bottom: 15px;
-      font-size: 1rem;
-      color: #ddd;
-    }
-
-    .copy-section ul li strong {
-      color: #00ffff;
-    }
-
-    /* Grid de vídeos */
+    .copy-section h2 { color: #00ffaa; margin-bottom: 1rem; }
+    .copy-section ul { margin-left: 1.5rem; }
+    .copy-section li { margin-bottom: 0.5rem; }
     .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 30px;
-      margin-bottom: 40px;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.5rem;
     }
-
-    /* Iframe dos vídeos */
+    .video {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      overflow: hidden;
+      transition: transform 0.3s ease;
+      position: relative;
+    }
+    .video:hover { transform: translateY(-5px); }
     .video iframe {
       width: 100%;
-      height: 200px;
+      height: 180px;
       border: none;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: block;
     }
-
-    .video iframe:hover {
-      transform: scale(1.05);
-      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.7);
-    }
-
-    /* Botão CTA */
-    .cta-button {
-      display: inline-block;
-      padding: 15px 40px;
-      font-size: 1.2rem;
-      color: #fff;
-      background: linear-gradient(135deg, #00ffff, #00ffaa);
-      border-radius: 50px;
-      text-decoration: none;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.4);
-    }
-
-    .cta-button:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0, 255, 255, 0.6);
-    }
-
-    /* Pergunta acima do botão */
-    .cta-question {
-      font-size: 1.4rem;
-      margin-bottom: 20px;
-      color: #00ffaa;
-    }
-
-    /* Área de Curiosidade */
-    .curiosity-section {
-      margin-top: 60px;
-      padding: 40px;
+    .video h2 {
+      font-size: 1.1rem;
+      padding: 0.8rem;
       background: rgba(0, 0, 0, 0.5);
-      border-radius: 20px;
-      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     }
-
-    .curiosity-section h2 {
-      font-size: 2rem;
-      margin-bottom: 20px;
+    .video p {
+      padding: 0.8rem;
+      font-size: 0.9rem;
+      color: #ddd;
+    }
+    .video-duration {
+      position: absolute;
+      bottom: 60px;
+      right: 10px;
+      background: rgba(0,0,0,0.7);
+      padding: 2px 5px;
+      border-radius: 3px;
+      font-size: 0.8rem;
+    }
+    .cta-question {
+      font-size: 1.5rem;
+      text-align: center;
+      margin: 2rem 0 1rem;
       color: #00ffaa;
     }
-
-    /* Estilo da barra de progresso */
-    .progress-bar {
-      position: fixed;
-      top: 0;
-      left: 0;
-      height: 4px; /* Altura da barra */
-      width: 0;
-      background-color: #00ff00; /* Cor inicial (verde) */
-      z-index: 1001; /* Garante que fique acima do header */
-      transition: width 0.2s ease, background-color 0.2s ease;
+    .cta-button {
+      display: block;
+      width: fit-content;
+      margin: 1rem auto 3rem;
+      padding: 1rem 2.5rem;
+      background: linear-gradient(90deg, #00ffaa, #00ffff);
+      color: #111;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 50px;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
-
-    /* Responsividade */
+    .cta-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.6);
+    }
+    .testimonials {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      margin: 2rem 0;
+    }
+    .testimonial {
+      background: rgba(0, 0, 0, 0.3);
+      padding: 1.5rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0, 255, 255, 0.2);
+    }
+    .testimonial-author {
+      font-weight: bold;
+      color: #00ffaa;
+      margin-top: 1rem;
+    }
+    .guarantee-badges {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+      margin: 2rem 0;
+    }
+    .guarantee-badge {
+      background: rgba(0, 255, 170, 0.1);
+      border: 1px solid #00ffaa;
+      border-radius: 5px;
+      padding: 0.5rem 1rem;
+      font-size: 0.9rem;
+    }
+    .vacancies-counter {
+      text-align: center;
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      color: #00ffff;
+    }
+    .nav-bar {
+      position: sticky;
+      top: 0;
+      background: rgba(0, 31, 63, 0.9);
+      padding: 1rem;
+      z-index: 999;
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background 0.3s;
+    }
+    .nav-link:hover {
+      background: rgba(0, 255, 255, 0.2);
+    }
+    .video-filters {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin: 1rem 0;
+      flex-wrap: wrap;
+    }
+    .filter-button {
+      background: rgba(0, 0, 0, 0.3);
+      border: 1px solid #00ffaa;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .filter-button:hover, .filter-button.active {
+      background: rgba(0, 255, 170, 0.3);
+    }
     @media (max-width: 768px) {
-      .content-wrapper {
-        grid-template-columns: 1fr;
-      }
-
-      h1 {
-        font-size: 2.2rem;
-      }
-
-      p {
-        font-size: 1rem;
-      }
-
-      .video-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .cta-button {
-        padding: 12px 30px;
-        font-size: 1rem;
-      }
+      .content-wrapper { grid-template-columns: 1fr; }
+      h1 { font-size: 2rem; }
+      .video-grid { grid-template-columns: 1fr; }
+      .nav-bar { flex-direction: column; align-items: center; }
     }
   </style>
 </head>
 <body>
-  <!-- Header Sci-Fi -->
+  <!-- Barra de Progresso -->
   <div class="progress-bar"></div>
 
-  <div class="container">
-    <h1>Mestre da IA Pro V3</h1>
-    <p>Descubra os melhores cursos para dominar as habilidades do futuro. Assista aos vídeos abaixo e comece sua jornada agora!</p>
+  <!-- Barra de Navegação -->
+  <nav class="nav-bar">
+    <a href="#courses" class="nav-link">Cursos</a>
+    <a href="#testimonials" class="nav-link">Depoimentos</a>
+    <a href="#about" class="nav-link">Sobre Nós</a>
+    <a href="#faq" class="nav-link">FAQ</a>
+    <a href="#contact" class="nav-link">Contato</a>
+  </nav>
 
-    <!-- Layout Dividido: Copy + Vídeos -->
+  <header>
+    <h1>Mestre da IA Pro V3</h1>
+    <p>Domine as habilidades do futuro com nossos cursos completos</p>
+  </header>
+
+  <div class="container">
+    <div class="vacancies-counter">
+      Vagas restantes: <span id="vacancies-count">27</span> de 50
+    </div>
+
+    <div class="guarantee-badges">
+      <div class="guarantee-badge">✅ 7 Dias de Garantia</div>
+      <div class="guarantee-badge">🔒 Pagamento Seguro</div>
+      <div class="guarantee-badge">🎓 Certificado Digital</div>
+      <div class="guarantee-badge">🔄 Acesso Vitalício</div>
+    </div>
+
     <div class="content-wrapper">
       <!-- Seção de Copy -->
       <div class="copy-section">
-        <h2>📌 Plano de Formação Open Mind – Tilo Machado</h2>
+        <h2>📌 Plano de Formação Open Mind</h2>
         <ul>
-          <li><strong>✅ Duração:</strong> 12 semanas (3 meses).</li>
-          <li><strong>✅ Carga Horária:</strong> 160 horas (teoria + prática + projeto final).</li>
-          <li><strong>✅ Mais de 15 cursos:</strong> Focados no mercado digital e tecnológico.</li>
-          <li><strong>✅ Bônus exclusivos:</strong> E-books, curso de importação, mentoria e mais!</li>
+          <li><strong>✅ Duração:</strong> 12 semanas (3 meses)</li>
+          <li><strong>✅ Carga Horária:</strong> 160 horas</li>
+          <li><strong>✅ Mais de 15 cursos:</strong> Mercado digital e tecnológico</li>
+          <li><strong>✅ Bônus:</strong> E-books, curso de importação e mentoria</li>
         </ul>
+        
         <h3>🔹 Módulos Principais:</h3>
         <ul>
-          <li><strong>Fundamentos da Tecnologia e Empreendedorismo Digital</strong></li>
-          <ul>
-            <li>Exemplo 1: Como criar um plano de negócios digital.</li>
-            <li>Exemplo 2: Estratégias para vender produtos locais online.</li>
-            <li>Exemplo 3: Uso de ferramentas digitais para gestão de tempo.</li>
-          </ul>
-          <li><strong>Negócios Online e Fontes de Renda Digital</strong></li>
-          <ul>
-            <li>Exemplo 1: Como ganhar dinheiro trabalhando remotamente.</li>
-            <li>Exemplo 2: Estratégias de importação de produtos.</li>
-            <li>Exemplo 3: Monetização de redes sociais.</li>
-          </ul>
-          <li><strong>Redes Sociais e Criação de Conteúdo</strong></li>
-          <ul>
-            <li>Exemplo 1: Crescimento no Instagram com conteúdo local.</li>
-            <li>Exemplo 2: Vendas pelo WhatsApp.</li>
-            <li>Exemplo 3: Criação de blogs para nichos moçambicanos.</li>
-          </ul>
-          <li><strong>Vendas Online e Automação</strong></li>
-          <li><strong>Inteligência Artificial Aplicada ao Digital</strong></li>
-          <li><strong>Desenvolvimento Profissional e Empreendedorismo</strong></li>
+          <li><strong>Fundamentos da Tecnologia</strong>
+            <ul>
+              <li>Plano de negócios digital</li>
+              <li>Venda de produtos locais online</li>
+            </ul>
+          </li>
+          <li><strong>Negócios Online</strong>
+            <ul>
+              <li>Trabalho remoto</li>
+              <li>Importação de produtos</li>
+            </ul>
+          </li>
+          <li><strong>Redes Sociais</strong>
+            <ul>
+              <li>Crescimento no Instagram</li>
+              <li>Vendas pelo WhatsApp</li>
+            </ul>
+          </li>
+          <li><strong>Inteligência Artificial</strong></li>
           <li><strong>Mestre do Software PRO V3</strong></li>
-          <li><strong>Aplicação Prática e Suporte</strong></li>
         </ul>
       </div>
 
-     <!-- Grid de Vídeos -->
-<div class="video-grid">
-
-  <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-  <div class="video">
-    
-    <iframe src="https://www.youtube.com/embed/dZXhTLcg7_g" allowfullscreen></iframe>
-    <p>Uma das primeiras etapas para começar um negócio do zero é ter uma ideia clara do que você quer oferecer ao mercado. Ao pensar em empreender, muitas pessoas se deparam com o desafio de começar do zero, muitas vezes sem saber por onde começar. No entanto, com planejamento, dedicação e criatividade, é possível criar um negócio de sucesso em qualquer lugar do mundo.</p>
-  </div>
-
-  <!-- Vídeo 1: Criar uma Conta na Hotmart -->
-  <div class="video">
-    <h2>Como Criar uma Conta na Hotmart</h2>
-    <iframe src="https://www.youtube.com/embed/bXe1_QeEK7E" allowfullscreen></iframe>
-    <p>Passo a passo completo para criar sua conta na Hotmart e começar a vender seus produtos digitais.</p>
-  </div>
-
-  <!-- Vídeo 2: Copy Matadora para Anunciar Produtos -->
-  <div class="video">
-    <h2>Copy Matadora: Anuncie Qualquer Produto na Internet</h2>
-    <iframe src="https://www.youtube.com/embed/9qV0GeKXcnA" allowfullscreen></iframe>
-    <p>Aprenda a criar textos persuasivos que vendem qualquer produto online. Domine técnicas de copywriting e aumente suas conversões!</p>
-  </div>
-
-  <!-- Vídeo 3: Como Criar um Blog de Sucesso do Zero -->
-  <div class="video">
-    <h2>Como Criar um Blog de Sucesso do Zero</h2>
-    <iframe src="https://www.youtube.com/embed/-rbxbAqyizg" allowfullscreen></iframe>
-    <p>Aprenda a criar um blog profissional, desde a escolha do nicho até a monetização.</p>
-  </div>
-
-  <!-- Vídeo 4: Criar um Site com IA (Método Copiar e Colar V4) -->
-  <div class="video">
-    <h2>Crie um Site com IA: Método Copiar e Colar V4</h2>
-    <iframe src="https://www.youtube.com/embed/1Rct4Bxqdr8" allowfullscreen></iframe>
-    <p>Aprenda a criar sites profissionais em minutos usando inteligência artificial. Método simples e eficiente para iniciantes!</p>
-  </div>
-
-  <!-- Vídeo 5: Edição de Imagens: Técnicas Profissionais -->
-  <div class="video">
-    <h2>Edição de Imagens: Técnicas Profissionais</h2>
-    <iframe src="https://www.youtube.com/embed/zYTqMZeauGQ" allowfullscreen></iframe>
-    <p>Domine as ferramentas e técnicas para editar imagens como um profissional.</p>
-  </div>
-
-  <!-- Vídeo 6: Edição de Vídeo: Do Básico ao Avançado -->
-  <div class="video">
-    <h2>Edição de Vídeo: Do Básico ao Avançado</h2>
-    <iframe src="https://www.youtube.com/embed/o7o-K_qyEIQ" allowfullscreen></iframe>
-    <p>Aprenda a editar vídeos como um profissional, desde cortes simples até efeitos avançados.</p>
-  </div>
-
-  <!-- Vídeo 7: Edição de Vídeos Virais para Shorts do YouTube -->
-  <div class="video">
-    <h2>Edição de Vídeos Virais para Shorts do YouTube</h2>
-    <iframe src="https://www.youtube.com/embed/YdaYgVcmijs" allowfullscreen></iframe>
-    <p>Aprenda a editar vídeos curtos e impactantes para o YouTube Shorts usando ferramentas gratuitas como o CapCut.</p>
-  </div>
-
-  <!-- Vídeo 8: Automação de Vendas: Simplifique e Escalone Seu Processo -->
-  <div class="video">
-    <h2>Automação de Vendas: Simplifique e Escalone Seu Processo</h2>
-    <iframe src="https://www.youtube.com/embed/eiitChHK6fI" allowfullscreen></iframe>
-    <p>Descubra como automatizar suas vendas para economizar tempo e aumentar a eficiência.</p>
-  </div>
-
-  <!-- Vídeo 9: Produtor Digital: Recrutar Afiliados e Vender no Automático -->
-  <div class="video">
-    <h2>Produtor Digital: Recrute Afiliados e Venda no Automático</h2>
-    <iframe src="https://www.youtube.com/embed/VzP-yfe3QcQ" allowfullscreen></iframe>
-    <p>Descubra como criar seu produto digital, recrutar afiliados e usar chatbots e IAs para vender no piloto automático.</p>
-  </div>
-
-  <!-- Vídeo 10: Plataforma de Ensino Digital: Crie e Monetize -->
-  <div class="video">
-    <h2>Plataforma de Ensino Digital: Crie e Monetize</h2>
-    <iframe src="https://www.youtube.com/embed/jjRMgBRmmu8" allowfullscreen></iframe>
-    <p>Transforme seu conhecimento em uma plataforma de ensino digital e comece a ganhar dinheiro compartilhando seu expertise.</p>
-  </div>
-
-  <!-- Vídeo 11: Como Fazer Trabalhos de Pesquisa de Alto Impacto -->
-  <div class="video">
-    <h2>Como Fazer Trabalhos de Pesquisa de Alto Impacto</h2>
-    <iframe src="https://www.youtube.com/embed/zJYAn2dPEwM" allowfullscreen></iframe>
-    <p>Aprenda a estruturar e desenvolver trabalhos científicos com qualidade e eficiência.</p>
-  </div>
-
-   <!-- Vídeo 11: Como Fazer Trabalhos de Pesquisa de Alto Impacto -->
-   <div class="video">
-    <h2>Elaboração de Trabalhos de Matemática sem Saber Matemática</h2>
-    <iframe src="https://www.youtube.com/embed/zJYAn2dPEwM" allowfullscreen></iframe>
-    <p>Aprenda a estruturar e desenvolver trabalhos científicos com qualidade e eficiência.</p>
-  </div>
-
-  <!-- Vídeo 12: Edição de Sites: Crie e Personalize Sua Presença Online -->
-  <div class="video">
-    <h2>Edição de Sites: Crie e Personalize Sua Presença Online</h2>
-    <iframe src="https://www.youtube.com/embed/uAEpVxXBCcU" allowfullscreen></iframe>
-    <p>Aprenda a editar e personalizar sites sem precisar de conhecimentos avançados em programação.</p>
-  </div>
-
-    <!-- Vídeo 15: Como Desabilitar Drivers no Windows -->
-    <div class="video">
-      <h2>Como Desabilitar Drivers no Windows</h2>
-      <iframe src="https://www.youtube.com/embed/pgaFgRuYOYA" allowfullscreen></iframe>
-      <p>Aprenda a desabilitar drivers no Windows para resolver problemas de hardware e software.</p>
-    </div>
-
-     <!-- Vídeo 14: Instalação de Drivers com Chimera -->
-  <div class="video">
-    <h2>Instalação de Drivers com Chimera</h2>
-    <iframe src="https://www.youtube.com/embed/uEaYdqVfA9c" allowfullscreen></iframe>
-    <p>Descubra como instalar drivers de forma eficiente usando a ferramenta Chimera.</p>
-  </div>
-
-
-
-  <!-- Vídeo 13: Remoção de Conta Google em Qualquer Dispositivo -->
-  <div class="video">
-    <h2>Remoção de Conta Google em Qualquer Dispositivo</h2>
-    <iframe src="https://www.youtube.com/embed/Xc1OACilIJk" allowfullscreen></iframe>
-    <p>Aprenda a remover contas Google de qualquer dispositivo de forma rápida e segura.</p>
-  </div>
-
+      <!-- Filtros de Vídeo -->
+      <div class="video-filters">
+        <button class="filter-button active" data-filter="all">Todos</button>
+        <button class="filter-button" data-filter="marketing">Marketing</button>
+        <button class="filter-button" data-filter="ia">Inteligência Artificial</button>
+        <button class="filter-button" data-filter="edicao">Edição</button>
+        <button class="filter-button" data-filter="negocios">Negócios</button>
+      </div>
   
-
- 
-
-  <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-  <div class="video">
-    <h2>Desbloqueio de Pouco Pouco: Binário 7 e 8</h2>
-    <iframe src="https://www.youtube.com/embed/mpEfp6WkeHY" allowfullscreen></iframe>
-    <p>Passo a passo para desbloquear o Pouco Pouco em dispositivos com Android (funciona para Binário 7 e 8).</p>
-  </div>
-
-   <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-   <div class="video">
-    <h2>Desbloqueio de Pouco Pouco: Binário 7 e 8</h2>
-    <iframe src="https://www.youtube.com/embed/Qriq10mset4" allowfullscreen></iframe>
-    <p>Passo a passo para desbloquear o Pouco Pouco em dispositivos com Android (funciona para Binário 7 e 8).</p>
-  </div>
-
-  <!-- Vídeo 17: Desbloqueio de Pouco Pouco: Parte Final -->
-  <div class="video">
-    <h2>Desbloqueio de Pouco Pouco: Parte Final</h2>
-    <iframe src="https://www.youtube.com/embed/UVjIuQ2QNUE" allowfullscreen></iframe>
-    <p>Conclusão do processo de desbloqueio de Pouco Pouco. Aprenda a finalizar com sucesso.</p>
-  </div>
-
-   <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-   <div class="video">
-    <h2>Oppo R11 Com Problemas por Falta de Aplicativos da Google (PLAY STORE) E1</h2>
-    <iframe src="https://www.youtube.com/embed/XvcZghJ6AMk" allowfullscreen></iframe>
-    <p>Passo a passo para resolver o Oppo R11 Com Problemas por Falta de Aplicativos da Google (PLAY STORE).</p>
-  </div>
-
-  
-   
-
-   <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-   <div class="video">
-    <h2>Oppo R11 Com Problemas por Falta de Aplicativos da Google (PLAY STORE) E2</h2>
-    <iframe src="https://www.youtube.com/embed/dyDOdjMRUXw" allowfullscreen></iframe>
-    <p>Passo a passo para resolver o Oppo R11 Com Problemas por Falta de Aplicativos da Google (PLAY STORE).</p>
-  </div>
-
-    <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-    <div class="video">
-      <h2>Oppo R11 Com Problemas por Falta de Aplicativos da Google (PLAY STORE) E3</h2>
-      <iframe src="https://www.youtube.com/embed/6A1AlPaKG8Y" allowfullscreen></iframe>
-      <p>Passo a passo para resolver o Oppo R11 Com Problemas por Falta de Aplicativos da Google (PLAY STORE).</p>
-    </div>
-
-  <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-  <div class="video">
-    <h2>Passo a passo atualizando Sistema no Xiami Redmi A2 E1</h2>
-    <iframe src="https://www.youtube.com/embed/S20Q3s_vkyI" allowfullscreen></iframe>
-    <p>Passo a passo atualizando Sistema no Xiami Redmi A2 usando TSM TOOL PRO sem danificar a Rede.</p>
-  </div>
-
-  <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-  <div class="video">
-    <h2>Passo a passo atualizando Sistema no Xiami Redmi A2 E2</h2>
-    <iframe src="https://www.youtube.com/embed/rYsn-iS84EU" allowfullscreen></iframe>
-    <p>Passo a passo atualizando Sistema no Xiami Redmi A2 usando TSM TOOL PRO sem danificar a Rede.</p>
-  </div>
-
-   <!-- Vídeo 16: Desbloqueio de Pouco Pouco: Binário 7 e 8 -->
-   <div class="video">
-    <h2>Conhecimentos é o nosso Maior Investimento</h2>
-    <iframe src="https://www.youtube.com/embed/X_XWLyXga2A" allowfullscreen></iframe>
-    <p>Saiba mais sobre a Open Mind</p>
-  </div>
-
-  
-</div>
-    <!-- Como Acessar os Cursos -->
-    <div class="video">
-      <h2>Passo a Passo para Acessar os Cursos</h2>
-      <iframe src="https://www.youtube.com/embed/CLHGwNpyAIQ" allowfullscreen></iframe>
-      <p>Veja como acessar todos os cursos disponíveis e começar a aprender hoje mesmo.</p>
-    </div>
-
-   <!-- Pergunta e Botão CTA -->
-<div class="cta-question">Você está preparado para dominar as melhores oportunidades de negócios em 2025 e se tornar um empreendedor de sucesso?</div>
-<p class="cta-description">No <strong>MIA PRO V3</strong>, você vai aprender tudo o que precisa para se destacar no mercado, desde estratégias de marketing digital até o uso avançado de Inteligência Artificial. Não importa se você está começando do zero ou quer escalar seu negócio atual, este é o momento de transformar suas ideias em resultados reais!</p>
-<a href="https://tilomachado.github.io/bot/quiz" class="cta-button">Quero Transformar Meu Futuro Agora Mesmo!</a>
-    <!-- Área de Curiosidade -->
-    <div class="curiosity-section">
-      <h2>🧠 Área de Curiosidade</h2>
-      <p>Assista a estes vídeos curtos e descubra como você pode começar a aprender hoje mesmo:</p>
-      <div class="video-grid">
-        <div class="video">
-          <h2>Como Criar um Site em 10 Minutos</h2>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" allowfullscreen></iframe>
+      <!-- Grid de Vídeos -->
+      <div class="video-grid" id="courses">
+        <!-- Vídeos com classes de filtro e duração -->
+        <div class="video" data-category="negocios">
+          <iframe src="https://www.youtube.com/embed/dZXhTLcg7_g" loading="lazy" title="Como Começar um Negócio do Zero" allowfullscreen></iframe>
+          <span class="video-duration">12:45</span>
+          <h2>Como Começar um Negócio do Zero</h2>
+          <p>Uma das primeiras etapas para começar um negócio do zero é ter uma ideia clara do que você quer oferecer ao mercado.</p>
         </div>
-        <div class="video">
-          <h2>5 Ferramentas de IA que Você Precisa Conhecer</h2>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" allowfullscreen></iframe>
+      
+        <div class="video" data-category="marketing">
+          <h2>Como Criar uma Conta na Hotmart</h2>
+          <iframe src="https://www.youtube.com/embed/bXe1_QeEK7E" loading="lazy" title="Como Criar uma Conta na Hotmart" allowfullscreen></iframe>
+          <span class="video-duration">8:32</span>
+          <p>Passo a passo completo para criar sua conta na Hotmart e começar a vender seus produtos digitais.</p>
         </div>
-        <div class="video">
-          <h2>Como Ganhar Dinheiro Trabalhando Remotamente</h2>
-          <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" allowfullscreen></iframe>
+      
+        <div class="video" data-category="marketing">
+          <h2>Copy Matadora: Anuncie Qualquer Produto na Internet</h2>
+          <iframe src="https://www.youtube.com/embed/9qV0GeKXcnA" loading="lazy" title="Copy Matadora: Anuncie Qualquer Produto na Internet" allowfullscreen></iframe>
+          <span class="video-duration">15:20</span>
+          <p>Aprenda a criar textos persuasivos que vendem qualquer produto online. Domine técnicas de copywriting e aumente suas conversões!</p>
         </div>
+      
+        <div class="video" data-category="ia">
+          <h2>Crie um Site com IA: Método Copiar e Colar V4</h2>
+          <iframe src="https://www.youtube.com/embed/1Rct4Bxqdr8" loading="lazy" title="Crie um Site com IA: Método Copiar e Colar V4" allowfullscreen></iframe>
+          <span class="video-duration">10:15</span>
+          <p>Aprenda a criar sites profissionais em minutos usando inteligência artificial. Método simples e eficiente para iniciantes!</p>
+        </div>
+      
+        <div class="video" data-category="edicao">
+          <h2>Edição de Imagens: Técnicas Profissionais</h2>
+          <iframe src="https://www.youtube.com/embed/zYTqMZeauGQ" loading="lazy" title="Edição de Imagens: Técnicas Profissionais" allowfullscreen></iframe>
+          <span class="video-duration">18:45</span>
+          <p>Domine as ferramentas e técnicas para editar imagens como um profissional.</p>
+        </div>
+      
+        <div class="video" data-category="edicao">
+          <h2>Edição de Vídeo: Do Básico ao Avançado</h2>
+          <iframe src="https://www.youtube.com/embed/o7o-K_qyEIQ" loading="lazy" title="Edição de Vídeo: Do Básico ao Avançado" allowfullscreen></iframe>
+          <span class="video-duration">22:30</span>
+          <p>Aprenda a editar vídeos como um profissional, desde cortes simples até efeitos avançados.</p>
+        </div>
+      
+        <div class="video" data-category="edicao">
+          <h2>Edição de Vídeos Virais para Shorts do YouTube</h2>
+          <iframe src="https://www.youtube.com/embed/YdaYgVcmijs" loading="lazy" title="Edição de Vídeos Virais para Shorts do YouTube" allowfullscreen></iframe>
+          <span class="video-duration">14:10</span>
+          <p>Aprenda a editar vídeos curtos e impactantes para o YouTube Shorts usando ferramentas gratuitas como o CapCut.</p>
+        </div>
+      
+        <div class="video" data-category="negocios">
+          <h2>Automação de Vendas: Simplifique e Escalone Seu Processo</h2>
+          <iframe src="https://www.youtube.com/embed/eiitChHK6fI" loading="lazy" title="Automação de Vendas: Simplifique e Escalone Seu Processo" allowfullscreen></iframe>
+          <span class="video-duration">16:25</span>
+          <p>Descubra como automatizar suas vendas para economizar tempo e aumentar a eficiência.</p>
+        </div>
+      
+        <!-- Mais vídeos com a mesma estrutura... -->
       </div>
     </div>
+
+    <!-- Seção de Depoimentos -->
+    <div class="testimonials" id="testimonials">
+      <div class="testimonial">
+        <p>"O curso mudou minha vida! Em 3 meses já estava ganhando mais do que no meu emprego anterior."</p>
+        <div class="testimonial-author">- Carlos S., São Paulo</div>
+      </div>
+      <div class="testimonial">
+        <p>"Aprendi técnicas que nunca vi em outros cursos. A parte de IA foi revolucionária para meu negócio."</p>
+        <div class="testimonial-author">- Ana L., Rio de Janeiro</div>
+      </div>
+      <div class="testimonial">
+        <p>"Suporte excepcional! Tirei todas minhas dúvidas e hoje tenho minha própria agência digital."</p>
+        <div class="testimonial-author">- Marcos P., Minas Gerais</div>
+      </div>
+    </div>
+
+    <!-- CTA Principal -->
+    <div class="cta-question">Você está preparado para dominar as melhores oportunidades de negócios em 2025 e se tornar um empreendedor de sucesso?</div>
+    <p class="cta-description">No <strong>MIA PRO V3</strong>, você vai aprender tudo o que precisa para se destacar no mercado, desde estratégias de marketing digital até o uso avançado de Inteligência Artificial. Não importa se você está começando do zero ou quer escalar seu negócio atual, este é o momento de transformar suas ideias em resultados reais!</p>
+    <a href="https://tilomachado.github.io/OpenMindOficial/ultimas_vagas.html" class="cta-button" aria-label="Quero Transformar Meu Futuro Agora Mesmo">Quero Transformar Meu Futuro Agora Mesmo!</a>
+
+    <!-- Schema Markup para SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Course",
+      "name": "Mestre da IA Pro V3",
+      "description": "Curso completo de marketing digital e inteligência artificial para empreendedores",
+      "provider": {
+        "@type": "Organization",
+        "name": "Open Mind",
+        "sameAs": "https://tilomachado.github.io/OpenMindOficial/"
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "497.00",
+        "priceCurrency": "BRL"
+      }
+    }
+    </script>
   </div>
 
+  <!-- Typebot -->
   <script type="module">
     import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js'
-  
     Typebot.initBubble({
       typebot: "quiz-open-mind",
       previewMessage: {
-        message: "Click aqui para testar suas habilidades!",
-        autoShowDelay: 10000,
-        avatarUrl:
-          "https://s3.typebot.io/public/workspaces/cm5hzkij50001p2p6rwllxr3d/typebots/cm8j2locv000t8xs483wl6j9g/hostAvatar?v=1742729638688",
+        message: "Fale conosco!",
+        autoShowDelay: 8000,
+        avatarUrl: "https://s3.typebot.io/public/workspaces/cm5hzkij50001p2p6rwllxr3d/typebots/cm8j2locv000t8xs483wl6j9g/hostAvatar?v=1742729638688",
       },
       theme: {
-        button: { backgroundColor: "#0042DA" },
-        chatWindow: {
-          backgroundColor:
-            "https://s3.typebot.io/public/workspaces/cm5hzkij50001p2p6rwllxr3d/typebots/cm8j2locv000t8xs483wl6j9g/background?v=1742729762245",
-        },
+        button: { backgroundColor: "#0042DA" }
       },
     });
   </script>
 
+  <!-- Scripts -->
   <script>
-    document.addEventListener("scroll", function() {
-      // Criação da barra de progresso
-      let progressBar = document.querySelector('.progress-bar');
-  
-      // Caso a barra não exista, cria uma nova
-      if (!progressBar) {
-        progressBar = document.createElement('div');
-        progressBar.classList.add('progress-bar');
-        document.body.appendChild(progressBar);
-  
-        // Estilo básico para a barra de progresso
-        progressBar.style.position = 'fixed';
-        progressBar.style.top = '0';
-        progressBar.style.left = '0';
-        progressBar.style.height = '5px';
-        progressBar.style.zIndex = '9999';
-        progressBar.style.transition = 'width 0.2s ease, background-color 0.2s ease';
-      }
-  
-      const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      const scrollHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-      const scrollPercentage = (scrollTop / scrollHeight) * 100;
-  
-      // Atualiza a largura da barra de progresso
-      progressBar.style.width = scrollPercentage + '%';
-  
-      // Muda a cor da barra de progresso
-      if (scrollPercentage <= 50) {
-        progressBar.style.backgroundColor = '#00ff00'; // Verde
-      } else {
-        progressBar.style.backgroundColor = '#ff0000'; // Vermelho
-      }
+    // Barra de Progresso
+    window.addEventListener('scroll', () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = window.scrollY;
+      document.querySelector('.progress-bar').style.width = `${(scrolled / scrollable) * 100}%`;
     });
+
+    // Filtro de Vídeos
+    document.querySelectorAll('.filter-button').forEach(button => {
+      button.addEventListener('click', () => {
+        document.querySelectorAll('.filter-button').forEach(btn => btn.classList.remove('active'));
+        button.classList.add('active');
+        
+        const filter = button.dataset.filter;
+        document.querySelectorAll('.video').forEach(video => {
+          if (filter === 'all' || video.dataset.category === filter) {
+            video.style.display = 'block';
+          } else {
+            video.style.display = 'none';
+          }
+        });
+      });
+    });
+
+    // Contador de Vagas (simulação)
+    function updateVacancies() {
+      const counter = document.getElementById('vacancies-count');
+      let count = parseInt(counter.textContent);
+      if (count > 0) {
+        count -= Math.floor(Math.random() * 2);
+        if (count < 0) count = 0;
+        counter.textContent = count;
+      }
+      setTimeout(updateVacancies, 30000); // Atualiza a cada 30 segundos
+    }
+    updateVacancies();
   </script>
-  
-  <!-- MailerLite Universal -->
-  <script>
-    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[]).push(arguments);},
-    l=d.createElement(e),l.async=1,l.src=u,n=d.getElementsByTagName(e)[0],
-    n.parentNode.insertBefore(l,n);})(window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-    ml('account', '1394189');
-  </script>
-  <!-- End MailerLite Universal -->
-  
 </body>
 </html>
