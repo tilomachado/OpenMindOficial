@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Interativo - Receitas Econômicas</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f8f8f8;
+            text-align: center;
+        }
+        header {
+            background-color: #ff9800;
+            color: white;
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        main {
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .highlight {
+            color: #ff5722;
+            font-weight: bold;
+        }
+        .bold-highlight {
+            color: #d32f2f;
+            font-weight: bold;
+        }
+        .typebot-container {
+            width: 100%;
+            height: 80vh;
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        footer {
+            padding: 20px;
+            background-color: #f1f1f1;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        🍲 <b>Descubra as <span class="bold-highlight">Receitas Mais Populares</span>! 🚀</b>
+    </header>
+
+    <main>
+        <div class="container">
+            <p>Responda ao nosso quiz interativo e descubra as <span class="highlight"><b>receitas perfeitas para você</b></span>!</p>
+            <p>No final do quiz, você terá acesso ao nosso <span class="bold-highlight"><b>eBook exclusivo</b></span> com <b>40 receitas moçambicanas e internacionais adaptadas</b>!</p>
+            <p><span class="highlight"><b>Comece agora sua jornada culinária!</b></span></p>
+        </div>
+    </main>
+
+    <div class="typebot-container">
+        <script type="module">
+            import Typebot from 'https://cdn.jsdelivr.net/npm/@typebot.io/js@0.3/dist/web.js';
+            Typebot.initStandard({ 
+                typebot: "bot-receitas"
+            });
+        </script>
+        <typebot-standard style="height: 100%; width: 100%; max-width: 800px;"></typebot-standard>
+    </div>
+
+    <footer>
+        <p>© 2025 <span class="bold-highlight">Receitas Econômicas</span> - Todos os direitos reservados</p>
+        <p><b>Transforme sua cozinha com receitas <span class="highlight">acessíveis e deliciosas</span>!</b></p>
+    </footer>
+
+</body>
+</html>
