@@ -1020,22 +1020,40 @@
         </div>
       </div>
       
-      <!-- Vídeo 3: Como verificar seus dados e acessar os cursos -->
-      <button id="mostrar-video-3">Veja Como verificar seus dados e acessar os cursos</button>
-      <div id="video-container-3" style="display: none; margin-top: 20px; text-align: center;">
-        <div style="position: relative; width: 100%; max-width: 315px; margin: auto;">
-          <iframe 
-            width="315" 
-            height="560" 
-            src="https://www.youtube.com/embed/vDTW04HMXdE" 
-            title="YouTube video player" 
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen 
-            style="border-radius: 10px; display: block; margin: auto;">
-          </iframe>
-        </div>
-      </div>
+  <!-- Vídeo 3: Como verificar seus dados e acessar os cursos -->
+<button id="mostrar-video-3">Veja Como verificar seus dados e acessar os cursos</button>
+<div id="video-container-3" style="display: none; margin-top: 20px; text-align: center;">
+  <div style="position: relative; width: 100%; max-width: 315px; margin: auto;">
+    <iframe 
+      width="315" 
+      height="560" 
+      src="https://www.youtube.com/embed/S7JZAiZ6Odo" 
+      title="Como verificar seus dados e acessar os cursos" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen 
+      style="border-radius: 10px; display: block; margin: auto;">
+    </iframe>
+  </div>
+</div>
+
+<!-- Vídeo 4: Como participar do nosso jogo -->
+<button id="mostrar-video-4">Veja Como participar do nosso jogo</button>
+<div id="video-container-4" style="display: none; margin-top: 20px; text-align: center;">
+  <div style="position: relative; width: 100%; max-width: 315px; margin: auto;">
+    <iframe 
+      width="315" 
+      height="560" 
+      src="https://www.youtube.com/embed/nBmWPmom2jA" 
+      title="Como participar do nosso jogo" 
+      frameborder="0" 
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+      allowfullscreen 
+      style="border-radius: 10px; display: block; margin: auto;">
+    </iframe>
+  </div>
+</div>
+
     </section>
     
     <style>
@@ -1078,10 +1096,15 @@
         container.style.display = container.style.display === "block" ? "none" : "block";
       });
       
-      document.getElementById("mostrar-video-3").addEventListener("click", function() {
-        var container = document.getElementById("video-container-3");
-        container.style.display = container.style.display === "block" ? "none" : "block";
-      });
+      document.getElementById("mostrar-video-3").onclick = function() {
+    document.getElementById("video-container-3").style.display = "block";
+  };
+
+  document.getElementById("mostrar-video-4").onclick = function() {
+    document.getElementById("video-container-4").style.display = "block";
+  };
+
+      
     </script>
 
     <form id="registrationForm" action="#" method="POST">
