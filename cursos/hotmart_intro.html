@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -22,478 +21,400 @@
 
     <link rel="icon" href="icone.png" type="image/png">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #000;
-            color: #fff;
+        /* === CSS MODERNO ATUALIZADO === */
+        :root {
+            --primary: #FF6B00; /* Laranja Hotmart */
+            --primary-dark: #CC5500;
+            --secondary: #00A8FF; 
+            --dark: #1A1A1A;
+            --light: #F8F9FA;
+            --gray: #6C757D;
+            --success: #28A745;
+            --danger: #DC3545;
+            --warning: #FFC107;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --rounded: 8px;
+            --rounded-lg: 12px;
+        }
+
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        }
+
+        body {
+            background-color: #F5F5F5;
+            color: var(--dark);
+            line-height: 1.6;
         }
 
         .cover {
             text-align: center;
-            padding: 80px 0;
-            background-color: #222;
-            color: #fff;
+            padding: 60px 20px;
+            background: linear-gradient(135deg, var(--dark), #2A2A2A);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('pattern.png') repeat;
+            opacity: 0.05;
         }
 
         .cover h1 {
-            
-            font-size: 48px;
-            margin: 0;
-            letter-spacing: 2px;
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            font-weight: 800;
+            position: relative;
+            line-height: 1.3;
         }
 
         .cover p {
-            font-size: 20px;
-            margin-top: 10px;
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.9;
         }
 
         .content {
-            padding: 40px 10%;
-            background-color: #111;
-            margin-top: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            background-color: white;
+            border-radius: var(--rounded-lg);
+            box-shadow: var(--shadow);
+            padding: 30px;
+            margin: 25px auto;
+            max-width: 1000px;
         }
 
         h2 {
-            font-size: 32px;
-            color: #00ff08;
-            margin-bottom: 20px;
+            color: var(--primary);
+            font-size: 1.8rem;
+            margin: 25px 0 15px;
             text-align: center;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--primary);
+        }
+
+        h3 {
+            color: var(--dark);
+            font-size: 1.4rem;
+            margin: 20px 0 10px;
         }
 
         p {
-            font-size: 20px;
+            font-size: 1rem;
             line-height: 1.7;
-            margin-bottom: 20px;
-            text-align: justify;
+            margin-bottom: 15px;
+            color: #333;
         }
 
         ul {
             list-style: none;
-            padding: 0;
-            font-size: 20px;
-            margin-bottom: 20px;
+            margin: 20px 0;
         }
 
         ul li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
+            padding-left: 30px;
+            position: relative;
+            font-size: 1rem;
         }
 
-        li strong {
-            color: #ffd500;
+        ul li::before {
+            content: '•';
+            position: absolute;
+            left: 10px;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        a:hover {
+            color: var(--primary-dark);
+            text-decoration: underline;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border-radius: var(--rounded);
+            margin: 15px 0;
+            box-shadow: var(--shadow);
+        }
+
+        .result-photo {
+            width: 100%;
+            height: auto;
+            border-radius: var(--rounded);
+            transition: transform 0.3s;
+        }
+
+        .result-photo:hover {
+            transform: scale(1.02);
         }
 
         .cta {
-            background-color: #ff0000;
+            background-color: var(--primary);
             color: white;
-            padding: 20px;
+            padding: 15px 25px;
             text-align: center;
-            font-size: 24px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: var(--rounded);
+            margin: 30px auto;
+            display: block;
+            max-width: 300px;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+            border: none;
             cursor: pointer;
-            border-radius: 5px;
-            margin-top: 40px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease;
         }
 
         .cta:hover {
-            background-color: #00ff0d;
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+            text-decoration: none;
+        }
+
+        .button-container {
+            text-align: center;
+            margin: 30px 0;
+        }
+
+        .access-button {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: var(--rounded);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: var(--shadow);
+        }
+
+        .access-button:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            color: #ADB5BD;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Loading Animation */
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid var(--primary);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+        }
+
+        #loading-text {
+            color: white;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .cover h1 {
+                font-size: 1.8rem;
+            }
+            
+            .cover p {
+                font-size: 1rem;
+            }
+            
+            .content {
+                padding: 20px;
+                margin: 15px;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
         }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div id="loading">
         <div class="loader"></div>
         <p id="loading-text">Carregando sala virtual e aulas em 4K...</p>
-      </div>
-      
-      <div id="content" style="display:none;">
-        <style>
-            #loading {
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                background: rgba(0, 0, 0, 0.8);
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                align-items: center;
-                z-index: 9999;
-            }
-        
-            .loader {
-                border: 8px solid #f3f3f3;
-                border-top: 8px solid #3498db;
-                border-radius: 50%;
-                width: 50px;
-                height: 50px;
-                animation: spin 2s linear infinite, colorChange 4s ease-in-out infinite;
-            }
-        
-            #loading-text {
-                margin-top: 20px;
-                color: white;
-                font-size: 18px;
-                font-weight: bold;
-            }
-        
-            @keyframes spin {
-                0% { transform: rotate(0deg); }
-                100% { transform: rotate(360deg); }
-            }
-        
-            @keyframes colorChange {
-                0% { border-top-color: #3498db; }
-                25% { border-top-color: #e74c3c; }
-                50% { border-top-color: #2ecc71; }
-                75% { border-top-color: #f39c12; }
-                100% { border-top-color: #3498db; }
-            }
-        
-            .button-container {
-                text-align: center;
-                margin: 20px 0;
-            }
-        
-            .access-button {
-                display: inline-block;
-                background-color: #007BFF;
-                color: white;
-                padding: 10px 20px;
-                text-decoration: none;
-                font-size: 16px;
-                border-radius: 5px;
-                transition: background-color 0.3s ease;
-            }
-        
-            .access-button:hover {
-                background-color: #0056b3;
-            }
-        </style>
-        
-        <script>
-            window.addEventListener('load', function () {
-                setTimeout(function () {
-                    document.getElementById('loading').style.display = 'none';
-                    document.getElementById('content').style.display = 'block';
-                }, 10000); // Tempo reduzido para 2 segundos
-            });
-        </script>
-    <div class="content">
-        <h1>O que é a Hotmart?</h1>
-<p>A Hotmart é uma plataforma brasileira que se tornou uma referência global na comercialização de produtos digitais. Lançada em 2011, a plataforma oferece um ambiente online para a venda e distribuição de produtos como cursos, e-books, software e outras ofertas digitais. Desde sua criação, a Hotmart revolucionou o mercado de vendas online, conectando produtores e afiliados ao redor do mundo e criando oportunidades de negócios para milhões de empreendedores.</p>
-
-<p>A plataforma é uma das maiores do mundo em seu setor e é especialmente popular em países da América Latina, como Brasil, México, e Argentina, mas seu alcance é global. De acordo com dados de 2023, a Hotmart já tem presença em mais de 180 países, incluindo Moçambique, oferecendo uma solução completa para quem deseja vender produtos digitais e obter comissões através do modelo de afiliados.</p>
-
-<img src="produto1.webp" alt="Produto Vendido 1" class="result-photo">
-
-<p>Por exemplo, no contexto moçambicano, a Hotmart tem se tornado cada vez mais relevante para empreendedores locais que desejam expandir seus negócios digitais. Um exemplo notável é o caso de Moçambique, onde muitos influenciadores e criadores de conteúdo começaram a vender cursos de capacitação online sobre marketing digital e habilidades empreendedoras, aproveitando o alcance global da Hotmart. Além disso, a Hotmart também permite que empreendedores de Moçambique ganhem comissões ao promoverem produtos digitais criados por outros produtores ao redor do mundo.</p>
-
-<p>Empreendedores locais estão utilizando a plataforma para monetizar suas ideias e se conectar com um público global. Por exemplo, a venda de cursos sobre o uso de ferramentas digitais, como o <a href="https://www.hotmart.com/" target="_blank">Canva</a> e o <a href="https://www.hotmart.com/" target="_blank">Google Ads</a>, tem se mostrado um sucesso crescente no país, ajudando a capacitar pessoas em áreas urbanas e rurais.</p>
-
-<p>Com isso, a Hotmart se estabelece como uma ferramenta fundamental para o crescimento de negócios digitais, permitindo que qualquer pessoa, independentemente de sua localização, tenha acesso a um mercado global. Essa transformação reflete o poder da digitalização, que tem democratizado o acesso ao conhecimento e à educação, especialmente em países com mercados emergentes, como Moçambique.</p>
-
-<p>A plataforma não só facilita a comercialização de produtos digitais, mas também oferece recursos como relatórios detalhados, gestão de afiliados e suporte ao cliente, o que torna o processo de venda mais eficiente e acessível. Ao promover produtos de outros empreendedores, qualquer pessoa pode começar a gerar receita, independente de seu conhecimento técnico prévio.</p>
-
-<p>Em resumo, a Hotmart é uma ponte entre produtores de conteúdo digital e consumidores ao redor do mundo. Sua missão de democratizar o acesso ao mercado global de produtos digitais está transformando vidas e negócios, e sua presença em Moçambique está crescendo, dando novas oportunidades aos empreendedores locais.</p>
-  </div>
-    
-  <div class="content">
-    <h2>Breve Histórico da Plataforma</h2>
-    <p>A Hotmart foi fundada em 2011, no Brasil, com o propósito de democratizar a venda de produtos digitais. Desde então, a plataforma passou por um crescimento exponencial, transformando-se em uma das maiores e mais influentes soluções de distribuição de conteúdo digital em todo o mundo. A Hotmart surgiu para suprir a necessidade de uma solução acessível e eficiente para a comercialização de e-books, cursos online, softwares e outros produtos digitais. Hoje, ela é utilizada por mais de 180 países, incluindo Moçambique, e tem ajudado milhões de empreendedores a alcançar sucesso no mercado digital.</p>
-    
-    <h2>Propósito e Alcance Global</h2>
-    <p>A missão da Hotmart é capacitar empreendedores digitais ao redor do mundo, oferecendo uma plataforma simples e eficaz para vender produtos digitais. Com suporte em diferentes idiomas e moedas, a plataforma é acessível não apenas para os brasileiros, mas também para empreendedores em países emergentes como Moçambique. Ao oferecer soluções locais, a Hotmart permite que qualquer pessoa, independentemente de sua localização, possa gerar uma renda online. No contexto moçambicano, muitos empreendedores estão começando a explorar o potencial da Hotmart para expandir seus negócios e alcançar clientes globalmente.</p>
-    
-    <h2>Principais Vantagens</h2>
-    <ul>
-        <li>✔️ <strong>Plataforma Intuitiva:</strong> A Hotmart é extremamente fácil de usar, o que a torna acessível até mesmo para iniciantes no mundo digital. A interface é amigável e foi desenvolvida para atender tanto produtores quanto afiliados, independentemente de seu nível de experiência.</li>
-        <li>🌍 <strong>Pagamentos Globais:</strong> A Hotmart oferece suporte para diversos métodos de pagamento e várias moedas. Com a possibilidade de receber pagamentos em diferentes países e usando diferentes moedas, empreendedores de Moçambique, por exemplo, podem vender seus produtos para um público global sem se preocupar com as limitações financeiras ou burocráticas.</li>
-        <li>📊 <strong>Relatórios Detalhados:</strong> A plataforma disponibiliza relatórios detalhados sobre as vendas e o desempenho das campanhas, permitindo que produtores e afiliados acompanhem o progresso de suas vendas e otimizem suas estratégias para obter resultados ainda melhores. Esses relatórios são fundamentais para maximizar as vendas e aprimorar as estratégias de marketing.</li>
-    </ul>
-</div>
-
-
-<div class="content">
-    <h2>Como Funciona?</h2>
-    <p>A Hotmart oferece uma ampla variedade de produtos digitais, como cursos online, e-books, assinaturas e muito mais. A operação da plataforma é baseada na interação de três participantes principais, cada um desempenhando um papel crucial no ecossistema digital:</p>
-    <ul>
-        <li>🛠️ <strong>Produtor:</strong> O Produtor é responsável por criar e disponibilizar o produto digital na Hotmart. Ele pode ser um criador de conteúdo, um educador ou um desenvolvedor que quer compartilhar seu conhecimento ou produto com o mundo. Por exemplo, um produtor de Moçambique pode criar um curso de marketing digital e colocá-lo à venda para compradores em todo o mundo.</li>
-        <li>📢 <strong>Afiliado:</strong> O Afiliado tem o papel de promover os produtos criados por produtores e ganhar comissões por cada venda realizada através de seus esforços de marketing. Os afiliados utilizam suas plataformas, como blogs, redes sociais ou e-mail marketing, para divulgar os produtos. Por exemplo, um afiliado moçambicano pode promover um curso de empreendedorismo digital e receber comissões por cada inscrição feita através de seu link de afiliado.</li>
-        <li>🛒 <strong>Comprador:</strong> O Comprador é a pessoa que adquire o produto digital. Ele pode ser alguém que está buscando aprender algo novo, como cursos de idiomas, ou pode adquirir ferramentas e recursos para uso pessoal ou profissional. Em Moçambique, um comprador pode, por exemplo, adquirir um e-book sobre estratégias de negócios para aplicar no seu próprio empreendimento.</li>
-    </ul>
-</div>
-<div class="content">
-    <h2>Criação de Conta</h2>
-    <h3>Passo a Passo</h3>
-    <ul>
-        <li>Acesse o <a href="https://www.hotmart.com" target="_blank">site oficial da Hotmart</a>.</li>
-        <li>Clique em “Cadastre-se” e escolha entre usar seu e-mail ou uma conta de redes sociais, como Facebook ou Google, para simplificar o processo.</li>
-        <li>Preencha as informações necessárias, como nome, e-mail, e crie uma senha segura. Certifique-se de aceitar os Termos de Uso antes de continuar.</li>
-    </ul>
-    <h3>Configuração do Perfil</h3>
-    <ul>
-        <li>Adicione seu nome completo, uma foto de perfil profissional e os dados bancários para facilitar o recebimento de pagamentos.</li>
-        <li>Verifique sua conta com documentos pessoais, como RG ou comprovante de residência, caso seja solicitado pela plataforma.</li>
-    </ul>
-    
-    <p class="cta-message">Veja alguns dos nossos resultados e comece a aprender hoje mesmo:</p>
-    
-    <!-- Botão para acessar o site das aulas -->
-    <div id="access-button" class="button-container">
-        <h2>Acesse as Aulas Agora:</h2>
-        <a href="aulasonlineHTMRT.html" class="access-button">Ir para as Aulas</a>
     </div>
-</div>
+      
+    <div id="content" style="display:none;">
+        <div class="cover">
+            <h1>O que é a Hotmart?</h1>
+            <p>A plataforma que está revolucionando o mercado digital em Moçambique</p>
+        </div>
 
+        <div class="content">
+            <p>A Hotmart é uma plataforma brasileira que se tornou uma referência global na comercialização de produtos digitais. Lançada em 2011, a plataforma oferece um ambiente online para a venda e distribuição de produtos como cursos, e-books, software e outras ofertas digitais. Desde sua criação, a Hotmart revolucionou o mercado de vendas online, conectando produtores e afiliados ao redor do mundo e criando oportunidades de negócios para milhões de empreendedores.</p>
 
-<style>
-    .button-container {
-        text-align: center;
-        margin: 20px 0;
-    }
+            <p>A plataforma é uma das maiores do mundo em seu setor e é especialmente popular em países da América Latina, como Brasil, México, e Argentina, mas seu alcance é global. De acordo com dados de 2023, a Hotmart já tem presença em mais de 180 países, incluindo Moçambique, oferecendo uma solução completa para quem deseja vender produtos digitais e obter comissões através do modelo de afiliados.</p>
 
-    .access-button {
-        display: inline-block;
-        background-color: #007BFF;
-        color: white;
-        padding: 10px 20px;
-        text-decoration: none;
-        font-size: 16px;
-        border-radius: 5px;
-        transition: background-color 0.3s ease;
-    }
+            <img src="produto1.webp" alt="Produto Vendido 1" class="result-photo">
 
-    .access-button:hover {
-        background-color: #0056b3;
-    }
-</style>
-        
-        <div class="results">
-            <h3>Alguns dos nossos Resultados:</h3>
-            <ul>
-                <li>
-                    
-                    <img src="p3.jpg" alt="Produto Vendido 1" class="result-photo">
-                </li>
-                <li>
-                    
-                    <img src="p2.jpg" alt="Produto Vendido 2" class="result-photo">
-                </li>
-                <li>
-                    
-                    <img src="p1.jpg" alt="Produto Vendido 3" class="result-photo">
-                </li>
-                <li>
-                    
-                    <img src="p5.jpg" alt="Produto Vendido 3" class="result-photo">
-                </li>
-            </ul>
-            
-            <p style="text-align: center;">
-                <a href="https://tilomachado.github.io/OpenMindOficial/textoquevende.html" target="_blank" style="text-decoration: none; color: white; background-color: #dc3545; padding: 10px 20px; border-radius: 5px; font-weight: bold;">Veja a nossa página de vendas</a>
-            </p>
-            
+            <p>Por exemplo, no contexto moçambicano, a Hotmart tem se tornado cada vez mais relevante para empreendedores locais que desejam expandir seus negócios digitais. Um exemplo notável é o caso de Moçambique, onde muitos influenciadores e criadores de conteúdo começaram a vender cursos de capacitação online sobre marketing digital e habilidades empreendedoras, aproveitando o alcance global da Hotmart. Além disso, a Hotmart também permite que empreendedores de Moçambique ganhem comissões ao promoverem produtos digitais criados por outros produtores ao redor do mundo.</p>
+
+            <p>Empreendedores locais estão utilizando a plataforma para monetizar suas ideias e se conectar com um público global. Por exemplo, a venda de cursos sobre o uso de ferramentas digitais, como o <a href="https://www.hotmart.com/" target="_blank">Canva</a> e o <a href="https://www.hotmart.com/" target="_blank">Google Ads</a>, tem se mostrado um sucesso crescente no país, ajudando a capacitar pessoas em áreas urbanas e rurais.</p>
+
+            <p>Com isso, a Hotmart se estabelece como uma ferramenta fundamental para o crescimento de negócios digitais, permitindo que qualquer pessoa, independentemente de sua localização, tenha acesso a um mercado global. Essa transformação reflete o poder da digitalização, que tem democratizado o acesso ao conhecimento e à educação, especialmente em países com mercados emergentes, como Moçambique.</p>
+
+            <p>A plataforma não só facilita a comercialização de produtos digitais, mas também oferece recursos como relatórios detalhados, gestão de afiliados e suporte ao cliente, o que torna o processo de venda mais eficiente e acessível. Ao promover produtos de outros empreendedores, qualquer pessoa pode começar a gerar receita, independente de seu conhecimento técnico prévio.</p>
+
+            <p>Em resumo, a Hotmart é uma ponte entre produtores de conteúdo digital e consumidores ao redor do mundo. Sua missão de democratizar o acesso ao mercado global de produtos digitais está transformando vidas e negócios, e sua presença em Moçambique está crescendo, dando novas oportunidades aos empreendedores locais.</p>
         </div>
         
-        <!-- Estilo CSS para as fotos -->
-        <style>
-            .results ul {
-                list-style: none;
-                padding: 0;
-            }
-            .results li {
-                display: flex;
-                flex-direction: column; /* Empilhando texto e imagem verticalmente */
-                align-items: center; /* Centralizando o texto e as imagens */
-                margin-bottom: 20px;
-            }
-            .result-photo {
-                width: 80%; /* A largura das imagens ocupa 80% do container */
-                height: auto;
-                margin-top: 10px; /* Espaço entre o texto e a imagem */
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-        </style>
-        
-        
-        <!-- Estilo CSS para as fotos -->
-        <style>
-            .results-photos {
-                display: flex;
-                flex-direction: column; /* Empilhando as imagens verticalmente */
-                align-items: center; /* Centraliza as imagens horizontalmente */
-                margin-top: 20px;
-            }
-            .result-photo {
-                width: 80%; /* A largura das imagens ocupa 80% do container */
-                height: auto;
-                margin-bottom: 15px; /* Espaço entre as imagens */
-                border-radius: 8px;
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            }
-        </style>
-        
+        <div class="content">
+            <h2>Breve Histórico da Plataforma</h2>
+            <p>A Hotmart foi fundada em 2011, no Brasil, com o propósito de democratizar a venda de produtos digitais. Desde então, a plataforma passou por um crescimento exponencial, transformando-se em uma das maiores e mais influentes soluções de distribuição de conteúdo digital em todo o mundo. A Hotmart surgiu para suprir a necessidade de uma solução acessível e eficiente para a comercialização de e-books, cursos online, softwares e outros produtos digitais. Hoje, ela é utilizada por mais de 180 países, incluindo Moçambique, e tem ajudado milhões de empreendedores a alcançar sucesso no mercado digital.</p>
+            
+            <h2>Propósito e Alcance Global</h2>
+            <p>A missão da Hotmart é capacitar empreendedores digitais ao redor do mundo, oferecendo uma plataforma simples e eficaz para vender produtos digitais. Com suporte em diferentes idiomas e moedas, a plataforma é acessível não apenas para os brasileiros, mas também para empreendedores em países emergentes como Moçambique. Ao oferecer soluções locais, a Hotmart permite que qualquer pessoa, independentemente de sua localização, possa gerar uma renda online. No contexto moçambicano, muitos empreendedores estão começando a explorar o potencial da Hotmart para expandir seus negócios e alcançar clientes globalmente.</p>
+            
+            <h2>Principais Vantagens</h2>
+            <ul>
+                <li><strong>Plataforma Intuitiva:</strong> A Hotmart é extremamente fácil de usar, o que a torna acessível até mesmo para iniciantes no mundo digital. A interface é amigável e foi desenvolvida para atender tanto produtores quanto afiliados, independentemente de seu nível de experiência.</li>
+                <li><strong>Pagamentos Globais:</strong> A Hotmart oferece suporte para diversos métodos de pagamento e várias moedas. Com a possibilidade de receber pagamentos em diferentes países e usando diferentes moedas, empreendedores de Moçambique, por exemplo, podem vender seus produtos para um público global sem se preocupar com as limitações financeiras ou burocráticas.</li>
+                <li><strong>Relatórios Detalhados:</strong> A plataforma disponibiliza relatórios detalhados sobre as vendas e o desempenho das campanhas, permitindo que produtores e afiliados acompanhem o progresso de suas vendas e otimizem suas estratégias para obter resultados ainda melhores. Esses relatórios são fundamentais para maximizar as vendas e aprimorar as estratégias de marketing.</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Como Funciona?</h2>
+            <p>A Hotmart oferece uma ampla variedade de produtos digitais, como cursos online, e-books, assinaturas e muito mais. A operação da plataforma é baseada na interação de três participantes principais, cada um desempenhando um papel crucial no ecossistema digital:</p>
+            <ul>
+                <li><strong>Produtor:</strong> O Produtor é responsável por criar e disponibilizar o produto digital na Hotmart. Ele pode ser um criador de conteúdo, um educador ou um desenvolvedor que quer compartilhar seu conhecimento ou produto com o mundo. Por exemplo, um produtor de Moçambique pode criar um curso de marketing digital e colocá-lo à venda para compradores em todo o mundo.</li>
+                <li><strong>Afiliado:</strong> O Afiliado tem o papel de promover os produtos criados por produtores e ganhar comissões por cada venda realizada através de seus esforços de marketing. Os afiliados utilizam suas plataformas, como blogs, redes sociais ou e-mail marketing, para divulgar os produtos. Por exemplo, um afiliado moçambicano pode promover um curso de empreendedorismo digital e receber comissões por cada inscrição feita através de seu link de afiliado.</li>
+                <li><strong>Comprador:</strong> O Comprador é a pessoa que adquire o produto digital. Ele pode ser alguém que está buscando aprender algo novo, como cursos de idiomas, ou pode adquirir ferramentas e recursos para uso pessoal ou profissional. Em Moçambique, um comprador pode, por exemplo, adquirir um e-book sobre estratégias de negócios para aplicar no seu próprio empreendimento.</li>
+            </ul>
+        </div>
+
+        <div class="content">
+            <h2>Criação de Conta</h2>
+            <h3>Passo a Passo</h3>
+            <ul>
+                <li>Acesse o <a href="https://www.hotmart.com" target="_blank">site oficial da Hotmart</a>.</li>
+                <li>Clique em "Cadastre-se" e escolha entre usar seu e-mail ou uma conta de redes sociais, como Facebook ou Google, para simplificar o processo.</li>
+                <li>Preencha as informações necessárias, como nome, e-mail, e crie uma senha segura. Certifique-se de aceitar os Termos de Uso antes de continuar.</li>
+            </ul>
+            <h3>Configuração do Perfil</h3>
+            <ul>
+                <li>Adicione seu nome completo, uma foto de perfil profissional e os dados bancários para facilitar o recebimento de pagamentos.</li>
+                <li>Verifique sua conta com documentos pessoais, como RG ou comprovante de residência, caso seja solicitado pela plataforma.</li>
+            </ul>
+            
+            <div class="button-container">
+                <h3>Acesse as Aulas Agora:</h3>
+                <a href="aulasonlineHTMRT.html" class="access-button">Ir para as Aulas</a>
+            </div>
+        </div>
+
+        <div class="content">
+            <h3>Alguns dos nossos Resultados:</h3>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 15px; margin: 20px 0;">
+                <img src="p3.jpg" alt="Produto Vendido 1" class="result-photo">
+                <img src="p2.jpg" alt="Produto Vendido 2" class="result-photo">
+                <img src="p1.jpg" alt="Produto Vendido 3" class="result-photo">
+                <img src="p5.jpg" alt="Produto Vendido 4" class="result-photo">
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0;">
+                <a href="https://boisterous-semifreddo-c6289a.netlify.app/" target="_blank" class="cta">Veja a nossa página de vendas</a>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-links">
+                <a href="#">Termos de Uso</a>
+                <a href="#">Política de Privacidade</a>
+                <a href="#">Contato</a>
+            </div>
+            <p>&copy; 2024 OPEN MIND Todos os direitos reservados.</p>
+        </footer>
     </div>
-    
-    <!-- Estilo CSS para garantir que o Timer seja visível -->
-    <style>
-        .timer {
-            background-color: #222;
-            color: #fff;
-            padding: 20px;
-            border-radius: 10px;
-            text-align: center;
-            font-size: 24px;
-            margin-top: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-        }
-        #countdown {
-            font-size: 30px;
-            font-weight: bold;
-            color: #ff0000;
-        }
-    </style>
-    
+
     <script>
-        // Verificar se já existe uma data de término no localStorage
-        const storedDate = localStorage.getItem("countDownDate");
-    
-        let countDownDate;
-    
-        if (storedDate) {
-            // Usar a data armazenada se ela existir
-            countDownDate = new Date(storedDate).getTime();
-        } else {
-            // Definir uma nova data de término (1 dia e 25 horas a partir de agora)
-            countDownDate = new Date();
-            countDownDate.setHours(countDownDate.getHours() + 25);
-            localStorage.setItem("countDownDate", countDownDate); // Armazenar no localStorage
-        }
-    
-        // Função para atualizar o contador
-        const updateCountdown = () => {
-            const now = new Date().getTime();
-    
-            // Calculando a diferença entre a data de término e o momento atual
-            const distance = countDownDate - now;
-    
-            // Calculando dias, horas, minutos e segundos restantes
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-            // Exibindo o resultado no elemento com o id "countdown"
-            document.getElementById("countdown").textContent = 
-                `${days}d ${hours}h ${minutes}m ${seconds}s`;
-    
-            // Se a contagem regressiva terminar, exibe uma mensagem
-            if (distance < 0) {
-                clearInterval(interval);
-                document.getElementById("countdown").textContent = "As aulas começaram!";
-                localStorage.removeItem("countDownDate"); // Remover do localStorage
-            }
-        };
-    
-        // Atualizando a contagem a cada 1 segundo
-        const interval = setInterval(updateCountdown, 1000);
-    
-        // Chamando imediatamente para evitar atraso inicial
-        updateCountdown();
+        // Loading screen
+        window.addEventListener('load', function () {
+            setTimeout(function () {
+                document.getElementById('loading').style.display = 'none';
+                document.getElementById('content').style.display = 'block';
+            }, 2000);
+        });
     </script>
-    
-        
-<!-- Footer -->
-<footer class="footer">
-    <div class="footer-content">
-      
-        <ul class="footer-links">
-        
-            <li><a href=>&copy; 2024 OPEN MIND Todos os direitos reservados.</a></li>
-        </ul>
-    </div>
-</footer>
-
-<!-- Estilos CSS para o Footer -->
-<style>
-    .footer {
-        background-color: #222;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-        font-size: 14px;
-    }
-
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .footer-links {
-        list-style: none;
-        padding: 0;
-        margin: 10px auto; /* Centraliza a lista */
-        display: inline-block; /* Permite centralizar os itens */
-    }
-
-    .footer-links li {
-        display: inline-block;
-        margin: 0 10px;
-    }
-
-    .footer-links a {
-        color: #00ff08;
-        text-decoration: none;
-    }
-
-    .footer-links a:hover {
-        text-decoration: underline;
-    }
-</style>
-
-
-<!-- Estilos CSS para o Footer -->
-<style>
-    .footer {
-        background-color: #222;
-        color: #fff;
-        padding: 20px;
-        text-align: center;
-        font-size: 14px;
-    }
-
-    .footer-content {
-        max-width: 1200px;
-        margin: 0 auto;
-    }
-
-    .footer-links {
-        list-style: none;
-        padding: 0;
-        margin-top: 10px;
-    }
-
-    .footer-links li {
-        display: inline-block;
-        margin-right: 15px;
-    }
-
-    .footer-links a {
-        color: #00ff08;
-        text-decoration: none;
-    }
-
-    .footer-links a:hover {
-        text-decoration: underline;
-    }
-</style>
-
-    
 </body>
 </html>
