@@ -193,6 +193,28 @@
             box-shadow: none;
         }
 
+        /* Botão de Cadastro */
+        .signup-button {
+            padding: 12px 30px;
+            background: #ff6b00;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(255,107,0,0.2);
+            margin: 20px auto;
+            display: none;
+        }
+
+        .signup-button:hover {
+            background: #ff8c00;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(255,107,0,0.3);
+        }
+
         /* Modal */
         .modal {
             display: none;
@@ -248,18 +270,6 @@
             background: #ff8c00;
         }
 
-        /* Mensagem de Conclusão */
-        .completion-message {
-            text-align: center;
-            margin-top: 20px;
-            padding: 15px;
-            background: rgba(255,107,0,0.1);
-            border-radius: 8px;
-            color: #ff6b00;
-            font-weight: bold;
-            display: none;
-        }
-
         /* Tela de Carregamento */
         #loading {
             position: fixed;
@@ -296,45 +306,6 @@
             transition: width 0.3s ease;
         }
 
-        /* Botão de Tela Cheia */
-        .fullscreen-btn {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 50px;
-            height: 50px;
-            background-color: #ff6b00;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 20px;
-            cursor: pointer;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-            z-index: 100;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .fullscreen-btn:hover {
-            background-color: #ff8c00;
-            transform: scale(1.1);
-        }
-
-        .fullscreen-instruction {
-            position: fixed;
-            bottom: 80px;
-            right: 20px;
-            background: rgba(0,0,0,0.7);
-            color: white;
-            padding: 10px 15px;
-            border-radius: 5px;
-            font-size: 14px;
-            z-index: 100;
-            display: none;
-        }
-
         /* Responsividade */
         @media (max-width: 768px) {
             iframe {
@@ -347,9 +318,9 @@
                 font-size: 20px;
             }
             
-            .control-button {
-                padding: 8px 20px;
-                font-size: 14px;
+            .control-button, .signup-button {
+                padding: 10px 20px;
+                font-size: 16px;
             }
         }
 
@@ -360,6 +331,11 @@
             
             h1 {
                 font-size: 24px;
+            }
+            
+            .signup-button {
+                padding: 10px 20px;
+                font-size: 16px;
             }
         }
     </style>
@@ -437,39 +413,19 @@
         </div>
         
         <div class="control-buttons">
-            <button class="control-button" id="finishBtn" disabled>Concluir Aula</button>
             <button class="control-button" id="nextLessonBtn" disabled>Próxima Aula</button>
         </div>
         
-        <div class="completion-message" id="completionMessage">
-            Parabéns! Você concluiu esta aula. Continue seu aprendizado!
-        </div>
-    </div>
-    
-    <!-- Botão de Tela Cheia -->
-    <button class="fullscreen-btn" id="fullscreenBtn" title="Tela Cheia">⛶</button>
-    <div class="fullscreen-instruction" id="fullscreenInstruction">
-        Dica: Clique duas vezes na tela para expandir para tela cheia
+        <button class="signup-button" id="signupBtn">Acessar Conteúdo Completo</button>
     </div>
     
     <!-- Modal de Boas-Vindas -->
     <div class="modal" id="welcomeModal">
         <div class="modal-content">
             <h2>Bem-vindo ao Minicurso de Preparação Mental!</h2>
-            <p>Para assistir às aulas gratuitamente, você precisará assistir cada vídeo até um determinado ponto para desbloquear a próxima aula.</p>
-            <p>Navegue entre as aulas usando as setas ou os indicadores abaixo do vídeo.</p>
-            <p><strong>Dica:</strong> Clique duas vezes na tela do vídeo ou no botão ⛶ no canto inferior direito para ativar o modo tela cheia.</p>
+            <p>Para assistir às aulas gratuitamente, você precisará assistir cada vídeo por 20 segundos para desbloquear a próxima aula.</p>
+            <p>No final do minicurso, você poderá se cadastrar para acessar o conteúdo completo do método.</p>
             <button class="close-modal" id="startCourseBtn">Começar Agora</button>
-        </div>
-    </div>
-    
-    <!-- Modal de Conclusão -->
-    <div class="modal" id="congratsModal">
-        <div class="modal-content">
-            <h2>Parabéns!</h2>
-            <p>Você concluiu todas as aulas do minicurso de preparação mental.</p>
-            <p>Sua dedicação e comprometimento são admiráveis!</p>
-            <button class="close-modal" id="finishCourseBtn">Finalizar</button>
         </div>
     </div>
 
@@ -477,26 +433,16 @@
         // Variáveis globais
         let currentSlide = 0;
         let progress = [0, 0, 0];
-        const requiredProgress = [30, 30, 30]; // 30 segundos para cada vídeo
+        const requiredProgress = [20, 20, 20]; // 20 segundos para cada vídeo
         const slides = document.querySelectorAll('.video-slide');
         const totalSlides = slides.length;
         const indicators = document.querySelectorAll('.indicator');
         let progressIntervals = [];
-        
-        // Elementos DOM
-        const carousel = document.querySelector('.carousel');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-        const finishBtn = document.getElementById('finishBtn');
+        const signupBtn = document.getElementById('signupBtn');
         const nextLessonBtn = document.getElementById('nextLessonBtn');
-        const completionMessage = document.getElementById('completionMessage');
-        const welcomeModal = document.getElementById('welcomeModal');
-        const congratsModal = document.getElementById('congratsModal');
-        const startCourseBtn = document.getElementById('startCourseBtn');
-        const finishCourseBtn = document.getElementById('finishCourseBtn');
-        const fullscreenBtn = document.getElementById('fullscreenBtn');
-        const fullscreenInstruction = document.getElementById('fullscreenInstruction');
-        const loadingProgress = document.getElementById('loading-progress');
+        
+        // URL para cadastro
+        const SIGNUP_URL = "https://strong-sunshine-54860a.netlify.app/";
         
         // Inicialização
         function init() {
@@ -506,11 +452,9 @@
             // Configurar event listeners
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
-            finishBtn.addEventListener('click', finishLesson);
             nextLessonBtn.addEventListener('click', nextLesson);
             startCourseBtn.addEventListener('click', startCourse);
-            finishCourseBtn.addEventListener('click', finishCourse);
-            fullscreenBtn.addEventListener('click', toggleFullscreen);
+            signupBtn.addEventListener('click', redirectToSignup);
             
             // Configurar indicadores
             indicators.forEach(indicator => {
@@ -518,20 +462,6 @@
                     const slideIndex = parseInt(indicator.getAttribute('data-slide'));
                     goToSlide(slideIndex);
                 });
-            });
-            
-            // Configurar double click para fullscreen nos vídeos
-            document.querySelectorAll('iframe').forEach(iframe => {
-                iframe.addEventListener('dblclick', toggleFullscreen);
-            });
-            
-            // Mostrar instrução de fullscreen ao passar o mouse no botão
-            fullscreenBtn.addEventListener('mouseover', () => {
-                fullscreenInstruction.style.display = 'block';
-            });
-            
-            fullscreenBtn.addEventListener('mouseout', () => {
-                fullscreenInstruction.style.display = 'none';
             });
             
             // Iniciar progresso para o primeiro vídeo
@@ -569,7 +499,7 @@
                 if (progress[currentSlide] >= requiredProgress[currentSlide]) {
                     goToSlide(currentSlide + 1);
                 } else {
-                    alert('Por favor, assista a aula atual por pelo menos ' + requiredProgress[currentSlide] + ' segundos antes de prosseguir.');
+                    alert(`Por favor, assista a aula atual por pelo menos ${requiredProgress[currentSlide]} segundos antes de prosseguir.`);
                 }
             }
         }
@@ -598,20 +528,21 @@
         }
         
         function updateButtons() {
-            // Atualizar botão de conclusão
-            if (progress[currentSlide] >= requiredProgress[currentSlide]) {
-                finishBtn.disabled = false;
-                nextLessonBtn.disabled = false;
-                completionMessage.style.display = 'block';
-            } else {
-                finishBtn.disabled = true;
-                nextLessonBtn.disabled = true;
-                completionMessage.style.display = 'none';
-            }
-            
             // Mostrar/ocultar botões de navegação
             prevBtn.style.display = currentSlide === 0 ? 'none' : 'flex';
             nextBtn.style.display = currentSlide === totalSlides - 1 ? 'none' : 'flex';
+            
+            // Mostrar botão de cadastro apenas no último slide quando concluído
+            if (currentSlide === totalSlides - 1 && progress[currentSlide] >= requiredProgress[currentSlide]) {
+                signupBtn.style.display = 'block';
+                nextLessonBtn.style.display = 'none';
+            } else {
+                signupBtn.style.display = 'none';
+                nextLessonBtn.style.display = 'flex';
+            }
+            
+            // Atualizar estado do botão próxima aula
+            nextLessonBtn.disabled = progress[currentSlide] < requiredProgress[currentSlide];
         }
         
         // Acompanhamento de progresso
@@ -658,24 +589,15 @@
             progressTextElement.textContent = `${Math.round(percentage)}%`;
         }
         
-        // Funções de controle das aulas
-        function finishLesson() {
-            // Marcar a aula como concluída
-            progress[currentSlide] = requiredProgress[currentSlide];
-            updateProgressDisplay(currentSlide);
-            updateButtons();
-            
-            // Mostrar mensagem de conclusão
-            completionMessage.style.display = 'block';
-        }
-        
         function nextLesson() {
             if (currentSlide < totalSlides - 1) {
                 goToSlide(currentSlide + 1);
-            } else {
-                // Curso concluído
-                congratsModal.style.display = 'flex';
             }
+        }
+        
+        // Redirecionar para página de cadastro
+        function redirectToSignup() {
+            window.location.href = SIGNUP_URL;
         }
         
         // Funções do modal
@@ -684,32 +606,9 @@
             document.getElementById('content').style.display = 'block';
         }
         
-        function finishCourse() {
-            congratsModal.style.display = 'none';
-            // Redirecionar ou fazer outra ação ao finalizar o curso
-        }
-        
-        // Funções de tela cheia
-        function toggleFullscreen() {
-            if (!document.fullscreenElement) {
-                document.documentElement.requestFullscreen().catch(err => {
-                    console.error(`Erro ao tentar entrar em tela cheia: ${err.message}`);
-                });
-            } else {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                }
-            }
-        }
-        
-        // Atualizar ícone do botão de tela cheia
-        document.addEventListener('fullscreenchange', () => {
-            fullscreenBtn.textContent = document.fullscreenElement ? '⛶' : '⛶';
-        });
-        
-        // Simular carregamento de 2 minutos (120 segundos)
+        // Simular carregamento de 20 segundos
         let loadingTime = 0;
-        const totalLoadingTime = 10; // 2 minutos em segundos
+        const totalLoadingTime = 20; // 20 segundos
         const loadingInterval = setInterval(() => {
             loadingTime++;
             const percentage = (loadingTime / totalLoadingTime) * 100;
