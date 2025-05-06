@@ -309,6 +309,39 @@
             z-index: 100;
         }
 
+        /* Botão de Cadastro */
+        .register-btn {
+            padding: 12px 30px;
+            background: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 6px rgba(76,175,80,0.2);
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        .register-btn:hover {
+            background: #45a049;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(76,175,80,0.3);
+        }
+
+        /* Mensagem de Incentivo */
+        .incentive-message {
+            text-align: center;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 8px;
+            color: #DAA520;
+            font-weight: bold;
+            border-left: 4px solid #DAA520;
+        }
+
         /* Responsividade */
         @media (max-width: 768px) {
             iframe {
@@ -368,7 +401,10 @@
                 <!-- Aula 1 -->
                 <div class="video-slide">
                     <div class="video-container">
-                        <iframe id="video1" src="https://www.youtube.com/embed/cuo432IzZGo?enablejsapi=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe id="video1" src="https://www.youtube.com/embed/cuo432IzZGo?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="incentive-message">
+                            Assista até o final para garantir seu presente especial!
+                        </div>
                         <div class="progress-container">
                             <div class="progress-info">
                                 <span>Progresso</span>
@@ -384,7 +420,10 @@
                 <!-- Aula 2 -->
                 <div class="video-slide">
                     <div class="video-container">
-                        <iframe id="video2" src="https://www.youtube.com/embed/NeQK92p3Br4?enablejsapi=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe id="video2" src="https://www.youtube.com/embed/NeQK92p3Br4?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="incentive-message">
+                            Continue assistindo para liberar o conteúdo completo!
+                        </div>
                         <div class="progress-container">
                             <div class="progress-info">
                                 <span>Progresso</span>
@@ -400,7 +439,10 @@
                 <!-- Aula 3 -->
                 <div class="video-slide">
                     <div class="video-container">
-                        <iframe id="video3" src="https://www.youtube.com/embed/uOoBB-rs838?enablejsapi=1&controls=0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <iframe id="video3" src="https://www.youtube.com/embed/uOoBB-rs838?enablejsapi=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="incentive-message">
+                            Última aula! Assista até o final para garantir seu acesso ao Método MIA V3 completo!
+                        </div>
                         <div class="progress-container">
                             <div class="progress-info">
                                 <span>Progresso</span>
@@ -425,7 +467,6 @@
         </div>
         
         <div class="control-buttons">
-            <button class="control-button" id="finishBtn" disabled>Concluir Aula</button>
             <button class="control-button" id="nextLessonBtn" disabled>Próxima Aula</button>
         </div>
         
@@ -454,8 +495,11 @@
     <div class="modal" id="congratsModal">
         <div class="modal-content">
             <h2>Parabéns!</h2>
-            <p>Você concluiu todas as aulas do minicurso de preparação mental.</p>
-            <p>Sua dedicação e comprometimento são admiráveis!</p>
+            <p>Você concluiu todas as aulas do minicurso de preparação mental!</p>
+            <p><strong>Esta é sua chance de transformar sua vida!</strong></p>
+            <p>Garanta agora seu acesso completo ao Método MIA V3 com condições especiais!</p>
+            <button class="register-btn" id="registerBtn">QUERO MEU ACESSO AGORA!</button>
+            <p style="font-size: 12px; margin-top: 10px;">Oferta válida apenas para concluintes do minicurso</p>
             <button class="close-modal" id="finishCourseBtn">Finalizar</button>
         </div>
     </div>
@@ -475,13 +519,13 @@
         const carousel = document.querySelector('.carousel');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const finishBtn = document.getElementById('finishBtn');
         const nextLessonBtn = document.getElementById('nextLessonBtn');
         const completionMessage = document.getElementById('completionMessage');
         const welcomeModal = document.getElementById('welcomeModal');
         const congratsModal = document.getElementById('congratsModal');
         const startCourseBtn = document.getElementById('startCourseBtn');
         const finishCourseBtn = document.getElementById('finishCourseBtn');
+        const registerBtn = document.getElementById('registerBtn');
         const fullscreenInstruction = document.getElementById('fullscreenInstruction');
         const loadingProgress = document.getElementById('loading-progress');
         
@@ -493,10 +537,10 @@
             // Configurar event listeners
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
-            finishBtn.addEventListener('click', finishLesson);
             nextLessonBtn.addEventListener('click', nextLesson);
             startCourseBtn.addEventListener('click', startCourse);
             finishCourseBtn.addEventListener('click', finishCourse);
+            registerBtn.addEventListener('click', registerNow);
             
             // Configurar indicadores
             indicators.forEach(indicator => {
@@ -518,6 +562,11 @@
             loadYouTubeAPI();
         }
         
+        // Função para redirecionar para cadastro
+        function registerNow() {
+            window.location.href = "https://strong-sunshine-54860a.netlify.app/";
+        }
+        
         // Carregar API do YouTube
         function loadYouTubeAPI() {
             const tag = document.createElement('script');
@@ -528,11 +577,14 @@
         
         // Função chamada pela API do YouTube
         function onYouTubeIframeAPIReady() {
-            // Inicializar players para cada vídeo
+            // Inicializar players para cada vídeo com controles habilitados
             players[0] = new YT.Player('video1', {
                 events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
+                },
+                playerVars: {
+                    'controls': 1
                 }
             });
             
@@ -540,6 +592,9 @@
                 events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
+                },
+                playerVars: {
+                    'controls': 1
                 }
             });
             
@@ -547,6 +602,9 @@
                 events: {
                     'onReady': onPlayerReady,
                     'onStateChange': onPlayerStateChange
+                },
+                playerVars: {
+                    'controls': 1
                 }
             });
         }
@@ -629,13 +687,11 @@
         }
         
         function updateButtons() {
-            // Atualizar botão de conclusão
+            // Atualizar botão de próxima aula
             if (progress[currentSlide] >= requiredProgress[currentSlide]) {
-                finishBtn.disabled = false;
                 nextLessonBtn.disabled = false;
                 completionMessage.style.display = 'block';
             } else {
-                finishBtn.disabled = true;
                 nextLessonBtn.disabled = true;
                 completionMessage.style.display = 'none';
             }
@@ -690,21 +746,11 @@
         }
         
         // Funções de controle das aulas
-        function finishLesson() {
-            // Marcar a aula como concluída
-            progress[currentSlide] = requiredProgress[currentSlide];
-            updateProgressDisplay(currentSlide);
-            updateButtons();
-            
-            // Mostrar mensagem de conclusão
-            completionMessage.style.display = 'block';
-        }
-        
         function nextLesson() {
             if (currentSlide < totalSlides - 1) {
                 goToSlide(currentSlide + 1);
             } else {
-                // Curso concluído
+                // Curso concluído - mostrar modal com botão de cadastro
                 congratsModal.style.display = 'flex';
             }
         }
@@ -717,7 +763,6 @@
         
         function finishCourse() {
             congratsModal.style.display = 'none';
-            // Redirecionar ou fazer outra ação ao finalizar o curso
         }
         
         // Funções de tela cheia
