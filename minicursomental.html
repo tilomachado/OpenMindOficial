@@ -64,6 +64,9 @@
             background: white;
             padding: 20px;
             box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         iframe {
@@ -180,15 +183,16 @@
             transform: scale(1.2);
         }
 
-        /* Botões de Controle */
-        .control-buttons {
+        /* Botões de Controle - Agora abaixo do vídeo */
+        .video-controls {
             display: flex;
             justify-content: center;
             margin-top: 20px;
             gap: 15px;
+            width: 100%;
         }
 
-        .control-button {
+        .video-control-button {
             padding: 10px 25px;
             background: #ff6b00;
             color: white;
@@ -200,13 +204,13 @@
             box-shadow: 0 3px 6px rgba(255,107,0,0.2);
         }
 
-        .control-button:hover {
+        .video-control-button:hover {
             background: #ff8c00;
             transform: translateY(-2px);
             box-shadow: 0 5px 10px rgba(255,107,0,0.3);
         }
 
-        .control-button:disabled {
+        .video-control-button:disabled {
             background: #ccc;
             cursor: not-allowed;
             transform: none;
@@ -360,6 +364,7 @@
             color: #DAA520;
             font-weight: bold;
             border-left: 4px solid #DAA520;
+            width: 100%;
         }
 
         /* Responsividade */
@@ -374,7 +379,7 @@
                 font-size: 20px;
             }
             
-            .control-button {
+            .video-control-button {
                 padding: 8px 20px;
                 font-size: 14px;
             }
@@ -433,7 +438,11 @@
                             <div class="progress-bar">
                                 <div class="progress" id="progress1"></div>
                             </div>
-                            <div class="time-remaining" id="time-remaining1">Tempo restante: 2:00</div>
+                            <div class="time-remaining" id="time-remaining1">Tempo restante: 3:00</div>
+                        </div>
+                        <div class="video-controls">
+                            <button class="video-control-button" id="prevLessonBtn1" disabled>Voltar</button>
+                            <button class="video-control-button" id="nextLessonBtn1" disabled>Próxima Aula</button>
                         </div>
                     </div>
                 </div>
@@ -453,7 +462,11 @@
                             <div class="progress-bar">
                                 <div class="progress" id="progress2"></div>
                             </div>
-                            <div class="time-remaining" id="time-remaining2">Tempo restante: 2:00</div>
+                            <div class="time-remaining" id="time-remaining2">Tempo restante: 3:00</div>
+                        </div>
+                        <div class="video-controls">
+                            <button class="video-control-button" id="prevLessonBtn2">Voltar</button>
+                            <button class="video-control-button" id="nextLessonBtn2" disabled>Próxima Aula</button>
                         </div>
                     </div>
                 </div>
@@ -473,7 +486,11 @@
                             <div class="progress-bar">
                                 <div class="progress" id="progress3"></div>
                             </div>
-                            <div class="time-remaining" id="time-remaining3">Tempo restante: 2:00</div>
+                            <div class="time-remaining" id="time-remaining3">Tempo restante: 3:00</div>
+                        </div>
+                        <div class="video-controls">
+                            <button class="video-control-button" id="prevLessonBtn3">Voltar</button>
+                            <button class="video-control-button" id="nextLessonBtn3" disabled>Concluir Curso</button>
                         </div>
                     </div>
                 </div>
@@ -488,14 +505,6 @@
             <div class="indicator" data-slide="1"></div>
             <div class="indicator" data-slide="2"></div>
         </div>
-        
-        <div class="control-buttons">
-            <button class="control-button" id="nextLessonBtn" disabled>Próxima Aula</button>
-        </div>
-        
-        <div class="completion-message" id="completionMessage">
-            Parabéns! Você concluiu esta aula. Continue seu aprendizado!
-        </div>
     </div>
     
     <!-- Instrução de Tela Cheia -->
@@ -507,7 +516,7 @@
     <div class="modal" id="welcomeModal">
         <div class="modal-content">
             <h2>Bem-vindo ao Minicurso de Preparação Mental!</h2>
-            <p>Para assistir às aulas gratuitamente, você precisará assistir cada vídeo por 2 minutos para desbloquear a próxima aula.</p>
+            <p>Para assistir às aulas gratuitamente, você precisará assistir cada vídeo por 3 minutos para desbloquear a próxima aula.</p>
             <p>Navegue entre as aulas usando as setas ou os indicadores abaixo do vídeo.</p>
             <p><strong>Dica:</strong> Clique duas vezes na tela do vídeo para ativar o modo tela cheia.</p>
             <button class="close-modal" id="startCourseBtn">Começar Agora</button>
@@ -519,10 +528,10 @@
         <div class="modal-content">
             <h2>Parabéns!</h2>
             <p>Você concluiu todas as aulas do minicurso de preparação mental!</p>
-            <p><strong>Esta é sua chance de transformar sua vida!</strong></p>
-            <p>Você investiu 6 minutos no seu desenvolvimento - agora garanta seu acesso completo ao Método MIA V3 com condições especiais!</p>
-            <button class="register-btn" id="registerBtn">QUERO MEU ACESSO AGORA!</button>
-            <p style="font-size: 12px; margin-top: 10px;">Oferta válida apenas para concluintes do minicurso</p>
+            <p><strong>Você investiu 9 minutos no seu desenvolvimento - isso mostra seu comprometimento!</strong></p>
+            <p>Para receber seu presente especial e ter acesso completo ao Método MIA V3, clique no botão abaixo:</p>
+            <button class="register-btn" id="registerBtn">GARANTIR MEU ACESSO AGORA!</button>
+            <p style="font-size: 12px; margin-top: 10px;">Oferta exclusiva para concluintes do minicurso</p>
             <button class="close-modal" id="finishCourseBtn">Finalizar</button>
         </div>
     </div>
@@ -531,7 +540,7 @@
         // Variáveis globais
         let currentSlide = 0;
         let progress = [0, 0, 0];
-        const requiredProgress = [120, 120, 120]; // 2 minutos (120 segundos) para cada vídeo
+        const requiredProgress = [180, 180, 180]; // 3 minutos (180 segundos) para cada vídeo
         const slides = document.querySelectorAll('.video-slide');
         const totalSlides = slides.length;
         const indicators = document.querySelectorAll('.indicator');
@@ -542,8 +551,6 @@
         const carousel = document.querySelector('.carousel');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const nextLessonBtn = document.getElementById('nextLessonBtn');
-        const completionMessage = document.getElementById('completionMessage');
         const welcomeModal = document.getElementById('welcomeModal');
         const congratsModal = document.getElementById('congratsModal');
         const startCourseBtn = document.getElementById('startCourseBtn');
@@ -560,10 +567,17 @@
             // Configurar event listeners
             prevBtn.addEventListener('click', prevSlide);
             nextBtn.addEventListener('click', nextSlide);
-            nextLessonBtn.addEventListener('click', nextLesson);
             startCourseBtn.addEventListener('click', startCourse);
             finishCourseBtn.addEventListener('click', finishCourse);
             registerBtn.addEventListener('click', registerNow);
+            
+            // Configurar botões de controle abaixo do vídeo
+            document.getElementById('prevLessonBtn1').addEventListener('click', () => goToSlide(0));
+            document.getElementById('nextLessonBtn1').addEventListener('click', () => goToSlide(1));
+            document.getElementById('prevLessonBtn2').addEventListener('click', () => goToSlide(1));
+            document.getElementById('nextLessonBtn2').addEventListener('click', () => goToSlide(2));
+            document.getElementById('prevLessonBtn3').addEventListener('click', () => goToSlide(2));
+            document.getElementById('nextLessonBtn3').addEventListener('click', showCongratsModal);
             
             // Configurar indicadores
             indicators.forEach(indicator => {
@@ -588,6 +602,11 @@
         // Função para redirecionar para cadastro
         function registerNow() {
             window.location.href = "https://strong-sunshine-54860a.netlify.app/";
+        }
+        
+        // Função para mostrar modal de conclusão
+        function showCongratsModal() {
+            congratsModal.style.display = 'flex';
         }
         
         // Carregar API do YouTube
@@ -651,6 +670,7 @@
         function goToSlide(slideIndex) {
             // Verificar se o usuário pode acessar este slide
             if (slideIndex > 0 && progress[slideIndex - 1] < requiredProgress[slideIndex - 1]) {
+                alert(`Por favor, assista a aula anterior por pelo menos 3 minutos antes de prosseguir.`);
                 return;
             }
             
@@ -660,7 +680,7 @@
             currentSlide = slideIndex;
             updateCarousel();
             updateIndicators();
-            updateButtons();
+            updateVideoControls();
             
             // Parar qualquer intervalo de progresso existente
             stopProgressTracking();
@@ -681,7 +701,7 @@
                 if (progress[currentSlide] >= requiredProgress[currentSlide]) {
                     goToSlide(currentSlide + 1);
                 } else {
-                    alert(`Por favor, assista a aula atual por pelo menos 2 minutos antes de prosseguir.`);
+                    alert(`Por favor, assista a aula atual por pelo menos 3 minutos antes de prosseguir.`);
                 }
             }
         }
@@ -709,17 +729,30 @@
             });
         }
         
-        function updateButtons() {
-            // Atualizar botão de próxima aula
-            if (progress[currentSlide] >= requiredProgress[currentSlide]) {
-                nextLessonBtn.disabled = false;
-                completionMessage.style.display = 'block';
-            } else {
-                nextLessonBtn.disabled = true;
-                completionMessage.style.display = 'none';
-            }
+        function updateVideoControls() {
+            // Atualizar todos os botões de próxima aula
+            const nextButtons = [
+                document.getElementById('nextLessonBtn1'),
+                document.getElementById('nextLessonBtn2'),
+                document.getElementById('nextLessonBtn3')
+            ];
             
-            // Mostrar/ocultar botões de navegação
+            nextButtons.forEach((button, index) => {
+                if (index < totalSlides - 1) {
+                    button.disabled = progress[index] < requiredProgress[index];
+                    button.textContent = "Próxima Aula";
+                } else {
+                    button.disabled = progress[index] < requiredProgress[index];
+                    button.textContent = "Concluir Curso";
+                }
+            });
+            
+            // Atualizar botões de voltar
+            document.getElementById('prevLessonBtn1').disabled = true;
+            document.getElementById('prevLessonBtn2').disabled = false;
+            document.getElementById('prevLessonBtn3').disabled = false;
+            
+            // Mostrar/ocultar botões de navegação lateral
             prevBtn.style.display = currentSlide === 0 ? 'none' : 'flex';
             nextBtn.style.display = currentSlide === totalSlides - 1 ? 'none' : 'flex';
         }
@@ -734,7 +767,7 @@
             // Se o progresso já estiver completo, não precisamos rastrear
             if (progress[slideIndex] >= requiredProgress[slideIndex]) {
                 updateProgressDisplay(slideIndex);
-                updateButtons();
+                updateVideoControls();
                 return;
             }
             
@@ -747,7 +780,7 @@
                     // Verificar se o progresso foi concluído
                     if (progress[slideIndex] >= requiredProgress[slideIndex]) {
                         clearInterval(progressIntervals[slideIndex]);
-                        updateButtons();
+                        updateVideoControls();
                     }
                 }
             }, 1000);
@@ -773,16 +806,6 @@
             const minutes = Math.floor(remainingSeconds / 60);
             const seconds = remainingSeconds % 60;
             timeRemainingElement.textContent = `Tempo restante: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
-        }
-        
-        // Funções de controle das aulas
-        function nextLesson() {
-            if (currentSlide < totalSlides - 1) {
-                goToSlide(currentSlide + 1);
-            } else {
-                // Curso concluído - mostrar modal com botão de cadastro
-                congratsModal.style.display = 'flex';
-            }
         }
         
         // Funções do modal
