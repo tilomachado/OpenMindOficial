@@ -74,7 +74,7 @@
             box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
 
-        /* Barra de Progresso */
+        /* Barra de Progresso Melhorada */
         .progress-container {
             width: 100%;
             margin-top: 15px;
@@ -90,10 +90,11 @@
 
         .progress-bar {
             width: 100%;
-            height: 8px;
+            height: 10px;
             background: #e0e0e0;
-            border-radius: 4px;
+            border-radius: 5px;
             overflow: hidden;
+            position: relative;
         }
 
         .progress {
@@ -101,6 +102,25 @@
             background: linear-gradient(90deg, #ff6b00, #ff8c00);
             width: 0%;
             transition: width 0.3s ease;
+            position: relative;
+        }
+
+        .progress::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: white;
+            box-shadow: 0 0 5px rgba(0,0,0,0.3);
+        }
+
+        .time-remaining {
+            font-size: 12px;
+            color: #666;
+            margin-top: 5px;
+            text-align: right;
         }
 
         /* Botões de Navegação */
@@ -413,6 +433,7 @@
                             <div class="progress-bar">
                                 <div class="progress" id="progress1"></div>
                             </div>
+                            <div class="time-remaining" id="time-remaining1">Tempo restante: 2:00</div>
                         </div>
                     </div>
                 </div>
@@ -432,6 +453,7 @@
                             <div class="progress-bar">
                                 <div class="progress" id="progress2"></div>
                             </div>
+                            <div class="time-remaining" id="time-remaining2">Tempo restante: 2:00</div>
                         </div>
                     </div>
                 </div>
@@ -451,6 +473,7 @@
                             <div class="progress-bar">
                                 <div class="progress" id="progress3"></div>
                             </div>
+                            <div class="time-remaining" id="time-remaining3">Tempo restante: 2:00</div>
                         </div>
                     </div>
                 </div>
@@ -484,7 +507,7 @@
     <div class="modal" id="welcomeModal">
         <div class="modal-content">
             <h2>Bem-vindo ao Minicurso de Preparação Mental!</h2>
-            <p>Para assistir às aulas gratuitamente, você precisará assistir cada vídeo por 20 segundos para desbloquear a próxima aula.</p>
+            <p>Para assistir às aulas gratuitamente, você precisará assistir cada vídeo por 2 minutos para desbloquear a próxima aula.</p>
             <p>Navegue entre as aulas usando as setas ou os indicadores abaixo do vídeo.</p>
             <p><strong>Dica:</strong> Clique duas vezes na tela do vídeo para ativar o modo tela cheia.</p>
             <button class="close-modal" id="startCourseBtn">Começar Agora</button>
@@ -497,7 +520,7 @@
             <h2>Parabéns!</h2>
             <p>Você concluiu todas as aulas do minicurso de preparação mental!</p>
             <p><strong>Esta é sua chance de transformar sua vida!</strong></p>
-            <p>Garanta agora seu acesso completo ao Método MIA V3 com condições especiais!</p>
+            <p>Você investiu 6 minutos no seu desenvolvimento - agora garanta seu acesso completo ao Método MIA V3 com condições especiais!</p>
             <button class="register-btn" id="registerBtn">QUERO MEU ACESSO AGORA!</button>
             <p style="font-size: 12px; margin-top: 10px;">Oferta válida apenas para concluintes do minicurso</p>
             <button class="close-modal" id="finishCourseBtn">Finalizar</button>
@@ -508,7 +531,7 @@
         // Variáveis globais
         let currentSlide = 0;
         let progress = [0, 0, 0];
-        const requiredProgress = [20, 20, 20]; // 20 segundos para cada vídeo
+        const requiredProgress = [120, 120, 120]; // 2 minutos (120 segundos) para cada vídeo
         const slides = document.querySelectorAll('.video-slide');
         const totalSlides = slides.length;
         const indicators = document.querySelectorAll('.indicator');
@@ -658,7 +681,7 @@
                 if (progress[currentSlide] >= requiredProgress[currentSlide]) {
                     goToSlide(currentSlide + 1);
                 } else {
-                    alert(`Por favor, assista a aula atual por pelo menos ${requiredProgress[currentSlide]} segundos antes de prosseguir.`);
+                    alert(`Por favor, assista a aula atual por pelo menos 2 minutos antes de prosseguir.`);
                 }
             }
         }
@@ -739,10 +762,17 @@
         function updateProgressDisplay(slideIndex) {
             const progressElement = document.getElementById(`progress${slideIndex + 1}`);
             const progressTextElement = document.getElementById(`progress-text${slideIndex + 1}`);
+            const timeRemainingElement = document.getElementById(`time-remaining${slideIndex + 1}`);
             
             const percentage = Math.min(100, (progress[slideIndex] / requiredProgress[slideIndex]) * 100);
             progressElement.style.width = `${percentage}%`;
             progressTextElement.textContent = `${Math.round(percentage)}%`;
+            
+            // Atualizar tempo restante
+            const remainingSeconds = requiredProgress[slideIndex] - progress[slideIndex];
+            const minutes = Math.floor(remainingSeconds / 60);
+            const seconds = remainingSeconds % 60;
+            timeRemainingElement.textContent = `Tempo restante: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
         }
         
         // Funções de controle das aulas
@@ -778,9 +808,9 @@
             }
         }
         
-        // Simular carregamento de 20 segundos
+        // Simular carregamento de 5 segundos
         let loadingTime = 0;
-        const totalLoadingTime = 20; // 20 segundos
+        const totalLoadingTime = 5; // 5 segundos
         const loadingInterval = setInterval(() => {
             loadingTime++;
             const percentage = (loadingTime / totalLoadingTime) * 100;
