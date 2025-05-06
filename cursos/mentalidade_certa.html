@@ -138,50 +138,17 @@
             color: #2c3e50;
         }
         
-        .modal {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0,0,0,0.9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-        }
-        
-        .modal.active {
-            opacity: 1;
-            pointer-events: all;
-        }
-        
-        .modal-content {
-            background: white;
-            padding: 30px;
-            border-radius: 12px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-        }
-        
-        .modal h2 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-        }
-        
-        .modal p {
-            margin-bottom: 25px;
-            color: #7f8c8d;
-        }
-        
         .btn-container {
-            display: flex;
+            display: none; /* Inicialmente escondido */
             flex-direction: column;
-            gap: 10px;
+            gap: 15px;
+            margin-top: 30px;
+            animation: fadeIn 0.5s ease-out;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
         @media (max-width: 600px) {
@@ -200,6 +167,10 @@
             .btn {
                 width: 100%;
                 margin: 5px 0;
+            }
+            
+            .btn-container {
+                flex-direction: column;
             }
         }
     </style>
@@ -220,6 +191,12 @@
             <div class="progress-text" id="progressText">0% concluído</div>
         </div>
         
+        <div class="btn-container" id="actionButtons">
+            <a href="minicursomental.html" class="btn">Acessar Aulas Completas</a>
+            <a href="https://drive.google.com/file/d/1GIOoShEDE4DyiTErIeOvdmjB1vKDLwOh/view?usp=sharing" class="btn btn-secondary" target="_blank">Baixar Ebook Gratuito</a>
+            <button class="btn" id="continueBtn">Quero Terminar a Aula Antes</button>
+        </div>
+        
         <div class="content-block">
             <h3>Por que desbloquear sua mentalidade?</h3>
             <p>Nossos padrões de pensamento são como trilhas neuronais - quanto mais usamos os mesmos caminhos, mais profundos eles se tornam. Para criar uma nova realidade, precisamos primeiro criar novos caminhos mentais.</p>
@@ -234,23 +211,12 @@
         </div>
     </div>
     
-    <div class="modal" id="modal">
-        <div class="modal-content">
-            <h2>Parabéns! Você completou o vídeo</h2>
-            <p>Seu acesso ao conteúdo de desbloqueio mental foi liberado. O que você gostaria de fazer agora?</p>
-            
-            <div class="btn-container">
-                <a href="#" class="btn">Quero Desbloquear Minha Mentalidade</a>
-                <a href="https://docs.google.com/document/d/1Kp9Te9Mcf9HKGO-irpoFBIQQtxQrpWL2JTq7QL8udOM/edit?usp=sharing" class="btn btn-secondary" target="_blank">Baixar Ebook Gratuito</a>
-            </div>
-        </div>
-    </div>
-    
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const progress = document.getElementById('progress');
             const progressText = document.getElementById('progressText');
-            const modal = document.getElementById('modal');
+            const actionButtons = document.getElementById('actionButtons');
+            const continueBtn = document.getElementById('continueBtn');
             const videoDuration = 270; // 4 minutos e 30 segundos
             let currentProgress = 0;
             let progressInterval;
@@ -258,7 +224,7 @@
             function updateProgress() {
                 if (currentProgress >= 100) {
                     clearInterval(progressInterval);
-                    modal.classList.add('active');
+                    actionButtons.style.display = 'flex';
                     return;
                 }
                 
@@ -274,14 +240,12 @@
                 progressInterval = setInterval(updateProgress, 100);
             }
             
-            startProgress();
-            
-            // Fechar modal ao clicar fora
-            modal.addEventListener('click', function(e) {
-                if (e.target === modal) {
-                    modal.classList.remove('active');
-                }
+            continueBtn.addEventListener('click', function() {
+                actionButtons.style.display = 'none';
+                startProgress();
             });
+            
+            startProgress();
         });
     </script>
 </body>
